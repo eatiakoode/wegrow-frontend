@@ -30,12 +30,18 @@ const Header = () => {
         {/* <!-- Ace Responsive Menu --> */}
 
         <Link href="/" className="navbar_brand float-start dn-smd">
-          <Image
+          {/* <Image
             width={170}
             height={65}
             className="logo1 contain"
             src="/assets/images/logo.svg"
             alt="logo.svg"
+          /> */}
+          <img
+            src="/assets/images/logo.svg"
+            alt="Logo"
+            width="170"
+            height="75"
           />
           <Image
             width={170}
