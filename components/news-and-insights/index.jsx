@@ -114,7 +114,7 @@ const index = () => {
             <div className="col-lg-6 offset-lg-3">
               <div className="main-title text-center">
                 <h2>Why Choose Us</h2>
-                <p>Your Trusted Partner in Property Growth</p>
+                <p>We provide full service at every step.</p>
               </div>
             </div>
           </div>

@@ -105,7 +105,7 @@ const FeaturedItem = ({  setShowBox,totalCount,properties}) => {
               </ul>
               <ul className="icon mb0">
                 <li className="list-inline-item">
-                <a href="#" className="tooltip-icon" data-tooltip="Compare" onClick={(e) => {
+                <a href="#" onClick={(e) => {
                 e.preventDefault();
                 addCompareProperty(item._id);
               }}>

@@ -23,10 +23,6 @@ import Image from "next/image";
 const DetailsContent = ({property,faqs}) => {
   const [showPdfModal, setShowPdfModal] = useState(false);
   const [showFullBio, setShowFullBio] = useState(false);
-  const [name, setName] = useState("");
-const [phone, setPhone] = useState("");
-const [showIframe, setShowIframe] = useState(false);
-
   function stripHtml(html) {
     return html?.replace(/<[^>]*>/g, '');
   }
@@ -226,93 +222,46 @@ const hashtags = property.metatitle;
     </div>
   </div> */}
 {property?.brochurepdf && (
-  <div className="property_attachment_area mt30">
-    <h4 className="mb30">Property Brochure</h4>
-    <div className="iba_container style2">
-      <button
-        className="icon_box_area style2 d-flex align-items-center"
-        style={{ textDecoration: 'none', border: 'none', background: 'none', cursor: 'pointer' }}
-        onClick={() => setShowPdfModal(true)}
-      >
-        <div className="score">
-          <span className="flaticon-pdf text-thm fz30"></span>
-        </div>
-        <div className="details">
-          <h5 className="mb-0">
-            <span className="flaticon-view text-thm pr10"></span> View Property Details Doc
-          </h5>
-        </div>
-      </button>
-    </div>
-
-    {/* Modal */}
-    {showPdfModal && (
-      <div className="modal-overlay">
-        <div className="modal-content">
-          <button
-            onClick={() => {
-              setShowPdfModal(false);
-              setShowIframe(false);
-              setName('');
-              setPhone('');
-            }}
-           className="cancel-btn">
-            <span className="flaticon-close"></span>
-          </button>
-
-          {!showIframe ? (
-            // Form section
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                if (name && phone) {
-                  setShowIframe(true);
-                } else {
-                  alert("Please enter both name and phone number");
-                }
-              }}
-              className="p-3"
-            >
-              <h5 className="mb-3">Enter your details to view brochure</h5>
-              <div className="mb-2">
-                <input
-                  type="text"
-                  className="form-control"
-                  placeholder="Your Name"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  required
-                />
-              </div>
-              <div className="mb-2">
-                <input
-                  type="tel"
-                  className="form-control"
-                  placeholder="Phone Number"
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
-                  required
-                />
-              </div>
-              <button type="submit">
-                Submit & View Brochure
-              </button>
-            </form>
-          ) : (
-            // PDF iframe section
-            <iframe
-              src={`${process.env.NEXT_PUBLIC_API_URL}${property.brochurepdf}`}
-              width="100%"
-              height="100%"
-              style={{ border: 'none' }}
-            />
-          )}
-        </div>
+<div className="property_attachment_area mt30">
+  <h4 className="mb30">Property Brochure</h4>
+  <div className="iba_container style2">
+    <button
+      className="icon_box_area style2 d-flex align-items-center"
+      style={{ textDecoration: 'none', border: 'none', background: 'none', cursor: 'pointer' }}
+      onClick={() => setShowPdfModal(true)}
+    >
+      <div className="score">
+        <span className="flaticon-pdf text-thm fz30"></span>
       </div>
-    )}
+      <div className="details">
+        <h5 className="mb-0">
+          <span className="flaticon-view text-thm pr10"></span> View Property Details Doc
+        </h5>
+      </div>
+    </button>
   </div>
-)}
 
+  {/* Modal */}
+  {showPdfModal && (
+    <div
+      className="custom-modal">
+      <div
+        className="modal-content">
+        <button
+          onClick={() => setShowPdfModal(false)}>
+          <span className="flaticon-close"></span>
+        </button>
+        <iframe
+          src={`${process.env.NEXT_PUBLIC_API_URL}${property.brochurepdf}`}
+          width="100%"
+          height="100%"
+          style={{ border: 'none' }}
+        />
+      </div>
+    </div>
+  )}
+</div>
+)}
 
 {property?.specifications && (
   <div className="property_attachment_area mt30">
