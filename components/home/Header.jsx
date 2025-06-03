@@ -39,7 +39,7 @@ const Header = () => {
           /> */}
           <img
             src="/assets/images/logo.svg"
-            alt="Logo"
+            alt="Logo test"
             width="170"
             height="75"
           />
