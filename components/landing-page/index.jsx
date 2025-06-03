@@ -98,11 +98,11 @@ const index = ({params}) => {
                   <Image
                     // src="/assets/images/hotproperties/about.webp"
                     src={
-                      landingpage.aboutimage
-                        ? `${process.env.NEXT_PUBLIC_API_URL}${landingpage.aboutimage}`
+                      landingpage?.aboutimage
+                        ? `${process.env.NEXT_PUBLIC_API_URL}${landingpage?.aboutimage}`
                         : "/assets/images/hotproperties/about.webp"
                     }
-                    alt= {`${landingpage.abouttitle}`}
+                    alt= {`${landingpage?.abouttitle}`}
                     unoptimized
                     width={1200}
                     height={1000}
@@ -116,11 +116,11 @@ const index = ({params}) => {
                   data-wow-duration="1500ms">
                   <Image
                   src={
-                    landingpage.aboutimage
-                      ? `${process.env.NEXT_PUBLIC_API_URL}${landingpage.aboutimage}`
+                    landingpage?.aboutimage
+                      ? `${process.env.NEXT_PUBLIC_API_URL}${landingpage?.aboutimage}`
                       : "/assets/images/hotproperties/about-in.webp"
                   }
-                  alt= {`${landingpage.abouttitle}`}
+                  alt= {`${landingpage?.abouttitle}`}
                   unoptimized
                     width={800}
                     height={1000}
@@ -232,7 +232,7 @@ const index = ({params}) => {
               <div className="row">
                 <div className="col-lg-8 offset-lg-2">
                   <div className="testimonial_grid_slider style2 gutter-x15">
-                    <Testimonial landingpage={landingpage}/>
+                    <Testimonial/>
                   </div>
                 </div>
               </div>

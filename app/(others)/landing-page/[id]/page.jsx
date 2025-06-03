@@ -11,8 +11,8 @@ export async function generateMetadata({ params }) {
   try {
     const res = await getLandingpageBySlug(params.id);
     const blog = res?.data;
-    // console.log("getLandingpageBySlug")
-    // console.log(blog)
+    console.log("getLandingpageBySlug")
+    console.log(blog)
 
 
     if (!blog) {

@@ -61,7 +61,7 @@ const index = () => {
           </div>
           <div className="row">
             <div className="col-lg-12">
-              <div className="membership_container">
+              <div className="compare_cities membership_container">
                 <ul className="mc_parent_list">
                   <li className="list-inline-item">
                     <ul className="mc_child_list one">

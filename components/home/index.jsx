@@ -104,7 +104,7 @@ const Index = ({properties,findcities,testimonials,cities}) => {
             <div className="col-lg-6 offset-lg-3">
               <div className="main-title text-center">
                 <h2>Why Choose Us</h2>
-                <p>We provide full service at every step.</p>
+                <p>Your Trusted Partner in Property Growth</p>
               </div>
             </div>
           </div>

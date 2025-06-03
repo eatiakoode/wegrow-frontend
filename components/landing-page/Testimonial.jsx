@@ -1,21 +1,24 @@
-// 'use client'
+'use client'
 
 import Image from "next/image";
 import Slider from "react-slick";
+import { useEffect, useState } from 'react';
+import { getTestimonialTableData } from "@/api/frontend/testimonial";
 
-const Testimonial = ({landingpage}) => {
-  // const [testimonials, setFindTestimonial] = useState([]);
-          // const router = useRouter();
+const Testimonial = () => {
+    
+  const [testimonials, setFindTestimonial] = useState([]);
+        //   const router = useRouter();
         
-          // const fetchFindTestimonial = async () => {
-          //   const data = await getTestimonialTableData();
-          //   console.log("data")
-          //   console.log(data)
-          //   setFindTestimonial(data);
-          // };
-          // useEffect(() => {
-          //   fetchFindTestimonial();
-          // }, []); 
+          const fetchFindTestimonial = async () => {
+            const data = await getTestimonialTableData();
+            console.log("data")
+            console.log(data)
+            setFindTestimonial(data);
+          };
+          useEffect(() => {
+            fetchFindTestimonial();
+          }, []); 
   const settings = {
     dots: true,
     arrow: false,
@@ -28,7 +31,7 @@ const Testimonial = ({landingpage}) => {
   return (
     <>
       <Slider {...settings} arrows={false}>
-        {landingpage?.faqid?.slice(0, 5).map((item) => (
+        {testimonials?.slice(0, 5).map((item) => (
           <div className="item" key={item._id}>
             <div className="testimonial_grid">
               <div className="thumb">
