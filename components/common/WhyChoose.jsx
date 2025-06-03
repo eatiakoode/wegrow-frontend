@@ -23,7 +23,8 @@ const WhyChoose = ({ style = "" }) => {
               width={60}
               height={60}
               className="img-fluid"
-              src="/assets/images/mission.svg"
+              src={`${process.env.NEXT_PUBLIC_API_URL}public/assets/images/mission.svg`}
+              // src="/assets/images/mission.svg"
               alt="Mission"
             />
           </div>
