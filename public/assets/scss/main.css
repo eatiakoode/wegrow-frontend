@@ -1560,77 +1560,6 @@ section.aboutland{
     border: 1px solid rgba(235, 235, 235, 1);
     padding: 30px;
 }
-/***********************************************social-medias****************************************************/
-.social-icon-inner{
-  background-color: var(--white-color);
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
-  padding: 30px;
-  border-radius: 20px;
-  width: 100%;
-}
-.social-icons li {
-          list-style: none;
-        }
-        .social-icon {
-          display: flex;
-          align-items: center;
-          gap: 10px;
-          padding: 12px 30px;
-          border-radius: 8px;
-          font-weight: bold;
-          font-size: 1.1rem;
-          
-          color: var(--black-color);
-          transition: transform 0.3s ease;
-        }
-         .social-icon-inner a span:first-of-type{
-          width:45px;
-          height: 45px;
-          line-height: 45px;
-          background-color: var(--white-color);
-          text-align: center;
-          display: inline-block;
-          border-radius: 50px;
-         }
-        .social-icon:hover {
-          transform: scale(1.02);
-          text-decoration: none;
-        }
-        .facebook {
-          background-color: #3b5998;
-        }
-        .twitter {
-          background-color: #1da1f2;
-        }
-        .linkedin {
-          background-color: #0077b5;
-        }
-        .youtube {
-          background-color: #ff0000;
-        }
-        .instagram {
-          background-color: #e4405f;
-        }
-        .website {
-          background-color: var(--color-primary);
-        }
-        .map-responsive {
-          position: relative;
-          height: 100%;
-          border-radius: 12px;
-          overflow: hidden;
-        }
-
-      .map-responsive iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 100%;
-      }
-
-/***************************************************************************************************/
-
 .price-card-container {
   display: flex;
   flex-direction: column;
@@ -1802,16 +1731,13 @@ section.aboutland{
   opacity: 1;
 }
 .share_flex .lsd_list{display: flex;justify-content: space-between;}
-
-.share_btn.h1ads_1st_list.half_style .navbered span{ color: var(--white-color);}
-.share_btn.h1ads_1st_list.half_style .navbered .dropbtn{
- height: 40px;
-    line-height: 44px;
-    padding: 0 20px;
-    background-color: var(--color-primary);
-    display: inline-block;
-    border-radius: 8px;
+.share_btn.h1ads_1st_list.half_style .navbered{
+  height: 40px;
+  line-height: 40px;
+  padding:0 20px;
+  background-color: var(--color-primary);
 }
+.share_btn.h1ads_1st_list.half_style .navbered span{ color: var(--white-color);}
 .share_btn .dropdown-content{padding: 0px;min-height: auto;background-color: #f7f7f7;}
 .lsd_list .share_btn .dropdown-content li{line-height: 28px;text-align: left;display: block;margin:0}
 .lsd_list .share_btn .dropdown-content li i{
@@ -7189,7 +7115,7 @@ header .get_in_touch span{
   right: 30px;
 }
 
-.property_detaill_view .container > .row:nth-of-type(2) .property_box{max-height: 450px;overflow: auto;}
+.property_detaill_view .container > .row:nth-of-type(2) .property_box{height: 450px;overflow: auto;}
 
 .spss ul li {
   border-radius: 8px;
@@ -7901,7 +7827,6 @@ header .get_in_touch span{
   background-color: var(--white-color);
   border-radius: 20px;
   padding: 30px 15px;
-  margin: 0;
 }
 .commited-to-excellence .who-we-are p{
   color: var(--darkgrey-color);
@@ -8647,15 +8572,15 @@ header .get_in_touch span{
 
 .my_profile_setting_input .btn1 {
   background-color: rgba(255, 90, 95, 0);
-  border: 2px solid var(--color-primary);
+  border: 2px solid rgb(255, 90, 95);
   border-radius: 8px;
-  -webkit-box-shadow: 0px 1px 4px 0px rgba(163, 177, 138, 0.3);
-  -moz-box-shadow: 0px 1px 4px 0px rgba(163, 177, 138, 0.3);
-  -o-box-shadow: 0px 1px 4px 0px rgba(163, 177, 138, 0.3);
-  box-shadow: 0px 1px 4px 0px rgba(163, 177, 138, 0.3);
+  -webkit-box-shadow: 0px 1px 4px 0px rgba(255, 90, 95, 0.3);
+  -moz-box-shadow: 0px 1px 4px 0px rgba(255, 90, 95, 0.3);
+  -o-box-shadow: 0px 1px 4px 0px rgba(255, 90, 95, 0.3);
+  box-shadow: 0px 1px 4px 0px rgba(255, 90, 95, 0.3);
   font-size: 16px;
   font-family: "Nunito";
-  color: var(--color-primary);
+  color: rgb(255, 90, 95);
   font-weight: bold;
   line-height: 1.2;
   height: 50px;
@@ -8669,13 +8594,13 @@ header .get_in_touch span{
 }
 
 .my_profile_setting_input .btn2 {
-  background-color: var(--color-primary);
-  border: 2px solid var(--color-primary);
-  border-radius: 30px;
-  -webkit-box-shadow: 0px 1px 4px 0px rgba(163, 177, 138, 0.3);
-  -moz-box-shadow: 0px 1px 4px 0px rgba(163, 177, 138, 0.3);
-  -o-box-shadow: 0px 1px 4px 0px rgba(163, 177, 138, 0.3);
-  box-shadow: 0px 1px 4px 0px rgba(163, 177, 138, 0.3);
+  background-color: rgb(255, 90, 95);
+  border: 2px solid rgb(255, 90, 95);
+  border-radius: 8px;
+  -webkit-box-shadow: 0px 1px 4px 0px rgba(255, 90, 95, 0.3);
+  -moz-box-shadow: 0px 1px 4px 0px rgba(255, 90, 95, 0.3);
+  -o-box-shadow: 0px 1px 4px 0px rgba(255, 90, 95, 0.3);
+  box-shadow: 0px 1px 4px 0px rgba(255, 90, 95, 0.3);
   font-size: 16px;
   font-family: "Nunito";
   color: rgb(255, 255, 255);
@@ -11146,21 +11071,7 @@ li.slick-slide.slick-active:nth-child(8) img {
   padding: 30px 0 0;
   position: relative;
 }
-.compare_cities.membership_container .mc_parent_list{
-  display: flex;
-    position: relative;
-}
-.compare_cities.membership_container .mc_parent_list .list-inline-item{
-  flex:1;
-  margin-right: 0px!important;
-}
-.compare_cities.membership_container .mc_parent_list .list-inline-item .mc_child_list li{
-  height: 180px;
-  overflow: auto;
-}
-.compare_cities.membership_container .mc_parent_list li:first-of-type{
-  padding-top: 0px;
-}
+
 ul.mc_parent_list .membership_header .thumb {
   border-radius: 8px;
   overflow: hidden;
@@ -12006,9 +11917,6 @@ a.btn.btn_error {
   color: #484848;
   line-height: 1.714;
   padding: 10px 0 30px;
-}
-.our-agent-single .application_statics .faq_according .accordion .card .card-body{
-    text-align: left!important;
 }
 
 .faq_according .accordion .card .card-body p {
@@ -14649,8 +14557,8 @@ legend span {
   background-color: #ffffff;
   border: 1px solid rgb(235, 235, 235);
   border-radius: 8px;
-  height: 40px;
-  line-height: 42px;
+  height: 52px;
+  line-height: 50px;
   text-align: center;
   width: 142px;
 }
@@ -18116,9 +18024,6 @@ section.aboutland h3{
 .m0a {
   margin: 0 auto;
 }
-.mb-80 {
-  margin-bottom: 80px;
-}
 
 .mt-5 {
   margin-top: -5px;
@@ -20933,8 +20838,8 @@ button.gm-ui-hover-effect:focus {
     right: 20px;
     left: auto;
     z-index: 9;
-    max-width: 600px;
-    width: auto;
+    width: 600px;
+    max-width: 100%;
     padding-bottom: 70px;
 }
 .compare_section{

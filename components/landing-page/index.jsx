@@ -232,7 +232,7 @@ const index = ({params}) => {
               <div className="row">
                 <div className="col-lg-8 offset-lg-2">
                   <div className="testimonial_grid_slider style2 gutter-x15">
-                    <Testimonial/>
+                    <Testimonial landingpage={landingpage}/>
                   </div>
                 </div>
               </div>

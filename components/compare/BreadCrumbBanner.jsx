@@ -3,15 +3,6 @@ import BreadCrumb from "../common/BreadCrumb";
 const BreadCrumbBanner = () => {
   return (
     <section className="inner_page_breadcrumb">
-      <video
-        className="background-video"
-        autoPlay
-        muted
-        loop
-        playsInline
-      >
-    <source src="/assets/images/background/frame-video.mp4" type="video/mp4" />
-  </video>
       <div className="container">
         <div className="row">
           <div className="col-xl-6">
@@ -28,4 +19,3 @@ const BreadCrumbBanner = () => {
 };
 
 export default BreadCrumbBanner;
-

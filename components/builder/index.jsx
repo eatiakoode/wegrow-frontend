@@ -86,7 +86,7 @@ const ListingDynamicDetailsproperty = ({builder}) => {
       <BreadCrumbBanner builder={builder} />
 
       {/* <!-- About Text Content --> */}
-      <section id="about" className="commited-to-excellence para-land aboutland about-section scroll-mt-80px pb0">
+      <section id="about" className="commited-to-excellence para-land aboutland about-section scroll-mt-80px border-btm pb0 bgc-f7">
              <div className="container who-we-are">
                <div className="row">
                  <div className="col-lg-12 col-xl-12">
@@ -103,7 +103,7 @@ const ListingDynamicDetailsproperty = ({builder}) => {
              </div>
            </section>
                {/* End .row */}
-               <section id="feature-property" className="feature-property bgc-f7 mtop-80">
+               <section id="feature-property" className="feature-property bgc-f7">
                     <div className="container">
                       <div className="row">
                         <div className="col-lg-6 offset-lg-3">
