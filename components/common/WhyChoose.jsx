@@ -56,7 +56,8 @@ const WhyChoose = ({ style = "" }) => {
               width={60}
               height={60}
               className="img-fluid"
-              src="/assets/images/vision.svg"
+              // src="/assets/images/vision.svg"
+              src={`${process.env.NEXT_PUBLIC_API_URL}public/assets/images/vision.svg`}
               alt="Vision"
             />
           </div>
@@ -87,7 +88,8 @@ const WhyChoose = ({ style = "" }) => {
               width={60}
               height={60}
               className="img-fluid"
-              src="/assets/images/commit.svg"
+              // src="/assets/images/commit.svg"
+              src={`${process.env.NEXT_PUBLIC_API_URL}public/assets/images/commit.svg`}
               alt="Commitment"
             />
           </div>

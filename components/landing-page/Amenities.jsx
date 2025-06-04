@@ -15,7 +15,7 @@ const LandAmenities = ({landingpage}) => {
                 src={
                   item.image
                     ? `${process.env.NEXT_PUBLIC_API_URL}${item.image}`
-                    : "/assets/images/property/thumbnail.svg"
+                    : `${process.env.NEXT_PUBLIC_API_URL}/assets/images/property/thumbnail.svg`
                 }
                 alt= {`${item.title}`}
                 unoptimized

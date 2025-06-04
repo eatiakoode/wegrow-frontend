@@ -29,13 +29,13 @@ const PropertyFeatures = ({property}) => {
                     src={
                       val.image
                         ? `${process.env.NEXT_PUBLIC_API_URL}${val.image}`
-                        : "/assets/images/property/thumbnail.svg"
+                        : `${process.env.NEXT_PUBLIC_API_URL}/assets/images/property/thumbnail.svg`
                     }
-                    alt= {`${val.title}`}
+                    alt={val.title}
                     unoptimized
                     fill
                     className="amenity-icon"
-                  />
+                    />
                 </div>
                 {val?.title}
               </li>

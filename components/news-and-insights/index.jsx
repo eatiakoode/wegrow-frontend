@@ -44,7 +44,8 @@ const index = () => {
                               width={768}
                               height={512}
                               className="img-fluid"
-                              src="/assets/images/news-insights/price-trends.svg"
+                              // src="/assets/images/news-insights/price-trends.svg"
+                              src={`${process.env.NEXT_PUBLIC_API_URL}public/assets/images/news-insights/price-trends.svg`}
                               alt="image"
                               />
                           </div>
@@ -67,7 +68,9 @@ const index = () => {
                               width={768}
                               height={512}
                               className="img-fluid"
-                              src="/assets/images/news-insights/city-insights.svg"
+                              // src="/assets/images/news-insights/city-insights.svg"
+                              src={`${process.env.NEXT_PUBLIC_API_URL}public/assets/images/news-insights/city-insights.svg`}
+
                               alt="image"
                               />
                           </div>
@@ -90,7 +93,9 @@ const index = () => {
                               width={768}
                               height={512}
                               className="img-fluid"
-                              src="/assets/images/news-insights/housing-research.svg"
+                              // src="/assets/images/news-insights/housing-research.svg"
+                              src={`${process.env.NEXT_PUBLIC_API_URL}public/assets/images/news-insights/housing-research.svg`}
+                              
                               alt="image"
                               />
                           </div>
