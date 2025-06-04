@@ -22,7 +22,7 @@ const Seo = ({ pageTitle, font }) => (
       />
 
       {font && <link href={font} rel="stylesheet" />}
-      <link rel="icon" href="favicon.ico" />
+      
     </Head> */}
   </>
 );
