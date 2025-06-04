@@ -20,7 +20,9 @@ export default function RootLayout({ children }) {
           rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Nunito:400,400i,500,600,700&display=swap"
         />
-        <link rel="icon" href="/assets/images/favicon.png" />
+        <link rel="icon"
+         href={`${process.env.NEXT_PUBLIC_API_URL}public/assets/images/favicon.png`}
+         />
       </head>
       <body>
         <Provider store={store}>

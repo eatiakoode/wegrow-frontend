@@ -10,7 +10,10 @@ const BreadCrumbBanner = ({propertypage}) => {
         loop
         playsInline
       >
-    <source src="/assets/images/background/frame-video.mp4" type="video/mp4" />
+    <source 
+    // src="/assets/images/background/frame-video.mp4"
+    src={`${process.env.NEXT_PUBLIC_API_URL}public/assets/images/background/frame-video.mp4`}
+     type="video/mp4" />
   </video>
       <div className="container">
         <div className="row">
