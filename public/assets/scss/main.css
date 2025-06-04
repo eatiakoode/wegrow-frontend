@@ -14778,7 +14778,8 @@ legend span {
 .sasw_list .search_area {
   position: relative;
 }
-
+.sidebar_advanced_search_widget .search_area span.flaticon-download-1{position: absolute;
+top:50%;transform: translateY(-50%);right:15px;left:auto}
 .sasw_list .search_area input, .sasw_list .search_area select {
   background-color: #ffffff;
   border: 1px solid rgb(235, 235, 235);
