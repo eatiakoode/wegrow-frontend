@@ -21,11 +21,6 @@ import dynamic from "next/dynamic";
 import { getBlogBySlug } from "@/api/frontend/blog";
 import BlogDetail from "@/components/common/blog";
 
-// export const metadata = {
-//   title: 'Blog Details || Wegrow - Real Estate React Template',
-//   description:
-//     'Wegrow - Real Estate React Template',
-// }
 export async function generateMetadata({ params }) {
   try {
     const res = await getBlogBySlug(params.id);
@@ -33,14 +28,14 @@ export async function generateMetadata({ params }) {
 
     if (!blog) {
       return {
-        title: 'Property Not Found | Wegrow',
+        title: 'Property Not Found | WeGrow',
         description: 'The requested blog was not found.',
       };
     }
 
     return {
-      title: blog.metatitle? blog.metatitle : blog.title || 'Property Details | Wegrow',
-      description: blog.metadescription?.slice(0, 200) ? blog.metadescription : blog.description?.slice(0, 200)|| 'Read more on Wegrow blog.',
+      title: blog.metatitle? blog.metatitle : blog.title || 'Property Details | WeGrow',
+      description: blog.metadescription?.slice(0, 200) ? blog.metadescription : blog.description?.slice(0, 200)|| 'Read more on WeGrow blog.',
       openGraph: {
         title: blog.title,
         description: blog.description?.slice(0, 150),

@@ -35,7 +35,7 @@ const MobileMenuContent = () => {
               src="/assets/images/header-logo2.png"
               alt="header-logo.png"
             />
-            {/* <span className="brand-text">Wegrow</span> */}
+            {/* <span className="brand-text">WeGrow</span> */}
           </Link>
           {/* End .logo */}
 

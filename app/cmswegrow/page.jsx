@@ -2,9 +2,9 @@ import dynamic from "next/dynamic";
 import AdminLogin from "@/components/adminlogin";
 
 export const metadata = {
-  title: 'Login || Wegrow - Real Estate React',
+  title: 'Login || WeGrow',
   description:
-    'Wegrow - Real Estate React',
+    'WeGrow',
 }
 
 const index = () => {

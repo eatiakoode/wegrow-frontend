@@ -3,9 +3,9 @@ import GridV1 from "@/components/listing-grid/grid-v1";
 import { getPropertyFilterData } from "@/api/frontend/property";
 
 export const metadata = {
-  title: 'Simple Listing – Grid V1 || Wegrow - Real Estate React Template',
+  title: 'Simple Listing – Grid V1 || WeGrow - Real Estate ',
   description:
-    'Wegrow - Real Estate React Template',
+    'WeGrow - Real Estate ',
 }
 
 // const index = () => {

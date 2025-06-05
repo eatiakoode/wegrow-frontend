@@ -2,9 +2,9 @@ import dynamic from "next/dynamic";
 import AddState from "@/components/dashboard/add-state";
 
 export const metadata = {
-  title: 'My Properties || Wegrow - Real Estate React Template',
+  title: 'My Properties || WeGrow - Real Estate',
   description:
-    'Wegrow - Real Estate React Template',
+    'WeGrow - Real Estate',
 }
 
 const index = () => {

@@ -2,9 +2,9 @@ import dynamic from "next/dynamic";
 import MyReview from "@/components/dashboard/my-review";
 
 export const metadata = {
-  title: 'My Review || Wegrow - Real Estate React Template',
+  title: 'My Review || WeGrow - Real Estate ',
   description:
-    'Wegrow - Real Estate React Template',
+    'WeGrow - Real Estate ',
 }
 
 const index = () => {

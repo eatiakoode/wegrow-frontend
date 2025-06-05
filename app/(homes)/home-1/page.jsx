@@ -4,8 +4,8 @@ import { countPropertiesByCity, getCityWithPropertyPage } from "@/api/frontend/c
 import { getTestimonialTableData } from "@/api/frontend/testimonial";
 
 export const metadata = {
-  title: "Home || Wegrow - Real Estate React Template",
-  description: "Wegrow - Real Estate React Template",
+  title: "Home || WeGrow",
+  description: "WeGrow",
 };
 
 export default async function HomePage() {

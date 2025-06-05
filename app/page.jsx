@@ -2,9 +2,9 @@ import Wrapper from "@/components/layout/Wrapper";
 import HomeMain from './(homes)/home-1/page'
 
 export const metadata = {
-  title: 'Home || Wegrow - Real Estate React Template',
+  title: 'Home || WeGrow',
   description:
-    'Wegrow - Real Estate React Template',
+    'WeGrow',
 }
 
 export default function Home() {

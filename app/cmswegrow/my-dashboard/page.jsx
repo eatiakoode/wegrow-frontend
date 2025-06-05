@@ -2,9 +2,9 @@ import dynamic from "next/dynamic";
 import MyDashboard from "@/components/dashboard/my-dashboard";
 
 export const metadata = {
-  title: 'Dashboard || Wegrow - Real Estate React Template',
+  title: 'Dashboard || WeGrow - Real Estate ',
   description:
-    'Wegrow - Real Estate React Template',
+    'WeGrow - Real Estate ',
 }
 
 

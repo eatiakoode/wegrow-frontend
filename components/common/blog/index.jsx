@@ -21,9 +21,9 @@ import Image from "next/image";
 // import { getBlogBySlug } from "@/api/frontend/blog";
 
 // export const metadata = {
-//   title: 'Blog Details || Wegrow - Real Estate React Template',
+//   title: 'Blog Details || WeGrow - Real Estate ',
 //   description:
-//     'Wegrow - Real Estate React Template',
+//     'WeGrow - Real Estate ',
 // }
 
 const ListingDynamicDetailsV1 = ({blog}) => {
