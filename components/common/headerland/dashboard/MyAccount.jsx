@@ -31,7 +31,7 @@ const userData = JSON.parse(localStorage.getItem("user"));
           width={40}
           height={40}
           className="float-start"
-          src="/assets/images/team/e1.png"
+          src="/assets/images/property/man.png"
           alt="e1.png"
         />
         <p>

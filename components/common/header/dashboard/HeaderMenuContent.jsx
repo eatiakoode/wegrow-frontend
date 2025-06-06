@@ -474,7 +474,7 @@ const userData = JSON.parse(localStorage.getItem("user"));
               width={45}
               height={45}
               className="rounded-circle"
-              src="/assets/images/team/e1.png"
+              src="/assets/images/property/man.png"
               alt="e1.png"
             />
             <span className="dn-1199 ms-1">{userData.firstname}</span>
