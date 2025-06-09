@@ -73,12 +73,12 @@ const index = ({properties,enqueryProperty,enqueryLanding,enquery}) => {
                 </div> */}
                 {/* End statistics chart */}
 
-                <div className="col-xl-5">
+                {/* <div className="col-xl-5">
                   <div className="recent_job_activity">
                     <h4 className="title mb-4">Recent Activities</h4>
                     <Activities />
                   </div>
-                </div>
+                </div> */}
               </div>
               {/* End .row  */}
 <CopyRight/>
