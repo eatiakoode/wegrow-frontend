@@ -100,7 +100,7 @@ const CreateList = () => {
 
       <div className="col-xl-12">
         <div className="my_profile_setting_input">
-          <button className="btn btn1 float-start">Back</button>
+          <button className="btn btn1 float-start" onClick={() => window.location.href = '/cmswegrow/my-agent'}>Back</button>
           <button className="btn btn2 float-end">Submit</button>
         </div>
       </div>

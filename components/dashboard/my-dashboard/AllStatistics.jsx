@@ -1,32 +1,32 @@
-const AllStatistics = () => {
+const AllStatistics = ({properties,enqueryProperty,enqueryLanding,enquery}) => {
   const allStatistics = [
     {
       id: 1,
       blockStyle: "",
       icon: "flaticon-home",
-      timer: "37",
+      timer: properties.length,
       name: "All Properties",
     },
     {
       id: 2,
       blockStyle: "style2",
       icon: "flaticon-view",
-      timer: "24",
-      name: "Total Views",
+      timer: enqueryProperty.length,
+      name: "Total Property Page Enquiry",
     },
     {
       id: 3,
       blockStyle: "style3",
       icon: "flaticon-chat",
-      timer: "12",
-      name: "Total Visitor Reviews",
+      timer: enqueryLanding.length,
+      name: "Total Landing Page Enquiry",
     },
     {
       id: 4,
       blockStyle: "style4",
       icon: "flaticon-heart",
-      timer: "18",
-      name: "Total Favorites",
+      timer: enquery.length,
+      name: "Total Contact Us Enquiry",
     },
   ];
 

@@ -6,8 +6,8 @@ import AllStatistics from "./AllStatistics";
 import StatisticsChart from "./StatisticsChart";
 import CopyRight from "../../common/footer/CopyRight";
 
-const index = () => {
-  return (
+const index = ({properties,enqueryProperty,enqueryLanding,enquery}) => {
+  return ( 
     <>
       {/* <!-- Main Header Nav --> */}
       <Header />
@@ -60,7 +60,7 @@ const index = () => {
               {/* End .row */}
 
               <div className="row">
-                <AllStatistics />
+                <AllStatistics properties={properties} enqueryProperty={enqueryProperty} enqueryLanding={enqueryLanding} enquery={enquery}/>
               </div>
               {/* End .row Dashboard top statistics */}
 
