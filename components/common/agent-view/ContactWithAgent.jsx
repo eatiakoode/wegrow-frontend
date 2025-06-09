@@ -3,6 +3,7 @@
 import { useState } from "react";
 
 import { addPropertyEnquiryAPI } from "@/api/frontend/propertyenquiry";
+import { useRouter, useParams } from "next/navigation";
 
 const ContactWithAgent = ({property}) => {
   // const [appointmentDate, setAppointmentDate] = useState(null);
@@ -14,6 +15,7 @@ const ContactWithAgent = ({property}) => {
   // const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
   const [successmsg, setSuccessmsg] = useState("");
+  const router = useRouter();
   const handleSubmit = async (e) => {
     e.preventDefault();
     const newErrors = {};
@@ -58,6 +60,7 @@ const ContactWithAgent = ({property}) => {
       }
 
       setError({});
+      router.push("/thank-you");
     // (Reset other fields here if needed)
   } catch (err) {
     setError({ general: err.message || "Something went wrong" });
