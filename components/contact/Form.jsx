@@ -3,6 +3,7 @@
 import { useState } from "react";
 import AppointmentCalendar from "../common/AppointmentCalendar";
 import { addEnquiryAPI } from "@/api/frontend/enquiry";
+import { useRouter, useParams } from "next/navigation";
 
 const Form = () => {
   const [appointmentDate, setAppointmentDate] = useState(null);
@@ -13,6 +14,7 @@ const Form = () => {
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
   const [successmsg, setSuccessmsg] = useState("");
+  const router = useRouter();
   
    
   
@@ -60,6 +62,7 @@ const Form = () => {
       }
 
       setError({});
+      router.push("/thank-you");
     // (Reset other fields here if needed)
   } catch (err) {
     setError({ general: err.message || "Something went wrong" });
