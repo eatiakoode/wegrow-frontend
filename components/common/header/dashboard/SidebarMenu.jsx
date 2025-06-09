@@ -103,7 +103,7 @@ const SidebarMenu = () => {
     <>
       <ul className="sidebar-menu">
         <li className="sidebar_header header">
-          <Link href="/">
+           <Link href="/cmswegrow/my-dashboard">
             <Image
               width={170}
               height={65}
