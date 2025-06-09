@@ -63,9 +63,9 @@ const index = () => {
 
                 <div className="col-lg-4 col-xl-3 mb20">
                   <ul className="sasw_list mb0">
-                    <li className="search_area">
+                    {/* <li className="search_area">
                       <SearchBox />
-                    </li>
+                    </li> */}
                   </ul>
                 </div>
                 {/* End .col */}

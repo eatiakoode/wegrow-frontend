@@ -62,16 +62,16 @@ const index = () => {
                 <div className="col-lg-8 col-xl-8">
                   <div className="candidate_revew_select style2 text-end mb30-991">
                     <ul className="mb0">
-                      <li className="list-inline-item">
+                      {/* <li className="list-inline-item">
                         <div className="candidate_revew_search_box course fn-520">
                           <SearchBox />
                         </div>
-                      </li>
+                      </li> */}
                       {/* End li */}
 
-                      <li className="list-inline-item">
+                      {/* <li className="list-inline-item">
                         <Filtering />
-                      </li>
+                      </li> */}
                       {/* End li */}
                     </ul>
                   </div>
@@ -86,9 +86,9 @@ const index = () => {
                       </div>
                       {/* End .table-responsive */}
 
-                      <div className="mbp_pagination">
+                      {/* <div className="mbp_pagination">
                         <Pagination />
-                      </div>
+                      </div> */}
                       {/* End .mbp_pagination */}
                     </div>
                     {/* End .property_table */}

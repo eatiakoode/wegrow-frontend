@@ -52,7 +52,7 @@ const index = () => {
 
                 <div className="col-lg-12 mb10">
                   <div className="breadcrumb_content style2">
-                    <h2 className="breadcrumb_title">Howdy, Hasan</h2>
+                    <h2 className="breadcrumb_title">Howdy, Admin</h2>
                     <p>We are glad to see you again!</p>
                   </div>
                 </div>
@@ -65,12 +65,12 @@ const index = () => {
               {/* End .row Dashboard top statistics */}
 
               <div className="row">
-                <div className="col-xl-7">
+                {/* <div className="col-xl-7">
                   <div className="application_statics">
                     <h4 className="mb-4">View Statistics</h4>
                     <StatisticsChart />
                   </div>
-                </div>
+                </div> */}
                 {/* End statistics chart */}
 
                 <div className="col-xl-5">
