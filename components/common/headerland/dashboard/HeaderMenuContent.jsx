@@ -242,7 +242,7 @@ const HeaderMenuContent = ({ float = "" }) => {
     { id: 9, name: "404 Page", routerPath: "/404" },
     { id: 10, name: "Terms & Conditions", routerPath: "/terms" },
   ];
-const userData = JSON.parse(localStorage.getItem("user"));
+// const userData = JSON.parse(localStorage.getItem("user"));
   return (
     <ul
       id="respMenu"
@@ -477,7 +477,7 @@ const userData = JSON.parse(localStorage.getItem("user"));
               src="/assets/images/property/man.png"
               alt="e1.png"
             />
-            <span className="dn-1199 ms-1">{userData.firstname}</span>
+            <span className="dn-1199 ms-1">Admin</span>
           </a>
           <div className="dropdown-menu">
             <MyAccount />
