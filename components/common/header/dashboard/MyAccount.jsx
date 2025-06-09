@@ -23,7 +23,7 @@ const MyAccount = () => {
     { id: 4, name: " My Package", ruterPath: "/my-package" },
     // { id: 5, name: " Log out", ruterPath: "/login" },
   ];
-const userData = JSON.parse(localStorage.getItem("user"));
+// const userData = JSON.parse(localStorage.getItem("user"));
   return (
     <>
       <div className="user_set_header">
@@ -34,9 +34,13 @@ const userData = JSON.parse(localStorage.getItem("user"));
           src="/assets/images/property/man.png"
           alt="e1.png"
         />
-        <p>
+        {/* <p>
           {userData.firstname}<br />
           <span className="address">{userData.email}</span>
+        </p> */}
+        <p>
+          Admin<br />
+          <span className="address">admin@akoode.in</span>
         </p>
       </div>
       {/* End user_set_header */}
