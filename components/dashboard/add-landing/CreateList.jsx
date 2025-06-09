@@ -647,7 +647,7 @@ const addLanding = async (e) => {
                   
       <div className="col-xl-12">
         <div className="my_profile_setting_input">
-          <button className="btn btn1 float-start" onClick={() => window.location.href = '/cmswegrow/my-dashboard'}>Back</button>
+          <button className="btn btn1 float-start" type="button" onClick={() => window.location.href = '/cmswegrow/my-dashboard'}>Back</button>
           <button className="btn btn2 float-end" type="submit" >Submit</button>
         </div>
       </div>
