@@ -9829,7 +9829,22 @@ header .get_in_touch span{
   /* margin-bottom: 40px; */
   margin-bottom: 15px;
 }
-
+.about_content ul li{
+  font-size: 14px;
+  color: #484848;
+  line-height: 1.714;
+  position: relative;
+}
+.about_content ul li:before{
+  position: absolute;
+  content: '';
+  left:0;
+  right:auto;
+  width:8px;
+  height:8px;
+  border-radius: 10px;
+  background-color: #484848;
+}
 ul.ab_counting li {
   margin-right: 30px !important;
 }
