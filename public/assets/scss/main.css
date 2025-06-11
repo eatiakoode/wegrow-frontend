@@ -9834,14 +9834,17 @@ header .get_in_touch span{
   color: #484848;
   line-height: 1.714;
   position: relative;
+  padding-left:20px
 }
 .about_content ul li:before{
   position: absolute;
   content: '';
   left:0;
   right:auto;
-  width:8px;
-  height:8px;
+  top:50%;
+  transform: translateY(-50%);
+  width:6px;
+  height:6px;
   border-radius: 10px;
   background-color: #484848;
 }
