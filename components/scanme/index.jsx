@@ -71,7 +71,7 @@ const index = () => {
                           target="_blank"
                           rel="noopener noreferrer"
                         >
-                          <span><i className="fa fa-twitter" aria-hidden="true"></i></span>
+                          <span><i className="fa fa-x-twitter" aria-hidden="true"></i></span>
                           <span>Twitter</span>
                         </a>
                       </li>
