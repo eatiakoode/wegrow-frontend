@@ -4,7 +4,7 @@ module.exports = [
     img: "/assets/images/agency/1.jpg",
     socialList: [
       { icon: "fa-facebook", liveLink: "https://www.facebook.com/" },
-      { icon: "fa-twitter", liveLink: "https://www.twitter.com/" },
+      { icon: "fa-x-twitter", liveLink: "https://www.twitter.com/" },
       { icon: "fa-instagram", liveLink: "https://www.instagram.com/" },
       { icon: "fa-pinterest", liveLink: "https://www.pinterest.com/" },
       { icon: "fa-dribbble", liveLink: "https://www.dribbble.com/" },
@@ -23,7 +23,7 @@ module.exports = [
     img: "/assets/images/agency/2.jpg",
     socialList: [
       { icon: "fa-facebook", liveLink: "https://www.facebook.com/" },
-      { icon: "fa-twitter", liveLink: "https://www.twitter.com/" },
+      { icon: "fa-x-twitter", liveLink: "https://www.twitter.com/" },
       { icon: "fa-instagram", liveLink: "https://www.instagram.com/" },
       { icon: "fa-pinterest", liveLink: "https://www.pinterest.com/" },
       { icon: "fa-dribbble", liveLink: "https://www.dribbble.com/" },
@@ -42,7 +42,7 @@ module.exports = [
     img: "/assets/images/agency/3.jpg",
     socialList: [
       { icon: "fa-facebook", liveLink: "https://www.facebook.com/" },
-      { icon: "fa-twitter", liveLink: "https://www.twitter.com/" },
+      { icon: "fa-x-twitter", liveLink: "https://www.twitter.com/" },
       { icon: "fa-instagram", liveLink: "https://www.instagram.com/" },
       { icon: "fa-pinterest", liveLink: "https://www.pinterest.com/" },
       { icon: "fa-dribbble", liveLink: "https://www.dribbble.com/" },
@@ -61,7 +61,7 @@ module.exports = [
     img: "/assets/images/agency/4.jpg",
     socialList: [
       { icon: "fa-facebook", liveLink: "https://www.facebook.com/" },
-      { icon: "fa-twitter", liveLink: "https://www.twitter.com/" },
+      { icon: "fa-x-twitter", liveLink: "https://www.twitter.com/" },
       { icon: "fa-instagram", liveLink: "https://www.instagram.com/" },
       { icon: "fa-pinterest", liveLink: "https://www.pinterest.com/" },
       { icon: "fa-dribbble", liveLink: "https://www.dribbble.com/" },
@@ -80,7 +80,7 @@ module.exports = [
     img: "/assets/images/agency/5.jpg",
     socialList: [
       { icon: "fa-facebook", liveLink: "https://www.facebook.com/" },
-      { icon: "fa-twitter", liveLink: "https://www.twitter.com/" },
+      { icon: "fa-x-twitter", liveLink: "https://www.twitter.com/" },
       { icon: "fa-instagram", liveLink: "https://www.instagram.com/" },
       { icon: "fa-pinterest", liveLink: "https://www.pinterest.com/" },
       { icon: "fa-dribbble", liveLink: "https://www.dribbble.com/" },
@@ -99,7 +99,7 @@ module.exports = [
     img: "/assets/images/agency/6.jpg",
     socialList: [
       { icon: "fa-facebook", liveLink: "https://www.facebook.com/" },
-      { icon: "fa-twitter", liveLink: "https://www.twitter.com/" },
+      { icon: "fa-x-twitter", liveLink: "https://www.twitter.com/" },
       { icon: "fa-instagram", liveLink: "https://www.instagram.com/" },
       { icon: "fa-pinterest", liveLink: "https://www.pinterest.com/" },
       { icon: "fa-dribbble", liveLink: "https://www.dribbble.com/" },
