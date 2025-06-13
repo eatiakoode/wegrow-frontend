@@ -20991,3 +20991,10 @@ button.gm-ui-hover-effect:focus {
     color: #ffffff;
 }
 
+.view_edit_delete_list button{
+      border: none;
+    background: none;
+    color: #a3b18a;
+    font-size: 20px;
+    font-weight: 600;
+}
