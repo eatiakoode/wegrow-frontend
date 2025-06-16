@@ -119,7 +119,12 @@ useEffect(() => {
   // Fetch data and set options
   const fetchData = async () => {
     try {
-      const data = await getFaqTableData(); // Make sure this returns the expected format
+      const filter ={
+     
+      "limit":1000,
+      "page":1
+    };
+      const data = await getFaqTableData(filter); // Make sure this returns the expected format
       const mappedOptions = data.map((item) => ({
         label: item.title,
         value: item._id,
