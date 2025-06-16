@@ -19,7 +19,7 @@ const CreateList = () => {
         try {
           const filter = {
     limit: 1000,
-    page: parseInt(searchParams.page) || 1
+    page: 1
   }
           const response = await getPropertyTableData(filter);
           console.log("response")
