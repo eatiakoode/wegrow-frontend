@@ -125,7 +125,7 @@ useEffect(() => {
       "page":1
     };
       const data = await getFaqTableData(filter); // Make sure this returns the expected format
-      const mappedOptions = data.map((item) => ({
+      const mappedOptions = data?.items.map((item) => ({
         label: item.title,
         value: item._id,
       }));

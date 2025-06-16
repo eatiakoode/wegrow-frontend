@@ -39,7 +39,7 @@ const index = ({params}) => {
       "page":1
     };
         const data = await getFaqTableData(filter);
-        setFaqs(data.data);
+        setFaqs(data?.data?.items);
       } catch (error) {
         console.error('Failed to fetch FAQs:', error);
       }
