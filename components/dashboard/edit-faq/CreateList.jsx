@@ -50,7 +50,7 @@ const CreateList = () => {
                 console.log("response")
                 console.log(response)
         
-                setProperties(response || []);
+                setProperties(response?.items || []);
               } catch (err) {
                 console.error("Error fetching property:", err);
               }
