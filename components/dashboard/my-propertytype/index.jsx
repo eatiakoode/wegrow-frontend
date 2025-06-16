@@ -1,3 +1,4 @@
+"use client"; // Add this at the top
 import Header from "../../common/header/dashboard/Header";
 import SidebarMenu from "../../common/header/dashboard/SidebarMenu";
 import MobileMenu from "../../common/header/MobileMenu";
@@ -6,8 +7,36 @@ import Filtering from "./Filtering";
 import Pagination from "./Pagination";
 import SearchBox from "./SearchBox";
 import CopyRight from "../../common/footer/CopyRight";
+import { useState, useEffect } from "react";
 
+import { getPropertytypeTableData } from "../../../api/propertytype";
+import { useRouter, useSearchParams } from "next/navigation"; 
 const index = () => {
+  const [currentPage, setCurrentPage] = useState(1);
+  // const [properties, setProperties] = useState(initialProperties || []);
+
+  const [propertytypeList, setPropertytypeList] = useState([]);
+  const [totalCount, setTotalCount] = useState([]);
+  const [pageSize] = useState(10);
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  // const currentPage = parseInt(searchParams.get('page') || 1);
+  
+      useEffect(() => {
+        const fetchPropertyTypeData = async () => {
+        const filter ={
+     
+      "limit":pageSize,
+      "page":currentPage
+    };
+     const data = await getPropertytypeTableData(filter);
+        setPropertytypeList(data.items);
+          // setLoaderProperty(false)
+          // setPropertyList(data.items)
+          setTotalCount(data.totalCount)
+      };
+    fetchPropertyTypeData();
+  }, [currentPage]);
   return (
     <>
       {/* <!-- Main Header Nav --> */}
@@ -82,13 +111,18 @@ const index = () => {
                   <div className="my_dashboard_review mb40">
                     <div className="property_table">
                       <div className="table-responsive mt0">
-                        <TableData />
+                        <TableData propertytypeList={propertytypeList} setPropertytypeList={setPropertytypeList}/>
                       </div>
                       {/* End .table-responsive */}
 
-                      {/* <div className="mbp_pagination">
-                        <Pagination />
-                      </div> */}
+                      <div className="mbp_pagination">
+                        <Pagination
+                        totalCount={totalCount}
+                         pageSize={pageSize}
+                      currentPage={currentPage}
+                        onPageChange={(page) => setCurrentPage(page)}
+                       />
+                      </div>
                       {/* End .mbp_pagination */}
                     </div>
                     {/* End .property_table */}

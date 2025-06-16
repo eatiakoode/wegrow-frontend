@@ -19,7 +19,7 @@ export const metadata = {
 // export default dynamic(() => Promise.resolve(index), { ssr: false });
 export default async function ListingPage({ searchParams }) {
   const filter = {
-    limit: 4,
+    limit: 10,
     page: parseInt(searchParams.page) || 1
   }
 // console.log("test")

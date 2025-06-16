@@ -31,12 +31,12 @@ const token =userData.token
   };
   
 
-  export async function getPropertytypeTableData() {
+  export async function getPropertytypeTableData(filter) {
     // Fake delay
     await new Promise((resolve) => setTimeout(resolve, 1400));
   
     try {
-      const response = await fetch(process.env.NEXT_PUBLIC_ADMIN_API_URL+"api/propertytype"); // Replace with actual API endpoint
+      const response = await fetch(process.env.NEXT_PUBLIC_ADMIN_API_URL+"api/propertytype?limit="+filter.limit+"&skip="+filter.page); // Replace with actual API endpoint
       if (!response.ok) {
         throw new Error("Failed to fetch products");
       }
