@@ -5,15 +5,15 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 // import moment from 'moment';
 
-const TableData = () => {
-   const [faqList, setFaqList] = useState([]);
+const TableData = ({faqList,setFaqList}) => {
+  //  const [faqList, setFaqList] = useState([]);
     const router = useRouter();
   
-    const fetchFaqData = async () => {
-      const data = await getFaqTableData();
-      console.log(data)
-      setFaqList(data);
-    };
+  //   const fetchFaqData = async () => {
+  //     const data = await getFaqTableData();
+  //     console.log(data)
+  //     setFaqList(data);
+  //   };
     const deleteFaq = async (id) => {
         const isConfirmed = window.confirm("Are you sure you want to delete this Faq?");
         if (!isConfirmed) return;
@@ -94,9 +94,9 @@ const TableData = () => {
       {/* End td */}
     </tr>
   ));
-useEffect(() => {
-    fetchFaqData();
-  }, []); 
+// useEffect(() => {
+//     fetchFaqData();
+//   }, []); 
   return (
     <>
       <table className="table">
