@@ -42,7 +42,11 @@ const CreateList = () => {
       fetchFaq();
       const fetchProperties = async () => {
               try {
-                const response = await getPropertyTableData();
+                 const filter = {
+    limit: 1000,
+    page: parseInt(searchParams.page) || 1
+  }
+                const response = await getPropertyTableData(filter);
                 console.log("response")
                 console.log(response)
         
