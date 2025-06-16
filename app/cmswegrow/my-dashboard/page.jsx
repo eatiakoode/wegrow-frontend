@@ -23,7 +23,7 @@ export default async function MyDashboardPage() {
       getEnquiryTableData(),
     ]);
 
-    const properties = propertyRes || [];
+    const properties = propertyRes?.items || [];
     const enqueryProperty = enqueryCountProperty || [];
     const enqueryLanding = enqueryCountLanding || [];
     const enquery = enqueryCount || [];
