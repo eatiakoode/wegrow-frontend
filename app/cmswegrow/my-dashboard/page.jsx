@@ -14,7 +14,7 @@ export default async function MyDashboardPage() {
     // Run requests in parallel to reduce wait time
      const filter = {
     limit: 1000,
-    page: parseInt(searchParams.page) || 1
+    page:  1
   }
     const [propertyRes, enqueryCountProperty, enqueryCountLanding, enqueryCount] = await Promise.all([
       getPropertyTableData(filter),

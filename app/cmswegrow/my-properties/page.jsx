@@ -20,7 +20,7 @@ export const metadata = {
 export default async function ListingPage({ searchParams }) {
   const filter = {
     limit: 10,
-    page: parseInt(searchParams.page) || 1
+    page: 1
   }
 // console.log("test")
 //   console.log(filter)
