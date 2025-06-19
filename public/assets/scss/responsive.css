@@ -160,6 +160,7 @@
 	.ht_left_widget ul li.list-inline-item:first-child,
 	.ht_left_widget ul li.list-inline-item:nth-child(2) {
 		margin-right: 10px;
+		margin-bottom: 10px;
 	}
 	.header_search_widget .mailchimp_form .form-control {
 		padding-left: 15px;
