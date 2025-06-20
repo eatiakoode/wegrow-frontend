@@ -15,7 +15,7 @@ import Sidebar from "@/components/listing-details-v1/Sidebar";
 import ListingOne from "@/components/listing-single/ListingOne";
 // import { getFaqByPropertyIdData } from "@/api/frontend/faq";
 
-// import { getPropertyBySlug } from "@/api/frontend/property";
+import { getPropertyBySlug } from "@/api/frontend/property";
 
 const ListingDynamicDetailsV12 = ({property,faqs}) => {
  
@@ -26,7 +26,8 @@ const ListingDynamicDetailsV12 = ({property,faqs}) => {
  
   const [showBox, setShowBox] = useState(false);
   // const [faqs, setFaqs] = useState([]);
-
+console.log("tests new")
+  console.log(property)
   // const fetchFaqs = async (id) => {
   //   try {
   //     const data = await getFaqByPropertyIdData(id);
@@ -38,29 +39,29 @@ const ListingDynamicDetailsV12 = ({property,faqs}) => {
   //   }
   // };
 
-  // useEffect(() => {
-  //    if (!id) return;      
-  //         const fetchProperty = async () => {
-  //           try {
-  //             const data = await getPropertyBySlug(id);
+ useEffect(() => {
+    if (!property) return;      
+         const fetchProperty = async () => {
+             try {
+               const data = await getPropertyBySlug(property.slug);
   //             setProperty(data.data)
   //             fetchFaqs(data.data._id)
-  //             console.log("propertyid")
-  //             console.log(data)
-  //             console.log("propertyid end")
+               console.log("propertyid")
+               console.log(data)
+               console.log("propertyid end")
              
               
-  //           } catch (error) {
-  //             console.error("Error fetching Builder:", error);
-  //           } finally {
-  //             // setLoading(false);
-  //           }
-  //         };
+             } catch (error) {
+               console.error("Error fetching Builder:", error);
+             } finally {
+               // setLoading(false);
+             }
+           };
       
-  //         fetchProperty();
+           fetchProperty();
           
        
-  // }, [id]);
+   }, [property]);
 
   return (
     <>
