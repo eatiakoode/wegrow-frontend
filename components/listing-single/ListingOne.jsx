@@ -89,3 +89,82 @@ export default function ListingOne({property,setPropertySelectedComp, setShowBox
             </div>
           </div>
         </div>
+        {/* End .row */}
+
+        <div className="row">
+          <div className="col-sm-7 col-lg-8">
+            <div className="row">
+              <div className="col-lg-12">
+                <div className="spls_style_two mb30-520">
+                <Item
+                      original={`${process.env.NEXT_PUBLIC_API_URL}${property?.featuredimageurl}`}
+                      thumbnail={`${process.env.NEXT_PUBLIC_API_URL}${property?.featuredimageurl}`}
+                      width={752}
+                      height={450}
+                    >
+
+                    {({ ref, open }) => (
+                      <div role="button" ref={ref} onClick={open}>
+                        <Image
+                          width={752}
+                          height={450}
+                          className="img-fluid w100 cover lds-1"
+                          src={
+                            property.featuredimageurl
+                              ? `${process.env.NEXT_PUBLIC_API_URL}${property.featuredimageurl}`
+                              : "/default-placeholder.jpg"
+                          }
+                          alt= {`${property.title}`}
+                          unoptimized // Optional: disables Next.js image optimization (useful if external images)
+                        />
+                      </div>
+                    )}
+                  </Item>
+                </div>
+              </div>
+            </div>
+          </div>
+          {/* End .col-sm-7 .col-lg-8 */}
+
+          <div className="col-sm-5 col-lg-4">
+            <div className="property_box row">
+              {propertyimage?.map((val, index) => (
+                <div className="col-6" key={index}>
+                  <div className="spls_style_two img-gallery-box mb24">
+                    <Item
+                       original={`${process.env.NEXT_PUBLIC_API_URL}${val.image}`}
+                      thumbnail={`${process.env.NEXT_PUBLIC_API_URL}${val.image}`}
+                      width={752}
+                      height={450}
+                    >
+                      {({ ref, open }) => (
+                        <div role="button" ref={ref} onClick={open}>
+                          <Image
+                            width={170}
+                            height={133}
+                            className="img-fluid w100 cover"
+                            src={
+                              val.image
+                                ? `${process.env.NEXT_PUBLIC_API_URL}${val.image}`
+                                : "/default-placeholder.jpg"
+                            }
+                            alt= {`${property.title}`}
+                            unoptimized 
+                           
+                          />
+                        </div>
+                      )}
+                    </Item>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          {/* End  col-sm-5 col-lg-4 */}
+        </div>
+        {/* End .row */}
+      </Gallery>
+    </div>
+  </section>
+  )
+}
