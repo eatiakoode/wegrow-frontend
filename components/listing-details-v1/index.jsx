@@ -25,8 +25,8 @@ const ListingDynamicDetailsV12 = ({property,faqs}) => {
   const [propertySelectedComp, setPropertySelectedComp] = useState([]);
  
   const [showBox, setShowBox] = useState(false);
-  console.log("tests new")
-  console.log(property)
+  // console.log("tests new")
+  // console.log(property)
   // const [faqs, setFaqs] = useState([]);
 
   // const fetchFaqs = async (id) => {
@@ -47,9 +47,9 @@ const ListingDynamicDetailsV12 = ({property,faqs}) => {
               const data = await getPropertyBySlug(property.slug);
               setPropertyImage(data.data.images)
               // fetchFaqs(data.data._id)
-              console.log("propertyid")
-              console.log(data)
-              console.log("propertyid end")
+              // console.log("propertyid")
+              // console.log(data)
+              // console.log("propertyid end")
              
               
             } catch (error) {

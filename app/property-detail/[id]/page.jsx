@@ -41,8 +41,8 @@ export async function generateMetadata({ params }) {
 }
 const ListingDynamicDetailsV1 = async ({params})  => {
   const res = await getPropertyBySlug(params.id);
-  console.log("tests")
-  console.log(res?.data)
+  // console.log("tests")
+  // console.log(res?.data)
     const property = res?.data;
     const dataFAQ = await getFaqByPropertyIdData(property._id);
     const faqs=dataFAQ.data
