@@ -5,9 +5,13 @@ import Image from "next/image";
 import { useCompare } from "@/components/common/footer/CompareContext";
 
 
-export default function ListingOne({property,setPropertySelectedComp, setShowBox }) {
+export default function ListingOne({property,setPropertySelectedComp, setShowBox,propertyimage }) {
   const { propertycompare, setPropertycompare } = useCompare();
+  // console.log("eati");
+  //   console.log(property?.images)
+  //    console.log("sinha");
   const addCompareProperty = async (id) => {
+    
       
     const isExist = propertycompare.includes(id);
   
@@ -124,7 +128,7 @@ export default function ListingOne({property,setPropertySelectedComp, setShowBox
 
           <div className="col-sm-5 col-lg-4">
             <div className="property_box row">
-              {property?.images?.map((val, index) => (
+              {propertyimage?.map((val, index) => (
                 <div className="col-6" key={index}>
                   <div className="spls_style_two img-gallery-box mb24">
                     <Item

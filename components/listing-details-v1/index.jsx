@@ -15,16 +15,18 @@ import Sidebar from "@/components/listing-details-v1/Sidebar";
 import ListingOne from "@/components/listing-single/ListingOne";
 // import { getFaqByPropertyIdData } from "@/api/frontend/faq";
 
-// import { getPropertyBySlug } from "@/api/frontend/property";
+import { getPropertyBySlug } from "@/api/frontend/property";
 
 const ListingDynamicDetailsV12 = ({property,faqs}) => {
  
   // const id = params.id;
   // const property = properties?.find((item) => item.id == id) || properties[0]
-  // const [property, setProperty] = useState([]);
+  const [propertyimage, setPropertyImage] = useState([]);
   const [propertySelectedComp, setPropertySelectedComp] = useState([]);
  
   const [showBox, setShowBox] = useState(false);
+  console.log("tests new")
+  console.log(property)
   // const [faqs, setFaqs] = useState([]);
 
   // const fetchFaqs = async (id) => {
@@ -38,29 +40,29 @@ const ListingDynamicDetailsV12 = ({property,faqs}) => {
   //   }
   // };
 
-  // useEffect(() => {
-  //    if (!id) return;      
-  //         const fetchProperty = async () => {
-  //           try {
-  //             const data = await getPropertyBySlug(id);
-  //             setProperty(data.data)
-  //             fetchFaqs(data.data._id)
-  //             console.log("propertyid")
-  //             console.log(data)
-  //             console.log("propertyid end")
+  useEffect(() => {
+     if (!property) return;      
+          const fetchProperty = async () => {
+            try {
+              const data = await getPropertyBySlug(property.slug);
+              setPropertyImage(data.data.images)
+              // fetchFaqs(data.data._id)
+              console.log("propertyid")
+              console.log(data)
+              console.log("propertyid end")
              
               
-  //           } catch (error) {
-  //             console.error("Error fetching Builder:", error);
-  //           } finally {
-  //             // setLoading(false);
-  //           }
-  //         };
+            } catch (error) {
+              console.error("Error fetching Builder:", error);
+            } finally {
+              // setLoading(false);
+            }
+          };
       
-  //         fetchProperty();
+          fetchProperty();
           
        
-  // }, [id]);
+  }, [property]);
 
   return (
     <>
@@ -75,7 +77,7 @@ const ListingDynamicDetailsV12 = ({property,faqs}) => {
 
       {/* <!-- Listing Single Property --> */}
       <ListingOne property={property}  setPropertySelectedComp={setPropertySelectedComp}
-        setShowBox={setShowBox} />
+        setShowBox={setShowBox} propertyimage={propertyimage}/>
     
 
       {/* <!-- Agent Single Grid View --> */}
