@@ -28,6 +28,7 @@ const index = () => {
     };
      const data = await getLocationTableData(filter);
         setLocationList(data.items);
+        console.log(data.items)
           // setLoaderProperty(false)
           // setPropertyList(data.items)
           setTotalCount(data.totalCount)
