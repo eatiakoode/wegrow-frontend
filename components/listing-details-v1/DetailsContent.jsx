@@ -20,7 +20,7 @@ import Link from "next/link";
 
 import Image from "next/image";
 
-const DetailsContent = ({property,faqs}) => {
+const DetailsContent = ({property,faqs,propertydetail}) => {
   const [showPdfModal, setShowPdfModal] = useState(false);
   const [showFullBio, setShowFullBio] = useState(false);
   const [name, setName] = useState("");
@@ -90,7 +90,7 @@ const hashtags = property.metatitle;
         {/* End .lsd_list */}
 
         <h4 className="mb30">Description</h4>
-        <PropertyDescriptions property={property}/>
+        <PropertyDescriptions property={property} propertydetail={propertydetail}/>
       </div>
       {/* End .listing_single_description */}
 

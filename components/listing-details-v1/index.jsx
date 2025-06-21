@@ -27,7 +27,7 @@ const ListingDynamicDetailsV12 = ({property,faqs}) => {
   const [showBox, setShowBox] = useState(false);
   // console.log("tests new")
   // console.log(property)
-  // const [faqs, setFaqs] = useState([]);
+  const [propertydetail, setPropertydetail] = useState([]);
 
   // const fetchFaqs = async (id) => {
   //   try {
@@ -46,7 +46,7 @@ const ListingDynamicDetailsV12 = ({property,faqs}) => {
             try {
               const data = await getPropertyBySlug(property.slug);
               setPropertyImage(data.data.images)
-              // fetchFaqs(data.data._id)
+              setPropertydetail(data.data)
               // console.log("propertyid")
               // console.log(data)
               // console.log("propertyid end")
@@ -77,7 +77,7 @@ const ListingDynamicDetailsV12 = ({property,faqs}) => {
 
       {/* <!-- Listing Single Property --> */}
       <ListingOne property={property}  setPropertySelectedComp={setPropertySelectedComp}
-        setShowBox={setShowBox} propertyimage={propertyimage}/>
+        setShowBox={setShowBox} propertyimage={propertyimage} />
     
 
       {/* <!-- Agent Single Grid View --> */}
@@ -85,7 +85,7 @@ const ListingDynamicDetailsV12 = ({property,faqs}) => {
         <div className="container">
           <div className="row">
             <div className="col-md-12 col-lg-8">
-              <DetailsContent property={property} faqs={faqs}/>
+              <DetailsContent property={property} faqs={faqs} propertydetail={propertydetail}/>
             </div>
             {/* End details content .col-lg-8 */}
 

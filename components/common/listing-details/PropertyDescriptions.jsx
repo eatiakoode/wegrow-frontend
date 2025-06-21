@@ -8,7 +8,7 @@ const PropertyDescriptions = ({property}) => {
 
   return (
     <>
-   <p className="mb25">{property.description}</p> 
+   <p className="mb25">{propertydetail.description}</p> 
       {/* <p className="mb25">
         Evans Tower very high demand corner junior one bedroom plus a large
         balcony boasting full open NYC views. You need to see the views to

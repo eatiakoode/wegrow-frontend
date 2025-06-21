@@ -114,6 +114,7 @@ export async function getPropertyFeatureData() {
         "Content-Type": "application/json",
         // Authorization: `Bearer ${token}`,
       },
+      cache: "no-store"
       // body: JSON.stringify({ id }),
     });
   
