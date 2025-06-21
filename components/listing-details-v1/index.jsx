@@ -25,8 +25,8 @@ const ListingDynamicDetailsV12 = ({property,faqs}) => {
   const [propertySelectedComp, setPropertySelectedComp] = useState([]);
  
   const [showBox, setShowBox] = useState(false);
-  // console.log("tests new")
-  // console.log(property)
+  console.log("tests new")
+  console.log(property)
   const [propertydetail, setPropertydetail] = useState([]);
 
   // const fetchFaqs = async (id) => {

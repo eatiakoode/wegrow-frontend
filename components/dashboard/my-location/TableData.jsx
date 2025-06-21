@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 // import moment from 'moment';
 
 const TableData = () => {
-  console.log("test")
+  // console.log("test")
    const [locationList, setLocationList] = useState([]);
     const router = useRouter();
   

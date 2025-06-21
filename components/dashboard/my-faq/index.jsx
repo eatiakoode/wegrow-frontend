@@ -9,7 +9,7 @@ import SearchBox from "./SearchBox";
 import CopyRight from "../../common/footer/CopyRight";
 
 import { useState, useEffect } from "react";
-import { getFaqTableData } from "../../../api/faq";
+import { getFaqTableData } from "@/api/faq";
 import { useRouter, useSearchParams } from "next/navigation"; 
 
 const index = () => {
