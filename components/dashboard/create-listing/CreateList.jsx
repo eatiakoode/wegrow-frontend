@@ -17,6 +17,7 @@ import { addPropertyAPI } from "../../../api/property";
 
 import selectedFiles from "../../../utils/selectedFiles";
 import Image from "next/image";
+import { toast, ToastContainer } from 'react-toastify';
 
 
 
@@ -321,7 +322,8 @@ const addProperty = async (e) => {
 
 
     const res = await addPropertyAPI(formData);
-    router.push("/cmswegrow/my-properties");
+    toast.success(res.message);
+    // router.push("/cmswegrow/my-properties");
     // alert(res.message);
 
     // Reset fields and errors
@@ -1041,6 +1043,7 @@ const addProperty = async (e) => {
         </div>
       </div>
       </form>
+      <ToastContainer />
     </>
   );
 };
