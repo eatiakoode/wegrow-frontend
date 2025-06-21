@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-const PropertyDescriptions = ({property}) => {
+const PropertyDescriptions = ({property,propertydetail}) => {
   const [click, setClick] = useState(true);
   const handleClick = () => setClick(!click);
 
