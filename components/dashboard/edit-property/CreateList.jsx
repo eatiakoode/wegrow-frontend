@@ -276,7 +276,7 @@ useEffect(() => {
         getConstructionstatusTableData(),
         getFurnishingstatusTableData(),
         getCategoryTableData(),
-        getAmenityTableData(),
+        getAmenityTableData(filter),
         getBuilderTableData(filter),
       ]);
 
@@ -284,7 +284,7 @@ useEffect(() => {
       setConstructionstatus(constRes || []);
       setFurnishingstatus(furnRes || []);
       setCategories(catRes || []);
-      setAmenities(amenityRes || []);
+      setAmenities(amenityRes.items || []);
       setBuilders(builderRes.items || []);
     } catch (err) {
       console.error("Error loading initial data:", err);

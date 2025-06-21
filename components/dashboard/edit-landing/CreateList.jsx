@@ -196,13 +196,17 @@ const [selectedAmenity, setSelectedAmenity] = useState("");
 useEffect(() => {
   const fetchData = async () => {
     try {
+      const filter = {
+    limit: 1000,
+    page:  1
+  }
       const [ amenityRes] = await Promise.all([
         
-        getAmenityTableData(),
+        getAmenityTableData(filter),
       ]);
 
       
-      setAmenities(amenityRes || []);
+      setAmenities(amenityRes.items || []);
     } catch (err) {
       console.error("Error loading initial data:", err);
     }

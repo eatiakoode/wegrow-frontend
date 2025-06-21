@@ -142,7 +142,7 @@ const index = () => {
           getConstructionstatusTableData(),
           getFurnishingstatusTableData(),
           getCategoryTableData(),
-          getAmenityTableData(),
+          getAmenityTableData(filter),
           getBuilderTableData(filter),
         ]);
   
@@ -150,7 +150,7 @@ const index = () => {
         setConstructionstatus(constRes || []);
         setFurnishingstatus(furnRes || []);
         setCategories(catRes || []);
-        setAmenities(amenityRes || []);
+        setAmenities(amenityRes.item || []);
         setBuilders(builderRes.items || []);
       } catch (err) {
         console.error("Error loading initial data:", err);
