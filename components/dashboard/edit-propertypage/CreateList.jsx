@@ -117,21 +117,24 @@ useEffect(() => {
         fetchPropertypage();
      
   const fetchData = async () => {
-    
+    const filter = {
+    limit: 1000,
+    page:  1
+  }
     try {
       const [countryRes, constRes, furnRes, catRes, builderRes] = await Promise.all([
         getCountryTableData(),
         getConstructionstatusTableData(),
         getFurnishingstatusTableData(),
         getCategoryTableData(),
-        getBuilderTableData(),
+        getBuilderTableData(filter),
       ]);
 
       setCountries(countryRes || []);
       setConstructionstatus(constRes || []);
       setFurnishingstatus(furnRes || []);
       setCategories(catRes || []);
-      setBuilders(builderRes || []);
+      setBuilders(builderRes.items || []);
     } catch (err) {
       console.error("Error loading initial data:", err);
     }

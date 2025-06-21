@@ -132,6 +132,10 @@ const index = () => {
   // --- Fetch Initial Data ---
   useEffect(() => {
     const fetchData = async () => {
+      const filter = {
+    limit: 1000,
+    page:  1
+  }
       try {
         const [countryRes, constRes, furnRes, catRes, amenityRes, builderRes] = await Promise.all([
           getCountryTableData(),
@@ -139,7 +143,7 @@ const index = () => {
           getFurnishingstatusTableData(),
           getCategoryTableData(),
           getAmenityTableData(),
-          getBuilderTableData(),
+          getBuilderTableData(filter),
         ]);
   
         setCountries(countryRes || []);
@@ -147,7 +151,7 @@ const index = () => {
         setFurnishingstatus(furnRes || []);
         setCategories(catRes || []);
         setAmenities(amenityRes || []);
-        setBuilders(builderRes || []);
+        setBuilders(builderRes.items || []);
       } catch (err) {
         console.error("Error loading initial data:", err);
       }
