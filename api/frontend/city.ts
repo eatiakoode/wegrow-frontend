@@ -67,7 +67,9 @@
     
   
     try {
-      const response = await fetch(process.env.NEXT_PUBLIC_FRONTEND_API_URL+"api/city/listwithpropertcount"); // Replace with actual API endpoint
+      const response = await fetch(process.env.NEXT_PUBLIC_FRONTEND_API_URL+"api/city/listwithpropertcount",
+        {cache: "no-store"}
+      ); // Replace with actual API endpoint
       if (!response.ok) {
         throw new Error("Failed to fetch products");
       }

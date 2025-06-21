@@ -19,6 +19,7 @@ const token =userData.token
         // "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
+      cache: "no-store",
       body: formData,
     });
   
