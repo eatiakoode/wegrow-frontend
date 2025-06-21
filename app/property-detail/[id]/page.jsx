@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 import "photoswipe/dist/photoswipe.css";
 import { getPropertyBySlug } from "@/api/frontend/property";
 import PropertyMain from "@/components/listing-details-v1";
