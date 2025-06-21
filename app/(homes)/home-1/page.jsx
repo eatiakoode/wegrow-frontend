@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import HomeMain from "@/components/home";
 import { getPropertyFeatureData } from "@/api/frontend/property";
 import { countPropertiesByCity, getCityWithPropertyPage } from "@/api/frontend/city";
