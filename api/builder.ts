@@ -46,13 +46,13 @@ const token =userData.token
   };
   
 
-  export async function getBuilderTableData() {
+  export async function getBuilderTableData(filter) {
     // Fake delay
     await new Promise((resolve) => setTimeout(resolve, 1400));
     
   
     try {
-      const response = await fetch(process.env.NEXT_PUBLIC_ADMIN_API_URL+"api/builder"); // Replace with actual API endpoint
+      const response = await fetch(process.env.NEXT_PUBLIC_ADMIN_API_URL+"api/builder?limit="+filter.limit+"&skip="+filter.page); // Replace with actual API endpoint
       if (!response.ok) {
         throw new Error("Failed to fetch products");
       }

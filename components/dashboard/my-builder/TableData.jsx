@@ -5,15 +5,15 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 // import moment from 'moment';
 
-const TableData = () => {
-   const [builderList, setBuilderList] = useState([]);
+const TableData = ({builderList,setBuilderList}) => {
+  //  const [builderList, setBuilderList] = useState([]);
     const router = useRouter();
   
-    const fetchBuilderData = async () => {
-      const data = await getBuilderTableData();
-      console.log(data)
-      setBuilderList(data);
-    };
+    // const fetchBuilderData = async () => {
+    //   const data = await getBuilderTableData();
+    //   console.log(data)
+    //   setBuilderList(data);
+    // };
     const deleteBuilder = async (id) => {
         const isConfirmed = window.confirm("Are you sure you want to delete this Builder?");
         if (!isConfirmed) return;
@@ -94,9 +94,9 @@ const TableData = () => {
       {/* End td */}
     </tr>
   ));
-useEffect(() => {
-    fetchBuilderData();
-  }, []); 
+// useEffect(() => {
+//     fetchBuilderData();
+//   }, []); 
   return (
     <>
       <table className="table">
