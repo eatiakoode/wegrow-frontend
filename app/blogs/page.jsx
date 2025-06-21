@@ -1,3 +1,6 @@
+import dynamic from "next/dynamic";
+export const dynamic = "force-dynamic";
+
 import BlogV2 from "@/components/blog-list-2";
 import { getBlogTableData } from "@/api/frontend/blog";
 

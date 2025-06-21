@@ -51,6 +51,7 @@ const CreateList = () => {
     const handleSubmit = async (e) => {
       e.preventDefault();
       try {
+        console.log("title",title)
         const formData = new FormData();
         formData.append("title", title);
         formData.append("status", status);
@@ -113,7 +114,8 @@ const CreateList = () => {
         id="amenityTitle"
         name="title"
         value={amenity.title}
-        onChange={handleChange}
+        onChange={(e) => setTitle(e.target.value)}
+        // onChange={handleChange}
       />
         </div>
       </div>

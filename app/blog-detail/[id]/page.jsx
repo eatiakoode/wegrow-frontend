@@ -1,6 +1,7 @@
 // "use client"; 
 // import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
+export const dynamic = "force-dynamic";
 
 // import BreadCrumb2 from "@/components/blog-details/BreadCrumb2";
 // // import Comments from "@/components/blog-details/Comments";
