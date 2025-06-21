@@ -38,7 +38,7 @@ const TableData = () => {
     // "View",
     "Action",
   ];
-  let tbodyContent = propertypageList?.slice(0, 10)?.map((item, index) => (
+  let tbodyContent = propertypageList?.map((item, index) => (
     <tr key={item.id}>
       <td scope="row">
         <div className="feat_property list favorite_page style2">

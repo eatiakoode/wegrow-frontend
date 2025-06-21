@@ -35,7 +35,7 @@ const TableData = ({builderList,setBuilderList}) => {
     "Status",
     "Action",
   ];
-  let tbodyContent = builderList?.slice(0, 10)?.map((item) => (
+  let tbodyContent = builderList?.map((item) => (
     <tr key={item._id}>
       <td scope="row">
         <div className="feat_property list favorite_page style2">

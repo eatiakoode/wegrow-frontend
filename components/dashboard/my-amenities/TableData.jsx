@@ -29,7 +29,7 @@ const TableData = ({amenityList,setAmenityList}) => {
     "Status",
     "Action",
   ];
-  let tbodyContent = amenityList?.slice(0, 30)?.map((item) => (
+  let tbodyContent = amenityList?.map((item) => (
     <tr key={item._id}>
       <td scope="row">
         <div className="feat_property list favorite_page style2">
