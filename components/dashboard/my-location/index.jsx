@@ -1,3 +1,4 @@
+"use client"; // Add this at the top
 import Header from "../../common/header/dashboard/Header";
 import SidebarMenu from "../../common/header/dashboard/SidebarMenu";
 import MobileMenu from "../../common/header/MobileMenu";
@@ -8,7 +9,7 @@ import SearchBox from "./SearchBox";
 import CopyRight from "../../common/footer/CopyRight";
 
 import { useState, useEffect } from "react";
-import { getFaqTableData } from "@/api/faq";
+import { getLocationTableData } from "@/api/location";
 
 const index = () => {
   const [currentPage, setCurrentPage] = useState(1);
