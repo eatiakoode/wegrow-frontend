@@ -68,6 +68,7 @@ const CreateList = () => {
     };
   
     const handleChange = (e) => {
+      setTitle(e.target.value)
       setAmenity((prev) => ({ ...prev, [e.target.name]: e.target.value }));
     };
   
@@ -114,8 +115,8 @@ const CreateList = () => {
         id="amenityTitle"
         name="title"
         value={amenity.title}
-        onChange={(e) => setTitle(e.target.value)}
-        // onChange={handleChange}
+        // onChange={(e) => setTitle(e.target.value)}
+        onChange={handleChange}
       />
         </div>
       </div>

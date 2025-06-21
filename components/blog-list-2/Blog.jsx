@@ -26,7 +26,7 @@ const Blog = ({blogs}) => {
   return (
     <>
       {blogs.slice(0, 6).map((item,index) => (
-        <div className="col-lg-6" key={item.id}>
+        <div className="col-lg-6" key={index}>
           <div className="for_blog feat_property">
             <div className="thumb">
               <Link href={`/blog-detail/${item.slug}`}>
