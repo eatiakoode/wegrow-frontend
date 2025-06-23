@@ -3,7 +3,7 @@ import GridV1 from "@/components/listing-grid/grid-v1";
 import { getPropertyFilterData } from "@/api/frontend/property";
 
 export const metadata = {
-  title: 'Simple Listing – Grid V1 || WeGrow - Real Estate ',
+  title: 'WeGrow - Real Estate ',
   description:
     'WeGrow - Real Estate ',
 }
