@@ -249,14 +249,14 @@ useEffect(() => {
             setAreasize(property.areasize)
             setSizePrefix(property.sizeprefix)
             
-            if (!predefinedOptions.includes(property.bedrooms) && property.bedrooms.trim() !== "") {
+            if (!predefinedOptions.includes(property.bedrooms) && property.bedrooms?.trim() !== "") {
                 setCustomBedroom(property.bedrooms);
                 setBedRooms("Custom"); // Mark dropdown as 'Custom'
               }  else {
                 setBedRooms(property.bedrooms)
               }
 
-              if (!predefinedOptionsbathroom.includes(property.bathrooms) && property.bathrooms.trim() !== "") {
+              if (!predefinedOptionsbathroom.includes(property.bathrooms) && property.bathrooms?.trim() !== "") {
                 setCustomBathrooms(property.bathrooms);
                 setBathRooms("Custom"); // Mark dropdown as 'Custom'
               }  else {
@@ -264,7 +264,7 @@ useEffect(() => {
               }
 
               
-           if (!predefinedOptionsparking.includes(property.garages) && property.garages.trim() !== "") {
+           if (!predefinedOptionsparking.includes(property.garages) && property.garages?.trim() !== "") {
                 setCustomParking(property.garages);
                 setGarages("Custom"); // Mark dropdown as 'Custom'
               }  else {
