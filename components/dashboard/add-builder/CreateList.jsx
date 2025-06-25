@@ -110,7 +110,7 @@ const CreateList = () => {
       </div>
       <div className="col-lg-6 col-xl-6">
         <div className="my_profile_setting_input form-group">
-          <label htmlFor="builderSlug">Builder Slug</label>
+          <label htmlFor="builderSlug">Builder Slug (SEO URL)</label>
           <input type="text" className="form-control" id="builderSlug" value={slug} onChange={handleSlugChange} />
           {error && <p className="text-red-500 text-sm mt-1">{error}</p>}
         </div>

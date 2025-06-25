@@ -112,3 +112,29 @@
       return []; // Return an empty array in case of an error
     }
   }
+export const getCityTableglimpseData = async (id: string) => {
+    // const token = localStorage.getItem("token"); // 🔹 Retrieve token
+
+
+    const token =process.env.NEXT_PUBLIC_TOKEN;
+    if (!token) {
+      throw new Error("User not authenticated!");
+    }
+  
+    const response = await fetch(process.env.NEXT_PUBLIC_FRONTEND_API_URL+`api/city/byidglimpse/${id}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      // body: JSON.stringify({ id }),
+    });
+  
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.message || "Failed to get city");
+    }
+  
+    return response.json();
+  };
+  

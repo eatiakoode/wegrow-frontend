@@ -4,8 +4,9 @@
 import Image from "next/image";
 import { deletePropertyAPI } from "@/api/property";
 import { useRouter } from "next/navigation";
+import { toast, ToastContainer } from 'react-toastify';
 
-const TableData = ({properties}) => {
+const TableData = ({properties,setProperties}) => {
   // const [propertyList, setPropertyList] = useState([]);
       const router = useRouter();
     
@@ -16,10 +17,12 @@ const TableData = ({properties}) => {
       
           try {
             const data = await deletePropertyAPI(id); // 🔹 Call the API function
-            
-            alert(data.message);
-            setPropertyList((prevPropertyList) => prevPropertyList.filter((property) => property._id !== id));
+            toast.success(data.message);
+            // alert(data.message);
+            setProperties((properties) => properties.filter((property) => property._id !== id));
             //setTitle(""); // ✅ Reset input after success
+            
+            return false
           } catch (error) {
             alert("Failed to delete Property.");
             //setError(error.message); // ❌ Show error if request fails
@@ -138,6 +141,7 @@ const TableData = ({properties}) => {
 
         <tbody>{tbodyContent}</tbody>
       </table>
+      <ToastContainer />
     </>
   );
 };

@@ -119,7 +119,7 @@ const index = ({ properties:initialProperties, totalCount:initialCount,filter :i
                   <div className="my_dashboard_review mb40">
                     <div className="property_table">
                       <div className="table-responsive mt0">
-                        <TableData properties={properties}/>
+                        <TableData properties={properties} setProperties={setProperties}/>
                       </div>
                       {/* End .table-responsive */}
 

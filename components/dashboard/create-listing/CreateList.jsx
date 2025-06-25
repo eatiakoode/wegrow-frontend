@@ -18,6 +18,7 @@ import { addPropertyAPI } from "../../../api/property";
 import selectedFiles from "../../../utils/selectedFiles";
 import Image from "next/image";
 import { toast, ToastContainer } from 'react-toastify';
+import { getSellerTableData } from "@/api/seller";
 
 
 
@@ -88,6 +89,8 @@ const [constructionstatus, setConstructionstatus] = useState([]);
   const [sellername, setSellerName] = useState([]);
   const [selleremail, setSellerEmail] = useState([]);
   const [sellerphone, setSellerPhone] = useState([]);
+  const [sellers, setSellers] = useState([]);
+  const [selectedSeller, setSelectedSeller] = useState("");
 
   const [zipcode, setZipCode] = useState([]);
   const [reranumber, setReraNumber] = useState([]);
@@ -97,6 +100,39 @@ const [constructionstatus, setConstructionstatus] = useState([]);
 
   const [featuredimage, setFeaturedImage] = useState(null);
   const [siteplan, setSitePlan] = useState(null);
+const [roomtext, setRoomText] = useState("Bedrooms");
+  const [customBedroom, setCustomBedroom] = useState("");
+
+  const handleBedroomChange = (e) => {
+    setBedRooms(e.target.value);
+
+    // Clear custom input if not "Custom"
+    if (e.target.value !== "Custom") {
+      setCustomBedroom("");
+    }
+  };
+
+  const [customBathrooms, setCustomBathrooms] = useState("");
+
+  const handleBathroomsChange = (e) => {
+    setBathRooms(e.target.value);
+
+    // Clear custom input if not "Custom"
+    if (e.target.value !== "Custom") {
+      setCustomBathrooms("");
+    }
+  };
+
+  const [customParking, setCustomParking] = useState("");
+
+  const handleParkingChange = (e) => {
+    setGarages(e.target.value);
+
+    // Clear custom input if not "Custom"
+    if (e.target.value !== "Custom") {
+      setCustomParking("");
+    }
+  };
 
   // upload profile
   const uploadFeaturedImage = (e) => {
@@ -137,13 +173,14 @@ useEffect(() => {
     limit: 1000,
     page:  1
   }
-      const [countryRes, constRes, furnRes, catRes, amenityRes, builderRes] = await Promise.all([
+      const [countryRes, constRes, furnRes, catRes, amenityRes, builderRes,sellerRes] = await Promise.all([
         getCountryTableData(),
         getConstructionstatusTableData(),
         getFurnishingstatusTableData(),
         getCategoryTableData(),
         getAmenityTableData(filter),
         getBuilderTableData(filter),
+        getSellerTableData(),
       ]);
 
       setCountries(countryRes || []);
@@ -152,6 +189,8 @@ useEffect(() => {
       setCategories(catRes || []);
       setAmenities(amenityRes.items || []);
       setBuilders(builderRes.items || []);
+      setSellers(sellerRes.data || []);
+      
     } catch (err) {
       console.error("Error loading initial data:", err);
     }
@@ -196,6 +235,11 @@ const handleCityChange = async (e) => {
 
 const handleCategoryChange = async (e) => {
   const value = e.target.value;
+  
+  if(value=="67ea48d17cfa562fe8eaafd0"){
+    setRoomText("meeting rooms and cabins")
+
+  }
   setSelectedCategory(value);
   try {
     const res = await getPropertytypeByCategoryTableData(value);
@@ -236,6 +280,33 @@ const handleAddressChange = (e) => {
   setAddress(e.target.value);
   if (e.target.value.trim() !== "") setError("");
 };
+
+const [inputs, setInputs] = useState([]);
+  const handleAddInput = () => {
+    setInputs([
+      ...inputs,
+      {
+        id: Date.now(),
+        title: '',
+        areasize: '',
+        planimage: null
+      }
+    ]);
+  };
+  const handleInputChange = (index, field, value) => {
+    const updated = [...inputs];
+    updated[index][field] = value;
+    setInputs(updated);
+  };
+  const handleRemoveInput = (idToRemove) => {
+    setInputs(inputs.filter((input) => input.id !== idToRemove));
+  };
+  const uploadPlanImage = (index, file) => {
+    const updatedInputs = [...inputs];
+    updatedInputs[index].planimage = file;
+    setInputs(updatedInputs);
+  };
+
 // --- Submit ---
 const addProperty = async (e) => {
  
@@ -260,6 +331,7 @@ const addProperty = async (e) => {
     { key: "selectedCategory", value: selectedCategory, name: "Category" },
     { key: "selectedPropertytype", value: selectedPropertytype, name: "Property Type" },
     { key: "selectedBuilder", value: selectedBuilder, name: "Builder" },
+    { key: "selectedSeller", value: selectedSeller, name: "Seller" },
     { key: "selectedConstructionstatus", value: selectedConstructionstatus, name: "Construction Status" },
     { key: "selectedFurnishingstatus", value: selectedFurnishingstatus, name: "Furnishing Status" },
     // { key: "selectedAmenity", value: selectedAmenity, name: "Amenity" },
@@ -294,6 +366,7 @@ const addProperty = async (e) => {
       categoryid: selectedCategory,
       propertytypeid: selectedPropertytype,
       builderid: selectedBuilder,
+      sellerid: selectedSeller,
       constructionstatus: selectedConstructionstatus,
       furnishingstatus: selectedFurnishingstatus,
       amenityid: selectedAmenity,
@@ -301,7 +374,13 @@ const addProperty = async (e) => {
       featuredproperty: selectedFeaturedProperty,
       hotproperty: selectedHotProperty,
       propertyid, areasize, sizeprefix,
-      bedrooms, bathrooms, garages, garagessize,
+      bedrooms: bedrooms === "Custom" ? customBedroom : bedrooms,
+      bathrooms: bathrooms === "Custom" ? customBathrooms : bathrooms,
+      garages: garages === "Custom" ? customParking : garages,
+      // bedrooms,
+      //  bathrooms, 
+      //  garages, 
+       garagessize,
       yearbuild, mapembedcode, videoembedcode,
       nearby,specifications, sellername, selleremail, sellerphone, 
       reranumber, zipcode, metatitle, metadescription,featuredimage,siteplan,propertySelectedImgs,pdffile
@@ -321,9 +400,26 @@ const addProperty = async (e) => {
     });
 
 
+    inputs.forEach((input, index) => {
+      formData.append(`floorPlans[${index}][title]`, input.title);
+      formData.append(`floorPlans[${index}][bedroom]`, input.bedroom);
+      formData.append(`floorPlans[${index}][price]`, input.price);
+      formData.append(`floorPlans[${index}][areasize]`, input.areasize);
+      formData.append(`floorPlans[${index}][description]`, input.description);
+      if (input.planimage) {
+        formData.append(`floorPlans[${index}][planimage]`, input.planimage);
+      }
+      // formData.append('planimage', input.planimage);
+
+    });
+
+
     const res = await addPropertyAPI(formData);
     toast.success(res.message);
-    // router.push("/cmswegrow/my-properties");
+    if(res.status=="success"){
+      router.push("/cmswegrow/my-properties");
+    }
+    
     // alert(res.message);
 
     // Reset fields and errors
@@ -349,7 +445,7 @@ const addProperty = async (e) => {
       </div>
         <div className="col-lg-6">
           <div className="my_profile_setting_input form-group">
-            <label htmlFor="propertySlug">Property Slug</label>
+            <label htmlFor="propertySlug">Property Slug (SEO URL)</label>
             <input type="text" className="form-control"  id="propertySlug" value={slug} onChange={(e) => setSlug(e.target.value)}  placeholder="Enter property slug"/>
             {error.slug && <span className="text-danger">{error.slug}</span>}
           </div>
@@ -357,7 +453,7 @@ const addProperty = async (e) => {
        
         <div className="col-lg-6">
         <div className="my_profile_setting_input form-group">
-          <label htmlFor="propertyPrice">Price</label>
+          <label htmlFor="propertyPrice">Total Price</label>
           <input type="text" className="form-control"  id="propertyPrice" value={price} onChange={(e) => setPrice(e.target.value)}  placeholder="Enter property price"/>
           {error.price && <span className="text-danger">{error.price}</span>}
          
@@ -445,6 +541,29 @@ const addProperty = async (e) => {
               ))}
             </select>
             {error.selectedBuilder && <span className="text-danger">{error.selectedBuilder}</span>}
+        </div>
+      </div>
+      {/* End .col */}
+       <div className="col-lg-6 col-xl-6">
+        <div className="my_profile_setting_input ui_kit_select_search form-group">
+          <label>Seller</label>
+          <select
+              id="sellerSelect"
+              className="selectpicker form-select"
+              value={selectedSeller}
+              // onChange={handleSellerChange}
+              onChange={(e) => setSelectedSeller(e.target.value)} 
+              data-live-search="true"
+              data-width="100%"
+            >
+              <option value="">-- Select Seller --</option>
+              {sellers.map((seller) => (
+                <option key={seller._id} value={seller._id}>
+                  {seller.title}
+                </option>
+              ))}
+            </select>
+            {error.selectedSeller && <span className="text-danger">{error.selectedSeller}</span>}
         </div>
       </div>
       {/* End .col */}
@@ -677,12 +796,12 @@ const addProperty = async (e) => {
               onChange={handleAddressChange}/>
         </div>
       </div>
-                    </div>
-                    <div className=" mt30 ">
-                    <div className="col-lg-12">
-                      <h3 className="mb30">Detailed Information</h3>
-                    </div>
-                    <div className="row">
+      </div>
+      <div className=" mt30 ">
+      <div className="col-lg-12">
+        <h3 className="mb30">Detailed Information</h3>
+      </div>
+      <div className="row">
       <div className="col-lg-6 col-xl-4">
         <div className="my_profile_setting_input form-group">
           <label htmlFor="propertyId">Property ID</label>
@@ -697,7 +816,7 @@ const addProperty = async (e) => {
 
       <div className="col-lg-6 col-xl-4">
         <div className="my_profile_setting_input form-group">
-          <label htmlFor="propertyAreaSize">Area Size</label>
+          <label htmlFor="propertyAreaSize">Property Area</label>
           <input type="text"
               className="form-control"
               id="propertyAreaSize"
@@ -723,12 +842,39 @@ const addProperty = async (e) => {
 
       <div className="col-lg-6 col-xl-4">
         <div className="my_profile_setting_input form-group">
-          <label htmlFor="bedRooms">Bedrooms</label>
-          <input type="text"
+          <label htmlFor="bedRooms">{roomtext}</label>
+          <select
+              id="bedRooms"
+              className="selectpicker form-select"
+              value={bedrooms}
+              // onChange={(e) => setBedRooms(e.target.value)}
+              onChange={handleBedroomChange}
+              data-live-search="true"
+              data-width="100%"
+            >
+              <option value="">-- Select Bedrooms --</option>              
+              <option key={1} value="1">1</option>
+              <option key={2} value="2">2</option>
+              <option key={3} value="3">3</option>
+              <option key={4} value="4">4</option>
+              <option key={5} value="5">5</option>
+              <option key={6} value="Custom">Custom</option>
+            </select>
+            {bedrooms === "Custom" && (
+              <div className="mt-3">
+                <input
+                  className="form-control"
+                  placeholder="Enter custom bedroom"
+                  value={customBedroom}
+                  onChange={(e) => setCustomBedroom(e.target.value)}
+                />
+              </div>
+            )}
+          {/* <input type="text"
               className="form-control"
               id="bedRooms"
               value={bedrooms}
-              onChange={(e) => setBedRooms(e.target.value)} />
+              onChange={(e) => setBedRooms(e.target.value)} /> */}
         </div>
       </div>
       {/* End .col */}
@@ -736,11 +882,38 @@ const addProperty = async (e) => {
       <div className="col-lg-6 col-xl-4">
         <div className="my_profile_setting_input form-group">
           <label htmlFor="bathRooms">Bathrooms</label>
-          <input type="text"
+          {/* <input type="text"
               className="form-control"
               id="bathRooms"
               value={bathrooms}
-              onChange={(e) => setBathRooms(e.target.value)} />
+              onChange={(e) => setBathRooms(e.target.value)} /> */}
+              <select
+                id="bathRooms"
+                className="selectpicker form-select"
+                value={bathrooms}
+                // onChange={(e) => setBathRooms(e.target.value)}
+                onChange={handleBathroomsChange}
+                data-live-search="true"
+                data-width="100%"
+              >
+              <option value="">-- Select Bathrooms --</option>              
+              <option key={1} value="1">1</option>
+              <option key={2} value="2">2</option>
+              <option key={3} value="3">3</option>
+              <option key={4} value="4">4</option>
+              <option key={5} value="5">5</option>
+              <option key={6} value="Custom">Custom</option>
+            </select>
+            {bathrooms === "Custom" && (
+              <div className="mt-3">
+                <input
+                  className="form-control"
+                  placeholder="Enter custom Bathrooms"
+                  value={customBathrooms}
+                  onChange={(e) => setCustomBathrooms(e.target.value)}
+                />
+              </div>
+            )}
         </div>
       </div>
       {/* End .col */}
@@ -748,18 +921,45 @@ const addProperty = async (e) => {
       <div className="col-lg-6 col-xl-4">
         <div className="my_profile_setting_input form-group">
           <label htmlFor="garages">Parkings</label>
-          <input type="text"
+          {/* <input type="text"
               className="form-control"
               id="garages"
               value={garages}
-              onChange={(e) => setGarages(e.target.value)} />
+              onChange={(e) => setGarages(e.target.value)} /> */}
+            <select
+                id="garages"
+                className="selectpicker form-select"
+                value={garages}
+                onChange={handleParkingChange}
+                // onChange={(e) => setGarages(e.target.value)}
+                data-live-search="true"
+                data-width="100%"
+              >
+              <option value="">-- Select Parkings --</option>              
+              <option key={1} value="1">1</option>
+              <option key={2} value="2">2</option>
+              <option key={3} value="3">3</option>
+              <option key={4} value="4">4</option>
+              <option key={5} value="5">5</option>
+              <option key={6} value="Custom">Custom</option>
+            </select>
+            {garages === "Custom" && (
+              <div className="mt-3">
+                <input
+                  className="form-control"
+                  placeholder="Enter custom parking"
+                  value={customParking}
+                  onChange={(e) => setCustomParking(e.target.value)}
+                />
+              </div>
+            )}
         </div>
       </div>
       {/* End .col */}
 
       <div className="col-lg-6 col-xl-4">
         <div className="my_profile_setting_input form-group">
-          <label htmlFor="garagesSize">Parkings Size</label>
+          <label htmlFor="garagesSize">Parkings Size (in Sq. Ft.)</label>
           <input type="text"
               className="form-control"
               id="garagesSize"
@@ -811,7 +1011,7 @@ const addProperty = async (e) => {
       <div className="col-lg-6 col-xl-6">
      <div className="my_profile_setting_input form-group">
        
-     <div htmlFor="pdffileget">Brochure PDF</div>
+     <div htmlFor="pdffileget">Property Brochure (in PDF only)</div>
           <input
               type="file"
               accept="application/pdf"
@@ -856,7 +1056,7 @@ const addProperty = async (e) => {
       </div>
       {/* End .col */}
 
-      <div className=" mt30 ">
+      {/* <div className=" mt30 ">
                     <div className="col-lg-12">
                       <h3 className="mb30">Seller Information</h3>
                     </div>
@@ -892,7 +1092,7 @@ const addProperty = async (e) => {
         </div>
       </div>
       </div>
-      </div>
+      </div> */}
       <div className="row">
         <div className="col-lg-12">
           <h3 className="mb30">Property media</h3>
@@ -1004,6 +1204,109 @@ const addProperty = async (e) => {
       </div>
       {/* End .col */}
       </div>
+      <div className="my_dashboard_review mt30">
+        <div className="col-lg-12">
+          <h3 className="mb30">Floor Plans</h3>
+          <button className="btn admore_btn mb30" type="button" onClick={handleAddInput} >Add More</button>
+        </div>
+        {inputs.map((input, index) => (
+        <div className="row" key={input.id} >
+           <div className="col-xl-12">
+           <div className="my_profile_setting_input">
+          <button onClick={() => handleRemoveInput(input.id)} className="btn btn2 float-end">Remove</button>
+          </div>
+          </div>
+          <div className="col-xl-4">
+            <div className="my_profile_setting_input form-group">
+              <label htmlFor={`planTitle-${index}`}>Plan title {index + 1}</label>
+              <input type="text" className="form-control" id={`planTitle-${index}`} value={input.title}
+              onChange={(e) =>
+                handleInputChange(index, 'title', e.target.value)
+              }/>
+            </div>
+          </div>
+          <div className="col-xl-4">
+            <div className="my_profile_setting_input form-group">
+              <label htmlFor={`planBedrooms-${index}`}>Plan Bedrooms {index + 1}</label>
+              <input type="text" className="form-control" id={`planBedrooms-${index}`} value={input.bedroom}
+              onChange={(e) =>
+                handleInputChange(index, 'bedroom', e.target.value)
+              } />
+            </div>
+          </div>
+          {/* End .col */}
+          <div className="col-xl-4">
+            <div className="my_profile_setting_input form-group">
+              <label htmlFor={`planPrice-${index}`}>Plan Price {index + 1}</label>
+              <input type="text" className="form-control" id={`planPrice-${index}`} value={input.price}
+              onChange={(e) =>
+                handleInputChange(index, 'price', e.target.value)
+              } />
+            </div>
+          </div>
+           {/* End .col */}
+
+          <div className="col-xl-4">
+            <div className="my_profile_setting_input form-group">
+              <label htmlFor={`planSize-${index}`}>Plan Size {index + 1}</label>
+              <input type="text" className="form-control" id={`planSize-${index}`} value={input.areasize}
+              onChange={(e) =>
+                handleInputChange(index, 'areasize', e.target.value)
+              } />
+            </div>
+          </div>
+          {/* End .col */}
+          <div className="col-lg-4 col-xl-4">
+        <div className="my_profile_setting_input form-group">
+          
+        <div htmlFor="planimage">Plan Image {index + 1}</div>
+                <div className="wrap-custom-file height-150">
+              
+                    <input
+                        type="file"
+                        id={`planimage-${index}`}
+                        accept="image/png, image/gif, image/jpeg"
+                        onChange={(e) => uploadPlanImage(index, e.target.files[0])}
+                    />
+                    <label
+                        style={
+                          inputs[index]?.planimage
+                            ? {
+                                backgroundImage: `url(${URL.createObjectURL(inputs[index].planimage)})`,
+                              }
+                            : undefined
+                        }
+                        htmlFor={`planimage-${index}`}
+                      >
+                        <span>
+                            <i className="flaticon-download"></i> Upload plan image{" "}
+                        </span>
+                    </label>
+                </div>
+                <p>*minimum 260px x 260px</p>
+            </div>
+        
+      </div>
+        {/* End .col */}
+        <div className="col-xl-4">
+          <div className="my_profile_setting_textarea mt30-991">
+            <label htmlFor={`planDescription-${index}`}>Plan Description {index + 1}</label>
+            <textarea
+              className="form-control"
+              id={`planDescription-${index}`}
+              rows="4" value={input.description}
+              onChange={(e) =>
+                handleInputChange(index, 'description', e.target.value)
+              }
+            ></textarea>
+          </div>
+        </div>
+        
+        </div>
+        
+      ))}
+       </div>
+      {/* End .col */}
       <div className=" mt30 ">
                     <div className="col-lg-12">
                       <h3 className="mb30">Meta Information</h3>

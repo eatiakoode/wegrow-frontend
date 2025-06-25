@@ -11,7 +11,7 @@ const Categories = ({propertytype}) => {
     <ul className="list_details">
       {propertytype.map((item) => (
         <li key={item.typeId}>
-          <a href="#">
+           <a href={`/property-list?propertytype=${item.typeId}`}>
             <i className="fa fa-caret-right mr10"></i>
             {item.typeName}{" "}
             <span className="float-end">{item.propertyCount} properties</span>

@@ -237,7 +237,7 @@ const addPropertypage = async (e) => {
       </div>
         <div className="col-lg-6">
           <div className="my_profile_setting_input form-group">
-            <label htmlFor="propertySlug">Property Slug</label>
+            <label htmlFor="propertySlug">Property Slug (SEO URL)</label>
             <input type="text" className="form-control"  id="propertySlug" value={slug} onChange={(e) => setSlug(e.target.value)}  placeholder="Enter property slug"/>
             {error.slug && <span className="text-danger">{error.slug}</span>}
           </div>

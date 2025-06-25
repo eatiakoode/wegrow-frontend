@@ -1,7 +1,7 @@
 const SearchBox = () => {
   return (
     <form className="form-group">
-      <input
+      {/* <input
         type="text"
         className="form-control"
         id="exampleInputName1"
@@ -9,7 +9,7 @@ const SearchBox = () => {
       />
       <label htmlFor="exampleInputEmail">
         <span className="flaticon-magnifying-glass"></span>
-      </label>
+      </label> */}
     </form>
   );
 };

@@ -4,6 +4,7 @@ import { useState } from "react";
 import AppointmentCalendar from "../common/AppointmentCalendar";
 import { addEnquiryAPI } from "@/api/frontend/enquiry";
 import { useRouter, useParams } from "next/navigation";
+import { useForm } from 'react-hook-form';
 
 const Form = () => {
   const [appointmentDate, setAppointmentDate] = useState(null);
@@ -17,40 +18,55 @@ const Form = () => {
   const router = useRouter();
   
    
-  
+  const {
+      register,
+      handleSubmit,
+      formState: { errors, isSubmitting, isSubmitSuccessful },
+      reset,
+    } = useForm();
   
   // const addProperty = async (e) => {
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const newErrors = {};
-    const requiredFields = [
-      { key: "name", value: name, name: "Name" },
-      { key: "email", value: email, name: "Email" },
-      { key: "phone", value: phone, name: "Phone" },
-      { key: "subject", value: subject, name: "Subject" },
-      { key: "appointmentDate", value: appointmentDate, name: "Appointment Date" },
-      { key: "message", value: message, name: "Message" },
+  const onSubmit = async (data) => {
+    // alert("tset");
+    // e.preventDefault();
+    // const newErrors = {};
+    // const requiredFields = [
+    //   { key: "name", value: name, name: "Name" },
+    //   { key: "email", value: email, name: "Email" },
+    //   { key: "phone", value: phone, name: "Phone" },
+    //   { key: "subject", value: subject, name: "Subject" },
+    //   { key: "appointmentDate", value: appointmentDate, name: "Appointment Date" },
+    //   { key: "message", value: message, name: "Message" },
       
-    ];
+    // ];
   
-    requiredFields.forEach(field => {
-      if (!field.value || (typeof field.value === "string" && !field.value.trim())) {
-        console.log("field.name"+field.name)
-        newErrors[field.key] = `${field.name} is required`;
-      }
-    });
-    if (Object.keys(newErrors).length > 0) {
-      console.log("test")
-      return setError(newErrors);
-    }
+    // requiredFields.forEach(field => {
+    //   if (!field.value || (typeof field.value === "string" && !field.value.trim())) {
+    //     console.log("field.name"+field.name)
+    //     newErrors[field.key] = `${field.name} is required`;
+    //   }
+    // });
+    // if (Object.keys(newErrors).length > 0) {
+    //   console.log("test")
+    //   return setError(newErrors);
+    // }
     try {
       // console.log(propertySelectedImgs)
+      // const payload = {
+      //   name, email, phone, message, subject,
+      //   date:appointmentDate
+      // };
+      // console.log(payload)
+      // console.log("payload")
+//       if (!appointmentDate) {
+//   setError({ appointmentDate: "Appointment date is required" });
+//   return;
+// }
+// alert("test")
       const payload = {
-        name, email, phone, message, subject,
-        date:appointmentDate
-      };
-      console.log(payload)
-      console.log("payload")
+      ...data,
+      appointmentDate, // ✅ manually add the date
+    };
       const res = await addEnquiryAPI(payload);
       if(res.status=="success"){
         setSuccessmsg(res.message)
@@ -69,7 +85,7 @@ const Form = () => {
   }
   };
   return (
-    <form className="contact_form" action="#" onSubmit={handleSubmit}>
+    <form className="contact_form" action="#" onSubmit={handleSubmit(onSubmit)}>
       <div className="row">
         <div className="col-md-6">
           <div className="form-group">
@@ -80,10 +96,11 @@ const Form = () => {
               // required="required"
               type="text"
               placeholder="Name"
-              value={name} onChange={(e) => setName(e.target.value)}
+              // value={name} onChange={(e) => setName(e.target.value)}
+              {...register('name', { required: 'Name is required' })}
             />
             
-          {error.name && <span className="text-danger">{error.name}</span>}
+          {errors.name && <p className="text-danger">{errors.name.message}</p>}
           </div>
         </div>
         {/* End .col */}
@@ -92,14 +109,22 @@ const Form = () => {
           <div className="form-group">
             <input
               id="form_email"
-              name="form_email"
-              className="form-control required email"
+              // name="form_email"
+              className="form-control email"
               // required="required"
               type="email"
               placeholder="Email"
-              value={email} onChange={(e) => setEmail(e.target.value)}
+              // value={email} onChange={(e) => setEmail(e.target.value)}
+             {...register('email', {
+              required: 'Email is required',
+              pattern: {
+                value: /^\S+@\S+$/i,
+                message: 'Invalid email address',
+              },
+            })}
+              
             />
-            {error.email && <span className="text-danger">{error.email}</span>}
+            {errors.email && <span className="text-danger">{errors.email.message}</span>}
           </div>
         </div>
         {/* End .col */}
@@ -113,9 +138,24 @@ const Form = () => {
               // required="required"
               type="phone"
               placeholder="Phone"
-              value={phone} onChange={(e) => setPhone(e.target.value)}
+             {...register('phone', {
+                required: 'Phone number is required',
+                pattern: {
+                  value: /^[0-9]{10}$/,
+                  message: 'Enter a valid 10-digit phone number',
+                },
+                maxLength: {
+                  value: 10,
+                  message: 'Phone number must be 10 digits',
+                },
+                minLength: {
+                  value: 10,
+                  message: 'Phone number must be 10 digits',
+                },
+              })}
+              maxLength={10}
             />
-            {error.phone && <span className="text-danger">{error.phone}</span>}
+            {errors.phone && <span className="text-danger">{errors.phone.message}</span>}
           </div>
         </div>
         {/* End .col */}
@@ -129,16 +169,17 @@ const Form = () => {
               // required="required"
               type="text"
               placeholder="Subject"
-              value={subject} onChange={(e) => setSubject(e.target.value)}
+              // value={subject} onChange={(e) => setSubject(e.target.value)}
+              {...register('subject', { required: 'Subject is required' })}
             />
-            {error.subject && <span className="text-danger">{error.subject}</span>}
+            {errors.subject && <span className="text-danger">{errors.subject.message}</span>}
           </div>
         </div>
         {/* End .col */}
         <div className="col-md-6">
           <div className="form-group">
             <AppointmentCalendar onDateChange={setAppointmentDate} />
-            {error.appointmentDate && <span className="text-danger">{error.appointmentDate}</span>}
+            {/* {error.appointmentDate && <span className="text-danger">{error.appointmentDate}</span>} */}
           </div>
         </div>
         <div className="col-md-6">
@@ -150,9 +191,10 @@ const Form = () => {
                 rows="1"
                 // required="required"
                 placeholder="Your Message"
-                value={message} onChange={(e) => setMessage(e.target.value)}
+                // value={message} onChange={(e) => setMessage(e.target.value)}
+                {...register('message', { required: 'Message is required' })}
               ></textarea>
-              {error.message && <span className="text-danger">{error.message}</span>}
+              {errors.message && <span className="text-danger">{errors.message.message}</span>}
             </div>
           </div>
           {/* End .col */}
@@ -160,10 +202,10 @@ const Form = () => {
           
           <div className="col-sm-12">
             <div className="form-group mb0">
-            
-              <button type="submit" className="btn btn-lg btn-thm">
+             <button type="submit"  disabled={isSubmitting}  className="btn btn-lg btn-thm">{isSubmitting ? 'Sending...' : 'Send Message'}</button>
+              {/* <button type="submit" className="btn btn-lg btn-thm">
                 Send Message
-              </button>
+              </button> */}
             </div>
           {/* End button submit */}
         </div>

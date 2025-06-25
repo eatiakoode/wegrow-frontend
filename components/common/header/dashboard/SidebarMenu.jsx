@@ -45,6 +45,11 @@ const SidebarMenu = () => {
     { id: 1, name: "Add Agent", route: "/cmswegrow/add-agent" },
     { id: 2, name: "Agent List", route: "/cmswegrow/my-agent" }
   ];
+  const mySeller = [
+    { id: 1, name: "Add Seller", route: "/cmswegrow/add-seller" },
+    { id: 2, name: "Seller List", route: "/cmswegrow/my-seller" }
+  ];
+  
   
   const myProperties = [
     { id: 1, name: "Add Property", route: "/cmswegrow/create-listing" },
@@ -296,7 +301,7 @@ const SidebarMenu = () => {
                 ))}
               </ul>
             </li>
-            <li
+            {/* <li
               className={`treeview ${
                 isParentPageActive(myAgent, pathname) ? "active" : ""
               }`}
@@ -307,6 +312,25 @@ const SidebarMenu = () => {
               </a>
               <ul className="treeview-menu collapse" id="my-agent">
                 {myAgent.map((item) => (
+                  <li key={item.id}>
+                    <Link href={item.route}>
+                      <i className="fa fa-circle"></i> {item.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </li> */}
+            <li
+              className={`treeview ${
+                isParentPageActive(mySeller, pathname) ? "active" : ""
+              }`}
+            >
+              <a data-bs-toggle="collapse" href="#my-agent">
+                <i className="flaticon-home"></i> <span>My Seller</span>
+                <i className="fa fa-angle-down pull-right"></i>
+              </a>
+              <ul className="treeview-menu collapse" id="my-agent">
+                {mySeller.map((item) => (
                   <li key={item.id}>
                     <Link href={item.route}>
                       <i className="fa fa-circle"></i> {item.name}

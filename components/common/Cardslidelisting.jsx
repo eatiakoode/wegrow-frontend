@@ -86,7 +86,7 @@ const settings = {
   ]
 };
 
-const CardListing = () => {
+const CardListing = ({citiedetail}) => {
   const [expandedCards, setExpandedCards] = useState({});
 
   const toggleExpand = (index) => {
@@ -98,27 +98,28 @@ const CardListing = () => {
 
   return (
     <Slider {...settings}>
-      {nearbyPlaces.map((place, index) => {
+      {citiedetail?.cityglimpse?.map((place, index) => {
         const isExpanded = expandedCards[index] || false;
-        const visibleItems = isExpanded ? place.items : place.items.slice(0, 3);
+        // const visibleItems = isExpanded ? place.items : place.items.slice(0, 3);
 
         return (
           <div key={index} className="slide-padding">
             <div className="card">
-              <h3>{place.category}</h3>
-              <ul>
+              <h3>{place.title}</h3>
+              <div dangerouslySetInnerHTML={{ __html: place?.description }} />
+              {/* <ul>
                 {visibleItems.map((item, idx) => (
                   <li key={idx}>{item}</li>
                 ))}
-              </ul>
-              {place.items.length > 3 && (
+              </ul> */}
+              {/* {place.items.length > 3 && (
                 <button
                   className="toggle-btn btn-link"
                   onClick={() => toggleExpand(index)}
                 >
                   {isExpanded ? 'Read less' : 'Read more'}
                 </button>
-              )}
+              )} */}
             </div>
           </div>
         );

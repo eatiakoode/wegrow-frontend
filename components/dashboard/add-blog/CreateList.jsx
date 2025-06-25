@@ -2,9 +2,12 @@
 
 import { useEffect, useState } from "react";
 import { addBlogAPI } from "../../../api/blog";
+import { useRouter, useParams } from "next/navigation";
 
 import { getBlogcategoryTableData } from "../../../api/blogcategory";
+import { toast, ToastContainer } from 'react-toastify';
 const CreateList = () => {
+  const router = useRouter();
    const [title, setTitle] = useState("");
    const [slug, setSlug] = useState("");
    const [description, setDescription] = useState("");
@@ -15,21 +18,19 @@ const CreateList = () => {
     const [blogcategories, setBlogcategories] = useState([]);
   const [selectedBlogcategory, setSelectedBlogcategory] = useState("");
 useEffect(() => {
-    
-      const fetchBlogcategories = async () => {
-            try {
-              const response = await getBlogcategoryTableData();
-              console.log("response")
-              console.log(response)
-      
-              setBlogcategories(response || []);
-            } catch (err) {
-              console.error("Error fetching Blogcategory:", err);
-            }
-          };
-      
-          fetchBlogcategories();
-    });
+  const fetchBlogcategories = async () => {
+    try {
+      const response = await getBlogcategoryTableData();
+      console.log("response");
+      console.log(response);
+      setBlogcategories(response || []);
+    } catch (err) {
+      console.error("Error fetching Blogcategory:", err);
+    }
+  };
+
+  fetchBlogcategories();
+}, []);
     // upload profile
     const uploadLogo = (e) => {
         setLogo(e.target.files[0]);
@@ -84,7 +85,12 @@ useEffect(() => {
     // console.log(formData)
         const data = await addBlogAPI(formData); // Use FormData here
         console.log(data);
-        alert(data.message);
+        // alert(data.message);
+         toast.success(data.message);
+         if(data.status=="success"){
+          alert("TEST")
+        router.push("/cmswegrow/my-blog");
+         }
     
         setTitle("");
         setDescription("");
@@ -156,7 +162,7 @@ useEffect(() => {
       </div>
       <div className="col-lg-6 col-xl-6">
         <div className="my_profile_setting_input form-group">
-          <label htmlFor="blogSlug">Blog Slug</label>
+          <label htmlFor="blogSlug">Blog Slug (SEO URL)</label>
           <input type="text" className="form-control" id="blogSlug" value={slug} onChange={handleSlugChange} />
           {error && <p className="text-red-500 text-sm mt-1">{error}</p>}
         </div>
@@ -212,6 +218,7 @@ useEffect(() => {
         </div>
       </div>
       </form>
+      <ToastContainer />
     </>
   );
 };
