@@ -29,7 +29,9 @@ const AuthorReview = () => {
               
              
                <div> <span className="text-thm">Name: {item.name}</span></div>
+               <div> <span className="text-thm">Phone: {item.phone}</span> </div>
                <div> <span className="text-thm">Email: {item.email}</span> </div>
+               <div> <span className="text-thm">Subject: {item.budget}</span> </div>
               
               <span className="sspd_review float-end">
                 Enquiry At: {new Date(item.createdAt).toLocaleDateString('en-US', {
