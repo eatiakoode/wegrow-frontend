@@ -9,14 +9,14 @@ export async function generateMetadata({ params }) {
 
     if (!builder) {
       return {
-        title: 'Property Not Found | Wegrow',
+        title: 'Property Not Found | WeGrow',
         description: 'The requested builder was not found.',
       };
     }
 
     return {
-      title: builder.metatitle? builder.metatitle : builder.title || 'Property Details | Wegrow',
-      description: builder.metadescription?.slice(0, 200) ? builder.metadescription : builder.description?.slice(0, 200)|| 'Read more on Wegrow builder.',
+      title: builder.metatitle? builder.metatitle : builder.title || 'Property Details | WeGrow',
+      description: builder.metadescription?.slice(0, 200) ? builder.metadescription : builder.description?.slice(0, 200)|| 'Read more on WeGrow builder.',
       openGraph: {
         title: builder.title,
         description: builder.description?.slice(0, 150),

@@ -51,8 +51,8 @@ const index = () => {
 
                 <div className="col-lg-12 mb10">
                   <div className="breadcrumb_content style2">
-                    <h2 className="breadcrumb_title">Add New Property type</h2>
-                    <p>We are glad to see you again!</p>
+                    <h2 className="breadcrumb_title">Add a New Property Type</h2>
+                    <p>Create a property type to categorize listings and improve search filtering.</p>
                   </div>
                 </div>
                 {/* End .col */}

@@ -54,8 +54,8 @@ const index = () => {
 
                 <div className="col-lg-12 mb10">
                   <div className="breadcrumb_content style2">
-                    <h2 className="breadcrumb_title">Add New Landing Page</h2>
-                    <p>We are glad to see you again!</p>
+                    <h2 className="breadcrumb_title">Create a New Landing Page</h2>
+                    <p>Design a focused landing page to promote specific projects, locations, or campaigns and capture leads effectively.</p>
                   </div>
                 </div>
                 {/* End .col */}

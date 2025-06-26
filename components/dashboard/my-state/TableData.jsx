@@ -38,7 +38,7 @@ const TableData = () => {
     "Action",
   ];
 
-  let tbodyContent = stateList?.slice(0, 10)?.map((item) => (
+  let tbodyContent = stateList?.map((item) => (
     <tr key={item._id}>
       <td scope="row">
         <div className="feat_property list favorite_page style2">

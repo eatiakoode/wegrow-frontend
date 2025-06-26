@@ -318,13 +318,13 @@ const MobileMenuContent = () => {
         <div className="sidebar-header">
           <Link href="/" className="sidebar-header-inner">
             <Image
-              width={40}
-              height={45}
+              width={100}
+              height={38}
               className="nav_logo_img img-fluid mt20"
               src="/assets/images/header-logo2.png"
               alt="header-logo.png"
             />
-            {/* <span className="brand-text">Wegrow</span> */}
+            {/* <span className="brand-text">WeGrow</span> */}
           </Link>
           {/* End .logo */}
 
@@ -546,39 +546,16 @@ const MobileMenuContent = () => {
             </div>
           </MenuItem>
 
-          <MenuItem>
-            <div
-            onClick={()=>router.push("/login")}
-    
-              className={pathname === "/login" ? "ui-active" : 'inactive-mobile-menu'}
-            >
-              <span className="flaticon-user"></span> Login
-            </div>
-          </MenuItem>
+          
 
-          <MenuItem>
-            <div
-            onClick={()=>router.push("/register")}
         
-              className={
-                pathname === "/register" ? "ui-active" : 'inactive-mobile-menu'
-              }
-            >
-              <span className="flaticon-edit"></span> Register
-            </div>
-          </MenuItem>
+
+          
         </Menu>
         </div>
       {/* </Sidebar> */}
 
-      
-        <Link
-          href="/create-listing"
-          className="btn btn-block btn-lg btn-thm circle"
-          style={{width:'90%',margin:'0px auto'}}
-        >
-          <span className="flaticon-plus"></span> Create Listing
-        </Link></>
+       </>
      
    
   );

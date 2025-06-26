@@ -2,30 +2,27 @@
 
 "use client"; // Add this at the top
 import Image from "next/image";
-import properties from "../../../data/properties";
-import { getPropertyTableData,deletePropertyAPI } from "../../../api/property";
-import { useState, useEffect } from "react";
+import { deletePropertyAPI } from "@/api/property";
 import { useRouter } from "next/navigation";
+import { toast, ToastContainer } from 'react-toastify';
 
-const TableData = () => {
-  const [propertyList, setPropertyList] = useState([]);
+const TableData = ({properties,setProperties}) => {
+  // const [propertyList, setPropertyList] = useState([]);
       const router = useRouter();
     
-      const fetchPropertyData = async () => {
-        const data = await getPropertyTableData();
-        console.log(data)
-        setPropertyList(data);
-      };
+      
       const deleteProperty = async (id) => {
           const isConfirmed = window.confirm("Are you sure you want to delete this property?");
           if (!isConfirmed) return;
       
           try {
             const data = await deletePropertyAPI(id); // 🔹 Call the API function
-            
-            alert(data.message);
-            setPropertyList((prevPropertyList) => prevPropertyList.filter((property) => property._id !== id));
+            toast.success(data.message);
+            // alert(data.message);
+            setProperties((properties) => properties.filter((property) => property._id !== id));
             //setTitle(""); // ✅ Reset input after success
+            
+            return false
           } catch (error) {
             alert("Failed to delete Property.");
             //setError(error.message); // ❌ Show error if request fails
@@ -38,8 +35,8 @@ const TableData = () => {
     // "View",
     "Action",
   ];
-  let tbodyContent = propertyList?.slice(0, 10)?.map((item, index) => (
-    <tr key={item.id}>
+  let tbodyContent = properties?.map((item, index) => (
+    <tr key={item._id}>
       <td scope="row">
         <div className="feat_property list favorite_page style2">
           <div className="thumb">
@@ -125,9 +122,9 @@ const TableData = () => {
       {/* End td */}
     </tr>
   ));
-  useEffect(() => {
-    fetchPropertyData();
-  }, []);
+  // useEffect(() => {
+  //   fetchPropertyData();
+  // }, []);
   return (
     <>
       <table className="table">
@@ -144,6 +141,7 @@ const TableData = () => {
 
         <tbody>{tbodyContent}</tbody>
       </table>
+      <ToastContainer />
     </>
   );
 };

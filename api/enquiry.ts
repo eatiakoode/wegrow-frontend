@@ -38,7 +38,11 @@ const token =userData.token
     
   
     try {
-      const response = await fetch(process.env.NEXT_PUBLIC_ADMIN_API_URL+"api/enquiry"); // Replace with actual API endpoint
+      const response = await fetch(process.env.NEXT_PUBLIC_ADMIN_API_URL+"api/enquiry",
+        {
+          next: { revalidate: 60 }, // ✅ For Next.js ISR (revalidate every 1 hour)
+          cache: "force-cache", // ✅ Uses browser or server-side cache
+        }); // Replace with actual API endpoint
       if (!response.ok) {
         throw new Error("Failed to fetch products");
       }

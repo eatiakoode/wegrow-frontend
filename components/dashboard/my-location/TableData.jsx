@@ -1,21 +1,21 @@
 "use client"; // Add this at the top
 import Image from "next/image";
 
-import { getLocationTableData,deleteLocationAPI } from "../../../api/location.ts";
+import { getLocationTableData,deleteLocationAPI } from "@/api/location";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 // import moment from 'moment';
 
-const TableData = () => {
-  console.log("test")
-   const [locationList, setLocationList] = useState([]);
+const TableData = ({locationList,setLocationList}) => {
+  // console.log("test")
+  //  const [locationList, setLocationList] = useState([]);
     const router = useRouter();
   
-    const fetchLocationData = async () => {
-      const data = await getLocationTableData();
-      console.log(data)
-      setLocationList(data);
-    };
+    // const fetchLocationData = async () => {
+    //   const data = await getLocationTableData();
+    //   console.log(data)
+    //   setLocationList(data);
+    // };
     const deleteLocation = async (id) => {
         const isConfirmed = window.confirm("Are you sure you want to delete this location?");
         if (!isConfirmed) return;
@@ -42,7 +42,7 @@ const TableData = () => {
   // console.log(locationList)
   // console.log('locationListw')
 
-  let tbodyContent = locationList?.slice(0, 10)?.map((item) => (
+  let tbodyContent = locationList?.map((item) => (
     <tr key={item._id}>
       <td scope="row">
         <div className="feat_property list favorite_page style2">
@@ -102,9 +102,9 @@ const TableData = () => {
       {/* End td */}
     </tr>
   ));
-useEffect(() => {
-    fetchLocationData();
-  }, []); 
+// useEffect(() => {
+//     fetchLocationData();
+//   }, []); 
   
   return (
     <>

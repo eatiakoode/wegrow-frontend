@@ -2,9 +2,9 @@ import dynamic from "next/dynamic";
 import EditLanding from "@/components/dashboard/edit-landing";
 
 export const metadata = {
-  title: 'Create Listing || Wegrow - Real Estate React',
+  title: 'Create Listing || WeGrow - Real Estate',
   description:
-    'Wegrow - Real Estate React',
+    'WeGrow - Real Estate',
 }
 
 const index = () => {

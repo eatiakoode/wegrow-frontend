@@ -50,8 +50,8 @@ const index = () => {
 
                 <div className="col-lg-12 mb10">
                   <div className="breadcrumb_content style2">
-                    <h2 className="breadcrumb_title">Add New Country</h2>
-                    <p>We are glad to see you again!</p>
+                    <h2 className="breadcrumb_title">Add a New Country Listing</h2>
+                    <p>Use this form to expand your property location options.</p>
                   </div>
                 </div>
                 {/* End .col */}
@@ -70,7 +70,7 @@ const index = () => {
                 {/* End .col */}
               </div>
               {/* End .row */}
-<CopyRight/>
+              <CopyRight/>
               {/* <div className="row mt50">
                 <div className="col-lg-12">
                   <div className="copyright-widget text-center">

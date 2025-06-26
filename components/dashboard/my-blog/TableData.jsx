@@ -3,6 +3,7 @@ import Image from "next/image";
 import { getBlogTableData,deleteBlogAPI } from "../../../api/blog";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { toast, ToastContainer } from 'react-toastify';
 // import moment from 'moment';
 
 const TableData = () => {
@@ -21,7 +22,7 @@ const TableData = () => {
         try {
           const data = await deleteBlogAPI(id); // 🔹 Call the API function
           
-          alert(data.message);
+          toast.success(data.message);
           setBlogList((prevBlogList) => prevBlogList.filter((blog) => blog._id !== id));
           //setTitle(""); // ✅ Reset input after success
         } catch (error) {
@@ -113,6 +114,7 @@ useEffect(() => {
 
         <tbody>{tbodyContent}</tbody>
       </table>
+      <ToastContainer />
     </>
   );
 };

@@ -19,6 +19,12 @@ import { deletePropertyAPI, getPropertyById, updatePropertyAPI } from "../../../
 
 import selectedFiles from "../../../utils/selectedFiles";
 import Image from "next/image";
+import { toast, ToastContainer } from 'react-toastify';
+
+import predefinedOptions from "@/data/bedroomoption"
+import predefinedOptionsbathroom from "@/data/bathroomoption"
+import predefinedOptionsparking from "@/data/parkingoption"
+import { getSellerTableData } from "@/api/seller";
 
 
 
@@ -96,6 +102,8 @@ const [constructionstatus, setConstructionstatus] = useState([]);
   const [sellername, setSellerName] = useState([]);
   const [selleremail, setSellerEmail] = useState([]);
   const [sellerphone, setSellerPhone] = useState([]);
+  const [sellers, setSellers] = useState([]);
+  const [selectedSeller, setSelectedSeller] = useState("");
 
   const [zipcode, setZipCode] = useState([]);
   const [reranumber, setReraNumber] = useState([]);
@@ -108,7 +116,39 @@ const [constructionstatus, setConstructionstatus] = useState([]);
   const [siteplan, setSitePlan] = useState(null);
   const [siteplanget, setSitePlanGet] = useState(null);
   const [loading, setLoading] = useState(true);
-  
+  const [roomtext, setRoomText] = useState("Bedrooms");
+  const [customBedroom, setCustomBedroom] = useState("");
+
+  const handleBedroomChange = (e) => {
+    setBedRooms(e.target.value);
+
+    // Clear custom input if not "Custom"
+    if (e.target.value !== "Custom") {
+      setCustomBedroom("");
+    }
+  };
+
+  const [customBathrooms, setCustomBathrooms] = useState("");
+
+  const handleBathroomsChange = (e) => {
+    setBathRooms(e.target.value);
+
+    // Clear custom input if not "Custom"
+    if (e.target.value !== "Custom") {
+      setCustomBathrooms("");
+    }
+  };
+
+  const [customParking, setCustomParking] = useState("");
+
+  const handleParkingChange = (e) => {
+    setGarages(e.target.value);
+
+    // Clear custom input if not "Custom"
+    if (e.target.value !== "Custom") {
+      setCustomParking("");
+    }
+  };
   // upload profile
   const uploadSitePlan = (e) => {
     // alert("test")
@@ -163,6 +203,7 @@ const [constructionstatus, setConstructionstatus] = useState([]);
           // alert("test")
           const deleted = propertySelectedImgsget?.filter((file) => file._id !== _id);
           setPropertySelectedImgsGet(deleted);
+          toast.success(data.message);
           //setTitle(""); // ✅ Reset input after success
         } catch (error) {
           alert("Failed to delete property Image.");
@@ -197,6 +238,7 @@ useEffect(() => {
             setSelectedCategory(property.categoryid)
             setSelectedPropertytype(property.propertytypeid)
             setSelectedBuilder(property.builderid)
+            setSelectedSeller(property.sellerid)
             setSelectedAmenity(property.amenityid)
             setSelectedConstructionstatus(property.constructionstatus)
             setSelectedFurnishingstatus(property.furnishingstatus)
@@ -206,9 +248,29 @@ useEffect(() => {
             setPropertyid(property.propertyid)
             setAreasize(property.areasize)
             setSizePrefix(property.sizeprefix)
-            setBedRooms(property.bedrooms)
-            setBathRooms(property.bathrooms)
-            setGarages(property.garages)
+            
+            if (!predefinedOptions.includes(property.bedrooms) && property.bedrooms.trim() !== "") {
+                setCustomBedroom(property.bedrooms);
+                setBedRooms("Custom"); // Mark dropdown as 'Custom'
+              }  else {
+                setBedRooms(property.bedrooms)
+              }
+
+              if (!predefinedOptionsbathroom.includes(property.bathrooms) && property.bathrooms.trim() !== "") {
+                setCustomBathrooms(property.bathrooms);
+                setBathRooms("Custom"); // Mark dropdown as 'Custom'
+              }  else {
+                 setBathRooms(property.bathrooms)
+              }
+
+              
+           if (!predefinedOptionsparking.includes(property.garages) && property.garages.trim() !== "") {
+                setCustomParking(property.garages);
+                setGarages("Custom"); // Mark dropdown as 'Custom'
+              }  else {
+                 setGarages(property.garages)
+              }
+            // setGarages(property.garages)
             setGaragesSize(property.garagessize)
             setYearBuild(property.yearbuild)
             setMapEmbedCode(property.mapembedcode)
@@ -242,7 +304,7 @@ useEffect(() => {
             }
             
             // setPropertySelectedImgsGet(data.data.propertyimageurl)
-            setPropertySelectedImgsGet(property.images)
+            setPropertySelectedImgsGet(property?.images)
 
 
             // alert(property.countryid)
@@ -266,23 +328,28 @@ useEffect(() => {
         fetchProperty();
      
   const fetchData = async () => {
-    
+     const filter = {
+    limit: 1000,
+    page:  1
+  }
     try {
-      const [countryRes, constRes, furnRes, catRes, amenityRes, builderRes] = await Promise.all([
+      const [countryRes, constRes, furnRes, catRes, amenityRes, builderRes,sellerRes] = await Promise.all([
         getCountryTableData(),
         getConstructionstatusTableData(),
         getFurnishingstatusTableData(),
         getCategoryTableData(),
-        getAmenityTableData(),
-        getBuilderTableData(),
+        getAmenityTableData(filter),
+        getBuilderTableData(filter),
+        getSellerTableData(),
       ]);
 
       setCountries(countryRes || []);
       setConstructionstatus(constRes || []);
       setFurnishingstatus(furnRes || []);
       setCategories(catRes || []);
-      setAmenities(amenityRes || []);
-      setBuilders(builderRes || []);
+      setAmenities(amenityRes.items || []);
+      setBuilders(builderRes.items || []);
+      setSellers(sellerRes.data || []);
     } catch (err) {
       console.error("Error loading initial data:", err);
     }
@@ -294,6 +361,7 @@ useEffect(() => {
 
 const handleCountryChange = async (e) => {
   const value = e.target.value;
+   
   setSelectedCountry(value);
   try {
     const res = await getStateByCountryTableData(value);
@@ -327,6 +395,10 @@ const handleCityChange = async (e) => {
 
 const handleCategoryChange = async (e) => {
   const value = e.target.value;
+  if(value=="67ea48d17cfa562fe8eaafd0"){
+    setRoomText("Meeting rooms and cabins")
+
+  }
   setSelectedCategory(value);
   try {
     const res = await getPropertytypeByCategoryTableData(value);
@@ -391,6 +463,7 @@ const updateProperty = async (e) => {
     { key: "selectedCategory", value: selectedCategory, name: "Category" },
     { key: "selectedPropertytype", value: selectedPropertytype, name: "Property Type" },
     { key: "selectedBuilder", value: selectedBuilder, name: "Builder" },
+    { key: "selectedSeller", value: selectedSeller, name: "Seller" },
     { key: "selectedConstructionstatus", value: selectedConstructionstatus, name: "Construction Status" },
     { key: "selectedFurnishingstatus", value: selectedFurnishingstatus, name: "Furnishing Status" },
     // { key: "selectedAmenity", value: selectedAmenity, name: "Amenity" },
@@ -424,6 +497,7 @@ const updateProperty = async (e) => {
       categoryid: selectedCategory,
       propertytypeid: selectedPropertytype,
       builderid: selectedBuilder,
+      sellerid: selectedSeller,
       constructionstatus: selectedConstructionstatus,
       furnishingstatus: selectedFurnishingstatus,
       amenityid: selectedAmenity,
@@ -431,7 +505,13 @@ const updateProperty = async (e) => {
       featuredproperty: selectedFeaturedProperty,
       hotproperty: selectedHotProperty,
       propertyid, areasize, sizeprefix,
-      bedrooms, bathrooms, garages, garagessize,
+      // bedrooms,
+      bedrooms: bedrooms === "Custom" ? customBedroom : bedrooms,
+      //  bathrooms,
+      //   garages,
+      bathrooms: bathrooms === "Custom" ? customBathrooms : bathrooms,
+      garages: garages === "Custom" ? customParking : garages,
+      garagessize,
       yearbuild, mapembedcode, videoembedcode,
       nearby,specifications, sellername, selleremail, sellerphone, 
       reranumber, zipcode, metatitle, metadescription,featuredimage,siteplan,status,
@@ -454,7 +534,11 @@ const updateProperty = async (e) => {
 
     const res = await updatePropertyAPI(id,formData);
     // alert(res.message);
-    router.push("/cmswegrow/my-properties");
+    toast.success(res.message);
+    if(res.status=="success"){
+      router.push("/cmswegrow/my-properties");
+    }
+    // router.push("/cmswegrow/my-properties");
 
     // Reset fields and errors
     setError({});
@@ -479,7 +563,7 @@ const updateProperty = async (e) => {
       </div>
         <div className="col-lg-6">
           <div className="my_profile_setting_input form-group">
-            <label htmlFor="propertySlug">Property Slug</label>
+            <label htmlFor="propertySlug">Property Slug (SEO URL)</label>
             <input type="text" className="form-control"  id="propertySlug" value={slug} onChange={(e) => setSlug(e.target.value)}  placeholder="Enter property slug"/>
             {error.slug && <span className="text-danger">{error.slug}</span>}
           </div>
@@ -487,7 +571,7 @@ const updateProperty = async (e) => {
        
         <div className="col-lg-6">
         <div className="my_profile_setting_input form-group">
-          <label htmlFor="propertyPrice">Price</label>
+          <label htmlFor="propertyPrice">Total Price</label>
           <input type="text" className="form-control"  id="propertyPrice" value={price} onChange={(e) => setPrice(e.target.value)}  placeholder="Enter property price"/>
           {error.price && <span className="text-danger">{error.price}</span>}
          
@@ -575,6 +659,29 @@ const updateProperty = async (e) => {
               ))}
             </select>
             {error.selectedBuilder && <span className="text-danger">{error.selectedBuilder}</span>}
+        </div>
+      </div>
+      {/* End .col */}
+      <div className="col-lg-6 col-xl-6">
+        <div className="my_profile_setting_input ui_kit_select_search form-group">
+          <label>Seller</label>
+          <select
+              id="sellerSelect"
+              className="selectpicker form-select"
+              value={selectedSeller}
+              // onChange={handleSellerChange}
+              onChange={(e) => setSelectedSeller(e.target.value)} 
+              data-live-search="true"
+              data-width="100%"
+            >
+              <option value="">-- Select Seller --</option>
+              {sellers.map((seller) => (
+                <option key={seller._id} value={seller._id}>
+                  {seller.title}
+                </option>
+              ))}
+            </select>
+            {error.selectedSeller && <span className="text-danger">{error.selectedSeller}</span>}
         </div>
       </div>
       {/* End .col */}
@@ -826,7 +933,7 @@ const updateProperty = async (e) => {
 
       <div className="col-lg-6 col-xl-4">
         <div className="my_profile_setting_input form-group">
-          <label htmlFor="propertyAreaSize">Area Size</label>
+          <label htmlFor="propertyAreaSize">Property Area</label>
           <input type="text"
               className="form-control"
               id="propertyAreaSize"
@@ -852,12 +959,58 @@ const updateProperty = async (e) => {
 
       <div className="col-lg-6 col-xl-4">
         <div className="my_profile_setting_input form-group">
-          <label htmlFor="bedRooms">Bedrooms</label>
-          <input type="text"
+          <label htmlFor="bedRooms">{roomtext}</label>
+          {/* <input type="text"
               className="form-control"
               id="bedRooms"
               value={bedrooms}
-              onChange={(e) => setBedRooms(e.target.value)} />
+              onChange={(e) => setBedRooms(e.target.value)} /> */}
+            {/* <select
+              id="bedRooms"
+              className="selectpicker form-select"
+              value={bedrooms}
+              onChange={(e) => setBedRooms(e.target.value)}
+              data-live-search="true"
+              data-width="100%"
+            >
+              <option value="">-- Select Bedrooms --</option>              
+              <option key={1} value="1">1</option>
+              <option key={2} value="2">2</option>
+              <option key={3} value="3">3</option>
+              <option key={4} value="4">4</option>
+              <option key={5} value="5">5</option>
+            </select> */}
+            <select
+              id="bedRooms"
+              className="selectpicker form-select"
+              value={bedrooms}
+              // onChange={(e) => setBedRooms(e.target.value)}
+              onChange={handleBedroomChange}
+              data-live-search="true"
+              data-width="100%"
+            >
+              <option value="">-- Select Bedrooms --</option>              
+              {/* <option key={1} value="1">1</option>
+              <option key={2} value="2">2</option>
+              <option key={3} value="3">3</option>
+              <option key={4} value="4">4</option>
+              <option key={5} value="5">5</option> */}
+              {predefinedOptions.map((bedroom, index) => (
+                <option key={index} value={bedroom}>
+                  {bedroom}
+                </option>
+              ))}
+            </select>
+            {bedrooms === "Custom" && (
+              <div className="mt-3">
+                <input
+                  className="form-control"
+                  placeholder="Enter custom bedroom"
+                  value={customBedroom}
+                  onChange={(e) => setCustomBedroom(e.target.value)}
+                />
+              </div>
+            )}
         </div>
       </div>
       {/* End .col */}
@@ -865,11 +1018,52 @@ const updateProperty = async (e) => {
       <div className="col-lg-6 col-xl-4">
         <div className="my_profile_setting_input form-group">
           <label htmlFor="bathRooms">Bathrooms</label>
-          <input type="text"
+          {/* <input type="text"
               className="form-control"
               id="bathRooms"
               value={bathrooms}
-              onChange={(e) => setBathRooms(e.target.value)} />
+              onChange={(e) => setBathRooms(e.target.value)} /> */}
+            {/* <select
+                id="bathRooms"
+                className="selectpicker form-select"
+                value={bathrooms}
+                onChange={(e) => setBathRooms(e.target.value)}
+                data-live-search="true"
+                data-width="100%"
+              >
+              <option value="">-- Select Bathrooms --</option>              
+              <option key={1} value="1">1</option>
+              <option key={2} value="2">2</option>
+              <option key={3} value="3">3</option>
+              <option key={4} value="4">4</option>
+              <option key={5} value="5">5</option>
+            </select> */}
+            <select
+                id="bathRooms"
+                className="selectpicker form-select"
+                value={bathrooms}
+                // onChange={(e) => setBathRooms(e.target.value)}
+                onChange={handleBathroomsChange}
+                data-live-search="true"
+                data-width="100%"
+              >
+              <option value="">-- Select Bathrooms --</option>              
+              {predefinedOptionsbathroom.map((bathroom, index) => (
+                <option key={index} value={bathroom}>
+                  {bathroom}
+                </option>
+              ))}
+            </select>
+            {bathrooms === "Custom" && (
+              <div className="mt-3">
+                <input
+                  className="form-control"
+                  placeholder="Enter custom Bathrooms"
+                  value={customBathrooms}
+                  onChange={(e) => setCustomBathrooms(e.target.value)}
+                />
+              </div>
+            )}
         </div>
       </div>
       {/* End .col */}
@@ -877,18 +1071,60 @@ const updateProperty = async (e) => {
       <div className="col-lg-6 col-xl-4">
         <div className="my_profile_setting_input form-group">
           <label htmlFor="garages">Parkings</label>
-          <input type="text"
+          {/* <input type="text"
               className="form-control"
               id="garages"
               value={garages}
-              onChange={(e) => setGarages(e.target.value)} />
+              onChange={(e) => setGarages(e.target.value)} /> */}
+            {/* <select
+                id="garages"
+                className="selectpicker form-select"
+                value={garages}
+                onChange={(e) => setGarages(e.target.value)}
+                data-live-search="true"
+                data-width="100%"
+              >
+              <option value="">-- Select Parkings --</option>              
+              <option key={1} value="1">1</option>
+              <option key={2} value="2">2</option>
+              <option key={3} value="3">3</option>
+              <option key={4} value="4">4</option>
+              <option key={5} value="5">5</option>
+            </select> */}
+            <select
+                id="garages"
+                className="selectpicker form-select"
+                value={garages}
+                onChange={handleParkingChange}
+                // onChange={(e) => setGarages(e.target.value)}
+                data-live-search="true"
+                data-width="100%"
+              >
+              <option value="">-- Select Parkings --</option>              
+              <option key={1} value="1">1</option>
+              <option key={2} value="2">2</option>
+              <option key={3} value="3">3</option>
+              <option key={4} value="4">4</option>
+              <option key={5} value="5">5</option>
+              <option key={6} value="Custom">Custom</option>
+            </select>
+            {garages === "Custom" && (
+              <div className="mt-3">
+                <input
+                  className="form-control"
+                  placeholder="Enter custom parking"
+                  value={customParking}
+                  onChange={(e) => setCustomParking(e.target.value)}
+                />
+              </div>
+            )}
         </div>
       </div>
       {/* End .col */}
 
       <div className="col-lg-6 col-xl-4">
         <div className="my_profile_setting_input form-group">
-          <label htmlFor="garagesSize">Parkings Size</label>
+          <label htmlFor="garagesSize">Parkings Size (in Sq. Ft.)</label>
           <input type="text"
               className="form-control"
               id="garagesSize"
@@ -940,14 +1176,14 @@ const updateProperty = async (e) => {
      <div className="my_profile_setting_input form-group">
        {/* (getpdffile) */}
       
-     <div htmlFor="pdffileget">Brochure PDF</div>
+     <div htmlFor="pdffileget">Property Brochure (in PDF only)</div>
      {getpdffile && (
         <a
         href={`${process.env.NEXT_PUBLIC_API_URL}${property.brochurepdf}`}
         download
         className="icon_box_area style2 d-flex align-items-center"
         style={{ textDecoration: 'none' }}
-      >Download Brochure PDF</a>
+      >Download Property Brochure</a>
         )}
           <input
               type="file"
@@ -993,11 +1229,11 @@ const updateProperty = async (e) => {
       </div>
       {/* End .col */}
 
-      <div className=" mt30 ">
-                    <div className="col-lg-12">
-                      <h3 className="mb30">Seller Information</h3>
-                    </div>
-                    <div className="row">
+      {/* <div className=" mt30 ">
+      <div className="col-lg-12">
+        <h3 className="mb30">Seller Information</h3>
+      </div>
+      <div className="row">
       <div className="col-lg-6 col-xl-4">
         <div className="my_profile_setting_input form-group">
           <label htmlFor="sellerName">Seller Name</label>
@@ -1029,7 +1265,7 @@ const updateProperty = async (e) => {
         </div>
       </div>
       </div>
-      </div>
+      </div> */}
       <div className="row">
         <div className="col-lg-12">
           <h3 className="mb30">Property media</h3>
@@ -1236,11 +1472,12 @@ const updateProperty = async (e) => {
                   
       <div className="col-xl-12">
         <div className="my_profile_setting_input">
-          <button className="btn btn1 float-start">Back</button>
+          <button className="btn btn1 float-start" type="button" onClick={() => window.location.href = '/cmswegrow/my-properties'}>Back</button>
           <button className="btn btn2 float-end" type="submit" >Submit</button>
         </div>
       </div>
       </form>
+      <ToastContainer />
     </>
   );
 };

@@ -33,8 +33,13 @@ const index = ({params}) => {
   useEffect(() => {
     const fetchFaqs = async () => {
       try {
-        const data = await getFaqTableData();
-        setFaqs(data.data);
+        const filter ={
+     
+      "limit":1000,
+      "page":1
+    };
+        const data = await getFaqTableData(filter);
+        setFaqs(data?.data?.items);
       } catch (error) {
         console.error('Failed to fetch FAQs:', error);
       }

@@ -4,7 +4,7 @@ module.exports = [
     img: "/assets/images/team/shivam.webp",
     socialList: [
       { icon: "fa-facebook", liveLink: "https://www.facebook.com/" },
-      { icon: "fa-twitter", liveLink: "https://www.twitter.com/" },
+      { icon: "fa-x-twitter", liveLink: "https://www.twitter.com/" },
       {
         icon: "fa-instagram",
         liveLink: "https://www.instagram.com/",
@@ -17,7 +17,7 @@ module.exports = [
     office: "134 456 3210",
     mobile: "891 456 9874",
     fax: "342 654 1258",
-    email: "pakulla@Wegrow.com",
+    email: "pakulla@WeGrow.com",
     city: "Atlanta",
   },
   {
@@ -25,7 +25,7 @@ module.exports = [
     img: "/assets/images/team/mohit.webp",
     socialList: [
       { icon: "fa-facebook", liveLink: "https://www.facebook.com/" },
-      { icon: "fa-twitter", liveLink: "https://www.twitter.com/" },
+      { icon: "fa-x-twitter", liveLink: "https://www.twitter.com/" },
       {
         icon: "fa-instagram",
         liveLink: "https://www.instagram.com/",
@@ -38,7 +38,7 @@ module.exports = [
     office: "134 456 3210",
     mobile: "891 456 9874",
     fax: "342 654 1258",
-    email: "pakulla@Wegrow.com",
+    email: "pakulla@WeGrow.com",
     city: "Florida",
   },
   {
@@ -46,7 +46,7 @@ module.exports = [
     img: "/assets/images/team/tarun.webp",
     socialList: [
       { icon: "fa-facebook", liveLink: "https://www.facebook.com/" },
-      { icon: "fa-twitter", liveLink: "https://www.twitter.com/" },
+      { icon: "fa-x-twitter", liveLink: "https://www.twitter.com/" },
       {
         icon: "fa-instagram",
         liveLink: "https://www.instagram.com/",
@@ -59,7 +59,7 @@ module.exports = [
     office: "134 456 3210",
     mobile: "891 456 9874",
     fax: "342 654 1258",
-    email: "pakulla@Wegrow.com",
+    email: "pakulla@WeGrow.com",
     city: "Los Angeles",
   },
   {
@@ -67,7 +67,7 @@ module.exports = [
     img: "/assets/images/team/girl.webp",
     socialList: [
       { icon: "fa-facebook", liveLink: "https://www.facebook.com/" },
-      { icon: "fa-twitter", liveLink: "https://www.twitter.com/" },
+      { icon: "fa-x-twitter", liveLink: "https://www.twitter.com/" },
       {
         icon: "fa-instagram",
         liveLink: "https://www.instagram.com/",
@@ -80,7 +80,7 @@ module.exports = [
     office: "134 456 3210",
     mobile: "891 456 9874",
     fax: "342 654 1258",
-    email: "pakulla@Wegrow.com",
+    email: "pakulla@WeGrow.com",
     city: "Miami",
   },
   {
@@ -88,7 +88,7 @@ module.exports = [
     img: "/assets/images/team/user.webp",
     socialList: [
       { icon: "fa-facebook", liveLink: "https://www.facebook.com/" },
-      { icon: "fa-twitter", liveLink: "https://www.twitter.com/" },
+      { icon: "fa-x-twitter", liveLink: "https://www.twitter.com/" },
       {
         icon: "fa-instagram",
         liveLink: "https://www.instagram.com/",
@@ -101,7 +101,7 @@ module.exports = [
     office: "134 456 3210",
     mobile: "891 456 9874",
     fax: "342 654 1258",
-    email: "pakulla@Wegrow.com",
+    email: "pakulla@WeGrow.com",
     city: "New York",
   },
   {
@@ -109,7 +109,7 @@ module.exports = [
     img: "/assets/images/team/user.webp",
     socialList: [
       { icon: "fa-facebook", liveLink: "https://www.facebook.com/" },
-      { icon: "fa-twitter", liveLink: "https://www.twitter.com/" },
+      { icon: "fa-x-twitter", liveLink: "https://www.twitter.com/" },
       {
         icon: "fa-instagram",
         liveLink: "https://www.instagram.com/",
@@ -122,7 +122,7 @@ module.exports = [
     office: "134 456 3210",
     mobile: "891 456 9874",
     fax: "342 654 1258",
-    email: "pakulla@Wegrow.com",
+    email: "pakulla@WeGrow.com",
     city: "Orlando",
   },
   {
@@ -130,7 +130,7 @@ module.exports = [
     img: "/assets/images/team/7.jpg",
     socialList: [
       { icon: "fa-facebook", liveLink: "https://www.facebook.com/" },
-      { icon: "fa-twitter", liveLink: "https://www.twitter.com/" },
+      { icon: "fa-x-twitter", liveLink: "https://www.twitter.com/" },
       {
         icon: "fa-instagram",
         liveLink: "https://www.instagram.com/",
@@ -143,7 +143,7 @@ module.exports = [
     office: "134 456 3210",
     mobile: "891 456 9874",
     fax: "342 654 1258",
-    email: "pakulla@Wegrow.com",
+    email: "pakulla@WeGrow.com",
     city: "Atlanta",
   },
   {
@@ -151,7 +151,7 @@ module.exports = [
     img: "/assets/images/team/11.jpg",
     socialList: [
       { icon: "fa-facebook", liveLink: "https://www.facebook.com/" },
-      { icon: "fa-twitter", liveLink: "https://www.twitter.com/" },
+      { icon: "fa-x-twitter", liveLink: "https://www.twitter.com/" },
       {
         icon: "fa-instagram",
         liveLink: "https://www.instagram.com/",
@@ -164,7 +164,7 @@ module.exports = [
     office: "134 456 3210",
     mobile: "891 456 9874",
     fax: "342 654 1258",
-    email: "pakulla@Wegrow.com",
+    email: "pakulla@WeGrow.com",
     city: "Florida",
   },
   {
@@ -172,7 +172,7 @@ module.exports = [
     img: "/assets/images/team/12.jpg",
     socialList: [
       { icon: "fa-facebook", liveLink: "https://www.facebook.com/" },
-      { icon: "fa-twitter", liveLink: "https://www.twitter.com/" },
+      { icon: "fa-x-twitter", liveLink: "https://www.twitter.com/" },
       {
         icon: "fa-instagram",
         liveLink: "https://www.instagram.com/",
@@ -185,7 +185,7 @@ module.exports = [
     office: "134 456 3210",
     mobile: "891 456 9874",
     fax: "342 654 1258",
-    email: "pakulla@Wegrow.com",
+    email: "pakulla@WeGrow.com",
     city: "Los Angeles",
   },
   {
@@ -193,7 +193,7 @@ module.exports = [
     img: "/assets/images/team/13.jpg",
     socialList: [
       { icon: "fa-facebook", liveLink: "https://www.facebook.com/" },
-      { icon: "fa-twitter", liveLink: "https://www.twitter.com/" },
+      { icon: "fa-x-twitter", liveLink: "https://www.twitter.com/" },
       {
         icon: "fa-instagram",
         liveLink: "https://www.instagram.com/",
@@ -206,7 +206,7 @@ module.exports = [
     office: "134 456 3210",
     mobile: "891 456 9874",
     fax: "342 654 1258",
-    email: "pakulla@Wegrow.com",
+    email: "pakulla@WeGrow.com",
     city: "Miami",
   },
   {
@@ -214,7 +214,7 @@ module.exports = [
     img: "/assets/images/team/14.jpg",
     socialList: [
       { icon: "fa-facebook", liveLink: "https://www.facebook.com/" },
-      { icon: "fa-twitter", liveLink: "https://www.twitter.com/" },
+      { icon: "fa-x-twitter", liveLink: "https://www.twitter.com/" },
       {
         icon: "fa-instagram",
         liveLink: "https://www.instagram.com/",
@@ -227,7 +227,7 @@ module.exports = [
     office: "134 456 3210",
     mobile: "891 456 9874",
     fax: "342 654 1258",
-    email: "pakulla@Wegrow.com",
+    email: "pakulla@WeGrow.com",
     city: "New York",
   },
   {
@@ -235,7 +235,7 @@ module.exports = [
     img: "/assets/images/team/15.jpg",
     socialList: [
       { icon: "fa-facebook", liveLink: "https://www.facebook.com/" },
-      { icon: "fa-twitter", liveLink: "https://www.twitter.com/" },
+      { icon: "fa-x-twitter", liveLink: "https://www.twitter.com/" },
       {
         icon: "fa-instagram",
         liveLink: "https://www.instagram.com/",
@@ -248,7 +248,7 @@ module.exports = [
     office: "134 456 3210",
     mobile: "891 456 9874",
     fax: "342 654 1258",
-    email: "pakulla@Wegrow.com",
+    email: "pakulla@WeGrow.com",
     city: "Orlando",
   },
   {
@@ -256,7 +256,7 @@ module.exports = [
     img: "/assets/images/team/16.jpg",
     socialList: [
       { icon: "fa-facebook", liveLink: "https://www.facebook.com/" },
-      { icon: "fa-twitter", liveLink: "https://www.twitter.com/" },
+      { icon: "fa-x-twitter", liveLink: "https://www.twitter.com/" },
       {
         icon: "fa-instagram",
         liveLink: "https://www.instagram.com/",
@@ -269,7 +269,7 @@ module.exports = [
     office: "134 456 3210",
     mobile: "891 456 9874",
     fax: "342 654 1258",
-    email: "pakulla@Wegrow.com",
+    email: "pakulla@WeGrow.com",
     city: "Orlando",
   },
 ];

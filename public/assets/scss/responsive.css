@@ -160,6 +160,7 @@
 	.ht_left_widget ul li.list-inline-item:first-child,
 	.ht_left_widget ul li.list-inline-item:nth-child(2) {
 		margin-right: 10px;
+		margin-bottom: 10px;
 	}
 	.header_search_widget .mailchimp_form .form-control {
 		padding-left: 15px;
@@ -400,9 +401,13 @@
 		padding: 30px 20px 30px 10px;
 	}
 	header.header-nav.menu_style_home_one ul.ace-responsive-menu li.add_listing {
-		height: 33px;
+		/* height: 33px;
 		top: 0;
 		width: 100px;
+		vertical-align: baseline; */
+		height: 50px;
+		top: 0;
+		width: 50px;
 		vertical-align: baseline;
 	}
 	header.header-nav.menu_style_home_one ul.ace-responsive-menu li.add_listing a {
@@ -1450,6 +1455,13 @@
 	.dd_content2.home2.style2 {
 		top: 130px;
 	}
+	.our_partner{
+		margin: 0px 30px;
+	}
+	.start-partners div[class*='col-lg-5']{
+		margin-top: 50px;
+	}
+	.director-desk .who-we-are{padding-top: 25px;}
 }
 @media only screen and (max-width: 768px) {
 	.nav_logo_img.mt10 {

@@ -5,15 +5,15 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 // import moment from 'moment';
 
-const TableData = () => {
-   const [builderList, setBuilderList] = useState([]);
+const TableData = ({builderList,setBuilderList}) => {
+  //  const [builderList, setBuilderList] = useState([]);
     const router = useRouter();
   
-    const fetchBuilderData = async () => {
-      const data = await getBuilderTableData();
-      console.log(data)
-      setBuilderList(data);
-    };
+    // const fetchBuilderData = async () => {
+    //   const data = await getBuilderTableData();
+    //   console.log(data)
+    //   setBuilderList(data);
+    // };
     const deleteBuilder = async (id) => {
         const isConfirmed = window.confirm("Are you sure you want to delete this Builder?");
         if (!isConfirmed) return;
@@ -35,7 +35,7 @@ const TableData = () => {
     "Status",
     "Action",
   ];
-  let tbodyContent = builderList?.slice(0, 10)?.map((item) => (
+  let tbodyContent = builderList?.map((item) => (
     <tr key={item._id}>
       <td scope="row">
         <div className="feat_property list favorite_page style2">
@@ -94,9 +94,9 @@ const TableData = () => {
       {/* End td */}
     </tr>
   ));
-useEffect(() => {
-    fetchBuilderData();
-  }, []); 
+// useEffect(() => {
+//     fetchBuilderData();
+//   }, []); 
   return (
     <>
       <table className="table">

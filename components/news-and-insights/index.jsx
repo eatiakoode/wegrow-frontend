@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import CallToAction from "../common/CallToAction";
 import CopyrightFooter from "../common/footer/CopyrightFooter";
 import Footer from "../common/footer/Footer";
@@ -14,6 +15,7 @@ import BreadCrumbBanner from "./BreadCrumbBanner";
 
 
 const index = () => {
+  const [showBox, setShowBox] = useState(false);  
   return (
     <>
       {/* <!-- Main Header Nav --> */}
@@ -115,19 +117,19 @@ const index = () => {
 
           
 
-          <div className="row mt80">
+          {/* <div className="row mt80">
             <div className="col-lg-6 offset-lg-3">
               <div className="main-title text-center">
                 <h2>Why Choose Us</h2>
                 <p>Your Trusted Partner in Property Growth</p>
               </div>
             </div>
-          </div>
+          </div> */}
           {/* End .row */}
 
-          <div className="row">
+          {/* <div className="row">
             <WhyChoose />
-          </div>
+          </div> */}
           {/* End .row */}
         </div>
       </section>
@@ -135,7 +137,7 @@ const index = () => {
       
 
       {/* <!-- Our Partners --> */}
-      <section id="our-partners" className="our-partners">
+      {/* <section id="our-partners" className="our-partners">
         <div className="container">
           <div className="row">
             <div className="col-lg-6 offset-lg-3">
@@ -149,7 +151,7 @@ const index = () => {
             <Partners />
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* <!-- Start Call to Action --> */}
       <section className="start-partners bgc-thm pt50 pb50">
@@ -162,7 +164,7 @@ const index = () => {
       <section className="footer_one">
         <div className="container">
           <div className="row">
-            <Footer />
+            <Footer showBox={showBox} setShowBox={setShowBox} />
           </div>
         </div>
       </section>

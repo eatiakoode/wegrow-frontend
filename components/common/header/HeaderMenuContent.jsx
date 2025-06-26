@@ -430,12 +430,13 @@ const HeaderMenuContent = ({ float = "" }) => {
       </li>
       <li className={`list-inline-item add_listing ${float}`}>
         <a href="/sell-your-property">
+          <span className="fa fa-tags pe-xl-1"></span>
           <span className="dn-lg"> Sell your Property</span>
         </a>
       </li>
       <li className={`list-inline-item add_listing ${float}`}>
         <a href="/contact">
-          <span className="flaticon-calendar pe-1"></span>
+          <span className="flaticon-calendar pe-xl-1"></span>
           <span className="dn-lg"> Setup a Meeting</span>
         </a>
       </li>

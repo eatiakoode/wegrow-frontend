@@ -2,9 +2,9 @@ import dynamic from "next/dynamic";
 import BlogDetails from "@/components/blog-details";
 
 export const metadata = {
-  title: 'Blog Details || Wegrow - Real Estate React Template',
+  title: 'Builder Details || WeGrow ',
   description:
-    'Wegrow - Real Estate React Template',
+    'WeGrow',
 }
 
 const index = () => {

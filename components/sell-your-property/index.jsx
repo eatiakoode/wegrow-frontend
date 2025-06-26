@@ -132,22 +132,26 @@ const index = () => {
   // --- Fetch Initial Data ---
   useEffect(() => {
     const fetchData = async () => {
+      const filter = {
+    limit: 1000,
+    page:  1
+  }
       try {
         const [countryRes, constRes, furnRes, catRes, amenityRes, builderRes] = await Promise.all([
           getCountryTableData(),
           getConstructionstatusTableData(),
           getFurnishingstatusTableData(),
           getCategoryTableData(),
-          getAmenityTableData(),
-          getBuilderTableData(),
+          getAmenityTableData(filter),
+          getBuilderTableData(filter),
         ]);
   
         setCountries(countryRes || []);
         setConstructionstatus(constRes || []);
         setFurnishingstatus(furnRes || []);
         setCategories(catRes || []);
-        setAmenities(amenityRes || []);
-        setBuilders(builderRes || []);
+        setAmenities(amenityRes.item || []);
+        setBuilders(builderRes.items || []);
       } catch (err) {
         console.error("Error loading initial data:", err);
       }
@@ -358,7 +362,7 @@ const index = () => {
                </div>
                  <div className="col-lg-4">
                    <div className="my_profile_setting_input form-group">
-                     <label htmlFor="propertySlug">Property Slug</label>
+                     <label htmlFor="propertySlug">Property Slug (SEO URL)</label>
                      <input type="text" className="form-control"  id="propertySlug" value={slug} onChange={(e) => setSlug(e.target.value)}  placeholder="Enter property slug"/>
                      {error.slug && <span className="text-danger">{error.slug}</span>}
                    </div>

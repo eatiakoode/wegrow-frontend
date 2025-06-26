@@ -2,9 +2,9 @@ import dynamic from "next/dynamic";
 import MyPackage from "@/components/dashboard/my-package";
 
 export const metadata = {
-  title: 'My Package || Wegrow - Real Estate React Template',
+  title: 'My Package || WeGrow - Real Estate ',
   description:
-    'Wegrow - Real Estate React Template',
+    'WeGrow - Real Estate ',
 }
 
 const index = () => {

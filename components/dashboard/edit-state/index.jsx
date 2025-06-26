@@ -51,7 +51,7 @@ const index = () => {
                 <div className="col-lg-12 mb10">
                   <div className="breadcrumb_content style2">
                     <h2 className="breadcrumb_title">Edit State</h2>
-                    <p>We are glad to see you again!</p>
+                    <p>Use this form to include a new state or region under the selected country.</p>
                   </div>
                 </div>
                 {/* End .col */}

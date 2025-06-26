@@ -51,7 +51,7 @@ const index = () => {
                 <div className="col-lg-12 mb10">
                   <div className="breadcrumb_content style2">
                     <h2 className="breadcrumb_title">Add New Blog category</h2>
-                    <p>We are glad to see you again!</p>
+                    <p>Create a category to organize your blog posts and improve content navigation.</p>
                   </div>
                 </div>
                 {/* End .col */}

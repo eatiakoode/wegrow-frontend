@@ -6,8 +6,8 @@ import AllStatistics from "./AllStatistics";
 import StatisticsChart from "./StatisticsChart";
 import CopyRight from "../../common/footer/CopyRight";
 
-const index = () => {
-  return (
+const index = ({properties,enqueryProperty,enqueryLanding,enquery}) => {
+  return ( 
     <>
       {/* <!-- Main Header Nav --> */}
       <Header />
@@ -52,33 +52,33 @@ const index = () => {
 
                 <div className="col-lg-12 mb10">
                   <div className="breadcrumb_content style2">
-                    <h2 className="breadcrumb_title">Howdy, Hasan</h2>
-                    <p>We are glad to see you again!</p>
+                    <h2 className="breadcrumb_title">Your Dashboard Overview</h2>
+                    <p>Track properties, manage leads, and stay updated in one place.</p>
                   </div>
                 </div>
               </div>
               {/* End .row */}
 
               <div className="row">
-                <AllStatistics />
+                <AllStatistics properties={properties} enqueryProperty={enqueryProperty} enqueryLanding={enqueryLanding} enquery={enquery}/>
               </div>
               {/* End .row Dashboard top statistics */}
 
               <div className="row">
-                <div className="col-xl-7">
+                {/* <div className="col-xl-7">
                   <div className="application_statics">
                     <h4 className="mb-4">View Statistics</h4>
                     <StatisticsChart />
                   </div>
-                </div>
+                </div> */}
                 {/* End statistics chart */}
 
-                <div className="col-xl-5">
+                {/* <div className="col-xl-5">
                   <div className="recent_job_activity">
                     <h4 className="title mb-4">Recent Activities</h4>
                     <Activities />
                   </div>
-                </div>
+                </div> */}
               </div>
               {/* End .row  */}
 <CopyRight/>

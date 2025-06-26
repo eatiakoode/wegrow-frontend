@@ -15,15 +15,16 @@ import Footer from "@/components/common/footer/Footer";
 import Header from "@/components/common/header/DefaultHeader";
 import MobileMenu from "@/components/common/header/MobileMenu";
 import PopupSignInUp from "@/components/common/PopupSignInUp";
+import BreadCrumbBanner from "./BreadCrumbBanner";
 // import blogs from "@/data/blogs";
 import Image from "next/image";
 
 // import { getBlogBySlug } from "@/api/frontend/blog";
 
 // export const metadata = {
-//   title: 'Blog Details || Wegrow - Real Estate React Template',
+//   title: 'Blog Details || WeGrow - Real Estate ',
 //   description:
-//     'Wegrow - Real Estate React Template',
+//     'WeGrow - Real Estate ',
 // }
 
 const ListingDynamicDetailsV1 = ({blog}) => {
@@ -135,10 +136,10 @@ const ListingDynamicDetailsV1 = ({blog}) => {
                                         <a href={`https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`} target="_blank"><i className="fa fa-facebook"></i> Facebook</a>
                                       </li>
                                       <li>
-                                        <a href={`https://twitter.com/intent/tweet?url=${shareUrl}&text=${text}&hashtags=${hashtags}`} target="_blank"><i className="fa fa-linkedin"></i> Linkedin</a>
+                                        <a href={`https://www.linkedin.com/sharing/share-offsite/?url=${shareUrl}`} target="_blank"><i className="fa fa-linkedin"></i> Linkedin</a>
                                       </li>
                                       <li>
-                                        <a href={`https://www.linkedin.com/sharing/share-offsite/?url=${shareUrl}`} target="_blank"><i className="fa fa-twitter"></i> Twitter</a>
+                                        <a href={`https://twitter.com/intent/tweet?url=${shareUrl}&text=${text}&hashtags=${hashtags}`}  target="_blank"><i className="fa fa-x-twitter"></i> Twitter</a>
                                       </li>
                                        <li>
                                         <a href="https://www.instagram.com/" target="_blank"><i className="fa fa-instagram"></i> Instagram</a>

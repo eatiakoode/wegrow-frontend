@@ -27,14 +27,21 @@ const OurMission = () => {
     <>
       <div className="col-lg-7 col-xl-6">
         <div className="about_content">
-          <h2 className="mt0 color-main">About WeGrow Infraventures</h2>
-          <h4 className="mt0 mb0">Expertise : Commercial Projects | Residential Projects | Real Estate Investment | Client-Centric Solutions</h4>
+          <h2 className="mt0 color-main">About WeGrow Infraventures Pvt. Ltd.</h2>
+          <h4 className="mt0 mb0">Expertise : Commercial Projects | Residential Projects | Real Estate Investment | Client-Centric Solutions
+</h4>
+<p>At <strong>WeGrow Infraventures Pvt. Ltd.</strong>, we are driven by a clear vision — to become the most trusted and result-driven real estate consultancy in <strong>Gurgaon and Delhi NCR</strong>. Since our inception, we have dedicated ourselves to understanding the unique needs of our clients and delivering tailored real estate solutions that meet their expectations, financial goals, and long-term aspirations.</p>
           <p>
-          <strong>WeGrow Infraventures Pvt Ltd</strong> was founded with the vision of becoming the leading real estate consultancy in Gurgaon and Delhi NCR, offering personalized and result-oriented solutions. From day one, our mission has been to understand the unique needs of our clients and provide property solutions that align with their expectations, budgets, and long-term goals. Whether it’s a first-time homebuyer seeking their dream home or an investor looking for profitable opportunities, we ensure a seamless experience.
+          Whether you're a <strong>first-time homebuyer</strong>, a <strong>business owner seeking the right commercial space</strong>, or an <strong>investor looking for high-yield opportunities</strong>, WeGrow ensures a seamless and rewarding experience at every step of your journey.
           </p>
-          <p>Our team of experienced professionals combines in-depth market knowledge with a client-centric approach to deliver exceptional results. We prioritize trust, transparency, and long-term relationships built on mutual success.</p>
-          <p>With expertise in the Gurgaon and Delhi NCR markets, <strong>WeGrow Infraventures Pvt Ltd</strong> helps buyers and investors make informed decisions. Our consulting services are tailored to meet individual financial objectives, ensuring maximum value and transparency throughout the process. Whether you are new to real estate or a seasoned investor, we connect you with the right properties.</p>
-          <p>Our vision is to establish ourselves as the most trusted property consulting firm in the region, known for integrity and transparency. At <strong>WeGrow</strong>, we are committed to empowering our clients with expert guidance, delivering exceptional value, and fostering relationships that stand the test of time.</p>
+          <p><strong>Why Choose WeGrow?</strong></p>
+          <ul>
+            <li><strong>Client-Centric Approach: </strong>We prioritize your goals, not transactions. Our strategies are shaped around your needs to ensure satisfaction and long-term value.</li>
+            <li><strong>Expert Market Knowledge: </strong>With deep insights into Gurgaon and Delhi NCR's ever-evolving real estate landscape, we guide you toward smart, informed decisions.</li>
+            <li><strong>Transparent Processes: </strong>We believe trust is built on honesty. Our processes are fully transparent, with clear communication and no hidden surprises.</li>
+            <li><strong>Comprehensive Services: </strong>From residential and commercial properties to investment advisory, we cover all aspects of real estate with professionalism and integrity.</li>
+
+          </ul>
 
           {/* <ul className="ab_counting">
             {missionContent.map((item) => (

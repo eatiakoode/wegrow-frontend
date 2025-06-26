@@ -102,13 +102,17 @@ const [selectedAmenity, setSelectedAmenity] = useState("");
 useEffect(() => {
   const fetchData = async () => {
     try {
+      const filter = {
+    limit: 1000,
+    page:  1
+  }
       const [ amenityRes] = await Promise.all([
         
-        getAmenityTableData(),
+        getAmenityTableData(filter),
       ]);
 
       
-      setAmenities(amenityRes || []);
+      setAmenities(amenityRes.items || []);
     } catch (err) {
       console.error("Error loading initial data:", err);
     }
@@ -119,8 +123,13 @@ useEffect(() => {
   // Fetch data and set options
   const fetchData = async () => {
     try {
-      const data = await getFaqTableData(); // Make sure this returns the expected format
-      const mappedOptions = data.map((item) => ({
+      const filter ={
+     
+      "limit":1000,
+      "page":1
+    };
+      const data = await getFaqTableData(filter); // Make sure this returns the expected format
+      const mappedOptions = data?.items.map((item) => ({
         label: item.title,
         value: item._id,
       }));
@@ -267,7 +276,7 @@ const addLanding = async (e) => {
       </div>
         <div className="col-lg-6">
           <div className="my_profile_setting_input form-group">
-            <label htmlFor="propertySlug">Property Slug</label>
+            <label htmlFor="propertySlug">Property Slug (SEO URL)</label>
             <input type="text" className="form-control"  id="propertySlug" value={slug} onChange={(e) => setSlug(e.target.value)}  placeholder="Enter property slug"/>
             {error.slug && <span className="text-danger">{error.slug}</span>}
           </div>
@@ -647,7 +656,7 @@ const addLanding = async (e) => {
                   
       <div className="col-xl-12">
         <div className="my_profile_setting_input">
-          <button className="btn btn1 float-start">Back</button>
+          <button className="btn btn1 float-start" type="button" onClick={() => window.location.href = '/cmswegrow/my-dashboard'}>Back</button>
           <button className="btn btn2 float-end" type="submit" >Submit</button>
         </div>
       </div>

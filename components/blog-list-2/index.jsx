@@ -8,6 +8,7 @@ import Header from "../common/header/DefaultHeader";
 import MobileMenu from "../common/header/MobileMenu";
 import PopupSignInUp from "../common/PopupSignInUp";
 import BreadCrumbBlog from "./BreadCrumbBlog";
+import BreadCrumbBanner from "./BreadCrumbBanner";
 import Blog from "./Blog";
 
 const index = ({blogs}) => {
@@ -22,6 +23,8 @@ const index = ({blogs}) => {
 
       {/* <!-- Modal --> */}
       <PopupSignInUp />
+
+      <BreadCrumbBanner />
 
       {/* <!-- Main Blog Post Content --> */}
       <section className="blog_post_container bgc-f7">

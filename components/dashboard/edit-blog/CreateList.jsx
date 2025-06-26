@@ -4,9 +4,11 @@ import { useEffect, useState } from "react";
 import { useRouter, useParams } from "next/navigation";
 import { getBlogById, updateBlogAPI } from "../../../api/blog";
 import { getBlogcategoryTableData } from "../../../api/blogcategory";
+import { toast, ToastContainer } from 'react-toastify';
 
 
 const CreateList = () => {
+  
   const params = useParams();  
     const id = params?.id;  
     const router = useRouter();
@@ -87,9 +89,12 @@ const CreateList = () => {
         if (logo) {
           formData.append("logo", logo);
         }
-        await updateBlogAPI(id, formData);
-        alert("Blog updated successfully!");
+       const res = await updateBlogAPI(id, formData);
+        // alert("Blog updated successfully!");
+        toast.success(res.message);
+         if(res.status=="success"){
         router.push("/cmswegrow/my-blog");
+         }
       } catch (error) {
         alert("Failed to update Blog.");
         console.error(error);
@@ -170,7 +175,7 @@ const CreateList = () => {
       {/* End .col */}
       <div className="col-lg-6 col-xl-6">
         <div className="my_profile_setting_input form-group">
-          <label htmlFor="BlogSlug">Blog Slug</label>
+          <label htmlFor="BlogSlug">Blog Slug (SEO URL)</label>
           <input
         type="text"
         className="form-control"
@@ -230,11 +235,12 @@ const CreateList = () => {
 
       <div className="col-xl-12">
         <div className="my_profile_setting_input">
-          <button className="btn btn1 float-start">Back</button>
+          <button className="btn btn1 float-start" type="button" onClick={() => window.location.href = '/cmswegrow/my-blog'}>Back</button>
           <button className="btn btn2 float-end">Submit</button>
         </div>
       </div>
       </form>
+      <ToastContainer />
     </>
   );
 };

@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useRouter, useParams } from "next/navigation";
 import Image from "next/image";
 import { deletePropertyplanAPI, addPropertyPlanAPI } from "@/api/propertyplan";
+import { toast, ToastContainer } from 'react-toastify';
 
 
 const FloorPlans = ({inputs,setInputs,property,setPlanImage,planimage}) => {
@@ -92,6 +93,7 @@ const FloorPlans = ({inputs,setInputs,property,setPlanImage,planimage}) => {
     // Example: Send to API
     try {
       const res = await addPropertyPlanAPI(formData);
+      toast.success(res.message);
       if (property?.id) {
         // alert("test")
         router.push(`/cmswegrow/edit-property/${property.id}`);
@@ -112,8 +114,8 @@ const FloorPlans = ({inputs,setInputs,property,setPlanImage,planimage}) => {
     }
   };
   useEffect(() => {
-    setPropertyPlanInputGet(property.floorplan);
-    setInputsget(property.floorplan);
+    setPropertyPlanInputGet(property?.floorplan);
+    setInputsget(property?.floorplan);
 }, [property]);
   return (
     <form onSubmit={updatePropertyFloorPlan}>
@@ -254,7 +256,7 @@ const FloorPlans = ({inputs,setInputs,property,setPlanImage,planimage}) => {
           </div>
           <div className="col-xl-4">
             <div className="my_profile_setting_input form-group">
-              <label htmlFor={`planTitle-${index}`}>Plan Description {index + 1}</label>
+              <label htmlFor={`planTitle-${index}`}>Plan title {index + 1}</label>
               <input type="text" className="form-control" id={`planTitle-${index}`} value={input.title}
               onChange={(e) =>
                 handleInputChange(index, 'title', e.target.value)
@@ -284,7 +286,7 @@ const FloorPlans = ({inputs,setInputs,property,setPlanImage,planimage}) => {
 
           <div className="col-xl-4">
             <div className="my_profile_setting_input form-group">
-              <label htmlFor={`planSize-${index}`}>Plan Size</label>
+              <label htmlFor={`planSize-${index}`}>Plan Size {index + 1}</label>
               <input type="text" className="form-control" id={`planSize-${index}`} value={input.areasize}
               onChange={(e) =>
                 handleInputChange(index, 'areasize', e.target.value)
@@ -295,7 +297,7 @@ const FloorPlans = ({inputs,setInputs,property,setPlanImage,planimage}) => {
           <div className="col-lg-4 col-xl-4">
         <div className="my_profile_setting_input form-group">
           
-        <div htmlFor="planimage">Plan Image</div>
+        <div htmlFor="planimage">Plan Image {index + 1}</div>
                 <div className="wrap-custom-file height-150">
               
                     <input
@@ -326,7 +328,7 @@ const FloorPlans = ({inputs,setInputs,property,setPlanImage,planimage}) => {
         {/* End .col */}
         <div className="col-xl-4">
           <div className="my_profile_setting_textarea mt30-991">
-            <label htmlFor={`planDescription-${index}`}>Plan Description</label>
+            <label htmlFor={`planDescription-${index}`}>Plan Description {index + 1}</label>
             <textarea
               className="form-control"
               id={`planDescription-${index}`}

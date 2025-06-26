@@ -51,6 +51,7 @@ const CreateList = () => {
     const handleSubmit = async (e) => {
       e.preventDefault();
       try {
+        console.log("title",title)
         const formData = new FormData();
         formData.append("title", title);
         formData.append("status", status);
@@ -67,6 +68,7 @@ const CreateList = () => {
     };
   
     const handleChange = (e) => {
+      setTitle(e.target.value)
       setAmenity((prev) => ({ ...prev, [e.target.name]: e.target.value }));
     };
   
@@ -113,6 +115,7 @@ const CreateList = () => {
         id="amenityTitle"
         name="title"
         value={amenity.title}
+        // onChange={(e) => setTitle(e.target.value)}
         onChange={handleChange}
       />
         </div>
@@ -146,7 +149,7 @@ const CreateList = () => {
 
       <div className="col-xl-12">
         <div className="my_profile_setting_input">
-          <button className="btn btn1 float-start">Back</button>
+          <button className="btn btn1 float-start" type="button" onClick={() => window.location.href = '/cmswegrow/my-amenities'}>Back</button>
           <button className="btn btn2 float-end">Submit</button>
         </div>
       </div>

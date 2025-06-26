@@ -1,20 +1,13 @@
 "use client"; // Add this at the top
 import Image from "next/image";
 
-import { getAmenityTableData,deleteAmenityAPI } from "../../../api/amenity";
+import { getAmenityTableData,deleteAmenityAPI } from "@/api/amenity";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 // import moment from 'moment';
-const TableData = () => {
-  console.log("test")
-   const [amenityList, setAmenityList] = useState([]);
-    const router = useRouter();
+const TableData = ({amenityList,setAmenityList}) => {
+  const router = useRouter();
   
-    const fetchAmenityData = async () => {
-      const data = await getAmenityTableData();
-      console.log(data)
-      setAmenityList(data);
-    };
     const deleteAmenity = async (id) => {
         const isConfirmed = window.confirm("Are you sure you want to delete this Amenity?");
         if (!isConfirmed) return;
@@ -36,7 +29,7 @@ const TableData = () => {
     "Status",
     "Action",
   ];
-  let tbodyContent = amenityList?.slice(0, 30)?.map((item) => (
+  let tbodyContent = amenityList?.map((item) => (
     <tr key={item._id}>
       <td scope="row">
         <div className="feat_property list favorite_page style2">
@@ -95,9 +88,7 @@ const TableData = () => {
       {/* End td */}
     </tr>
   ));
-useEffect(() => {
-    fetchAmenityData();
-  }, []); 
+
   return (
     <>
       <table className="table">

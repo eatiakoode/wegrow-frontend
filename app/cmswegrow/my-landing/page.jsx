@@ -2,9 +2,9 @@ import dynamic from "next/dynamic";
 import MyLanding from "@/components/dashboard/my-landing";
 
 export const metadata = {
-  title: 'My landing page || Wegrow - Real Estate React Template',
+  title: 'My landing page || WeGrow - Real Estate ',
   description:
-    'Wegrow - Real Estate React Template',
+    'WeGrow - Real Estate ',
 }
 
 const index = () => {

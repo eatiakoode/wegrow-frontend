@@ -123,7 +123,7 @@ const CreateList = () => {
       {/* End .col */}
       <div className="col-lg-6 col-xl-6">
         <div className="my_profile_setting_input form-group">
-          <label htmlFor="BuilderSlug">Builder Slug</label>
+          <label htmlFor="BuilderSlug">Builder Slug (SEO URL)</label>
           <input
         type="text"
         className="form-control"
@@ -169,7 +169,7 @@ const CreateList = () => {
 
       <div className="col-xl-12">
         <div className="my_profile_setting_input">
-          <button className="btn btn1 float-start">Back</button>
+          <button className="btn btn1 float-start" type="button" onClick={() => window.location.href = '/cmswegrow/my-builder'}>Back</button>
           <button className="btn btn2 float-end">Submit</button>
         </div>
       </div>

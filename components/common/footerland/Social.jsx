@@ -1,7 +1,7 @@
 const Social = () => {
   const socialContent = [
     { id: 1, liveLink: "#", icon: "fa-facebook" },
-    { id: 2, liveLink: "#", icon: "fa-twitter" },
+    { id: 2, liveLink: "#", icon: "fa-x-twitter" },
     { id: 3, liveLink: "#", icon: "fa-instagram" },
     { id: 4, liveLink: "#", icon: "fa-pinterest" },
   ];

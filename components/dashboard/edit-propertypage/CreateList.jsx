@@ -117,21 +117,24 @@ useEffect(() => {
         fetchPropertypage();
      
   const fetchData = async () => {
-    
+    const filter = {
+    limit: 1000,
+    page:  1
+  }
     try {
       const [countryRes, constRes, furnRes, catRes, builderRes] = await Promise.all([
         getCountryTableData(),
         getConstructionstatusTableData(),
         getFurnishingstatusTableData(),
         getCategoryTableData(),
-        getBuilderTableData(),
+        getBuilderTableData(filter),
       ]);
 
       setCountries(countryRes || []);
       setConstructionstatus(constRes || []);
       setFurnishingstatus(furnRes || []);
       setCategories(catRes || []);
-      setBuilders(builderRes || []);
+      setBuilders(builderRes.items || []);
     } catch (err) {
       console.error("Error loading initial data:", err);
     }
@@ -303,7 +306,7 @@ const updatePropertypage = async (e) => {
       </div>
         <div className="col-lg-6">
           <div className="my_profile_setting_input form-group">
-            <label htmlFor="propertySlug">Property Slug</label>
+            <label htmlFor="propertySlug">Property Slug (SEO URL)</label>
             <input type="text" className="form-control"  id="propertySlug" value={slug} onChange={(e) => setSlug(e.target.value)}  placeholder="Enter property slug"/>
             {error.slug && <span className="text-danger">{error.slug}</span>}
           </div>
@@ -575,7 +578,7 @@ const updatePropertypage = async (e) => {
                   
       <div className="col-xl-12">
         <div className="my_profile_setting_input">
-          <button className="btn btn1 float-start">Back</button>
+          <button className="btn btn1 float-start" type="button" onClick={() => window.location.href = '/cmswegrow/my-propertypage'}>Back</button>
           <button className="btn btn2 float-end" type="submit" >Submit</button>
         </div>
       </div>

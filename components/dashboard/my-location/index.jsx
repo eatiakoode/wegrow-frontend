@@ -1,3 +1,4 @@
+"use client"; // Add this at the top
 import Header from "../../common/header/dashboard/Header";
 import SidebarMenu from "../../common/header/dashboard/SidebarMenu";
 import MobileMenu from "../../common/header/MobileMenu";
@@ -7,7 +8,33 @@ import Pagination from "./Pagination";
 import SearchBox from "./SearchBox";
 import CopyRight from "../../common/footer/CopyRight";
 
+import { useState, useEffect } from "react";
+import { getLocationTableData } from "@/api/location";
+
 const index = () => {
+  const [currentPage, setCurrentPage] = useState(1);
+  // const [properties, setProperties] = useState(initialProperties || []);
+
+  const [locationList, setLocationList] = useState([]);
+  const [totalCount, setTotalCount] = useState([]);
+  const [pageSize] = useState(10);
+
+  useEffect(() => {
+        const fetchLocationData = async () => {
+        const filter ={
+     
+      "limit":pageSize,
+      "page":currentPage
+    };
+     const data = await getLocationTableData(filter);
+        setLocationList(data.items);
+        console.log(data.items)
+          // setLoaderProperty(false)
+          // setPropertyList(data.items)
+          setTotalCount(data.totalCount)
+      };
+    fetchLocationData();
+  }, [currentPage]);
   return (
     <>
       {/* <!-- Main Header Nav --> */}
@@ -53,8 +80,8 @@ const index = () => {
 
                 <div className="col-lg-4 col-xl-4 mb10">
                   <div className="breadcrumb_content style2 mb30-991">
-                    <h2 className="breadcrumb_title">My Favorites</h2>
-                    <p>We are glad to see you again!</p>
+                    <h2 className="breadcrumb_title">All Locations</h2>
+                    <p>View, manage, and organize all the locations added under various cities.</p>
                   </div>
                 </div>
                 {/* End .col */}
@@ -62,16 +89,16 @@ const index = () => {
                 <div className="col-lg-8 col-xl-8">
                   <div className="candidate_revew_select style2 text-end mb30-991">
                     <ul className="mb0">
-                      <li className="list-inline-item">
+                      {/* <li className="list-inline-item">
                         <div className="candidate_revew_search_box course fn-520">
                           <SearchBox />
                         </div>
-                      </li>
+                      </li> */}
                       {/* End li */}
 
-                      <li className="list-inline-item">
+                      {/* <li className="list-inline-item">
                         <Filtering />
-                      </li>
+                      </li> */}
                       {/* End li */}
                     </ul>
                   </div>
@@ -82,13 +109,18 @@ const index = () => {
                   <div className="my_dashboard_review mb40">
                     <div className="property_table">
                       <div className="table-responsive mt0">
-                        <TableData />
+                        <TableData locationList={locationList} setLocationList={setLocationList}/>
                       </div>
                       {/* End .table-responsive */}
 
-                      {/* <div className="mbp_pagination">
-                        <Pagination />
-                      </div> */}
+                      <div className="mbp_pagination">
+                        <Pagination
+                        totalCount={totalCount}
+                         pageSize={pageSize}
+                      currentPage={currentPage}
+                        onPageChange={(page) => setCurrentPage(page)}
+                       />
+                      </div>
                       {/* End .mbp_pagination */}
                     </div>
                     {/* End .property_table */}

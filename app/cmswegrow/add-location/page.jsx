@@ -2,9 +2,9 @@ import dynamic from "next/dynamic";
 import AddLocation from "@/components/dashboard/add-location";
 
 export const metadata = {
-  title: 'My Properties || Wegrow - Real Estate React Template',
+  title: 'My Properties || WeGrow',
   description:
-    'Wegrow - Real Estate React Template',
+    'WeGrow',
 }
 
 const index = () => {

@@ -2,9 +2,9 @@ import dynamic from "next/dynamic";
 import LandingPage from "@/components/landing-page";
 
 export const metadata = {
-  title: 'Landing Page || Wegrow - Real Estate',
+  title: 'Landing Page || WeGrow - Real Estate',
   description:
-    'Wegrow - Real Estate',
+    'WeGrow - Real Estate',
 }
 
 const index = () => {

@@ -1,3 +1,4 @@
+"use client"; // Add this at the top
 import Header from "../../common/header/dashboard/Header";
 import SidebarMenu from "../../common/header/dashboard/SidebarMenu";
 import MobileMenu from "../../common/header/MobileMenu";
@@ -7,7 +8,36 @@ import Pagination from "./Pagination";
 import SearchBox from "./SearchBox";
 import CopyRight from "../../common/footer/CopyRight";
 
+import { useState, useEffect } from "react";
+import { getFaqTableData } from "@/api/faq";
+import { useRouter, useSearchParams } from "next/navigation"; 
+
 const index = () => {
+  const [currentPage, setCurrentPage] = useState(1);
+  // const [properties, setProperties] = useState(initialProperties || []);
+
+  const [faqList, setFaqList] = useState([]);
+  const [totalCount, setTotalCount] = useState([]);
+  const [pageSize] = useState(10);
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  // const currentPage = parseInt(searchParams.get('page') || 1);
+  
+      useEffect(() => {
+        const fetchFaqData = async () => {
+        const filter ={
+     
+      "limit":pageSize,
+      "page":currentPage
+    };
+     const data = await getFaqTableData(filter);
+        setFaqList(data.items);
+          // setLoaderProperty(false)
+          // setPropertyList(data.items)
+          setTotalCount(data.totalCount)
+      };
+    fetchFaqData();
+  }, [currentPage]);
   return (
     <>
       {/* <!-- Main Header Nav --> */}
@@ -53,8 +83,8 @@ const index = () => {
 
                 <div className="col-lg-4 col-xl-4 mb10">
                   <div className="breadcrumb_content style2 mb30-991">
-                    <h2 className="breadcrumb_title">My Favorites</h2>
-                    <p>We are glad to see you again!</p>
+                    <h2 className="breadcrumb_title">All FAQs</h2>
+                    <p>View, organize, and manage all the FAQs displayed across your website.</p>
                   </div>
                 </div>
                 {/* End .col */}
@@ -62,16 +92,16 @@ const index = () => {
                 <div className="col-lg-8 col-xl-8">
                   <div className="candidate_revew_select style2 text-end mb30-991">
                     <ul className="mb0">
-                      <li className="list-inline-item">
+                      {/* <li className="list-inline-item">
                         <div className="candidate_revew_search_box course fn-520">
                           <SearchBox />
                         </div>
-                      </li>
+                      </li> */}
                       {/* End li */}
 
-                      <li className="list-inline-item">
+                      {/* <li className="list-inline-item">
                         <Filtering />
-                      </li>
+                      </li> */}
                       {/* End li */}
                     </ul>
                   </div>
@@ -82,13 +112,19 @@ const index = () => {
                   <div className="my_dashboard_review mb40">
                     <div className="property_table">
                       <div className="table-responsive mt0">
-                        <TableData />
+                        <TableData faqList={faqList} setFaqList={setFaqList}/>
+                     
                       </div>
                       {/* End .table-responsive */}
 
-                      {/* <div className="mbp_pagination">
-                        <Pagination />
-                      </div> */}
+                      <div className="mbp_pagination">
+                        <Pagination
+                        totalCount={totalCount}
+                         pageSize={pageSize}
+                      currentPage={currentPage}
+                        onPageChange={(page) => setCurrentPage(page)}
+                       />
+                      </div>
                       {/* End .mbp_pagination */}
                     </div>
                     {/* End .property_table */}

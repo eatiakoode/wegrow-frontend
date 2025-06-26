@@ -50,8 +50,8 @@ const index = () => {
 
                 <div className="col-lg-12 mb10">
                   <div className="breadcrumb_content style2">
-                    <h2 className="breadcrumb_title">Add New Amenity</h2>
-                    <p>We are glad to see you again!</p>
+                    <h2 className="breadcrumb_title">Add a New Amenity</h2>
+                    <p>Create a new amenity to highlight key features available in your properties.</p>
                   </div>
                 </div>
                 {/* End .col */}

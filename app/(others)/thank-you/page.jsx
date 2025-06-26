@@ -5,9 +5,9 @@ import dynamic from "next/dynamic";
 import ThankYou from "@/components/thankyou-page";
 
 export const metadata = {
-  title: 'Thank You || Wegrow - Real Estate React Template',
+  title: 'Thank You || WeGrow',
   description:
-    'Wegrow - Real Estate React Template',
+    'WeGrow',
 }
 
 const index = () => {

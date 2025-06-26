@@ -2,9 +2,9 @@ import dynamic from "next/dynamic";
 import ScanMe from "@/components/scanme";
 
 export const metadata = {
-  title: 'Scan Me || Wegrow - Real Estate React Template',
+  title: 'Scan Me || WeGrow',
   description:
-    'Wegrow - Real Estate React Template',
+    'WeGrow',
 }
 
 const index = () => {

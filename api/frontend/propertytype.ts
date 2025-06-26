@@ -3,7 +3,10 @@
     await new Promise((resolve) => setTimeout(resolve, 1400));
   
     try {
-      const response = await fetch(process.env.NEXT_PUBLIC_FRONTEND_API_URL+"api/propertytype"); // Replace with actual API endpoint
+      const response = await fetch(process.env.NEXT_PUBLIC_FRONTEND_API_URL+"api/propertytype",
+        {
+          next: { revalidate: 60 }
+        }); // Replace with actual API endpoint
       if (!response.ok) {
         throw new Error("Failed to fetch products");
       }
@@ -51,7 +54,9 @@
     await new Promise((resolve) => setTimeout(resolve, 1400));
   
     try {
-      const response = await fetch(process.env.NEXT_PUBLIC_FRONTEND_API_URL+`api/propertytype/bycategory/${id}`); // Replace with actual API endpoint
+      const response = await fetch(process.env.NEXT_PUBLIC_FRONTEND_API_URL+`api/propertytype/bycategory/${id}`,{
+          next: { revalidate: 60 }
+        }); // Replace with actual API endpoint
       
       if (!response.ok) {
         throw new Error("Failed to fetch property type");
@@ -69,7 +74,11 @@
     
   
     try {
-      const response = await fetch(process.env.NEXT_PUBLIC_FRONTEND_API_URL+"api/propertytype/listwithpropertcount"); // Replace with actual API endpoint
+      const response = await fetch(process.env.NEXT_PUBLIC_FRONTEND_API_URL+"api/propertytype/listwithpropertcount",
+        {
+          next: { revalidate: 60 }
+        }
+      ); // Replace with actual API endpoint
       if (!response.ok) {
         throw new Error("Failed to fetch products");
       }

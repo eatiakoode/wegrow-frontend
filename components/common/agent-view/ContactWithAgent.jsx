@@ -3,6 +3,8 @@
 import { useState } from "react";
 
 import { addPropertyEnquiryAPI } from "@/api/frontend/propertyenquiry";
+import { useRouter, useParams } from "next/navigation";
+import { useForm } from 'react-hook-form';
 
 const ContactWithAgent = ({property}) => {
   // const [appointmentDate, setAppointmentDate] = useState(null);
@@ -14,30 +16,37 @@ const ContactWithAgent = ({property}) => {
   // const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
   const [successmsg, setSuccessmsg] = useState("");
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const newErrors = {};
-    const requiredFields = [
-      { key: "name", value: name, name: "Name" },
-      { key: "email", value: email, name: "Email" },
-      { key: "phone", value: phone, name: "Phone" },
-      { key: "budget", value: budget, name: "Budget" },
-      // { key: "subject", value: subject, name: "Subject" },
-      // { key: "appointmentDate", value: appointmentDate, name: "Appointment Date" },
-      { key: "message", value: message, name: "Message" },
+  const router = useRouter();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting, isSubmitSuccessful },
+    reset,
+  } = useForm();
+  const onSubmit = async (data) => {
+    // e.preventDefault();
+    // const newErrors = {};
+    // const requiredFields = [
+    //   { key: "name", value: name, name: "Name" },
+    //   { key: "email", value: email, name: "Email" },
+    //   { key: "phone", value: phone, name: "Phone" },
+    //   { key: "budget", value: budget, name: "Budget" },
+    //   // { key: "subject", value: subject, name: "Subject" },
+    //   // { key: "appointmentDate", value: appointmentDate, name: "Appointment Date" },
+    //   { key: "message", value: message, name: "Message" },
       
-    ];
+    // ];
   
-    requiredFields.forEach(field => {
-      if (!field.value || (typeof field.value === "string" && !field.value.trim())) {
-        console.log("field.name"+field.name)
-        newErrors[field.key] = `${field.name} is required`;
-      }
-    });
-    if (Object.keys(newErrors).length > 0) {
-      console.log("test")
-      return setError(newErrors);
-    }
+    // requiredFields.forEach(field => {
+    //   if (!field.value || (typeof field.value === "string" && !field.value.trim())) {
+    //     console.log("field.name"+field.name)
+    //     newErrors[field.key] = `${field.name} is required`;
+    //   }
+    // });
+    // if (Object.keys(newErrors).length > 0) {
+    //   console.log("test")
+    //   return setError(newErrors);
+    // }
     try {
       // console.log(propertySelectedImgs)
       const payload = {
@@ -45,11 +54,14 @@ const ContactWithAgent = ({property}) => {
         propertyid:property._id
         // date:appointmentDate
       };
-      console.log(payload)
-      console.log("payload")
-      const res = await addPropertyEnquiryAPI(payload);
+      // console.log(payload)
+      // console.log("payload")
+      data.propertyid=property._id
+       router.push("/thank-you");
+      const res = await addPropertyEnquiryAPI(data);
+      setSuccessmsg(res.message)
       if(res.success){
-        setSuccessmsg(res.message)
+       
         setName("")
         setEmail("")
         setPhone("")
@@ -58,13 +70,14 @@ const ContactWithAgent = ({property}) => {
       }
 
       setError({});
+      
     // (Reset other fields here if needed)
   } catch (err) {
     setError({ general: err.message || "Something went wrong" });
   }
   };
   return (
-    <form action="#" onSubmit={handleSubmit}>
+    <form action="#" onSubmit={handleSubmit(onSubmit)}>
       <ul className="sasw_list mb0">
         <li className="search_area">
           <div className="form-group mb-3">
@@ -75,39 +88,63 @@ const ContactWithAgent = ({property}) => {
               // required="required"
               type="text"
               placeholder="Name"
-              value={name} onChange={(e) => setName(e.target.value)}
+              // value={name} onChange={(e) => setName(e.target.value)}
+              {...register('name', { required: 'Name is required' })}
             />
-            {error.name && <span className="text-danger">{error.name}</span>}
+            {errors.name && <p className="text-danger">{errors.name.message}</p>}
+            {/* {error.name && <span className="text-danger">{error.name}</span>} */}
+          </div>
+        </li>
+        {/* End li */}
+        <li className="search_area">
+          <div className="form-group mb-3">
+         <input
+              id="form_phone"
+              className="form-control phone"
+              type="text"
+              placeholder="Phone"
+              {...register('phone', {
+                required: 'Phone number is required',
+                pattern: {
+                  value: /^[0-9]{10}$/,
+                  message: 'Enter a valid 10-digit phone number',
+                },
+                maxLength: {
+                  value: 10,
+                  message: 'Phone number must be 10 digits',
+                },
+                minLength: {
+                  value: 10,
+                  message: 'Phone number must be 10 digits',
+                },
+              })}
+              maxLength={10}
+            />
+
+            {errors.phone && <span className="text-danger">{errors.phone.message}</span>}
           </div>
         </li>
         {/* End li */}
         <li className="search_area">
           <div className="form-group mb-3">
           <input
-              id="form_phone"
-              name="form_phone"
-              className="form-control required phone"
-              // required="required"
-              type="phone"
-              placeholder="Phone"
-              value={phone} onChange={(e) => setPhone(e.target.value)}
-            />
-            {error.phone && <span className="text-danger">{error.phone}</span>}
-          </div>
-        </li>{" "}
-        {/* End li */}
-        <li className="search_area">
-          <div className="form-group mb-3">
-          <input
               id="form_email"
               name="form_email"
-              className="form-control required email"
+              className="form-control  email"
               // required="required"
               type="email"
               placeholder="Email"
-              value={email} onChange={(e) => setEmail(e.target.value)}
+              // value={email} 
+              // onChange={(e) => setEmail(e.target.value)}
+              {...register('email', {
+              required: 'Email is required',
+              pattern: {
+                value: /^\S+@\S+$/i,
+                message: 'Invalid email address',
+              },
+            })}              
             />
-            {error.email && <span className="text-danger">{error.email}</span>}
+            {errors.email && <span className="text-danger">{errors.email.message}</span>}
           </div>
         </li>{" "}
         {/* End li */}
@@ -117,16 +154,18 @@ const ContactWithAgent = ({property}) => {
               id="form_budget"
               name="form_budget"
               className="form-control"
-              value={budget}
-              onChange={(e) => setBudget(e.target.value)}>
+              // value={budget}
+              // onChange={(e) => setBudget(e.target.value)}
+              {...register('budget', { required: 'Budget is required' })}
+              >
               <option value="">Select Budget</option>
-              <option value="1cr">Upto 2cr</option>
-              <option value="2 - 5cr">2 - 5cr</option>
-              <option value="5 - 10cr">5 - 10cr</option>
-              <option value="above 10cr">Above 10cr</option>
+              <option value="Up to 2 Cr">Up to 2 Cr</option>
+              <option value="2 - 5 Cr">2 - 5 Cr</option>
+              <option value="5 - 10 Cr">5 - 10 Cr</option>
+              <option value="above 10 Cr">Above 10 Cr</option>
             </select>            
             <span className="flaticon-download-1 fz12"></span>
-            {error.budget && <span className="text-danger">{error.budget}</span>}
+            {errors.budget && <span className="text-danger">{errors.budget.message}</span>}
           </div>
         </li>
         {/* End li */}
@@ -139,9 +178,10 @@ const ContactWithAgent = ({property}) => {
                 rows="1"
                 // required="required"
                 placeholder="Your Message"
-                value={message} onChange={(e) => setMessage(e.target.value)}
+                // value={message} onChange={(e) => setMessage(e.target.value)}
+                {...register('message', { required: 'Message is required' })}
               ></textarea>
-              {error.message && <span className="text-danger">{error.message}</span>}
+              {errors.message && <span className="text-danger">{errors.message.message}</span>}
           </div>
         </li>{" "}
         {/* End li */}
@@ -149,9 +189,7 @@ const ContactWithAgent = ({property}) => {
         <li>
         {successmsg && <span className="text-success">{successmsg}</span>}
           <div className="search_option_button">
-            <button type="submit" className="btn btn-block btn-thm w-100">
-              Request
-            </button>
+            <button type="submit"  disabled={isSubmitting}  className="btn btn-block btn-thm w-100">{isSubmitting ? 'Sending...' : 'Request'}</button>
           </div>
         </li>{" "}
         {/* End li */}

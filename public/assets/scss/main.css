@@ -1,6 +1,7 @@
 
 /* CSS Document */
 @import "~bootstrap/scss/bootstrap";
+@import url(../scss/all.css);
 @import url(../scss/font-awesome.min.css);
 @import url(../scss/font-awesome-animation.min.css);
 @import url(../scss/flaticon.css);
@@ -1958,7 +1959,7 @@ header.header-nav.menu_style_home_one ul.ace-responsive-menu li.add_listing a {
   color: var(--color-primary);
   line-height: 1.2;
   top: 0 !important;
-  padding: 13px !important;
+  padding: 13px 10px!important;
 }
 
 header.header-nav.menu_style_home_one.stricky-fixed .ace-responsive-menu li.add_listing {
@@ -7405,6 +7406,7 @@ header .get_in_touch span{
   height: 40px;
   padding: 6px 15px;
   text-align: center;
+  margin-bottom: 10px;
 }
 
 .lsd_list li a {
@@ -9829,7 +9831,25 @@ header .get_in_touch span{
   /* margin-bottom: 40px; */
   margin-bottom: 15px;
 }
-
+.about_content ul li{
+  font-size: 14px;
+  color: #484848;
+  line-height: 1.714;
+  position: relative;
+  padding-left:15px
+}
+.about_content ul li:before{
+  position: absolute;
+  content: '';
+  left:0;
+  right:auto;
+  top:8px;
+  transform: none;
+  width:6px;
+  height:6px;
+  border-radius: 10px;
+  background-color: #484848;
+}
 ul.ab_counting li {
   margin-right: 30px !important;
 }
@@ -17284,7 +17304,7 @@ section.aboutland h3{
     border-radius: 50px;
 }
 .mobile-menu .header .menu_bar_home2 li.list-inline-item.border_listing:first-child{
-  right:20px;
+  right:5px;
   top:-22px
 }
 .mobile-menu .header .border_listing a{
@@ -17293,6 +17313,26 @@ section.aboutland h3{
 }
 .mobile-menu .header .border_listing a:after{display: none;}
 .get_in_touch{display: none;}
+.properti_city.our_partner .contain{
+  width:100%
+  }
+  .news-insights .property-block_one{
+    justify-content: center;
+  }
+}
+@media (max-width: 480px) {
+  .property_detaill_view .single_property_title{
+    flex-direction: column;
+    align-items: start !important;
+  }
+  .property_detaill_view .single_property_social_share{
+	  display:flex;
+	  justify-content:space-between;
+    padding-top:25px
+  }
+  .spss.style2 ul li{
+	  background-color:#dcdcdc
+  }
 }
 .tick-check{
     width: 80px;
@@ -19445,14 +19485,14 @@ canvas {
   left: auto;
   line-height: 50px;
   overflow: hidden;
-  padding-left: 45px;
+  padding-left: 0px;
   position: absolute;
   right: 0;
   text-align: center;
   top: 38px;
-  width: 170px;
+  width: 140px;
   z-index: 2;
-  box-shadow: 0px 1px 4px 0px rgba(255, 90, 95, 0.3);
+  box-shadow: 0px 1px 4px 0px rgba(163, 177, 138, 0.3);
 }
 
 #main2 .filter_open_btn {
@@ -19467,6 +19507,7 @@ canvas {
   left: 0;
   position: absolute;
   width: 48px;
+  display: none;
 }
 
 #main .filteropen.style2,
@@ -20972,3 +21013,38 @@ button.gm-ui-hover-effect:focus {
     color: #ffffff;
 }
 
+.view_edit_delete_list button{
+      border: none;
+    background: none;
+    color: #a3b18a;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+/**************************city-glimpse*************************************/
+.custom-narrow-select {
+  width: 100%;
+  max-width: 400px; 
+  position: relative;
+  margin: 0 auto 20px;
+}
+.custom-narrow-select.form-select {
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 10px 40px 10px 16px;
+  font-size: 15px;
+  background-color: #fff;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='%23666' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px;
+  appearance: none;
+  color: #333;
+  transition: border-color 0.2s;
+}
+
+.custom-narrow-select.form-select:focus {
+  border-color: #0d6efd;
+  box-shadow: 0 0 0 0.1rem rgba(13, 110, 253, 0.25);
+  outline: none;
+}

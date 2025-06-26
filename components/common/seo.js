@@ -4,7 +4,7 @@ const Seo = ({ pageTitle, font }) => (
   <>
     {/* <Head>
       <title>
-        {pageTitle && `${pageTitle} || Wegrow - Real Estate React Template}`}
+        {pageTitle && `${pageTitle} || WeGrow - Real Estate }`}
       </title>
       <meta httpEquiv="x-ua-compatible" content="ie=edge" />
       <meta
@@ -13,7 +13,7 @@ const Seo = ({ pageTitle, font }) => (
       />
       <meta
         name="description"
-        content="Wegrow - Real Estate React Template"
+        content="WeGrow - Real Estate "
       />
       <meta name="ibthemes" content="ATFN" />
       <meta
@@ -22,7 +22,7 @@ const Seo = ({ pageTitle, font }) => (
       />
 
       {font && <link href={font} rel="stylesheet" />}
-      <link rel="icon" href="favicon.ico" />
+      
     </Head> */}
   </>
 );

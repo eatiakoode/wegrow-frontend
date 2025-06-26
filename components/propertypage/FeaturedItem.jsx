@@ -126,7 +126,7 @@ const FeaturedItem = ({setPropertySelectedComp,setShowBox,properties}) => {
           <div className="fp_footer">
           <ul className="fp_meta float-start mb0">
             <li className="list-inline-item">
-              <Link href={`tel:${item.sellerphone}`}>
+              <Link href={`tel:${item?.sellerid?.phone}`}>
                 <Image
                   width={40}
                   height={40}
@@ -136,15 +136,15 @@ const FeaturedItem = ({setPropertySelectedComp,setShowBox,properties}) => {
               </Link>
             </li>
             <li className="list-inline-item">
-              <Link href={`tel:${item.sellerphone}`}>{item.sellername}</Link>
+              <Link href={`tel:${item?.sellerid?.phone}`}>{item?.sellerid?.title}</Link>
             </li>
           </ul>
           <div className="fp_pdate float-end d-flex gap-2 align-items-center">
-            <a href={`tel:${item.sellerphone}`} className="me-2 circle-shape text-dark">
+            <a href={`tel:${item?.sellerid?.phone}`} className="me-2 circle-shape text-dark">
               {/* <i className="fa fa-phone"></i> */}
               <span className="flaticon-telephone"></span>
             </a>
-            <a href={`mailto:${item.selleremail}`} className="circle-shape text-dark">
+            <a href={`mailto:${item?.sellerid?.email}`} className="circle-shape text-dark">
               {/* <i className="fa fa-envelope"></i> */}
               <span className="flaticon-black-back-closed-envelope-shape"></span>
             </a>

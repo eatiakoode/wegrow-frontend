@@ -1,10 +1,57 @@
+"use client"; 
+
+import { useEffect, useState } from "react";
+import { useRouter, useParams } from "next/navigation";
 import Header from "../../common/header/dashboard/Header";
 import SidebarMenu from "../../common/header/dashboard/SidebarMenu";
 import MobileMenu from "../../common/header/MobileMenu";
 import CreateList from "./CreateList";
 import CopyRight from "../../common/footer/CopyRight";
+import CityGlimpse from "./CityGlimpse";
+import { getCityById, updateCityAPI } from "@/api/city";
 
 const index = () => {
+  const params = useParams();  
+      const id = params?.id;  
+     const [inputs, setInputs] = useState([]);
+       // const [getinputs, setGetInputs] = useState([]);
+       const [citydetail, setCitydetail] = useState([]);
+       const [cityglimpse, setCityGlimpse] = useState(null);
+       const [loading, setLoading] = useState(true);
+
+       
+       const handleAddInput = () => {
+         setInputs([
+           ...inputs,
+           {
+             id: Date.now(),
+             title: '',
+             bedrooms: '',
+             price: '',
+             areasize: '',
+             planimage: null,
+             description: ''
+           }
+         ]);
+       };
+   useEffect(() => {
+        if (!id) return;      
+        const fetchCity  = async () => {
+          try {
+            const data = await getCityById(id);
+            setCitydetail(data.data)
+            console.log("data.data")
+            console.log(data.data)
+            
+          } catch (error) {
+            console.error("Error fetching City:", error);
+          } finally {
+            setLoading(false);
+          }
+        };
+    
+        fetchCity();
+      }, [id]);
   return (
     <>
       {/* <!-- Main Header Nav --> */}
@@ -50,8 +97,8 @@ const index = () => {
 
                 <div className="col-lg-12 mb10">
                   <div className="breadcrumb_content style2">
-                    <h2 className="breadcrumb_title">Edit City</h2>
-                    <p>We are glad to see you again!</p>
+                    <h2 className="breadcrumb_title">Modify City Information</h2>
+                    <p>Update city records to keep your listings structured and precise.</p>
                   </div>
                 </div>
                 {/* End .col */}
@@ -65,6 +112,13 @@ const index = () => {
 
                       <CreateList />
                     </div>
+                  </div>
+                   <div className="my_dashboard_review mt30">
+                    <div className="col-lg-12">
+                      <h3 className="mb30">City Glimpse</h3>
+                      <button className="btn admore_btn mb30" onClick={handleAddInput} >Add More</button>
+                    </div>
+                    <CityGlimpse citydetail={citydetail} inputs={inputs} setInputs={setInputs} setCityGlimpse={setCityGlimpse} cityglimpse={cityglimpse}/>
                   </div>
                 </div>
                 {/* End .col */}

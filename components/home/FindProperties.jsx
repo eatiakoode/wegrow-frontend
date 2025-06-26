@@ -26,7 +26,7 @@ const FindProperties = ({findcities}) => {
        <div className={`${  index  === 1 ? 'col-lg-8 col-xl-8' : index  === 2  ? 'col-lg-8 col-xl-8 3' : 'col-lg-4 col-xl-4' }`}
        key={item.cityId}
      >
-      <Link href={`/property-list?cat=${item.cityId}`} className="properti_city d-block">
+      <Link href={`/property-list?city=${item.cityId}`} className="properti_city d-block">
             <div className="thumb">
               <Image
                 width={752}

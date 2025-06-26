@@ -36,7 +36,7 @@ const TableData = () => {
     "Status",
     "Action",
   ];
-  let tbodyContent = landingpageList?.slice(0, 30)?.map((item) => (
+  let tbodyContent = landingpageList?.map((item) => (
     <tr key={item._id}>
       <td scope="row">
         <div className="feat_property list favorite_page style2">

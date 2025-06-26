@@ -42,11 +42,15 @@ const CreateList = () => {
       fetchFaq();
       const fetchProperties = async () => {
               try {
-                const response = await getPropertyTableData();
+                 const filter = {
+    limit: 1000,
+    page:  1
+  }
+                const response = await getPropertyTableData(filter);
                 console.log("response")
                 console.log(response)
         
-                setProperties(response || []);
+                setProperties(response?.items || []);
               } catch (err) {
                 console.error("Error fetching property:", err);
               }
@@ -146,7 +150,7 @@ const CreateList = () => {
 
       <div className="col-xl-12">
         <div className="my_profile_setting_input">
-          <button className="btn btn1 float-start">Back</button>
+          <button className="btn btn1 float-start" type="button" onClick={() => window.location.href = '/cmswegrow/my-faq'}>Back</button>
           <button className="btn btn2 float-end">Submit</button>
         </div>
       </div>

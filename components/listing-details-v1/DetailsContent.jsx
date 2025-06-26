@@ -20,7 +20,7 @@ import Link from "next/link";
 
 import Image from "next/image";
 
-const DetailsContent = ({property,faqs}) => {
+const DetailsContent = ({property,faqs,propertydetail}) => {
   const [showPdfModal, setShowPdfModal] = useState(false);
   const [showFullBio, setShowFullBio] = useState(false);
   const [name, setName] = useState("");
@@ -62,10 +62,10 @@ const hashtags = property.metatitle;
                                         <a href={`https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`} target="_blank"><i className="fa fa-facebook"></i> Facebook</a>
                                       </li>
                                       <li>
-                                        <a href={`https://twitter.com/intent/tweet?url=${shareUrl}&text=${text}&hashtags=${hashtags}`} target="_blank"><i className="fa fa-linkedin"></i> Linkedin</a>
+                                        <a href={`https://www.linkedin.com/sharing/share-offsite/?url=${shareUrl}`} target="_blank"><i className="fa fa-linkedin"></i> Linkedin</a>
                                       </li>
                                       <li>
-                                        <a href={`https://www.linkedin.com/sharing/share-offsite/?url=${shareUrl}`} target="_blank"><i className="fa fa-twitter"></i> Twitter</a>
+                                        <a href={`https://twitter.com/intent/tweet?url=${shareUrl}&text=${text}&hashtags=${hashtags}`} target="_blank"><i className="fa fa-x-twitter"></i> Twitter</a>
                                       </li>
                                        <li>
                                         <a href="https://www.instagram.com/" target="_blank"><i className="fa fa-instagram"></i> Instagram</a>
@@ -90,7 +90,7 @@ const hashtags = property.metatitle;
         {/* End .lsd_list */}
 
         <h4 className="mb30">Description</h4>
-        <PropertyDescriptions property={property}/>
+        <PropertyDescriptions property={property} propertydetail={propertydetail}/>
       </div>
       {/* End .listing_single_description */}
 

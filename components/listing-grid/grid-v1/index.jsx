@@ -171,9 +171,9 @@ useEffect(() => {
             <div className="col-lg-4 col-xl-4">
               <div className="sidebar-listing-wrapper">
                 <SidebarListing  keyword={keyword} setKeyword={setKeyword}
-  city={city} setCity={setCity}
-  category={category} setCategory={setCategory}
-  propertytype={propertytype} setPropertytype={setPropertytype} setPropertytypes={setPropertytypes} propertytypes={propertytypes}/>
+                city={city} setCity={setCity}
+                category={category} setCategory={setCategory}
+                propertytype={propertytype} setPropertytype={setPropertytype} setPropertytypes={setPropertytypes} propertytypes={propertytypes}/>
               </div>
               {/* End SidebarListing */}
 
@@ -194,7 +194,12 @@ useEffect(() => {
                 {/* End .offcanvas-heade */}
 
                 <div className="offcanvas-body">
-                  {/* <SidebarListing /> */}
+                  <div className="sidebar-listing-wrapper">
+                    <SidebarListing  keyword={keyword} setKeyword={setKeyword}
+                    city={city} setCity={setCity}
+                    category={category} setCategory={setCategory}
+                    propertytype={propertytype} setPropertytype={setPropertytype} setPropertytypes={setPropertytypes} propertytypes={propertytypes}/>
+                  </div>
                 </div>
               </div>
               {/* End mobile sidebar listing  */}
