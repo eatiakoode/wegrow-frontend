@@ -33,7 +33,7 @@ const token =userData.token
 
   export async function getLocationTableData(filter) {
     // Fake delay
-    await new Promise((resolve) => setTimeout(resolve, 1400));
+    await new Promise((resolve) => setTimeout(resolve, 10));
   
     try {
       const response = await fetch(process.env.NEXT_PUBLIC_ADMIN_API_URL+"api/location?limit="+filter.limit+"&skip="+filter.page); // Replace with actual API endpoint
@@ -150,7 +150,7 @@ const token =userData.token
 
   export const  getLocationByCityTableData = async (id: string) => {
     // Fake delay
-    await new Promise((resolve) => setTimeout(resolve, 1400));
+    await new Promise((resolve) => setTimeout(resolve, 10));
   console.log("es"+id)
     try {
       const response = await fetch(process.env.NEXT_PUBLIC_ADMIN_API_URL+`api/location/bycity/${id}`); // Replace with actual API endpoint

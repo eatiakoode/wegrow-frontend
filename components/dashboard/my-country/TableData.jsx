@@ -3,6 +3,7 @@ import Image from "next/image";
 import { getCountryTableData,deleteCountryAPI } from "../../../api/country";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { toast } from 'react-toastify';
 // import moment from 'moment';
 
 const TableData = () => {
@@ -21,7 +22,8 @@ const TableData = () => {
         try {
           const data = await deleteCountryAPI(id); // 🔹 Call the API function
           
-          alert(data.message);
+          // alert(data.message);
+          toast.success(data.message);
           setCountryList((prevCountryList) => prevCountryList.filter((country) => country._id !== id));
           //setTitle(""); // ✅ Reset input after success
         } catch (error) {

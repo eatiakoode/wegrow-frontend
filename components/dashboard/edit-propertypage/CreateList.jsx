@@ -9,12 +9,12 @@ import { getStateByCountryTableData } from "../../../api/state";
 import { getLocationByCityTableData } from "../../../api/location";
 import { getCategoryTableData } from "../../../api/category";
 import { getPropertytypeByCategoryTableData} from "../../../api/propertytype";
-import { getAmenityTableData } from "../../../api/amenity";
-import { getBuilderTableData } from "../../../api/builder";
-import { getConstructionstatusTableData } from "../../../api/constructionstatus";
-import { getFurnishingstatusTableData } from "../../../api/furnishingstatus";
-import { getPropertypageById, updatePropertypageAPI } from "../../../api/propertypage";
-
+import { getAmenityTableData } from "@/api/amenity";
+import { getBuilderTableData } from "@/api/builder";
+import { getConstructionstatusTableData } from "@/api/constructionstatus";
+import { getFurnishingstatusTableData } from "@/api/furnishingstatus";
+import { getPropertypageById, updatePropertypageAPI } from "@/api/propertypage";
+import { toast } from 'react-toastify';
 
 const CreateList = () => {
   const router = useRouter();
@@ -279,9 +279,16 @@ const updatePropertypage = async (e) => {
     }
 
 
-    const res = await updatePropertypageAPI(id,payload);
+    const data = await updatePropertypageAPI(id,payload);
     // alert(res.message);
-    router.push("/cmswegrow/my-propertypage");
+    // router.push("/cmswegrow/my-propertypage");
+    toast.success(data.message);
+    if(data.status=="success"){
+      setTimeout(() => {
+      router.push("/cmswegrow/my-propertypage");
+      }, 1500); 
+    }
+
 
     // Reset fields and errors
     setError({});

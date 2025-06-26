@@ -4,6 +4,7 @@ import { getBuilderTableData,deleteBuilderAPI } from "../../../api/builder";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 // import moment from 'moment';
+import { toast } from 'react-toastify';
 
 const TableData = ({builderList,setBuilderList}) => {
   //  const [builderList, setBuilderList] = useState([]);
@@ -21,7 +22,7 @@ const TableData = ({builderList,setBuilderList}) => {
         try {
           const data = await deleteBuilderAPI(id); // 🔹 Call the API function
           
-          alert(data.message);
+          toast.success(data.message);
           setBuilderList((prevBuilderList) => prevBuilderList.filter((builder) => builder._id !== id));
           //setTitle(""); // ✅ Reset input after success
         } catch (error) {

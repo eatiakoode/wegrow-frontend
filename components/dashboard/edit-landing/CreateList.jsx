@@ -13,7 +13,7 @@ import {  deleteLandingImagesAPI } from "../../../api/landingimage";
 import {  deletePropertyplanAPI } from "../../../api/landingplan";
 import {  deletePaymentplanAPI } from "../../../api/landingpayment";
 
-
+import { toast } from 'react-toastify';
 
 
 
@@ -416,9 +416,15 @@ const updateLanding = async (e) => {
     
 
 
-    const res = await updateLandingpageAPI(id,formData);
-    router.push("/cmswegrow/my-landing");
+    const data = await updateLandingpageAPI(id,formData);
+    // router.push("/cmswegrow/my-landing");
     // alert(res.message);
+     toast.success(data.message);
+    if(data.status=="success"){
+      setTimeout(() => {
+      router.push("/cmswegrow/my-landing");
+      }, 1500); 
+    }
 
     // Reset fields and errors
     setError({});

@@ -5,6 +5,7 @@ import { useRouter, useParams } from "next/navigation";
 import { getCityById, updateCityAPI } from "../../../api/city";
 import { getCountryTableData } from "../../../api/country";
 import { getStateByCountryTableData } from "../../../api/state";
+import { toast } from 'react-toastify';
 
 
 const CreateList = () => {
@@ -102,9 +103,15 @@ const CreateList = () => {
         if (citylogo) {
           formData.append("citylogo", citylogo);
         }
-        await updateCityAPI(id, formData);
+        const data =await updateCityAPI(id, formData);
         // alert("City updated successfully!");
-        router.push("/cmswegrow/my-cities");
+        // router.push("/cmswegrow/my-cities");
+        toast.success(data.message);
+        if(data.status=="success"){
+          setTimeout(() => {
+          router.push("/cmswegrow/my-cities");
+          }, 1500); 
+        }
       } catch (error) {
         alert("Failed to update city.");
         console.error(error);

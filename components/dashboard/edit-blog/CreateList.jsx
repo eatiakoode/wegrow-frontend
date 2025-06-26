@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useRouter, useParams } from "next/navigation";
 import { getBlogById, updateBlogAPI } from "../../../api/blog";
 import { getBlogcategoryTableData } from "../../../api/blogcategory";
-import { toast, ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
 
 
 const CreateList = () => {
@@ -92,9 +92,12 @@ const CreateList = () => {
        const res = await updateBlogAPI(id, formData);
         // alert("Blog updated successfully!");
         toast.success(res.message);
-         if(res.status=="success"){
-        router.push("/cmswegrow/my-blog");
-         }
+         
+         if(data.status=="success"){
+            setTimeout(() => {
+              router.push("/cmswegrow/my-blog");
+              }, 1500); 
+          }
       } catch (error) {
         alert("Failed to update Blog.");
         console.error(error);
@@ -240,7 +243,6 @@ const CreateList = () => {
         </div>
       </div>
       </form>
-      <ToastContainer />
     </>
   );
 };

@@ -6,6 +6,7 @@ import properties from "../../../data/properties";
 import { getPropertypageTableData,deletePropertypageAPI } from "../../../api/propertypage";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { toast } from 'react-toastify';
 
 const TableData = () => {
   const [propertypageList, setPropertypageList] = useState([]);
@@ -23,7 +24,7 @@ const TableData = () => {
           try {
             const data = await deletePropertypageAPI(id); // 🔹 Call the API function
             
-            alert(data.message);
+            toast.success(data.message);
             setPropertypageList((prevPropertypageList) => prevPropertypageList.filter((propertypage) => propertypage._id !== id));
             //setTitle(""); // ✅ Reset input after success
           } catch (error) {

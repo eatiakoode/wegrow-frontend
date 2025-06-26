@@ -65,7 +65,7 @@ const Form = () => {
 // alert("test")
       const payload = {
       ...data,
-      appointmentDate, // ✅ manually add the date
+      date:appointmentDate, // ✅ manually add the date
     };
      router.push("/thank-you");
       const res = await addEnquiryAPI(payload);

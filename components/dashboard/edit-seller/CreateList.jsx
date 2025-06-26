@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter, useParams } from "next/navigation";
 import { getSellerById, updateSellerAPI } from "@/api/seller";
-import { toast, ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
 
 
 const CreateList = () => {
@@ -39,11 +39,17 @@ const CreateList = () => {
     const handleSubmit = async (e) => {
       e.preventDefault();
       try {
-        const res=await updateSellerAPI(id, seller);
-        toast.success(res.message);
-        if(res.status=="success"){
+        const data=await updateSellerAPI(id, seller);
+        toast.success(data.message);
+        // if(res.status=="success"){
+        //   router.push("/cmswegrow/my-seller");
+        // }
+        
+      if(data.status=="success"){
+        setTimeout(() => {
           router.push("/cmswegrow/my-seller");
-        }
+          }, 1500); 
+      }
         // alert("Seller updated successfully!");
         // router.push("/cmswegrow/my-seller");
       } catch (error) {
@@ -128,7 +134,6 @@ const CreateList = () => {
         </div>
       </div>
       </form>
-       <ToastContainer />
     </>
   );
 };

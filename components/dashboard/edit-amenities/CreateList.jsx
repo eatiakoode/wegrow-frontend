@@ -2,9 +2,9 @@
 
 import { useEffect, useState } from "react";
 import { useRouter, useParams } from "next/navigation";
-import { getAmenityById, updateAmenityAPI } from "../../../api/amenity";
+import { getAmenityById, updateAmenityAPI } from "@/api/amenity";
 
-
+import { toast } from 'react-toastify';
 const CreateList = () => {
   const params = useParams();
     // console.log("Params:", params); // Debugging log
@@ -58,9 +58,15 @@ const CreateList = () => {
         if (logo) {
           formData.append("logo", logo);
         }
-        await updateAmenityAPI(id, formData);
-        alert("Amenity updated successfully!");
-        router.push("/cmswegrow/my-amenities");
+        const data = await updateAmenityAPI(id, formData);
+        // alert("Amenity updated successfully!");
+        // router.push("/cmswegrow/my-amenities");
+         toast.success(data.message);
+          if(data.status=="success"){
+            setTimeout(() => {
+            router.push("/cmswegrow/my-amenities");
+            }, 1500); 
+          }
       } catch (error) {
         alert("Failed to update Amenity.");
         console.error(error);

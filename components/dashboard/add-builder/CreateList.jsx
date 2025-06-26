@@ -1,13 +1,17 @@
 "use client";
 
 import { useState } from "react";
-import { addBuilderAPI } from "../../../api/builder";
+import { addBuilderAPI } from "@/api/builder";
+import { useRouter, useParams } from "next/navigation";
+import { toast } from 'react-toastify';
 const CreateList = () => {
    const [title, setTitle] = useState("");
    const [slug, setSlug] = useState("");
    const [description, setDescription] = useState("");
     const [error, setError] = useState("");
     const [logo, setLogo] = useState(null);
+    const router = useRouter();
+     const [isSubmitting, setisSubmitting] = useState("");
 
     // upload profile
     const uploadLogo = (e) => {
@@ -33,6 +37,7 @@ const CreateList = () => {
   
     const addBuilder = async (e) => {
       e.preventDefault();
+      setisSubmitting(true)
     
       if (!title.trim()) {
         setError("Title is required");
@@ -58,7 +63,14 @@ const CreateList = () => {
     // console.log(formData)
         const data = await addBuilderAPI(formData); // Use FormData here
         console.log(data);
-        alert(data.message);
+        toast.success(data.message);
+            
+        if(data.status=="success"){
+         setTimeout(() => {
+          router.push("/cmswegrow/my-builder");
+          }, 1500); 
+        }
+        // alert(data.message);
     
         setTitle("");
         setSlug("");
@@ -148,7 +160,7 @@ const CreateList = () => {
       <div className="col-xl-12">
         <div className="my_profile_setting_input">
           <button className="btn btn1 float-start" type="button" onClick={() => window.location.href = '/cmswegrow/my-dashboard'}>Back</button>
-          <button type="submit" className="btn btn2 float-end">Submit</button>
+          <button type="submit" className="btn btn2 float-end" disabled={isSubmitting} >{isSubmitting ? 'Sending...' : 'Submit'}</button>
         </div>
       </div>
       </form>

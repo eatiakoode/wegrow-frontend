@@ -3,8 +3,11 @@
 import { useState } from "react";
 import { useRouter, useParams } from "next/navigation";
 import { addTestimonialAPI } from "../../../api/testimonial";
+
+import { toast } from 'react-toastify';
 const CreateList = () => {
   const router = useRouter();
+  const [isSubmitting, setisSubmitting] = useState("");
    const [title, setTitle] = useState("");
    const [description, setDescription] = useState("");
    const [designation, setDesignation] = useState("");
@@ -21,6 +24,7 @@ const CreateList = () => {
   
     const addTestimonial = async (e) => {
       e.preventDefault();
+      setisSubmitting(true)
     
       if (!title.trim()) {
         setError("Title is required");
@@ -42,8 +46,12 @@ const CreateList = () => {
     // console.log(formData)
         const data = await addTestimonialAPI(formData); // Use FormData here
         console.log(data);
-        router.push("/cmswegrow/my-testimonial");
-        alert(data.message);
+        // router.push("/cmswegrow/my-testimonial");
+        // alert(data.message);
+        toast.success(data.message);
+        if(data.status=="success"){
+          router.push("/cmswegrow/my-testimonial");
+        }
     
         setTitle("");
         setDescription("");
@@ -133,7 +141,7 @@ const CreateList = () => {
       <div className="col-xl-12">
         <div className="my_profile_setting_input">
           <button className="btn btn1 float-start" type="button" onClick={() => window.location.href = '/cmswegrow/my-dashboard'}>Back</button>
-          <button type="submit" className="btn btn2 float-end">Submit</button>
+          <button type="submit" className="btn btn2 float-end" disabled={isSubmitting} >{isSubmitting ? 'Sending...' : 'Submit'}</button>
         </div>
       </div>
       </form>

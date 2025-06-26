@@ -1,7 +1,7 @@
 export async function getPropertyFeatureData() {
     // Fake delay
     // console.log(filter)
-    await new Promise((resolve) => setTimeout(resolve, 1400));
+    await new Promise((resolve) => setTimeout(resolve, 10));
     
   
     try {
@@ -22,7 +22,7 @@ export async function getPropertyFeatureData() {
   export async function getPropertyHotData() {
     // Fake delay
     // console.log(filter)
-    await new Promise((resolve) => setTimeout(resolve, 1400));
+    await new Promise((resolve) => setTimeout(resolve, 10));
     
   
     try {
@@ -63,7 +63,7 @@ export async function getPropertyFeatureData() {
 
   export async function getPropertyFilterData(filter) {
     // Fake delay
-    await new Promise((resolve) => setTimeout(resolve, 1400));
+    await new Promise((resolve) => setTimeout(resolve, 10));
     console.log("filter")
     console.log(filter)
     let querystring=""
@@ -102,7 +102,7 @@ export async function getPropertyFeatureData() {
   export async function getPropertyCompareData(propertycomparelist) {
     // Fake delay
     // console.log(filter)
-    await new Promise((resolve) => setTimeout(resolve, 1400));
+    await new Promise((resolve) => setTimeout(resolve, 10));
     
   
     try {
@@ -180,7 +180,7 @@ const token =userData.token
   export async function getPropertyListbyPropertypage(propertypage) {
     // Fake delay
     // console.log(filter)
-    await new Promise((resolve) => setTimeout(resolve, 1400));
+    await new Promise((resolve) => setTimeout(resolve, 10));
     
   
     try {
@@ -202,7 +202,7 @@ const token =userData.token
   export async function getPropertyListTrends(propertytypeid,categoriesid) {
     // Fake delay
     // console.log(filter)
-    await new Promise((resolve) => setTimeout(resolve, 1400));
+    await new Promise((resolve) => setTimeout(resolve, 10));
     
   
     try {
@@ -224,7 +224,7 @@ const token =userData.token
   export async function getPropertyListbyBuilder(builderid) {
     // Fake delay
     // console.log(filter)
-    await new Promise((resolve) => setTimeout(resolve, 1400));
+    await new Promise((resolve) => setTimeout(resolve, 10));
     
   
     try {

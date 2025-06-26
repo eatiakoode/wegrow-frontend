@@ -1,6 +1,6 @@
  export async function getFaqTableData() {
     // Fake delay
-    await new Promise((resolve) => setTimeout(resolve, 1400));
+    await new Promise((resolve) => setTimeout(resolve, 10));
     
   
     try {
@@ -48,7 +48,7 @@
 
   export const  getFaqByPropertyIdData = async (id: string) => {
     // Fake delay
-    await new Promise((resolve) => setTimeout(resolve, 1400));
+    await new Promise((resolve) => setTimeout(resolve, 10));
   
     try {
       const response = await fetch(process.env.NEXT_PUBLIC_FRONTEND_API_URL+`api/faq/byproperty/${id}`); // Replace with actual API endpoint

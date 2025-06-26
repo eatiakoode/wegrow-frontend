@@ -6,6 +6,7 @@ import { getCityTableData,deleteCityAPI } from "../../../api/city";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 // import moment from 'moment';
+import { toast } from 'react-toastify';
 
 const TableData = () => {
   // console.log("test")
@@ -24,7 +25,8 @@ const TableData = () => {
         try {
           const data = await deleteCityAPI(id); // 🔹 Call the API function
           
-          alert(data.message);
+          // alert(data.message);
+           toast.success(data.message);
           setCityList((prevCityList) => prevCityList.filter((city) => city._id !== id));
           //setTitle(""); // ✅ Reset input after success
         } catch (error) {

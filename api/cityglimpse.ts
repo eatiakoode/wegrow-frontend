@@ -33,7 +33,7 @@ const token =userData.token
 
   export async function getCityGlimpseTableData() {
     // Fake delay
-    await new Promise((resolve) => setTimeout(resolve, 1400));
+    await new Promise((resolve) => setTimeout(resolve, 10));
   
     try {
       const response = await fetch(process.env.NEXT_PUBLIC_ADMIN_API_URL+"api/cityglimpse"); // Replace with actual API endpoint
@@ -150,7 +150,7 @@ const token =userData.token
 
   export const  getCityGlimpseByCategoryTableData = async (id: string) => {
     // Fake delay
-    await new Promise((resolve) => setTimeout(resolve, 1400));
+    await new Promise((resolve) => setTimeout(resolve, 10));
   
     try {
       const response = await fetch(process.env.NEXT_PUBLIC_ADMIN_API_URL+`api/cityglimpse/bycategory/${id}`); // Replace with actual API endpoint

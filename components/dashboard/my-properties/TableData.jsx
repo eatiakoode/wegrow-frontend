@@ -4,7 +4,7 @@
 import Image from "next/image";
 import { deletePropertyAPI } from "@/api/property";
 import { useRouter } from "next/navigation";
-import { toast, ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
 
 const TableData = ({properties,setProperties}) => {
   // const [propertyList, setPropertyList] = useState([]);
@@ -141,7 +141,6 @@ const TableData = ({properties,setProperties}) => {
 
         <tbody>{tbodyContent}</tbody>
       </table>
-      <ToastContainer />
     </>
   );
 };

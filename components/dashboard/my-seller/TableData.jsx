@@ -4,6 +4,7 @@ import { getSellerTableData,deleteSellerAPI } from "@/api/seller";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 // import moment from 'moment';
+import { toast } from 'react-toastify';
 
 const TableData = () => {
    const [sellerList, setSellerList] = useState([]);
@@ -21,7 +22,8 @@ const TableData = () => {
         try {
           const data = await deleteSellerAPI(id); // 🔹 Call the API function
           
-          alert(data.message);
+          // alert(data.message);
+          toast.success(data.message);
           setSellerList((prevSellerList) => prevSellerList.filter((seller) => seller._id !== id));
           //setTitle(""); // ✅ Reset input after success
         } catch (error) {

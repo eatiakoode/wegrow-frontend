@@ -35,7 +35,7 @@ const token =userData.token
 
   export async function getPropertyTableData(filter) {
     // Fake delay
-    await new Promise((resolve) => setTimeout(resolve, 1400));
+    await new Promise((resolve) => setTimeout(resolve, 10));
     
   // console.log("filter")
   // console.log(filter)

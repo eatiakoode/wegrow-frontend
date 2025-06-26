@@ -19,7 +19,7 @@ import { deletePropertyAPI, getPropertyById, updatePropertyAPI } from "../../../
 
 import selectedFiles from "../../../utils/selectedFiles";
 import Image from "next/image";
-import { toast, ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
 
 import predefinedOptions from "@/data/bedroomoption"
 import predefinedOptionsbathroom from "@/data/bathroomoption"
@@ -535,8 +535,11 @@ const updateProperty = async (e) => {
     const res = await updatePropertyAPI(id,formData);
     // alert(res.message);
     toast.success(res.message);
-    if(res.status=="success"){
-      router.push("/cmswegrow/my-properties");
+    
+    if(data.status=="success"){
+      setTimeout(() => {
+        router.push("/cmswegrow/my-properties");
+        }, 1500); 
     }
     // router.push("/cmswegrow/my-properties");
 
@@ -1477,7 +1480,6 @@ const updateProperty = async (e) => {
         </div>
       </div>
       </form>
-      <ToastContainer />
     </>
   );
 };

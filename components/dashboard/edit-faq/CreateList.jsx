@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useRouter, useParams } from "next/navigation";
 import { getFaqById, updateFaqAPI } from "../../../api/faq";
 import { getPropertyTableData } from "../../../api/property";
-
+import { toast } from 'react-toastify';
 
 const CreateList = () => {
   const params = useParams();  
@@ -66,9 +66,16 @@ const CreateList = () => {
           "title": title,
           "description": description,
           "propertyid":selectedProperty};
-        await updateFaqAPI(id, formData);
-        alert("Faq updated successfully!");
-        router.push("/cmswegrow/my-faq");
+        const data =await updateFaqAPI(id, formData);
+        // alert("Faq updated successfully!");
+        // router.push("/cmswegrow/my-faq");
+        toast.success(data.message);
+        if(data.status=="success"){
+          setTimeout(() => {
+          router.push("/cmswegrow/my-faq");
+          }, 1500); 
+        }
+        
       } catch (error) {
         alert("Failed to update Faq.");
         console.error(error);

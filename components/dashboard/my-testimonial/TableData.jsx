@@ -4,6 +4,7 @@ import { getTestimonialTableData,deleteTestimonialAPI } from "../../../api/testi
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 // import moment from 'moment';
+import { toast } from 'react-toastify';
 
 const TableData = () => {
    const [testimonialList, setTestimonialList] = useState([]);
@@ -21,7 +22,7 @@ const TableData = () => {
         try {
           const data = await deleteTestimonialAPI(id); // 🔹 Call the API function
           
-          alert(data.message);
+         toast.success(data.message);
           setTestimonialList((prevTestimonialList) => prevTestimonialList.filter((testimonial) => testimonial._id !== id));
           //setTitle(""); // ✅ Reset input after success
         } catch (error) {
