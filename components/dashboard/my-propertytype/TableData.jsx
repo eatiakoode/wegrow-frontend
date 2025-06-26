@@ -4,6 +4,7 @@ import Image from "next/image";
 import { getPropertytypeTableData,deletePropertytypeAPI } from "../../../api/propertytype";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { toast } from 'react-toastify';
 // import moment from 'moment';
 
 const TableData = ({propertytypeList,setPropertytypeList}) => {
@@ -22,7 +23,8 @@ const TableData = ({propertytypeList,setPropertytypeList}) => {
         try {
           const data = await deletePropertytypeAPI(id); // 🔹 Call the API function
           
-          alert(data.message);
+          // alert(data.message);
+          toast.success(data.message);
           setPropertytypeList((prevPropertytypeList) => prevPropertytypeList.filter((propertytype) => propertytype._id !== id));
           //setTitle(""); // ✅ Reset input after success
         } catch (error) {

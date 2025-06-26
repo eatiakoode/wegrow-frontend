@@ -4,6 +4,7 @@ import Image from "next/image";
 import { getLandingpageTableData,deleteLandingpageAPI } from "../../../api/landingpage";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { toast } from 'react-toastify';
 // import moment from 'moment';
 const TableData = () => {
   console.log("test")
@@ -22,7 +23,7 @@ const TableData = () => {
         try {
           const data = await deleteLandingpageAPI(id); // 🔹 Call the API function
           
-          alert(data.message);
+          toast.success(data.message);
           setLandingpageList((prevLandingpageList) => prevLandingpageList.filter((landingpage) => landingpage._id !== id));
           //setTitle(""); // ✅ Reset input after success
         } catch (error) {

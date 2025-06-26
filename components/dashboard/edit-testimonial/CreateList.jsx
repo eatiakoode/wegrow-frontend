@@ -2,9 +2,9 @@
 
 import { useEffect, useState } from "react";
 import { useRouter, useParams } from "next/navigation";
-import { getTestimonialById, updateTestimonialAPI } from "../../../api/testimonial";
+import { getTestimonialById, updateTestimonialAPI } from "@/api/testimonial";
 
-
+import { toast } from 'react-toastify';
 const CreateList = () => {
   const params = useParams();  
     const id = params?.id;  
@@ -58,9 +58,15 @@ const CreateList = () => {
         if (logo) {
           formData.append("logo", logo);
         }
-        await updateTestimonialAPI(id, formData);
-        alert("Testimonial updated successfully!");
-        router.push("/cmswegrow/my-testimonial");
+        const data = await updateTestimonialAPI(id, formData);
+        // alert("Testimonial updated successfully!");
+        // router.push("/cmswegrow/my-testimonial");
+        toast.success(data.message);
+        if(data.status=="success"){
+          setTimeout(() => {
+          router.push("/cmswegrow/my-testimonial");
+          }, 1500); 
+        }
       } catch (error) {
         alert("Failed to update Testimonial.");
         console.error(error);

@@ -3,7 +3,7 @@ import Image from "next/image";
 import { getBlogTableData,deleteBlogAPI } from "../../../api/blog";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { toast, ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
 // import moment from 'moment';
 
 const TableData = () => {
@@ -114,7 +114,6 @@ useEffect(() => {
 
         <tbody>{tbodyContent}</tbody>
       </table>
-      <ToastContainer />
     </>
   );
 };

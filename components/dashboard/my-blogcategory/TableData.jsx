@@ -4,6 +4,7 @@ import { getBlogcategoryTableData,deleteBlogcategoryAPI } from "../../../api/blo
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 // import moment from 'moment';
+import { toast } from 'react-toastify';
 
 const TableData = () => {
    const [blogcategoryList, setBlogcategoryList] = useState([]);
@@ -21,7 +22,7 @@ const TableData = () => {
         try {
           const data = await deleteBlogcategoryAPI(id); // 🔹 Call the API function
           
-          alert(data.message);
+          toast.success(data.message);
           setBlogcategoryList((prevBlogcategoryList) => prevBlogcategoryList.filter((blogcategory) => blogcategory._id !== id));
           //setTitle(""); // ✅ Reset input after success
         } catch (error) {

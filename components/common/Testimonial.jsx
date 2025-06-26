@@ -28,7 +28,7 @@ const Testimonial = ({testimonials}) => {
   return (
     <>
       <Slider {...settings} arrows={false}>
-        {testimonials?.slice(0, 5).map((item) => (
+        {testimonials?.slice(0, 30).map((item) => (
           <div className="item" key={item._id}>
             <div className="testimonial_grid">
               <div className="thumb">

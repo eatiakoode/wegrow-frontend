@@ -17,7 +17,7 @@ import { addPropertyAPI } from "../../../api/property";
 
 import selectedFiles from "../../../utils/selectedFiles";
 import Image from "next/image";
-import { toast, ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
 import { getSellerTableData } from "@/api/seller";
 
 
@@ -1346,7 +1346,6 @@ const addProperty = async (e) => {
         </div>
       </div>
       </form>
-      <ToastContainer />
     </>
   );
 };

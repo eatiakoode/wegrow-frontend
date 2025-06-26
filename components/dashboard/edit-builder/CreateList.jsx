@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { useRouter, useParams } from "next/navigation";
-import { getBuilderById, updateBuilderAPI } from "../../../api/builder";
-
+import { getBuilderById, updateBuilderAPI } from "@/api/builder";
+import { toast } from 'react-toastify';
 
 const CreateList = () => {
   const params = useParams();  
@@ -60,9 +60,15 @@ const CreateList = () => {
         if (logo) {
           formData.append("logo", logo);
         }
-        await updateBuilderAPI(id, formData);
-        alert("Builder updated successfully!");
-        router.push("/cmswegrow/my-builder");
+        const data =await updateBuilderAPI(id, formData);
+        // alert("Builder updated successfully!");
+        // router.push("/cmswegrow/my-builder");
+        toast.success(data.message);
+        if(data.status=="success"){
+            setTimeout(() => {
+            router.push("/cmswegrow/my-builder");
+            }, 1500); 
+          }
       } catch (error) {
         alert("Failed to update Builder.");
         console.error(error);

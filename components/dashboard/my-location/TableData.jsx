@@ -4,6 +4,8 @@ import Image from "next/image";
 import { getLocationTableData,deleteLocationAPI } from "@/api/location";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { toast } from 'react-toastify';
+
 // import moment from 'moment';
 
 const TableData = ({locationList,setLocationList}) => {
@@ -23,7 +25,7 @@ const TableData = ({locationList,setLocationList}) => {
         try {
           const data = await deleteLocationAPI(id); // 🔹 Call the API function
           
-          alert(data.message);
+           toast.success(data.message);
           setLocationList((prevLocationList) => prevLocationList.filter((location) => location._id !== id));
           //setTitle(""); // ✅ Reset input after success
         } catch (error) {
@@ -121,7 +123,7 @@ const TableData = ({locationList,setLocationList}) => {
         {/* End theaad */}
 
         <tbody>{tbodyContent}</tbody>
-      </table>
+      </table>    
     </>
   );
 };

@@ -5,7 +5,7 @@ import { useRouter, useParams } from "next/navigation";
 import { getPropertytypeById, updatePropertytypeAPI } from "../../../api/propertytype";
 
 import { getCategoryTableData } from "../../../api/category";
-
+import { toast } from 'react-toastify';
 
 const CreateList = () => {
   const params = useParams();
@@ -59,9 +59,15 @@ const CreateList = () => {
           ...propertytype,
           categoryid: selectedCategory,
         };
-        await updatePropertytypeAPI(id, updatedPropertytype);
-        alert("Propertytype updated successfully!");
-        router.push("/cmswegrow/my-propertytype");
+        const data =await updatePropertytypeAPI(id, updatedPropertytype);
+        // alert("Propertytype updated successfully!");
+        // router.push("/cmswegrow/my-propertytype");
+        toast.success(data.message);
+        if(data.status=="success"){
+            setTimeout(() => {
+            router.push("/cmswegrow/my-propertytype");
+            }, 1500); 
+          }
       } catch (error) {
         alert("Failed to update Propertytype.");
         console.error(error);

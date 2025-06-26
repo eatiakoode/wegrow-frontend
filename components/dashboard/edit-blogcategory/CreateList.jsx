@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter, useParams } from "next/navigation";
 import { getBlogcategoryById, updateBlogcategoryAPI } from "../../../api/blogcategory";
-
+import { toast } from 'react-toastify';
 
 const CreateList = () => {
   const params = useParams();
@@ -37,9 +37,15 @@ const CreateList = () => {
     const handleSubmit = async (e) => {
       e.preventDefault();
       try {
-        await updateBlogcategoryAPI(id, blogcategory);
-        alert("Blogcategory updated successfully!");
-        router.push("/cmswegrow/my-blogcategory");
+        const data =await updateBlogcategoryAPI(id, blogcategory);
+        // alert("Blogcategory updated successfully!");
+        // router.push("/cmswegrow/my-blogcategory");
+        toast.success(data.message);
+        if(data.status=="success"){
+          setTimeout(() => {
+          router.push("/cmswegrow/my-blogcategory");
+          }, 1500); 
+        }
       } catch (error) {
         alert("Failed to update Blogcategory.");
         console.error(error);

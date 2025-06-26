@@ -6,6 +6,7 @@ import { useRouter, useParams } from "next/navigation";
 import { addCityAPI } from "../../../api/city";
 import { getCountryTableData } from "../../../api/country";
 import { getStateByCountryTableData } from "../../../api/state";
+import { toast } from 'react-toastify';
 const CreateList = () => {
   const router = useRouter();
    const [title, setTitle] = useState("");
@@ -15,6 +16,7 @@ const CreateList = () => {
    const [selectedState, setSelectedState] = useState("");
     const [error, setError] = useState("");
     const [citylogo, setCityLogo] = useState(null);
+    const [isSubmitting, setisSubmitting] = useState("");
      useEffect(() => {
             const fetchCountries = async () => {
               try {
@@ -65,6 +67,7 @@ const CreateList = () => {
       };
     const addCity = async (e) => {
       e.preventDefault();
+      setisSubmitting(true)
     
       if (!title.trim()) {
         setError("Title is required");
@@ -82,12 +85,18 @@ const CreateList = () => {
           formData.append("citylogo", citylogo);
         }
         
-    console.log("formDataend")
-    console.log(formData)
+    // console.log("formDataend")
+    // console.log(formData)
         const data = await addCityAPI(formData); // Use FormData here
         console.log(data);
-        router.push("/cmswegrow/my-cities");
-        alert(data.message);
+        // router.push("/cmswegrow/my-cities");
+        // alert(data.message);
+        toast.success(data.message);
+        if(data.status=="success"){
+          setTimeout(() => {
+          router.push("/cmswegrow/my-cities");
+          }, 1500); 
+        }
     
         setTitle("");
         // setDescription("");
@@ -200,7 +209,7 @@ const CreateList = () => {
       <div className="col-xl-12">
         <div className="my_profile_setting_input">
           <button className="btn btn1 float-start" type="button" onClick={() => window.location.href = '/cmswegrow/my-dashboard'}>Back</button>
-          <button type="submit" className="btn btn2 float-end">Submit</button>
+           <button type="submit" className="btn btn2 float-end" disabled={isSubmitting} >{isSubmitting ? 'Sending...' : 'Submit'}</button>
         </div>
       </div>
       </form>

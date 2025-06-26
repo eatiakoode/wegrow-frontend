@@ -2,16 +2,18 @@
 
 import { useState, useEffect } from "react";
 import { useRouter, useParams } from "next/navigation";
-import { getAmenityTableData } from "../../../api/amenity";
-import { addLandingpageAPI } from "../../../api/landingpage";
+import { getAmenityTableData } from "@/api/amenity";
+import { addLandingpageAPI } from "@/api/landingpage";
 import { MultiSelectInput } from 'multi-select-input';
-import { getFaqTableData } from "../../../api/faq";
+import { getFaqTableData } from "@/api/faq";
 
-import selectedFiles from "../../../utils/selectedFiles";
+import selectedFiles from "@/utils/selectedFiles";
+import { toast } from 'react-toastify';
 import Image from "next/image";
 
 const CreateList = () => {
   const [inputs, setInputs] = useState([]);
+  const [isSubmitting, setisSubmitting] = useState("");
   const handleAddInput = () => {
     setInputs([
       ...inputs,
@@ -182,6 +184,7 @@ const handleAmenityChange = (e) => {
 const addLanding = async (e) => {
  
   e.preventDefault();
+  setisSubmitting(true)
   const newErrors = {};
   
   const requiredFields = [
@@ -249,8 +252,14 @@ const addLanding = async (e) => {
     });
 
 
-    const res = await addLandingpageAPI(formData);
-    router.push("/cmswegrow/my-landing");
+    const data = await addLandingpageAPI(formData);
+    // router.push("/cmswegrow/my-landing");
+    toast.success(data.message);
+    if(data.status=="success"){
+      setTimeout(() => {
+          router.push("/cmswegrow/my-landing");
+          }, 1500); 
+    }
     // alert(res.message);
 
     // Reset fields and errors
@@ -657,7 +666,7 @@ const addLanding = async (e) => {
       <div className="col-xl-12">
         <div className="my_profile_setting_input">
           <button className="btn btn1 float-start" type="button" onClick={() => window.location.href = '/cmswegrow/my-dashboard'}>Back</button>
-          <button className="btn btn2 float-end" type="submit" >Submit</button>
+          <button type="submit" className="btn btn2 float-end" disabled={isSubmitting} >{isSubmitting ? 'Sending...' : 'Submit'}</button>
         </div>
       </div>
       </form>

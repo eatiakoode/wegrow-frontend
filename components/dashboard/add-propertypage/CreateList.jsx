@@ -14,10 +14,10 @@ import { getBuilderTableData } from "../../../api/builder";
 import { getConstructionstatusTableData } from "../../../api/constructionstatus";
 import { getFurnishingstatusTableData } from "../../../api/furnishingstatus";
 import { addPropertypageAPI } from "../../../api/propertypage";
+import { toast } from 'react-toastify';
 
 
 const CreateList = () => {
-  const router = useRouter();
   // --- State Hooks ---
 const [title, setTitle] = useState("");
 const [slug, setSlug] = useState("");
@@ -57,7 +57,8 @@ const [constructionstatus, setConstructionstatus] = useState([]);
 
   const [metatitle, setMetatitle] = useState([]);
   const [metadescription, setMetaDescription] = useState([]);
-
+const router = useRouter();
+  const [isSubmitting, setisSubmitting] = useState("");
   
 // --- Fetch Initial Data ---
 useEffect(() => {
@@ -154,6 +155,7 @@ const handleLocationChange = (e) => {
 // --- Submit ---
 const addPropertypage = async (e) => {
   e.preventDefault();
+  setisSubmitting(true)
   const newErrors = {};
 
   const requiredFields = [
@@ -210,8 +212,15 @@ const addPropertypage = async (e) => {
     }
 
 
-    const res = await addPropertypageAPI(payload);
-    router.push("/cmswegrow/my-propertypage");
+    const data = await addPropertypageAPI(payload);
+    // router.push("/cmswegrow/my-propertypage");
+    toast.success(data.message);
+   
+    if(data.status=="success"){
+         setTimeout(() => {
+          router.push("/cmswegrow/my-propertypage");
+          }, 1500); 
+      }
     // alert(res.message);
 
     // Reset fields and errors
@@ -493,7 +502,7 @@ const addPropertypage = async (e) => {
       <div className="col-xl-12">
         <div className="my_profile_setting_input">
           <button className="btn btn1 float-start" type="button" onClick={() => window.location.href = '/cmswegrow/my-dashboard'}>Back</button>
-          <button className="btn btn2 float-end" type="submit" >Submit</button>
+          <button type="submit" className="btn btn2 float-end" disabled={isSubmitting} >{isSubmitting ? 'Sending...' : 'Submit'}</button>
         </div>
       </div>
       </form>

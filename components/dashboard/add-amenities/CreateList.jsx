@@ -1,12 +1,15 @@
 "use client";
 
 import { useState } from "react";
-import { addAmenityAPI } from "../../../api/amenity";
+import { addAmenityAPI } from "@/api/amenity";
+import { useRouter, useParams } from "next/navigation";
+import { toast } from 'react-toastify';
 const CreateList = () => {
    const [title, setTitle] = useState("");
     const [error, setError] = useState("");
+     const [isSubmitting, setisSubmitting] = useState("");
     const [logo, setLogo] = useState(null);
-  
+  const router = useRouter();
     const handleTitleChange = (e) => {
       setTitle(e.target.value);
   
@@ -23,6 +26,7 @@ const CreateList = () => {
     const addAmenity = async (e) => {
       
       e.preventDefault();
+      setisSubmitting(true)
   
       const formData = new FormData();
       formData.append("title", title);
@@ -32,8 +36,15 @@ const CreateList = () => {
       
       try {
         const data = await addAmenityAPI(formData); // 🔹 Call the API function
-        console.log(data);
-        alert(data.message);
+        // console.log(data);
+        toast.success(data.message);
+      
+        if(data.status=="success"){
+         setTimeout(() => {
+          router.push("/cmswegrow/my-amenities");
+          }, 1500); 
+        }
+
   
         setTitle(""); // ✅ Reset input after success
       } catch (error) {
@@ -100,7 +111,7 @@ const CreateList = () => {
       <div className="col-xl-12">
         <div className="my_profile_setting_input">
           <button className="btn btn1 float-start" type="button" onClick={() => window.location.href = '/cmswegrow/my-dashboard'}>Back</button>
-          <button type="submit" className="btn btn2 float-end">Submit</button>
+          <button type="submit" className="btn btn2 float-end" disabled={isSubmitting} >{isSubmitting ? 'Sending...' : 'Submit'}</button>
         </div>
       </div>
       </form>

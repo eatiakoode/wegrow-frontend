@@ -4,11 +4,17 @@ import { useState, useEffect } from "react";
 import { addStateAPI } from "../../../api/state";
 import { getCountryTableData } from "../../../api/country";
 
+import { useRouter, useParams } from "next/navigation";
+
+import { toast } from 'react-toastify';
+
 const CreateList = () => {
   const [title, setTitle] = useState("");
   const [error, setError] = useState("");
   const [countries, setCountries] = useState([]);
   const [selectedCountry, setSelectedCountry] = useState("");
+  const router = useRouter();
+  const [isSubmitting, setisSubmitting] = useState("");
 
   useEffect(() => {
     const fetchCountries = async () => {
@@ -37,6 +43,7 @@ const CreateList = () => {
 
   const addState = async (e) => {
     e.preventDefault();
+    setisSubmitting(true)
 
     if (!title.trim()) {
       setError("Title is required");
@@ -48,7 +55,13 @@ const CreateList = () => {
     try {
       const data = await addStateAPI(title, selectedCountry);
       console.log(data);
-      alert(data.message);
+      // alert(data.message);
+       toast.success(data.message);
+        if(data.status=="success"){
+          setTimeout(() => {
+          router.push("/cmswegrow/my-state");
+          }, 1500); 
+        }
       setTitle("");
       setSelectedCountry("");
     } catch (error) {
@@ -97,8 +110,8 @@ const CreateList = () => {
 
         <div className="col-xl-12">
           <div className="my_profile_setting_input">
-            <button type="button" className="btn btn1 float-start" type="button" onClick={() => window.location.href = '/cmswegrow/my-dashboard'}>Back</button>
-            <button type="submit" className="btn btn2 float-end">Submit</button>
+            <button type="button" className="btn btn1 float-start"  onClick={() => window.location.href = '/cmswegrow/my-dashboard'}>Back</button>
+            <button type="submit" className="btn btn2 float-end" disabled={isSubmitting} >{isSubmitting ? 'Sending...' : 'Submit'}</button>
           </div>
         </div>
       </form>

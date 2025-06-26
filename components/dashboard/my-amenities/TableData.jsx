@@ -4,6 +4,8 @@ import Image from "next/image";
 import { getAmenityTableData,deleteAmenityAPI } from "@/api/amenity";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+
+import { toast } from 'react-toastify';
 // import moment from 'moment';
 const TableData = ({amenityList,setAmenityList}) => {
   const router = useRouter();
@@ -15,7 +17,7 @@ const TableData = ({amenityList,setAmenityList}) => {
         try {
           const data = await deleteAmenityAPI(id); // 🔹 Call the API function
           
-          alert(data.message);
+          toast.success(data.message);
           setAmenityList((prevAmenityList) => prevAmenityList.filter((amenity) => amenity._id !== id));
           //setTitle(""); // ✅ Reset input after success
         } catch (error) {

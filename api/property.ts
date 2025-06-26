@@ -35,15 +35,14 @@ const token =userData.token
 
   export async function getPropertyTableData(filter) {
     // Fake delay
-    await new Promise((resolve) => setTimeout(resolve, 1400));
+    await new Promise((resolve) => setTimeout(resolve, 10));
     
   // console.log("filter")
   // console.log(filter)
     try {
       const response = await fetch(process.env.NEXT_PUBLIC_ADMIN_API_URL+"api/property?limit="+filter.limit+"&skip="+filter.page,
         {
-          next: { revalidate: 60 }, // ✅ For Next.js ISR (revalidate every 1 hour)
-          cache: "force-cache", // ✅ Uses browser or server-side cache
+          next: { revalidate: 60 }
         }); // Replace with actual API endpoint
       if (!response.ok) {
         throw new Error("Failed to fetch products");

@@ -48,7 +48,7 @@ const token =userData.token
 
   export async function getTestimonialTableData() {
     // Fake delay
-    await new Promise((resolve) => setTimeout(resolve, 1400));
+    await new Promise((resolve) => setTimeout(resolve, 10));
     
   
     try {

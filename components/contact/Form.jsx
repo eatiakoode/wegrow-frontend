@@ -65,8 +65,9 @@ const Form = () => {
 // alert("test")
       const payload = {
       ...data,
-      appointmentDate, // ✅ manually add the date
+      date:appointmentDate, // ✅ manually add the date
     };
+     router.push("/thank-you");
       const res = await addEnquiryAPI(payload);
       if(res.status=="success"){
         setSuccessmsg(res.message)
@@ -78,7 +79,7 @@ const Form = () => {
       }
 
       setError({});
-      router.push("/thank-you");
+     
     // (Reset other fields here if needed)
   } catch (err) {
     setError({ general: err.message || "Something went wrong" });

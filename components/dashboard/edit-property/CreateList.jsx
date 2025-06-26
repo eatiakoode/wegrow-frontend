@@ -19,7 +19,7 @@ import { deletePropertyAPI, getPropertyById, updatePropertyAPI } from "../../../
 
 import selectedFiles from "../../../utils/selectedFiles";
 import Image from "next/image";
-import { toast, ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
 
 import predefinedOptions from "@/data/bedroomoption"
 import predefinedOptionsbathroom from "@/data/bathroomoption"
@@ -249,14 +249,14 @@ useEffect(() => {
             setAreasize(property.areasize)
             setSizePrefix(property.sizeprefix)
             
-            if (!predefinedOptions.includes(property.bedrooms) && property.bedrooms.trim() !== "") {
+            if (!predefinedOptions.includes(property.bedrooms) && property.bedrooms?.trim() !== "") {
                 setCustomBedroom(property.bedrooms);
                 setBedRooms("Custom"); // Mark dropdown as 'Custom'
               }  else {
                 setBedRooms(property.bedrooms)
               }
 
-              if (!predefinedOptionsbathroom.includes(property.bathrooms) && property.bathrooms.trim() !== "") {
+              if (!predefinedOptionsbathroom.includes(property.bathrooms) && property.bathrooms?.trim() !== "") {
                 setCustomBathrooms(property.bathrooms);
                 setBathRooms("Custom"); // Mark dropdown as 'Custom'
               }  else {
@@ -264,7 +264,7 @@ useEffect(() => {
               }
 
               
-           if (!predefinedOptionsparking.includes(property.garages) && property.garages.trim() !== "") {
+           if (!predefinedOptionsparking.includes(property.garages) && property.garages?.trim() !== "") {
                 setCustomParking(property.garages);
                 setGarages("Custom"); // Mark dropdown as 'Custom'
               }  else {
@@ -535,8 +535,11 @@ const updateProperty = async (e) => {
     const res = await updatePropertyAPI(id,formData);
     // alert(res.message);
     toast.success(res.message);
-    if(res.status=="success"){
-      router.push("/cmswegrow/my-properties");
+    
+    if(data.status=="success"){
+      setTimeout(() => {
+        router.push("/cmswegrow/my-properties");
+        }, 1500); 
     }
     // router.push("/cmswegrow/my-properties");
 
@@ -1477,7 +1480,6 @@ const updateProperty = async (e) => {
         </div>
       </div>
       </form>
-      <ToastContainer />
     </>
   );
 };

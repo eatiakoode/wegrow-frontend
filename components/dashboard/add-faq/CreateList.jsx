@@ -2,10 +2,12 @@
 
 import { useState, useEffect } from "react";
 import { useRouter, useParams } from "next/navigation";
-import { addFaqAPI } from "../../../api/faq";
-import { getPropertyTableData } from "../../../api/property";
+import { addFaqAPI } from "@/api/faq";
+import { getPropertyTableData } from "@/api/property";
+import { toast } from 'react-toastify';
 const CreateList = () => {
   const router = useRouter();
+  const [isSubmitting, setisSubmitting] = useState("");
    const [title, setTitle] = useState("");
    const [description, setDescription] = useState("");
     const [error, setError] = useState("");
@@ -44,6 +46,7 @@ const CreateList = () => {
   
     const addFaq = async (e) => {
       e.preventDefault();
+       setisSubmitting(true)
     
       if (!title.trim()) {
         setError("Title is required");
@@ -60,8 +63,15 @@ const CreateList = () => {
         
         const data = await addFaqAPI(formData); // Use FormData here
         console.log(data);
-        router.push("/cmswegrow/my-faq");
-        alert(data.message);
+        // router.push("/cmswegrow/my-faq");
+        // alert(data.message);
+        toast.success(data.message);
+       
+        if(data.status=="success"){
+          setTimeout(() => {
+          router.push("/cmswegrow/my-faq");
+          }, 1500); 
+        }
     
         setTitle("");
         setDescription("");
@@ -136,7 +146,7 @@ const CreateList = () => {
       <div className="col-xl-12">
         <div className="my_profile_setting_input">
           <button className="btn btn1 float-start" type="button" onClick={() => window.location.href = '/cmswegrow/my-dashboard'}>Back</button>
-          <button type="submit" className="btn btn2 float-end">Submit</button>
+           <button type="submit" className="btn btn2 float-end" disabled={isSubmitting} >{isSubmitting ? 'Sending...' : 'Submit'}</button>
         </div>
       </div>
       </form>

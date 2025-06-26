@@ -34,14 +34,13 @@ const token =userData.token
 
   export async function getEnquiryTableData() {
     // Fake delay
-    await new Promise((resolve) => setTimeout(resolve, 1400));
+    await new Promise((resolve) => setTimeout(resolve, 10));
     
   
     try {
       const response = await fetch(process.env.NEXT_PUBLIC_ADMIN_API_URL+"api/enquiry",
         {
-          next: { revalidate: 60 }, // ✅ For Next.js ISR (revalidate every 1 hour)
-          cache: "force-cache", // ✅ Uses browser or server-side cache
+          next: { revalidate: 60 }
         }); // Replace with actual API endpoint
       if (!response.ok) {
         throw new Error("Failed to fetch products");

@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { useRouter, useParams } from "next/navigation";
 import Image from "next/image";
 import { deletePropertyplanAPI, addPropertyPlanAPI } from "@/api/propertyplan";
-import { toast, ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
 
 
 const FloorPlans = ({inputs,setInputs,property,setPlanImage,planimage}) => {

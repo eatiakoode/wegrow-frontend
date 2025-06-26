@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { addAgentAPI } from "../../../api/agent.ts";
+import { toast } from 'react-toastify';
 const CreateList = () => {
    const [title, setTitle] = useState("");
     const [error, setError] = useState("");
@@ -29,7 +30,8 @@ const CreateList = () => {
       try {
         const data = await addAgentAPI(title); // 🔹 Call the API function
         console.log(data);
-        alert(data.message);
+        // alert(data.message);
+        toast.success(data.message);
   
         setTitle(""); // ✅ Reset input after success
       } catch (error) {

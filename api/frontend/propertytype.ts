@@ -1,6 +1,6 @@
   export async function getPropertytypeTableData() {
     // Fake delay
-    await new Promise((resolve) => setTimeout(resolve, 1400));
+    await new Promise((resolve) => setTimeout(resolve, 10));
   
     try {
       const response = await fetch(process.env.NEXT_PUBLIC_FRONTEND_API_URL+"api/propertytype",
@@ -51,7 +51,7 @@
 
   export const  getPropertytypeByCategoryTableData = async (id: string) => {
     // Fake delay
-    await new Promise((resolve) => setTimeout(resolve, 1400));
+    await new Promise((resolve) => setTimeout(resolve, 10));
   
     try {
       const response = await fetch(process.env.NEXT_PUBLIC_FRONTEND_API_URL+`api/propertytype/bycategory/${id}`,{
@@ -70,7 +70,7 @@
 
   export async function countPropertiesByType() {
     // Fake delay
-    await new Promise((resolve) => setTimeout(resolve, 1400));
+    await new Promise((resolve) => setTimeout(resolve, 10));
     
   
     try {

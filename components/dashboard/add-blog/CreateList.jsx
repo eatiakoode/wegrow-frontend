@@ -5,7 +5,7 @@ import { addBlogAPI } from "../../../api/blog";
 import { useRouter, useParams } from "next/navigation";
 
 import { getBlogcategoryTableData } from "../../../api/blogcategory";
-import { toast, ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
 const CreateList = () => {
   const router = useRouter();
    const [title, setTitle] = useState("");
@@ -17,6 +17,7 @@ const CreateList = () => {
     const [logo, setLogo] = useState(null);
     const [blogcategories, setBlogcategories] = useState([]);
   const [selectedBlogcategory, setSelectedBlogcategory] = useState("");
+   const [isSubmitting, setisSubmitting] = useState("");
 useEffect(() => {
   const fetchBlogcategories = async () => {
     try {
@@ -57,6 +58,7 @@ useEffect(() => {
     };
     const addBlog = async (e) => {
       e.preventDefault();
+      setisSubmitting(true)
     
       if (!title.trim()) {
         setError("Title is required");
@@ -87,10 +89,12 @@ useEffect(() => {
         console.log(data);
         // alert(data.message);
          toast.success(data.message);
+        
          if(data.status=="success"){
-          alert("TEST")
-        router.push("/cmswegrow/my-blog");
-         }
+         setTimeout(() => {
+          router.push("/cmswegrow/my-blog");
+          }, 1500); 
+        }
     
         setTitle("");
         setDescription("");
@@ -214,11 +218,10 @@ useEffect(() => {
       <div className="col-xl-12">
         <div className="my_profile_setting_input">
           <button className="btn btn1 float-start" type="button" onClick={() => window.location.href = '/cmswegrow/my-dashboard'}>Back</button>
-          <button type="submit" className="btn btn2 float-end">Submit</button>
+          <button type="submit" className="btn btn2 float-end" disabled={isSubmitting} >{isSubmitting ? 'Sending...' : 'Submit'}</button>
         </div>
       </div>
       </form>
-      <ToastContainer />
     </>
   );
 };

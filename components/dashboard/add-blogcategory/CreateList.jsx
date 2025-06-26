@@ -2,9 +2,15 @@
 
 import { useState } from "react";
 import { addBlogcategoryAPI } from "@/api/blogcategory";
+import { useRouter, useParams } from "next/navigation";
+import { toast } from 'react-toastify';
+
 const CreateList = () => {
+  
    const [title, setTitle] = useState("");
     const [error, setError] = useState("");
+    const router = useRouter();
+     const [isSubmitting, setisSubmitting] = useState("");
   
     const handleTitleChange = (e) => {
       setTitle(e.target.value);
@@ -18,6 +24,7 @@ const CreateList = () => {
     const addBlogcategory = async (e) => {
       
       e.preventDefault();
+      setisSubmitting(true)
   
       if (!title.trim()) {
         setError("Title is required");
@@ -29,7 +36,14 @@ const CreateList = () => {
       try {
         const data = await addBlogcategoryAPI(title); // 🔹 Call the API function
         console.log(data);
-        alert(data.message);
+        // alert(data.message);
+        toast.success(data.message);
+      
+      if(data.status=="success"){
+         setTimeout(() => {
+          router.push("/cmswegrow/my-blogcategory");
+          }, 1500); 
+        }
   
         setTitle(""); // ✅ Reset input after success
       } catch (error) {
@@ -69,7 +83,7 @@ const CreateList = () => {
       <div className="col-xl-12">
         <div className="my_profile_setting_input">
           <button className="btn btn1 float-start" type="button" onClick={() => window.location.href = '/cmswegrow/my-dashboard'}>Back</button>
-          <button type="submit" className="btn btn2 float-end">Submit</button>
+          <button type="submit" className="btn btn2 float-end" disabled={isSubmitting} >{isSubmitting ? 'Sending...' : 'Submit'}</button>
         </div>
       </div>
       </form>

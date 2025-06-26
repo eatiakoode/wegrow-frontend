@@ -40,7 +40,7 @@ console.log("formDataendapi")
 
   export async function getStateTableData() {
     // Fake delay
-    await new Promise((resolve) => setTimeout(resolve, 1400));
+    await new Promise((resolve) => setTimeout(resolve, 10));
   
     try {
       const response = await fetch(process.env.NEXT_PUBLIC_ADMIN_API_URL+"api/state"); // Replace with actual API endpoint
@@ -157,7 +157,7 @@ const token =userData.token
 
   export const  getStateByCountryTableData = async (id: string) => {
     // Fake delay
-    await new Promise((resolve) => setTimeout(resolve, 1400));
+    await new Promise((resolve) => setTimeout(resolve, 10));
   
     try {
       const response = await fetch(process.env.NEXT_PUBLIC_ADMIN_API_URL+`api/state/bycountry/${id}`); // Replace with actual API endpoint

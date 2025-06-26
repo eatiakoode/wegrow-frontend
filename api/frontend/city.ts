@@ -1,6 +1,6 @@
  export async function getCityTableData() {
     // Fake delay
-    await new Promise((resolve) => setTimeout(resolve, 1400));
+    await new Promise((resolve) => setTimeout(resolve, 10));
     
   
     try {
@@ -46,7 +46,7 @@
 
   export const  getCityByStateTableData = async (id: string) => {
     // Fake delay
-    await new Promise((resolve) => setTimeout(resolve, 1400));
+    await new Promise((resolve) => setTimeout(resolve, 10));
   
     try {
       const response = await fetch(process.env.NEXT_PUBLIC_FRONTEND_API_URL+`api/city/bystate/${id}`); // Replace with actual API endpoint
@@ -63,7 +63,7 @@
 
   export async function countPropertiesByCity() {
     // Fake delay
-    await new Promise((resolve) => setTimeout(resolve, 1400));
+    await new Promise((resolve) => setTimeout(resolve, 10));
     
   
     try {
@@ -82,7 +82,7 @@
 
   export async function getCityWithLocation() {
     // Fake delay
-    await new Promise((resolve) => setTimeout(resolve, 1400));
+    await new Promise((resolve) => setTimeout(resolve, 10));
     
   
     try {
@@ -98,7 +98,7 @@
   }
   export async function getCityWithPropertyPage() {
     // Fake delay
-    await new Promise((resolve) => setTimeout(resolve, 1400));
+    await new Promise((resolve) => setTimeout(resolve, 10));
     
   
     try {

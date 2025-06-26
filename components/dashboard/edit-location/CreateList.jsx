@@ -2,11 +2,12 @@
 
 import { useEffect, useState } from "react";
 import { useRouter, useParams } from "next/navigation";
-import { getLocationById, updateLocationAPI } from "../../../api/location";
+import { getLocationById, updateLocationAPI } from "@/api/location";
 
-import { getCityTableData,getCityByStateTableData } from "../../../api/city";
-import { getCountryTableData } from "../../../api/country";
-import { getStateByCountryTableData } from "../../../api/state";
+import { getCityTableData,getCityByStateTableData } from "@/api/city";
+import { getCountryTableData } from "@/api/country";
+import { getStateByCountryTableData } from "@/api/state";
+import { toast } from 'react-toastify';
 
 
 const CreateList = () => {
@@ -102,9 +103,15 @@ const CreateList = () => {
           ...location,
           cityid: selectedCity,
         };
-        await updateLocationAPI(id, updatedLocation);
-        alert("Location updated successfully!");
-        router.push("/cmswegrow/my-location");
+        const data = await updateLocationAPI(id, updatedLocation);
+        toast.success(data.message);
+        if(data.status=="success"){
+         setTimeout(() => {
+          router.push("/cmswegrow/my-location");
+          }, 1500); 
+        }
+        // alert("Location updated successfully!");
+        // router.push("/cmswegrow/my-location");
       } catch (error) {
         alert("Failed to update Location.");
         console.error(error);
@@ -264,7 +271,7 @@ const CreateList = () => {
           <button className="btn btn2 float-end">Submit</button>
         </div>
       </div>
-      </form>
+      </form> 
     </>
   );
 };

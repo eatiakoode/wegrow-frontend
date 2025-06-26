@@ -28,8 +28,8 @@ const router = useRouter();
       console.log('Form Data:', data);
       // Send data to backend here
       data.landingpageid=landingpage._id
-      const res = await addLandingEnquiryAPI(data);
       router.push("/thank-you");
+      const res = await addLandingEnquiryAPI(data);
       onUnlock();
       reset();
     } catch (error) {

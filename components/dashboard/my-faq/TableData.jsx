@@ -3,8 +3,9 @@ import Image from "next/image";
 import { getFaqTableData,deleteFaqAPI } from "../../../api/faq";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-// import moment from 'moment';
 
+// import moment from 'moment';
+import { toast } from 'react-toastify';
 const TableData = ({faqList,setFaqList}) => {
   //  const [faqList, setFaqList] = useState([]);
     const router = useRouter();
@@ -21,7 +22,8 @@ const TableData = ({faqList,setFaqList}) => {
         try {
           const data = await deleteFaqAPI(id); // 🔹 Call the API function
           
-          alert(data.message);
+          // alert(data.message);
+          toast.success(data.message);
           setFaqList((prevFaqList) => prevFaqList.filter((faq) => faq._id !== id));
           //setTitle(""); // ✅ Reset input after success
         } catch (error) {

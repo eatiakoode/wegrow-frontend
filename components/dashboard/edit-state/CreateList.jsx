@@ -5,7 +5,7 @@ import { useRouter, useParams } from "next/navigation";
 import { getStateById, updateStateAPI } from "../../../api/state";
 
 import { getCountryTableData } from "../../../api/country";
-
+import { toast } from 'react-toastify';
 
 const CreateList = () => {
   const params = useParams();
@@ -59,9 +59,15 @@ const CreateList = () => {
           ...state,
           countryid: selectedCountry,
         };
-        await updateStateAPI(id, updatedState);
-        alert("State updated successfully!");
-        router.push("/cmswegrow/my-state");
+        const data = await updateStateAPI(id, updatedState);
+        // alert("State updated successfully!");
+        // router.push("/cmswegrow/my-state");
+        toast.success(data.message);
+        if(data.status=="success"){
+          setTimeout(() => {
+          router.push("/cmswegrow/my-state");
+          }, 1500); 
+        }
       } catch (error) {
         alert("Failed to update State.");
         console.error(error);
