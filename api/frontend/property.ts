@@ -7,8 +7,7 @@ export async function getPropertyFeatureData() {
     try {
       const response = await fetch(process.env.NEXT_PUBLIC_FRONTEND_API_URL+"api/property/list?feature=yes&limit=9",
         {
-          next: { revalidate: 60 }, // ✅ For Next.js ISR (revalidate every 1 hour)
-          cache: "force-cache", // ✅ Uses browser or server-side cache
+          next: { revalidate: 60 }
         }); // Replace with actual API endpoint
       if (!response.ok) {
         throw new Error("Failed to fetch products");
@@ -28,8 +27,7 @@ export async function getPropertyFeatureData() {
     try {
       const response = await fetch(process.env.NEXT_PUBLIC_FRONTEND_API_URL+"api/property/list?hot=yes&limit=6",
         {
-          next: { revalidate: 60 }, // ✅ For Next.js ISR (revalidate every 1 hour)
-          cache: "force-cache", // ✅ Uses browser or server-side cache
+          next: { revalidate: 60 }
         }); // Replace with actual API endpoint
       if (!response.ok) {
         throw new Error("Failed to fetch products");
@@ -86,8 +84,7 @@ export async function getPropertyFeatureData() {
     try {
       const response = await fetch(process.env.NEXT_PUBLIC_FRONTEND_API_URL+"api/property/filterlist?limit="+filter.limit+"&skip="+filter.page+querystring,
         {
-          next: { revalidate: 60 }, // ✅ For Next.js ISR (revalidate every 1 hour)
-          cache: "force-cache", // ✅ Uses browser or server-side cache
+          next: { revalidate: 60 }
         }); // Replace with actual API endpoint
       if (!response.ok) {
         throw new Error("Failed to fetch products");
@@ -108,8 +105,7 @@ export async function getPropertyFeatureData() {
     try {
       const response = await fetch(process.env.NEXT_PUBLIC_FRONTEND_API_URL+"api/property/propertyidlist?prolist="+propertycomparelist,
         {
-          next: { revalidate: 60 }, // ✅ For Next.js ISR (revalidate every 1 hour)
-          cache: "force-cache", // ✅ Uses browser or server-side cache
+          next: { revalidate: 60 }
         }); // Replace with actual API endpoint
       if (!response.ok) {
         throw new Error("Failed to fetch products");
@@ -186,8 +182,7 @@ const token =userData.token
     try {
       const response = await fetch(process.env.NEXT_PUBLIC_FRONTEND_API_URL+"api/property/propertylistpage/"+propertypage,
         {
-          next: { revalidate: 60 }, // ✅ For Next.js ISR (revalidate every 1 hour)
-          cache: "force-cache", // ✅ Uses browser or server-side cache
+          next: { revalidate: 60 }
         }); // Replace with actual API endpoint
       if (!response.ok) {
         throw new Error("Failed to fetch products");
@@ -208,8 +203,7 @@ const token =userData.token
     try {
       const response = await fetch(process.env.NEXT_PUBLIC_FRONTEND_API_URL+"api/property/propertylisttrends?propertytypeid="+propertytypeid+"&categoriesid="+categoriesid,
         {
-          next: { revalidate: 60 }, // ✅ For Next.js ISR (revalidate every 1 hour)
-          cache: "force-cache", // ✅ Uses browser or server-side cache
+          next: { revalidate: 60 }
         }); // Replace with actual API endpoint
       if (!response.ok) {
         throw new Error("Failed to fetch products");
@@ -230,8 +224,7 @@ const token =userData.token
     try {
       const response = await fetch(process.env.NEXT_PUBLIC_FRONTEND_API_URL+"api/property/propertylistbuilder/"+builderid,
         {
-          next: { revalidate: 60 }, // ✅ For Next.js ISR (revalidate every 1 hour)
-          cache: "force-cache", // ✅ Uses browser or server-side cache
+          next: { revalidate: 60 }
         }); // Replace with actual API endpoint
       if (!response.ok) {
         throw new Error("Failed to fetch products");

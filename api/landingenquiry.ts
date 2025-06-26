@@ -41,8 +41,7 @@ export async function getLandingEnquiryTableData() {
    const response = await fetch(
         process.env.NEXT_PUBLIC_ADMIN_API_URL + "api/landingenquiry",
         {
-          next: { revalidate: 60 }, // ✅ For Next.js ISR (revalidate every 1 hour)
-          cache: "force-cache", // ✅ Uses browser or server-side cache
+          next: { revalidate: 60 }
         }
       );
  // Replace with actual API endpoint
