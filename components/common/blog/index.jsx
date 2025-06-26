@@ -15,7 +15,7 @@ import Footer from "@/components/common/footer/Footer";
 import Header from "@/components/common/header/DefaultHeader";
 import MobileMenu from "@/components/common/header/MobileMenu";
 import PopupSignInUp from "@/components/common/PopupSignInUp";
-import BreadCrumbBanner from "./BreadCrumbBanner";
+import BreadCrumbBanner from "@/components/blog-list-2/BreadCrumbBanner";
 // import blogs from "@/data/blogs";
 import Image from "next/image";
 
