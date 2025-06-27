@@ -237,7 +237,7 @@ const handleCategoryChange = async (e) => {
   const value = e.target.value;
   
   if(value=="67ea48d17cfa562fe8eaafd0"){
-    setRoomText("meeting rooms and cabins")
+    setRoomText("Meeting rooms and cabins")
 
   }
   setSelectedCategory(value);
@@ -312,11 +312,11 @@ const addProperty = async (e) => {
  
   e.preventDefault();
   const newErrors = {};
-  console.log("propertySelectedImgs")
-  console.log(propertySelectedImgs)
+  // console.log("propertySelectedImgs")
+  // console.log(propertySelectedImgs)
   
-  console.log("siteplan")
-  console.log(siteplan)
+  // console.log("siteplan")
+  // console.log(siteplan)
   const requiredFields = [
     { key: "title", value: title, name: "Title" },
     { key: "slug", value: slug, name: "Slug" },
@@ -356,7 +356,7 @@ const addProperty = async (e) => {
   }
 
   try {
-    console.log(propertySelectedImgs)
+    // console.log(propertySelectedImgs)
     const payload = {
       title, slug, description, price,pricesqft, address,
       countryid: selectedCountry,
