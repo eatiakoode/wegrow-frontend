@@ -72,7 +72,7 @@ const CreateList = () => {
     <form onSubmit={handleSubmit} className="row">
       <div className="col-lg-6 col-xl-6">
         <div className="my_profile_setting_input form-group">
-          <label htmlFor="sellerTitle">Seller Title</label>
+          <label htmlFor="sellerTitle">Seller Name</label>
           <input
         type="text"
         className="form-control"

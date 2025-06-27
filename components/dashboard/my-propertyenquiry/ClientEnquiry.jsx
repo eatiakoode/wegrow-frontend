@@ -131,6 +131,7 @@ const AuthorReview = () => {
             <a className="review_date" href="#">
             For Property: {item?.propertyid?.title}
             </a>
+             For Seller: {item?.sellerid?.title}
             <p className="para">{item.message}</p>
 
            
