@@ -40,6 +40,7 @@ const CreateList = ({property}) => {
 const [title, setTitle] = useState("");
 const [slug, setSlug] = useState("");
 const [description, setDescription] = useState("");
+const [highlights, setHighlights] = useState("");
 const [price, setPrice] = useState("");
 const [pricesqft, setPriceSqft] = useState("");
 
@@ -94,6 +95,11 @@ const [constructionstatus, setConstructionstatus] = useState([]);
   const [garages, setGarages] = useState([]);
   const [garagessize, setGaragesSize] = useState([]);
   const [yearbuild, setYearBuild] = useState([]);
+
+  const [foodcourt, setFoodcourt] = useState([]);
+const [paymentPlan, setPaymentPlan] = useState([]);
+const [multiplex, setMultiplex] = useState([]);
+
   const [mapembedcode, setMapEmbedCode] = useState([]);
   const [videoembedcode, setVideoEmbedCode] = useState([]);
   const [nearby, setNearBy] = useState([]);
@@ -116,6 +122,8 @@ const [constructionstatus, setConstructionstatus] = useState([]);
   const [siteplan, setSitePlan] = useState(null);
   const [siteplanget, setSitePlanGet] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [masterplan, setMasterPlan] = useState(null);
+  const [masterplanget, setMasterPlanGet] = useState(null);
   const [roomtext, setRoomText] = useState("Bedrooms");
   const [customBedroom, setCustomBedroom] = useState("");
 
@@ -156,7 +164,11 @@ const [constructionstatus, setConstructionstatus] = useState([]);
       setSitePlanGet("")
       // setSitePlanGet(e.target.files[0])
   };
-
+const uploadMasterPlan = (e) => {
+    // alert("test")
+      setMasterPlan(e.target.files[0]);
+      setMasterPlanGet("")
+  };
   const uploadFeaturedImage = (e) => {
     setFeaturedImageGet("")
     setFeaturedImage(e.target.files[0]);
@@ -301,6 +313,9 @@ useEffect(() => {
             }
             if(property.siteplanurl) {
               setSitePlanGet(process.env.NEXT_PUBLIC_API_URL+property.siteplanurl)
+            }
+             if(property.masterplanurl) {
+              setMasterPlanGet(process.env.NEXT_PUBLIC_API_URL+property.masterplanurl)
             }
             
             // setPropertySelectedImgsGet(data.data.propertyimageurl)
@@ -489,7 +504,7 @@ const updateProperty = async (e) => {
 
   try {
     const payload = {
-      title, slug, description, price,pricesqft, address,
+      title, slug, description,highlights, price,pricesqft, address,
       countryid: selectedCountry,
       stateid: selectedState,
       cityid: selectedCity,
@@ -514,7 +529,7 @@ const updateProperty = async (e) => {
       garagessize,
       yearbuild, mapembedcode, videoembedcode,
       nearby,specifications, sellername, selleremail, sellerphone, 
-      reranumber, zipcode, metatitle, metadescription,featuredimage,siteplan,status,
+      reranumber, zipcode, metatitle, metadescription,featuredimage,siteplan,masterplan,status,
       admin_approve:adminapprove,
       pdffile
     };
@@ -588,6 +603,15 @@ const updateProperty = async (e) => {
          
         </div>
       </div>
+      {/* End .col */}
+        <div className="col-lg-12">
+          <div className="my_profile_setting_textarea form-group">
+            <label htmlFor="propertyHighlights">Highlights</label>
+            <textarea id="propertyHighlights" className="form-control" rows="7"  value={highlights} onChange={(e) => setHighlights(e.target.value)}  placeholder="Enter property Highlights"></textarea>
+            {error.highlights && <span className="text-danger">{error.highlights}</span>}
+          </div>
+          
+        </div>
       {/* End .col */}
         <div className="col-lg-12">
           <div className="my_profile_setting_textarea form-group">
@@ -1139,7 +1163,7 @@ const updateProperty = async (e) => {
 
       <div className="col-lg-6 col-xl-4">
         <div className="my_profile_setting_input form-group">
-          <label htmlFor="yearBuild">Year Built</label>
+          <label htmlFor="yearBuild">Possession Year</label>
           <input type="text"
               className="form-control"
               id="yearBuild"
@@ -1148,6 +1172,38 @@ const updateProperty = async (e) => {
         </div>
       </div>
       {/* End .col */}
+      <div className="col-lg-6 col-xl-4">
+        <div className="my_profile_setting_input form-group">
+          <label htmlFor="paymentPlan">Payment Plan</label>
+          <input type="text"
+              className="form-control"
+              id="paymentPlan"
+              value={paymentPlan}
+              onChange={(e) => setPaymentPlan(e.target.value)} />
+        </div>
+      </div>
+      {/* End .col */}
+       <div className="col-lg-6 col-xl-4">
+        <div className="my_profile_setting_input form-group">
+          <label htmlFor="foodcourt">Food court/restaurant</label>
+          <input type="checkbox"
+              className="form-check-input"
+              id="foodcourt"
+              value={foodcourt}
+              onChange={(e) => setFoodcourt(e.target.checked)} />
+        </div>
+      </div>
+      {/* End .col */}
+       <div className="col-lg-6 col-xl-4">
+        <div className="my_profile_setting_input form-group">
+          <label htmlFor="multiplex">Multiplex</label>
+          <input type="checkbox"
+              className="form-check-input"
+              id="multiplex"
+              value={multiplex}
+              onChange={(e) => setMultiplex(e.target.checked)} />
+        </div>
+      </div>
       <div className="col-lg-12">
         <div className="my_profile_setting_textarea">
           <label htmlFor="mapEmbedCode">Map Embed code </label>
@@ -1324,6 +1380,43 @@ const updateProperty = async (e) => {
                         
                         <span>
                             <i className="flaticon-download"></i> Upload Site Plan{" "}
+                        </span>
+                    </label>
+                </div>
+                <p>*minimum 260px x 260px</p>
+            </div>
+            <div className="col-lg-6">
+        <div htmlFor="MasterPlan">Master Plan/Layout</div>
+                <div className="wrap-custom-file">
+              
+                    <input
+                        type="file"
+                        id="MasterPlan"
+                        accept="image/png, image/gif, image/jpeg"
+                        onChange={uploadMasterPlan}
+                    />
+                  <label
+                        // style={
+                        //   masterplan !== null
+                        //         ? {
+                        //               backgroundImage: `url(${URL.createObjectURL(
+                        //                 masterplan
+                        //               )})`,
+                        //           }
+                        //         : undefined
+                        // }
+                        style={
+                        masterplanget                          
+                        ? { backgroundImage: `url(${masterplanget})` }
+                          : masterplan
+                          ? { backgroundImage: `url(${URL.createObjectURL(masterplan)})` }
+                          : undefined
+                      }
+                        htmlFor="MasterPlan"
+                    >
+                        
+                        <span>
+                            <i className="flaticon-download"></i> Upload Master Plan{" "}
                         </span>
                     </label>
                 </div>

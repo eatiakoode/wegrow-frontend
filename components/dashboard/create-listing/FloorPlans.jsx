@@ -11,7 +11,7 @@ const FloorPlans = () => {
 
       <div className="col-lg-6 col-xl-4">
         <div className="my_profile_setting_input form-group">
-          <label htmlFor="planBedrooms">Plan Bedrooms</label>
+          <label htmlFor="planBedrooms">Plan Type</label>
           <input type="text" className="form-control" id="planBedrooms" />
         </div>
       </div>

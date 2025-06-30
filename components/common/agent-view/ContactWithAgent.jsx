@@ -51,7 +51,8 @@ const ContactWithAgent = ({property}) => {
       // console.log(propertySelectedImgs)
       const payload = {
         name, email, phone, message, budget,
-        propertyid:property._id
+        propertyid:property._id,
+        sellerid:property.sellerid
         // date:appointmentDate
       };
       // console.log(payload)

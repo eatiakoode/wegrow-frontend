@@ -16,18 +16,18 @@ const FloorPlans = ({property}) => {
               aria-controls={`collapse${index}`}
             >
               <ul className="mb0 d-flex align-items-cener flex-wrap">
-                <li className="d-inline-flex list-inline-item">{singleItem.title}</li>
+                <li className="d-inline-flex list-inline-item">{singleItem.title} &nbsp; &nbsp; </li> 
                 <li className="d-inline-flex list-inline-item">
-                  <p>Size:</p> <span>{singleItem.areasize} Sqft</span>
-                </li>
+                  <p>Size: &nbsp; </p> <span>{singleItem.areasize}</span> &nbsp;&nbsp; 
+                </li> 
                 <li className="d-inline-flex list-inline-item">
-                  <p>Rooms:</p> <span>{singleItem.bedroom}</span>
-                </li>
+                  <p>Type: &nbsp; </p> <span>{singleItem.bedroom}</span> &nbsp;&nbsp;
+                </li> 
                 {/* <li className="d-inline-flex list-inline-item">
                   <p>Baths:</p> <span>530 Sqft</span>
                 </li> */}
                 <li className="d-inline-flex list-inline-item">
-                  <p>Price:</p> <span>{singleItem.price}</span>
+                  <p>Price: &nbsp;</p> <span>{singleItem.price}</span>
                 </li>
               </ul>
             </button>

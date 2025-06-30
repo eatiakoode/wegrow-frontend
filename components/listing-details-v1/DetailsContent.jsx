@@ -188,6 +188,27 @@ const hashtags = property.metatitle;
         </div>
       </div>
       )}
+       {property?.masterplanurl && (
+      <div className="application_statics mt30">
+      <h4 className="mb10">Site Plan</h4>
+        <div
+          className={`education_distance mb15`}
+        >
+        <Image
+                    width={343}
+                    height={220}
+                    className="img-whp w-100 h-100 cover"
+                    src={
+                      property.masterplanurl
+                        ? `${process.env.NEXT_PUBLIC_API_URL}${property.masterplanurl}`
+                        : "/default-placeholder.jpg"
+                    }
+                    alt= {`${property.title}`}
+                    unoptimized // Optional: disables Next.js image optimization (useful if external images)
+                  />
+        </div>
+      </div>
+      )}
       {/* End property-video  */}
 
       {/* <div className="walkscore_area mt30">

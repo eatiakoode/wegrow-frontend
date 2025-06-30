@@ -61,7 +61,7 @@ const PropertyDetails = ({property}) => {
           </li>
           <li>
             <p>
-            Parking Size : <span>{property.garagessize} {property.garagessize}</span>
+            Parking Size : <span>({property.garages}) {property.garagessize}</span>
             </p>
           </li>
         </ul>
