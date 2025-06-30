@@ -85,7 +85,7 @@ const FeaturedItem = ({setPropertySelectedComp,setShowBox,properties}) => {
           </h4>
           <p>
             <span className="flaticon-placeholder"></span>
-            {item.cityid?.title}, {item.locationid?.title} {item.address}
+           {item.address}, {item.locationid?.title}, {item.cityid?.title}
           </p>
 
           <ul className="prop_details mb0">
@@ -102,7 +102,7 @@ const FeaturedItem = ({setPropertySelectedComp,setShowBox,properties}) => {
               </li>
               <li className="list-inline-item" key="3">
                 <a href="#">
-                {item.sizeprefix}: {item.areasize}
+                Size: {item.areasize} {item.sizeprefix}
                 </a>
               </li>
             {/* ))} */}

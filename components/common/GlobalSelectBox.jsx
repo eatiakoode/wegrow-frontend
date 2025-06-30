@@ -38,7 +38,7 @@ const GlobalSelectBox = () => {
       <li className="list-inline-item">
         <div className="candidate_revew_select">
           <select className="selectpicker w100 show-tick form-select">
-            <option>Year built</option>
+            <option>Possession Year</option>
             <option>2013</option>
             <option>2014</option>
             <option>2015</option>

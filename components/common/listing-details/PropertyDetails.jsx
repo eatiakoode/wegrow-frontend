@@ -27,7 +27,7 @@ const PropertyDetails = ({property}) => {
           {property.yearbuild && (
             <li>
               <p>
-                Year Built : <span>{property.yearbuild}</span>
+                Possession Year : <span>{property.yearbuild}</span>
               </p>
             </li>
           )}

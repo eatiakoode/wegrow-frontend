@@ -145,7 +145,7 @@ const FeaturedProperties = ({ setPropertySelectedComp, setShowBox,properties }) 
                 </li>
                 <li className="list-inline-item" key="3">
                   <a href={`/property-detail/${item.slug}`}>
-                  {item.sizeprefix}: {item.areasize}
+                  Size: {item.areasize} {item.sizeprefix}
                   </a>
                 </li>
               {/* ))} */}
