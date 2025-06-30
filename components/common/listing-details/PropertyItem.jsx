@@ -34,12 +34,12 @@ const PropertyItem = ({ property }) => {
         <span>Payment Plan: {property.paymentplan}</span>
       </li>
       )}
-      {property.categoryid=="67ea48d17cfa562fe8eaafd0" && (
+      {property.categoryid._id=="67ea48d17cfa562fe8eaafd0" && (
       <li className="list-inline-item">
         <span>Food court/restaurant: {property.foodcourt ? "Yes" : "No"}</span>
       </li>
       )}
-      {property.categoryid=="67ea48d17cfa562fe8eaafd0" && (
+      {property.categoryid._id=="67ea48d17cfa562fe8eaafd0" && (
       <li className="list-inline-item">
         <span>Multiplex: {property.multiplex ? "Yes" : "No"}</span>
       </li>
