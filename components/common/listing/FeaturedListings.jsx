@@ -32,14 +32,39 @@ const FeaturedListings = ({properties}) => {
             </Link>
 
             <ul className="mb0">
-                <li key={1} className="list-inline-item">
+                {item.categoryid._id=="67ea48d17cfa562fe8eaafd0" && (
+              <li className="list-inline-item" key="1">
+                <a href="#">
+                Food court/restaurant: {item.foodcourt ? "Yes" : "No"}
+                </a>
+              </li>
+              )}
+              {item.categoryid._id=="67e67294759f85d6bf7a131a" && (
+              <li className="list-inline-item" key="1">
+                <a href="#">
                 Beds: {item.bedrooms}
-                </li>
-                <li key={2} className="list-inline-item">
+                </a>
+              </li>
+              )}
+              
+              {item.categoryid._id=="67ea48d17cfa562fe8eaafd0" && (
+              <li className="list-inline-item" key="2">
+                <a href="#">
+                Multiplex: {item.multiplex ? "Yes" : "No"}
+                </a>
+              </li>
+            )}
+            {item.categoryid._id=="67e67294759f85d6bf7a131a" && (
+              <li className="list-inline-item" key="2">
+                <a href="#">
                 Baths: {item.bathrooms}
-                </li>
-                <li key={3} className="list-inline-item">
-                {item.sizeprefix}: {item.areasize}
+                </a>
+              </li>
+            )}
+                <li className="list-inline-item" key="3">
+                  <a href={`/property-detail/${item.slug}`}>
+                  Size: {item.areasize} {item.sizeprefix}
+                  </a>
                 </li>
                 
                 

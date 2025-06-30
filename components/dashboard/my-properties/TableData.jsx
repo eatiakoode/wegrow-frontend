@@ -65,7 +65,7 @@ const TableData = ({properties,setProperties}) => {
               <h4>{item.title}</h4>
               <p>
                 <span className="flaticon-placeholder"></span>
-                {item.location}
+                 {item.address}, {item.locationid?.title}, {item.cityid?.title}
               </p>
               <a className="fp_price text-thm" href="#">
                 ${item.price}

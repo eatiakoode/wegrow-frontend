@@ -103,21 +103,40 @@ const FeaturedItem = ({setPropertySelectedComp,setShowBox,properties}) => {
 
           <ul className="prop_details mb0">
             {/* {item.itemDetails.map((val, i) => ( */}
+             {item.categoryid._id=="67ea48d17cfa562fe8eaafd0" && (
+              <li className="list-inline-item" key="1">
+                <a href="#">
+                Food court/restaurant: {item.foodcourt ? "Yes" : "No"}
+                </a>
+              </li>
+              )}
+              {item.categoryid._id=="67e67294759f85d6bf7a131a" && (
               <li className="list-inline-item" key="1">
                 <a href="#">
                 Beds: {item.bedrooms}
                 </a>
               </li>
+              )}
+              
+              {item.categoryid._id=="67ea48d17cfa562fe8eaafd0" && (
+              <li className="list-inline-item" key="2">
+                <a href="#">
+                Multiplex: {item.multiplex ? "Yes" : "No"}
+                </a>
+              </li>
+            )}
+            {item.categoryid._id=="67e67294759f85d6bf7a131a" && (
               <li className="list-inline-item" key="2">
                 <a href="#">
                 Baths: {item.bathrooms}
                 </a>
               </li>
-              <li className="list-inline-item" key="3">
-                <a href="#">
-                Size: {item.areasize} {item.sizeprefix}
-                </a>
-              </li>
+            )}
+                <li className="list-inline-item" key="3">
+                  <a href={`/property-detail/${item.slug}`}>
+                  Size: {item.areasize} {item.sizeprefix}
+                  </a>
+                </li>
             {/* ))} */}
           </ul>
           </div>
