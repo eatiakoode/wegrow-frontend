@@ -22,20 +22,37 @@
 
 const PropertyItem = ({ property }) => {
   return (
+    <>
     <ul className="mb0">
+      {/* {property.propertytypeid && ( */}
       <li className="list-inline-item">
         <span>{property.propertytypeid?.title}</span>
       </li>
+      {/* )} */}
+      {property.paymentplan && (
       <li className="list-inline-item">
-        <span>Beds: {property.bedrooms}</span>
+        <span>Payment Plan: {property.paymentplan}</span>
       </li>
+      )}
+      {property.categoryid=="67ea48d17cfa562fe8eaafd0" && (
       <li className="list-inline-item">
-        <span>Baths: {property.bathrooms}</span>
+        <span>Food court/restaurant: {property.foodcourt ? "Yes" : "No"}</span>
       </li>
+      )}
+      {property.categoryid=="67ea48d17cfa562fe8eaafd0" && (
       <li className="list-inline-item">
-        <span>{property.sizeprefix}: {property.areasize}</span>
+        <span>Multiplex: {property.multiplex ? "Yes" : "No"}</span>
+      </li>
+      )}
+      <li className="list-inline-item">
+        <span>Size: {property.areasize} {property.sizeprefix}</span>
       </li>
     </ul>
+    {property.highlights && (
+    <div className="property-highlights"><h4>Highlights</h4>
+    <p>{property.highlights}</p></div>
+    )}
+    </>
   );
 };
 

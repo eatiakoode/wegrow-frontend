@@ -128,7 +128,7 @@ const FeaturedProperties = ({ setPropertySelectedComp, setShowBox,properties }) 
             </h4>
             <p>
               <span className="flaticon-placeholder"></span>
-              {item.cityid?.title}, {item.locationid?.title} {item.address}
+            {item.address}, {item.locationid?.title} ,{item.cityid?.title}
             </p>
 
             <ul className="prop_details mb0">

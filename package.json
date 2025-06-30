@@ -15,6 +15,7 @@
     "chart.js": "^4.4.0",
     "date-fns": "^4.1.0",
     "eslint-config-next": "^14.1.0",
+    "lucide-react": "^0.524.0",
     "multi-select-input": "^1.0.15",
     "next": "^14.2.29",
     "photoswipe": "^5.4.2",

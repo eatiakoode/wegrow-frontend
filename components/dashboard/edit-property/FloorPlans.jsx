@@ -141,7 +141,7 @@ const FloorPlans = ({inputs,setInputs,property,setPlanImage,planimage}) => {
        </div>
        <div className="col-xl-4">
          <div className="my_profile_setting_input form-group">
-           <label htmlFor={`planBedrooms-${index}`}>Plan Bedrooms {index + 1}</label>
+           <label htmlFor={`planBedrooms-${index}`}>Plan Type {index + 1}</label>
            <input type="text" className="form-control" id={`planBedrooms-${index}`} value={input.bedroom}
            onChange={(e) =>
             handleInputChangeGet(index, 'bedroom', e.target.value)
@@ -265,7 +265,7 @@ const FloorPlans = ({inputs,setInputs,property,setPlanImage,planimage}) => {
           </div>
           <div className="col-xl-4">
             <div className="my_profile_setting_input form-group">
-              <label htmlFor={`planBedrooms-${index}`}>Plan Bedrooms {index + 1}</label>
+              <label htmlFor={`planBedrooms-${index}`}>Plan Type {index + 1}</label>
               <input type="text" className="form-control" id={`planBedrooms-${index}`} value={input.bedroom}
               onChange={(e) =>
                 handleInputChange(index, 'bedroom', e.target.value)
