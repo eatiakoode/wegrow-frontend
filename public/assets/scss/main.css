@@ -7524,7 +7524,7 @@ header .get_in_touch span{
   padding: 30px;
   position: relative;
 }
-.property_attachment_area .iba_container iframe{height: calc(100vh - 100px);}
+.property_attachment_area .modal-overlay iframe{height: calc(100vh - 100px);}
 
 .iba_container {
   display: -webkit-flex;
