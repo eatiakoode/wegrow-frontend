@@ -3465,6 +3465,9 @@ header.header-nav.menu_style_home_seven .ace-responsive-menu > li.last {
   .home_adv_srch_opt.home3 {
     margin-top: 0;
   }
+  .property-detail-item ul li{
+  flex:1 1 100%
+}
 }
 .home_adv_srch_opt.home4 {
   margin-top: 40px;
@@ -7504,6 +7507,10 @@ header .get_in_touch span{
   font-weight: bold;
   line-height: 2.857;
 }
+.property-detail-item ul{display: flex;flex-wrap: wrap;}
+.property-detail-item ul li{
+  flex:1 1 32%
+}
 
 .property_attachment_area {
   border-radius: 0 0 8px 8px;
@@ -7517,6 +7524,8 @@ header .get_in_touch span{
   padding: 30px;
   position: relative;
 }
+.property_attachment_area .modal-content{max-width: 600px;}
+.property_attachment_area .modal-overlay iframe{height: calc(100vh - 100px);}
 
 .iba_container {
   display: -webkit-flex;
@@ -11967,7 +11976,7 @@ a.btn.btn_error {
   background-color: #ffffff;
   border: 1px solid #ebebeb;
   border-radius: 8px !important;
-  height: 52px;
+  height: auto;
   margin-bottom: 20px;
   padding: 10px 15px;
   text-decoration: none;
@@ -15347,6 +15356,8 @@ section.aboutland h3{
   padding-top: 50px;
 }
 .spl_partners .our_partner img{margin: 0 auto;}
+.property_attachment_area .modal-content{max-width: 500px;}
+.property_attachment_area .modal-overlay iframe{height: calc(100vh - 200px);}
 }
 .message_container .message_input form input.form-control::placeholder {
   font-size: 14px;
@@ -17306,6 +17317,9 @@ section.aboutland h3{
   .about-wegrow:before{
     display: none;
   }
+  .property-detail-item ul li{
+  flex:1 1 50%
+}
   /* header.stricky-fixed + .mobile_header.stylehome1{
     position: relative;
     top: 125px;
@@ -17376,6 +17390,8 @@ section.aboutland h3{
   .spss.style2 ul li{
 	  background-color:#dcdcdc
   }
+  .property_attachment_area .modal-content{max-width: 400px;}
+  .property_attachment_area .modal-overlay iframe{height: calc(100vh - 200px);}
 }
 .tick-check{
     width: 80px;
@@ -21012,6 +21028,10 @@ button.gm-ui-hover-effect:focus {
 
 .pro-sidebar .pro-menu a.ui-active {
   color: var(--color-primary) !important;
+}
+@media (max-width: 375px) {
+  .property_attachment_area .modal-content{max-width: 300px;}
+  .property_attachment_area .modal-overlay iframe{height: calc(100vh - 200px);}
 }
 /**********************compare************************************/
 .compare_properties {
