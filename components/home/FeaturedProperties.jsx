@@ -46,6 +46,7 @@ const FeaturedProperties = ({ setPropertySelectedComp, setShowBox,properties }) 
   const settings = {
     dots: true,
     arrows: false,
+    infinite: properties.length > 2,
     slidesToShow: 3,
     slidesToScroll: 3,
     autoplay: false,
@@ -55,7 +56,8 @@ const FeaturedProperties = ({ setPropertySelectedComp, setShowBox,properties }) 
         breakpoint: 1200,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 4,
+          slidesToScroll: 1,
+          infinite: properties.length > 1,
         },
       },
       {
@@ -63,6 +65,7 @@ const FeaturedProperties = ({ setPropertySelectedComp, setShowBox,properties }) 
         settings: {
           slidesToShow: 1,
           slidesToScroll: 3,
+          infinite: properties.length > 1,
         },
       },
     ],
@@ -211,13 +214,31 @@ const FeaturedProperties = ({ setPropertySelectedComp, setShowBox,properties }) 
   }, [propertycompare]);
   
   
+  // return (
+  //   <>
+  //     <Slider {...settings} arrows={false}>
+  //       {content}
+  //     </Slider>
+  //   </>
+  // );
   return (
-    <>
+  <>
+    {properties.length > 2 ? (
       <Slider {...settings} arrows={false}>
         {content}
       </Slider>
-    </>
-  );
+    ) : (
+      <div className="row">
+        {properties.map((item, index) => (
+          <div className="col-md-6" key={item._id}>
+            {content[index]}
+          </div>
+        ))}
+      </div>
+    )}
+  </>
+);
+
 };
 
 export default FeaturedProperties;

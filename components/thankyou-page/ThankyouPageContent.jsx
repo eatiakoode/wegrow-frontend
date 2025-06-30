@@ -7,7 +7,7 @@ const ErrorPageContent = () => {
         <span className="flaticon-tick"></span>
       </div>
       <div className="erro_code">
-        <h1>Thank You! We've Received Your Submission.</h1>
+        <h1>Thank You! <span>We've Received Your Submission.</span></h1>
       </div>
       <p>We appreciate you reaching out. Our team will get back to you shortly.</p>
 

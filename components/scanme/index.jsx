@@ -44,7 +44,7 @@ const index = () => {
                       <ul className="list-unstyled d-flex flex-column justify-content-center gap-3 h-100">
                         <li>
                         <a
-                          href="https://yourwebsite.com"
+                          href="https://wegrowinfraventures.com/"
                           className="social-icon website"
                           target="_blank"
                           rel="noopener noreferrer"
@@ -55,7 +55,7 @@ const index = () => {
                       </li>
                       <li>
                         <a
-                          href="https://facebook.com/yourpage"
+                          href="https://www.facebook.com/WeGrowInfraventurespvtltd/"
                           className="social-icon facebook"
                           target="_blank"
                           rel="noopener noreferrer"
@@ -66,7 +66,7 @@ const index = () => {
                       </li>
                       <li>
                         <a
-                          href="https://twitter.com/yourpage"
+                          href="https://x.com/wegrowinfra/"
                           className="social-icon twitter"
                           target="_blank"
                           rel="noopener noreferrer"
@@ -77,7 +77,7 @@ const index = () => {
                       </li>
                       <li>
                         <a
-                          href="https://linkedin.com/company/yourpage"
+                          href="https://www.linkedin.com/company/wegrow-infraventures-pvt-ltd/"
                           className="social-icon linkedin"
                           target="_blank"
                           rel="noopener noreferrer"
@@ -99,7 +99,7 @@ const index = () => {
                       </li>
                       <li>
                         <a
-                          href="https://instagram.com/yourpage"
+                          href="https://www.instagram.com/wegrowinfraventures/"
                           className="social-icon instagram"
                           target="_blank"
                           rel="noopener noreferrer"
