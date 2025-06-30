@@ -38,38 +38,34 @@ const PropertyDetails = ({property}) => {
               </p>
             </li>
           )}
-        </ul>
-      </div>
-      {/* End .col */}
-
-      <div className="col-md-6 col-lg-6 col-xl-4">
-        <ul className="list-inline-item">
+           {property.bedrooms && (
           <li>
             <p>
-              Bedrooms : <span>{property.bedrooms}</span>
+              {property.categoryid._id=="67ea48d17cfa562fe8eaafd0" ? "Meeting rooms and cabins":"Bedrooms"} : <span>{property.bedrooms}</span>
             </p>
           </li>
+          )}
+          {property.bathrooms && (
           <li>
             <p>
               Bathrooms : <span>{property.bathrooms}</span>
             </p>
           </li>
+          )}
+          {property.garages && (
           <li>
             <p>
               Parking : <span>{property.garages}</span>
             </p>
           </li>
+          )}
+          {property.garagessize && (
           <li>
             <p>
-            Parking Size : <span>({property.garages}) {property.garagessize}</span>
+            Parking Size : <span>{property.garagessize}</span>
             </p>
           </li>
-        </ul>
-      </div>
-      {/* End .col */}
-
-      <div className="col-md-6 col-lg-6 col-xl-4">
-        <ul className="list-inline-item">
+          )}
           <li>
             <p>
               Property Type : <span>{property.propertytypeid?.title}</span>
@@ -82,6 +78,9 @@ const PropertyDetails = ({property}) => {
           </li>
         </ul>
       </div>
+      {/* End .col */}
+
+      
     </>
   );
 };
