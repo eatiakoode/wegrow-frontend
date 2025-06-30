@@ -1,7 +1,7 @@
 const PropertyDetails = ({property}) => {
   return (
     <>
-      <div className="col-md-6 col-lg-6 col-xl-4">
+      <div className="property-detail-item">
         <ul className="list-inline-item">
           {property.propertyid && (
             <li>
