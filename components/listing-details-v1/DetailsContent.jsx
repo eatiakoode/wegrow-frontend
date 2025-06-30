@@ -138,7 +138,7 @@ const hashtags = property.metatitle;
         <h4 className="mb30">
           Location{" "}
           <small className="float-end">
-          {property.cityid?.title}, {property.locationid?.title} {property.address}
+          {property.address}, {property.locationid?.title}, {property.cityid?.title}
           </small>
         </h4>
         <div className="property_video p0">

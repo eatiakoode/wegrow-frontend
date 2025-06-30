@@ -34,7 +34,7 @@ export default function ListingOne({property,setPropertySelectedComp, setShowBox
             <div className="single_property_title d-flex justify-content-between align-items-center mt30-767">
               <div>
                 <h2>{property?.title}</h2>
-                <p>{property.cityid?.title}, {property.locationid?.title} {property.address}</p>
+                <p>{property.address}, {property.locationid?.title}, {property.cityid?.title}</p>
               </div>
               <div>
                 <a href={`tel:${property?.sellerphone}`} className="circle-shape text-dark d-inline-block me-2">

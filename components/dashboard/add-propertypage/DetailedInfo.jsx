@@ -77,7 +77,7 @@ const DetailedInfo = () => {
 
       <div className="col-lg-6 col-xl-4">
         <div className="my_profile_setting_input form-group">
-          <label htmlFor="yearBuild">Year Built</label>
+          <label htmlFor="yearBuild">Possession Year</label>
           <input type="text" className="form-control" id="yearBuild" />
         </div>
       </div>
