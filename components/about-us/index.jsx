@@ -9,7 +9,7 @@ import Partners from "../common/Partners";
 import PopupSignInUp from "../common/PopupSignInUp";
 import WhyChoose from "../common/WhyChoose";
 import Testimonial from "../common/Testimonial";
-import BreadCrumbBanner from "./BreadCrumbBanner";
+import BreadCrumbBanner from "@/components/about-us/BreadCrumbBanner";
 import Link from "next/link";
 import Image from "next/image";
 import Team from "./Team";

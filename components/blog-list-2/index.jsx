@@ -8,7 +8,7 @@ import Header from "../common/header/DefaultHeader";
 import MobileMenu from "../common/header/MobileMenu";
 import PopupSignInUp from "../common/PopupSignInUp";
 import BreadCrumbBlog from "./BreadCrumbBlog";
-import BreadCrumbBanner from "./BreadCrumbBanner";
+import BreadCrumbBanner from "@/components/blog-list-2/BreadCrumbBanner";
 import Blog from "./Blog";
 
 const index = ({blogs}) => {

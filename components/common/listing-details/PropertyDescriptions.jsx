@@ -24,9 +24,7 @@ const PropertyDescriptions = ({property,propertydetail}) => {
         to fill every room. The master suite is surrounded by handcrafted
         milkwork and features incredible walk-in closet and storage space.
       </p> */}
-      <div className="collapse" id="collapseExample">
-        <div className="card card-body">
-          <p className="mt10 mb10">
+      <p className="mt10 mb10">
             Fully furnished. Elegantly appointed condominium unit situated on
             premier location. PS6. The wide entry hall leads to a large living
             room with dining area. This expansive 2 bedroom and 2 renovated
@@ -36,6 +34,9 @@ const PropertyDescriptions = ({property,propertydetail}) => {
             surrounded by handcrafted milkwork and features incredible walk-in
             closet and storage space.
           </p>
+      <div className="collapse" id="collapseExample">
+        <div className="card card-body">
+          
           <p className="mt10 mb10">
             Fully furnished. Elegantly appointed condominium unit situated on
             premier location. PS6. The wide entry hall leads to a large living
@@ -58,7 +59,7 @@ const PropertyDescriptions = ({property,propertydetail}) => {
           aria-controls="collapseExample"
           onClick={handleClick}
         >
-          Show More <span className="flaticon-download-1 fz12"></span>
+          {click ? 'Show More' : 'Show Less'} <span className={`flaticon-download-1 fz12 transition ${click ? '' : 'rotate-icon'}`}></span>
         </a>
       </p>
     </>
