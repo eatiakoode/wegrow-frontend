@@ -257,8 +257,8 @@ const listing = [
 // ];
 
 const property = [
-  { id: 1, name: "Residential", routerPath: "/property-list?cat=residential" },
-  { id: 2, name: "Commercial", routerPath: "/property-list?cat=commercial" },
+  { id: 1, name: "Residential", routerPath: "/property-list?cat=67e67294759f85d6bf7a131a" },
+  { id: 2, name: "Commercial", routerPath: "/property-list?cat=67ea48d17cfa562fe8eaafd0" },
 ];
 
 const blog = [
