@@ -13173,11 +13173,12 @@ legend span {
   line-height: 1.2;
 }
 
-.sidebar_feature_listing .media .media-body ul li {
+.sidebar_feature_listing .media .media-body ul li a {
   font-size: 14px;
   font-family: "Nunito";
   color: #484848;
   line-height: 1.2;
+  font-weight:400;
   margin-right: 0;
 }
 
