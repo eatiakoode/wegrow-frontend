@@ -9398,6 +9398,8 @@ header .get_in_touch span{
 
 .footer_contact_widget li {
   padding-bottom: 0;
+  color:#b7b7b7;
+  font-size: 14px;
 }
 
 .footer_qlink_widget {

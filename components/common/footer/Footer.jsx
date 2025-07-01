@@ -117,10 +117,10 @@ const Footer = ({  showBox,setShowBox }) => {
               <a href="mailto:Info@wegrowinfraventures.com">Info@wegrowinfraventures.com</a>
             </li>
             <li>
-              <a href="#">TOWER-2, DLF CORPORATE GREENS, 1205, Southern Peripheral Rd,</a>
+             TOWER-2, DLF CORPORATE GREENS, 1205, Southern Peripheral Rd,
             </li>
             <li>
-              <a href="#"> Sector 74A, Gurugram, Haryana 122004</a>
+              Sector 74A, Gurugram, Haryana 122004
             </li>
             <li>
               <a href="tel:+91 74219-22000">+91 74219-22000</a>

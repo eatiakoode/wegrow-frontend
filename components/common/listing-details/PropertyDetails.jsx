@@ -31,10 +31,10 @@ const PropertyDetails = ({property}) => {
               </p>
             </li>
           )}
-          {property.rera && (
+          {property.reranumber && (
             <li>
               <p>
-                Rera Number : <span>{property.rera}</span>
+                Rera Number : <span>{property.reranumber}</span>
               </p>
             </li>
           )}
