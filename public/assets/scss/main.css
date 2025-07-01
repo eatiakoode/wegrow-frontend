@@ -17392,6 +17392,10 @@ section.aboutland h3{
   }
   .property_attachment_area .modal-content{max-width: 400px;}
   .property_attachment_area .modal-overlay iframe{height: calc(100vh - 200px);}
+  .our_partner .contain{
+      margin: 0 auto;
+  }
+  .footer_menu_widget ul li:first-child a{margin-right: 5px!important;border-right: 1px solid #b7b7b7; padding-right: 10px;}
 }
 .tick-check{
     width: 80px;
