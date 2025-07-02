@@ -13,8 +13,12 @@ const TabDetailsContent = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await getCategoryTableData();
-        setCategories(response || []);
+        const filter = {
+            limit: 1000,
+            page:  1
+          }
+        const response = await getCategoryTableData(filter);
+        setCategories(response.items || []);
       } catch (err) {
         console.error("Error fetching categories:", err);
       }

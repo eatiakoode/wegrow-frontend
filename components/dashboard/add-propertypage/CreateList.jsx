@@ -72,14 +72,14 @@ useEffect(() => {
         getCountryTableData(),
         getConstructionstatusTableData(),
         getFurnishingstatusTableData(),
-        getCategoryTableData(),
+        getCategoryTableData(filter),
         getBuilderTableData(filter),
       ]);
 
       setCountries(countryRes || []);
       setConstructionstatus(constRes || []);
       setFurnishingstatus(furnRes || []);
-      setCategories(catRes || []);
+      setCategories(catRes.items || []);
       setBuilders(builderRes.items || []);
     } catch (err) {
       console.error("Error loading initial data:", err);
