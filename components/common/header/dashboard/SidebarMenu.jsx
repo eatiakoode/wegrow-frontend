@@ -33,6 +33,10 @@ const SidebarMenu = () => {
     { id: 1, name: "Add Amenity", route: "/cmswegrow/add-amenities" },
     { id: 2, name: "Amenity List", route: "/cmswegrow/my-amenities" }
   ];
+  const myCategory = [
+    { id: 1, name: "Add Category", route: "/cmswegrow/add-category" },
+    { id: 2, name: "Category List", route: "/cmswegrow/my-category" }
+  ];
   const myPropertytype = [
     { id: 1, name: "Add Property type", route: "/cmswegrow/add-propertytype" },
     { id: 2, name: "Property type List", route: "/cmswegrow/my-propertytype" }
@@ -255,6 +259,26 @@ const SidebarMenu = () => {
               </a>
               <ul className="treeview-menu collapse" id="my-Amenity">
                 {myAmenity.map((item) => (
+                  <li key={item.id}>
+                    <Link href={item.route}>
+                      <i className="fa fa-circle"></i> {item.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </li>
+            
+            <li
+              className={`treeview ${
+                isParentPageActive(myCategory, pathname) ? "active" : ""
+              }`}
+            >
+              <a data-bs-toggle="collapse" href="#my-myCategory">
+                <i className="flaticon-home"></i> <span>My Category</span>
+                <i className="fa fa-angle-down pull-right"></i>
+              </a>
+              <ul className="treeview-menu collapse" id="my-myCategory">
+                {myCategory.map((item) => (
                   <li key={item.id}>
                     <Link href={item.route}>
                       <i className="fa fa-circle"></i> {item.name}

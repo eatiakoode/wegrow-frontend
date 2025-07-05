@@ -97,7 +97,7 @@ const [constructionstatus, setConstructionstatus] = useState([]);
   const [yearbuild, setYearBuild] = useState([]);
 
   const [foodcourt, setFoodcourt] = useState([]);
-const [paymentPlan, setPaymentPlan] = useState([]);
+const [paymentplan, setPaymentPlan] = useState([]);
 const [multiplex, setMultiplex] = useState([]);
 
   const [mapembedcode, setMapEmbedCode] = useState([]);
@@ -260,6 +260,7 @@ useEffect(() => {
             setPropertyid(property.propertyid)
             setAreasize(property.areasize)
             setSizePrefix(property.sizeprefix)
+            setPaymentPlan(property.paymentplan)
             
             if (!predefinedOptions.includes(property.bedrooms) && property.bedrooms?.trim() !== "") {
                 setCustomBedroom(property.bedrooms);
@@ -352,7 +353,7 @@ useEffect(() => {
         getCountryTableData(),
         getConstructionstatusTableData(),
         getFurnishingstatusTableData(),
-        getCategoryTableData(),
+        getCategoryTableData(filter),
         getAmenityTableData(filter),
         getBuilderTableData(filter),
         getSellerTableData(),
@@ -361,7 +362,7 @@ useEffect(() => {
       setCountries(countryRes || []);
       setConstructionstatus(constRes || []);
       setFurnishingstatus(furnRes || []);
-      setCategories(catRes || []);
+      setCategories(catRes.items || []);
       setAmenities(amenityRes.items || []);
       setBuilders(builderRes.items || []);
       setSellers(sellerRes.data || []);
@@ -531,7 +532,7 @@ const updateProperty = async (e) => {
       nearby,specifications, sellername, selleremail, sellerphone, 
       reranumber, zipcode, metatitle, metadescription,featuredimage,siteplan,masterplan,status,
       admin_approve:adminapprove,
-      pdffile
+      pdffile,paymentplan
     };
     
     
@@ -1178,7 +1179,7 @@ const updateProperty = async (e) => {
           <input type="text"
               className="form-control"
               id="paymentPlan"
-              value={paymentPlan}
+              value={paymentplan}
               onChange={(e) => setPaymentPlan(e.target.value)} />
         </div>
       </div>

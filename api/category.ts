@@ -1,4 +1,13 @@
-export const addCategoryAPI = async (title: string) => {
+// export const addCategoryAPI = async (formData) => {
+//   const response = await axios.post("/your-api-endpoint", formData, {
+//     headers: {
+//       "Content-Type": "multipart/form-data",
+//     },
+//   });
+//   return response.data;
+// };
+
+export const addCategoryAPI = async (formData) => {
     // const token = localStorage.getItem("token"); // 🔹 Retrieve token
 // console.log("token")
     // const token =process.env.NEXT_PUBLIC_TOKEN;
@@ -13,32 +22,37 @@ const token =userData.token
     if (!token) {
       throw new Error("User not authenticated!");
     }
-  
+//     console.log("formDataapi")
+//     console.log(formData)
+//     for (let [key, value] of formData.entries()) {
+//       console.log(`${key}:`, value);
+//     }
+// console.log("formDataendapi")
     const response = await fetch(process.env.NEXT_PUBLIC_ADMIN_API_URL+"api/category", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
+        // "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
-      body: JSON.stringify({ title }),
+      body: formData
     });
   
     if (!response.status) {
       const errorData = await response.json();
-      throw new Error(errorData.message || "Failed to add category");
+      throw new Error(errorData.message || "Failed to add Category");
     }
   
     return response.json();
   };
   
 
-  export async function getCategoryTableData() {
+  export async function getCategoryTableData(filter) {
     // Fake delay
     await new Promise((resolve) => setTimeout(resolve, 10));
     
   
     try {
-      const response = await fetch(process.env.NEXT_PUBLIC_ADMIN_API_URL+"api/category"); // Replace with actual API endpoint
+      const response = await fetch(process.env.NEXT_PUBLIC_ADMIN_API_URL+"api/category?limit="+filter.limit+"&skip="+filter.page); // Replace with actual API endpoint
       if (!response.ok) {
         throw new Error("Failed to fetch products");
       }
@@ -76,7 +90,7 @@ const token =userData.token
   
     if (!response.ok) {
       const errorData = await response.json();
-      throw new Error(errorData.message || "Failed to delete category");
+      throw new Error(errorData.message || "Failed to delete Category");
     }
   
     return response.json();
@@ -112,7 +126,7 @@ const token =userData.token
   
     if (!response.ok) {
       const errorData = await response.json();
-      throw new Error(errorData.message || "Failed to get category");
+      throw new Error(errorData.message || "Failed to get Category");
     }
   
     return response.json();
@@ -134,19 +148,24 @@ const token =userData.token
     if (!token) {
       throw new Error("User not authenticated!");
     }
-  
+    console.log("formDataapi")
+        console.log(category)
+        for (let [key, value] of category.entries()) {
+          console.log(`${key}:`, value);
+        }
+    console.log("formDataendapi")
     const response = await fetch(process.env.NEXT_PUBLIC_ADMIN_API_URL+`api/category/${id}`, {
       method: "PUT",
       headers: {
-        "Content-Type": "application/json",
+        // "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
-      body: JSON.stringify(category),
+      body: category,
     });
   
     if (!response.status) {
       const errorData = await response.json();
-      throw new Error(errorData.message || "Failed to add category");
+      throw new Error(errorData.message || "Failed to add Category");
     }
   
     return response.json();

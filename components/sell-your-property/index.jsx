@@ -141,7 +141,7 @@ const index = () => {
           getCountryTableData(),
           getConstructionstatusTableData(),
           getFurnishingstatusTableData(),
-          getCategoryTableData(),
+          getCategoryTableData(filter),
           getAmenityTableData(filter),
           getBuilderTableData(filter),
         ]);
@@ -149,7 +149,7 @@ const index = () => {
         setCountries(countryRes || []);
         setConstructionstatus(constRes || []);
         setFurnishingstatus(furnRes || []);
-        setCategories(catRes || []);
+        setCategories(catRes.items || []);
         setAmenities(amenityRes.item || []);
         setBuilders(builderRes.items || []);
       } catch (err) {

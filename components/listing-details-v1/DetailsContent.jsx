@@ -190,7 +190,7 @@ const hashtags = property.metatitle;
       )}
        {property?.masterplanurl && (
       <div className="application_statics mt30">
-      <h4 className="mb10">Site Plan</h4>
+      <h4 className="mb10">Master Plan</h4>
         <div
           className={`education_distance mb15`}
         >

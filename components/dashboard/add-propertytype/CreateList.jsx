@@ -17,11 +17,15 @@ const router = useRouter();
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await getCategoryTableData();
+        const filter = {
+          limit: 1000,
+          page:  1
+        }
+        const response = await getCategoryTableData(filter);
         console.log("response")
         console.log(response)
 
-        setCategories(response || []);
+        setCategories(response.items || []);
       } catch (err) {
         console.error("Error fetching Category:", err);
       }
