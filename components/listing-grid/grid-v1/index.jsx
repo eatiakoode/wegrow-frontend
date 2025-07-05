@@ -11,6 +11,7 @@ import SidebarListing from "../../common/listing/SidebarListing";
 import PopupSignInUp from "../../common/PopupSignInUp";
 import BreadCrumb2 from "./BreadCrumb2";
 import FeaturedItem from "./FeaturedItem";
+import BreadCrumbBanner from "@/components/listing-grid/grid-v1/BreadCrumbBanner";
 import { getPropertyFilterData } from "@/api/frontend/property";
 import { getPropertytypeByCategoryTableData,getPropertytypeTableData } from "@/api/frontend/propertytype.ts";
 
@@ -143,6 +144,8 @@ useEffect(() => {
       {/* <!-- Modal --> */}
       <PopupSignInUp />
 
+      <BreadCrumbBanner/>
+      
       {/* <!-- Listing Grid View --> */}
       <section className="our-listing bgc-f7 pb30-991 mt85 md-mt0 ">
         <div className="container">

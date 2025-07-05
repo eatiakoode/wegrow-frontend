@@ -4,6 +4,20 @@ import HeroFilter from "./HeroFilter";
 const Hero = () => {
   return (
     <section className="home-one home1-overlay home1_bgi1">
+
+      <div className="video-wrapper d-none d-md-block">
+        <video
+          className="desktop-video"
+          autoPlay
+          muted
+          loop
+          playsInline
+        >
+          <source src="/assets/images/myvideo.mp4" type="video/mp4" />
+          {/* Your browser does not support the video tag. */}
+        </video>
+      </div>
+
       <div className="container">
         <div className="row posr">
           <div className="col-lg-12">

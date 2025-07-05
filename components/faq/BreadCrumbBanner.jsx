@@ -1,4 +1,5 @@
-import BreadCrumb from "../common/BreadCrumb";
+import BreadCrumb from "@/components/common/BreadCrumb";
+
 
 const BreadCrumbBanner = () => {
   return (

@@ -1,4 +1,5 @@
-import BreadCrumb from "../common/BreadCrumb";
+import BreadCrumb from "@/components/common/BreadCrumb";
+
 
 const BreadCrumbBanner = () => {
   return (
@@ -20,6 +21,7 @@ const BreadCrumbBanner = () => {
             <div className="breadcrumb_content">
               <BreadCrumb title="blog" />
               <h4 className="breadcrumb_title">Blogs</h4>
+              
             </div>
           </div>
           {/* End .col */}
