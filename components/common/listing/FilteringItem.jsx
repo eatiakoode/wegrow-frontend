@@ -16,7 +16,7 @@ import {
 import { v4 as uuidv4 } from "uuid";
 
 
-const FilteringItem = ({ setKeyword, setCity,setCategory, setPropertytype , keyword, city,category, propertytype,setPropertytypes,propertytypes }) => {
+const FilteringItem = ({ setKeyword, setCity,setCategory, setPropertytype , keyword, city,category, propertytype,setPropertytypes,propertytypes, location }) => {
 
  
   const [cities, setCities] = useState([]);

@@ -17,6 +17,8 @@ const CreateList = () => {
     const [logo, setLogo] = useState(null);
     const [blogcategories, setBlogcategories] = useState([]);
   const [selectedBlogcategory, setSelectedBlogcategory] = useState("");
+  const [metatitle, setMetatitle] = useState([]);
+  const [metadescription, setMetaDescription] = useState([]);
    const [isSubmitting, setisSubmitting] = useState("");
 useEffect(() => {
   const fetchBlogcategories = async () => {
@@ -78,6 +80,8 @@ useEffect(() => {
         formData.append("description", description);
         formData.append("source", source);
         formData.append("date", date);
+        formData.append("metatitle", metatitle);
+        formData.append("metadescription", metadescription);
         formData.append("blogcategory", selectedBlogcategory);
         if (logo) {
           formData.append("logo", logo);
@@ -212,7 +216,36 @@ useEffect(() => {
       </div>
       {/* End .col */}
 
-     
+     <div className=" mt30 ">
+                    <div className="col-lg-12">
+                      <h3 className="mb30">Meta Information</h3>
+                    </div>
+                    <div className="row">
+                    <div className="col-lg-12">
+        <div className="my_profile_setting_input form-group">
+          <label htmlFor="blogMetatitle">Meta Title</label>
+         
+          <input type="text"
+              className="form-control"
+              id="blogMetatitle"
+              value={metatitle}
+              onChange={(e) => setMetatitle(e.target.value)} />
+        </div>
+      </div>
+      <div className="col-lg-12">
+          <div className="my_profile_setting_textarea form-group">
+            <label htmlFor="blogMetaDescription">Meta Description</label>
+            <textarea id="blogMetaDescription" className="form-control" rows="7"  value={metadescription} onChange={(e) => setMetaDescription(e.target.value)}  placeholder="Enter meta description"></textarea>
+            {error.metadescription && <span className="text-danger">{error.metadescription}</span>}
+          </div>
+          
+        </div>
+        
+
+      {/* End .col */}
+      </div>
+      
+                  </div>
 
 
       <div className="col-xl-12">

@@ -1,10 +1,10 @@
-export async function getCategoryTableData() {
+export async function getLocationTableData() {
   // Fake delay
   await new Promise((resolve) => setTimeout(resolve, 10));
   
 
   try {
-    const response = await fetch(process.env.NEXT_PUBLIC_FRONTEND_API_URL+"api/category"); // Replace with actual API endpoint
+    const response = await fetch(process.env.NEXT_PUBLIC_FRONTEND_API_URL+"api/location"); // Replace with actual API endpoint
     if (!response.ok) {
       throw new Error("Failed to fetch products");
     }
@@ -16,7 +16,7 @@ export async function getCategoryTableData() {
 }
 
 
-export const getCategoryById = async (id: string) => {
+export const getLocationById = async (id: string) => {
   // const token = localStorage.getItem("token"); // 🔹 Retrieve token
 
 
@@ -31,7 +31,7 @@ export const getCategoryById = async (id: string) => {
 //     throw new Error("User not authenticated!");
 //   }
 
-  const response = await fetch(process.env.NEXT_PUBLIC_FRONTEND_API_URL+`api/category/${id}`, {
+  const response = await fetch(process.env.NEXT_PUBLIC_FRONTEND_API_URL+`api/location/${id}`, {
     method: "GET",
     headers: {
       // "Content-Type": "application/json",
@@ -42,7 +42,7 @@ export const getCategoryById = async (id: string) => {
 
   if (!response.ok) {
     const errorData = await response.json();
-    throw new Error(errorData.message || "Failed to get category");
+    throw new Error(errorData.message || "Failed to get location");
   }
 
   return response.json();

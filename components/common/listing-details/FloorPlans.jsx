@@ -16,19 +16,28 @@ const FloorPlans = ({property}) => {
               aria-controls={`collapse${index}`}
             >
               <ul className="mb0 d-flex align-items-cener flex-wrap">
-                <li className="d-inline-flex list-inline-item">{singleItem.title} &nbsp; &nbsp; </li> 
+                {singleItem?.title && singleItem?.title !== "undefined" && (
+                  <li className="d-inline-flex list-inline-item">{singleItem?.title} &nbsp; &nbsp; </li> 
+                  )}
+                  {singleItem?.areasize && singleItem?.areasize !== "undefined" &&   (
                 <li className="d-inline-flex list-inline-item">
-                  <p>Size: &nbsp; </p> <span>{singleItem.areasize}</span> &nbsp;&nbsp; 
+                  <p>Size: &nbsp; </p> <span>{singleItem?.areasize}</span> &nbsp;&nbsp; 
                 </li> 
+                )}
+                  {singleItem?.bedroom && singleItem?.bedroom != "undefined" &&  (
                 <li className="d-inline-flex list-inline-item">
-                  <p>Type: &nbsp; </p> <span>{singleItem.bedroom}</span> &nbsp;&nbsp;
+                  <p>Type : &nbsp; </p> <span>{singleItem?.bedroom}</span> &nbsp;&nbsp;
                 </li> 
+                )}
                 {/* <li className="d-inline-flex list-inline-item">
                   <p>Baths:</p> <span>530 Sqft</span>
                 </li> */}
+                
+                  {singleItem?.price && singleItem?.price !== "undefined" && (
                 <li className="d-inline-flex list-inline-item">
-                  <p>Price: &nbsp;</p> <span>{singleItem.price}</span>
+                  <p>Price: &nbsp;</p> <span>{singleItem?.price}</span>
                 </li>
+                )}
               </ul>
             </button>
           </h2>
@@ -52,9 +61,11 @@ const FloorPlans = ({property}) => {
               alt= {`${singleItem.title}${index + 1}`}
               unoptimized 
             />
-            <p>
+            {singleItem?.description && singleItem?.description !== "undefined" && (
+               <p>
             {singleItem.description}
             </p>
+            )}
           </div>
         </div>
       </div>

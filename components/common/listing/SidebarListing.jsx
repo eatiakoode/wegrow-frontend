@@ -8,7 +8,7 @@ import { getPropertyFeatureData } from "@/api/frontend/property";
 import { useState, useEffect } from "react";
 // import { useRouter } from "next/navigation";
 
-const SidebarListing = ({ setKeyword, setCity,setCategory, setPropertytype , keyword, city,category, propertytype,setPropertytypes,propertytypes }) => {
+const SidebarListing = ({ setKeyword, setCity,setCategory, setPropertytype , keyword, city,category, propertytype,setPropertytypes,propertytypes,location }) => {
    
     const [propertytypesidebar, setPropertyTypeSidebar] = useState([]);
   
@@ -37,7 +37,7 @@ const fetchProperties = async () => {
   keyword={keyword} setKeyword={setKeyword}
   city={city} setCity={setCity}
   category={category} setCategory={setCategory}
-  propertytype={propertytype} setPropertytype={setPropertytype} setPropertytypes={setPropertytypes} propertytypes={propertytypes}
+  propertytype={propertytype} setPropertytype={setPropertytype} setPropertytypes={setPropertytypes} propertytypes={propertytypes} location={location}
 />
 
                 </div>

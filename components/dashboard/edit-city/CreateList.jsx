@@ -26,6 +26,7 @@ const CreateList = () => {
     const [city, setCity] = useState({ title: "", status: false });
     const uploadLogo = (e) => {
       setCityLogo(e.target.files[0]);
+      setCityLogoImage("")
   };
     useEffect(() => {
       if (!id) return;      

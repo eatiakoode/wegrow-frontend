@@ -20,7 +20,7 @@ import { useState, useEffect } from "react";
 // import { useRouter, useParams } from "next/navigation";
 // import { useSearchParams } from 'next/navigation';
 
-const index = ({ properties:initialProperties, totalCount:initialCount,filter :initialFilter }) => {
+const index = ({ properties:initialProperties, totalCount:initialCount,filter :initialFilter,categorydata }) => {
   
   // const searchParams = useSearchParams();
   // const cat = searchParams.get('cat'); 
@@ -31,6 +31,8 @@ const index = ({ properties:initialProperties, totalCount:initialCount,filter :i
   const [keyword, setKeyword] = useState(initialFilter.keyword || "");
   const [city, setCity] = useState(initialFilter.city || "");
   const [propertytype, setPropertytype] = useState(initialFilter.propertytype || "");
+  const [location, setLocation] = useState(initialFilter.location || "");
+  
   const [propertytypes, setPropertytypes] = useState([]);
   /*property paggination*/
   //  const [propertyList, setPropertyList] = useState([]);
@@ -49,6 +51,7 @@ useEffect(() => {
       "city":city,
       "category":category,
       "propertytype": propertytype,
+      "location": location,
       "limit":pageSize,
       "page":currentPage
     };
@@ -62,7 +65,7 @@ useEffect(() => {
           
         };
   fetchProperties();
-}, [keyword, city, category, propertytype,currentPage,setTotalCount]);
+}, [keyword, city, category, propertytype,location,currentPage,setTotalCount]);
    const [propertySelectedComp, setPropertySelectedComp] = useState(() => {
       if (typeof window !== "undefined") {
   
@@ -113,6 +116,10 @@ useEffect(() => {
       if (initialFilter.propertytype) {
         setPropertytype(initialFilter.propertytype);
       }
+      if (initialFilter.location) {
+        setPropertytype(initialFilter.location);
+      }
+      
      
       
     }, [initialFilter]);
@@ -144,10 +151,10 @@ useEffect(() => {
       {/* <!-- Modal --> */}
       <PopupSignInUp />
 
-      <BreadCrumbBanner/>
+      <BreadCrumbBanner categorydata={categorydata}/>
       
       {/* <!-- Listing Grid View --> */}
-      <section className="our-listing bgc-f7 pb30-991 mt85 md-mt0 ">
+      <section className="our-listing bgc-f7 pb30-991  md-mt0 ">
         <div className="container">
           <div className="row">
             <div className="col-lg-6">
@@ -176,7 +183,7 @@ useEffect(() => {
                 <SidebarListing  keyword={keyword} setKeyword={setKeyword}
                 city={city} setCity={setCity}
                 category={category} setCategory={setCategory}
-                propertytype={propertytype} setPropertytype={setPropertytype} setPropertytypes={setPropertytypes} propertytypes={propertytypes}/>
+                propertytype={propertytype} setPropertytype={setPropertytype} setPropertytypes={setPropertytypes} propertytypes={propertytypes} location={location}/>
               </div>
               {/* End SidebarListing */}
 
@@ -201,7 +208,7 @@ useEffect(() => {
                     <SidebarListing  keyword={keyword} setKeyword={setKeyword}
                     city={city} setCity={setCity}
                     category={category} setCategory={setCategory}
-                    propertytype={propertytype} setPropertytype={setPropertytype} setPropertytypes={setPropertytypes} propertytypes={propertytypes}/>
+                    propertytype={propertytype} setPropertytype={setPropertytype} setPropertytypes={setPropertytypes} propertytypes={propertytypes} location={location}/>
                   </div>
                 </div>
               </div>

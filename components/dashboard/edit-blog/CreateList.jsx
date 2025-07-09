@@ -23,6 +23,8 @@ const CreateList = () => {
     const [error, setError] = useState("");  
     const [logo, setLogo] = useState(null);
     const [logoimage, setLogoImage] = useState(null);
+    const [metatitle, setMetatitle] = useState([]);
+  const [metadescription, setMetaDescription] = useState([]);
     const uploadLogo = (e) => {
       setLogoImage("")
       setLogo(e.target.files[0]);
@@ -44,6 +46,8 @@ const CreateList = () => {
           setDescription(data.data.description)
           setSource(data.data.source)
           setDate(data.data.date)
+          setMetatitle(data.data.metatitle)
+          setMetaDescription(data.data.metadescription)
           
           setSelectedBlogcategory(data.data.blogcategory)
           if(data.data.logoimage) {
@@ -86,6 +90,8 @@ const CreateList = () => {
         formData.append("source", source);
         formData.append("date", date);
         formData.append("status", status);
+         formData.append("metatitle", metatitle);
+        formData.append("metadescription", metadescription);
         if (logo) {
           formData.append("logo", logo);
         }
@@ -93,7 +99,7 @@ const CreateList = () => {
         // alert("Blog updated successfully!");
         toast.success(res.message);
          
-         if(data.status=="success"){
+         if(res.status=="success"){
             setTimeout(() => {
               router.push("/cmswegrow/my-blog");
               }, 1500); 
@@ -234,7 +240,36 @@ const CreateList = () => {
       {/* End .col */}
 
      
+ <div className=" mt30 ">
+                    <div className="col-lg-12">
+                      <h3 className="mb30">Meta Information</h3>
+                    </div>
+                    <div className="row">
+                    <div className="col-lg-12">
+        <div className="my_profile_setting_input form-group">
+          <label htmlFor="blogMetatitle">Meta Title</label>
+         
+          <input type="text"
+              className="form-control"
+              id="blogMetatitle"
+              value={metatitle}
+              onChange={(e) => setMetatitle(e.target.value)} />
+        </div>
+      </div>
+      <div className="col-lg-12">
+          <div className="my_profile_setting_textarea form-group">
+            <label htmlFor="blogMetaDescription">Meta Description</label>
+            <textarea id="blogMetaDescription" className="form-control" rows="7"  value={metadescription} onChange={(e) => setMetaDescription(e.target.value)}  placeholder="Enter meta description"></textarea>
+            {error.metadescription && <span className="text-danger">{error.metadescription}</span>}
+          </div>
+          
+        </div>
+        
 
+      {/* End .col */}
+      </div>
+      
+                  </div>
 
       <div className="col-xl-12">
         <div className="my_profile_setting_input">

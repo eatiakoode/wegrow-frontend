@@ -18,6 +18,8 @@ const CreateList = () => {
     const [error, setError] = useState("");  
     const [logo, setLogo] = useState(null);
     const [logoimage, setLogoImage] = useState(null);
+    const [metatitle, setMetatitle] = useState([]);
+  const [metadescription, setMetaDescription] = useState([]);
     const uploadLogo = (e) => {
       setLogo(e.target.files[0]);
       setLogoImage("")
@@ -36,6 +38,8 @@ const CreateList = () => {
           setSlug(data.data.slug)
           setStatus(data.data.status)
           setDescription(data.data.description)
+          setMetatitle(data.data.metatitle)
+          setMetaDescription(data.data.metadescription)
           if(data.data.logoimage) {
           setLogoImage(process.env.NEXT_PUBLIC_API_URL+data.data.logoimage)
           }
@@ -57,6 +61,8 @@ const CreateList = () => {
         formData.append("slug", slug);
         formData.append("description", description);
         formData.append("status", status);
+         formData.append("metatitle", metatitle);
+        formData.append("metadescription", metadescription);
         if (logo) {
           formData.append("logo", logo);
         }
@@ -170,7 +176,36 @@ const CreateList = () => {
       </div>
       {/* End .col */}
 
-     
+      <div className=" mt30 ">
+                    <div className="col-lg-12">
+                      <h3 className="mb30">Meta Information</h3>
+                    </div>
+                    <div className="row">
+                    <div className="col-lg-12">
+        <div className="my_profile_setting_input form-group">
+          <label htmlFor="builderMetatitle">Meta Title</label>
+         
+          <input type="text"
+              className="form-control"
+              id="builderMetatitle"
+              value={metatitle}
+              onChange={(e) => setMetatitle(e.target.value)} />
+        </div>
+      </div>
+      <div className="col-lg-12">
+          <div className="my_profile_setting_textarea form-group">
+            <label htmlFor="builderMetaDescription">Meta Description</label>
+            <textarea id="builderMetaDescription" className="form-control" rows="7"  value={metadescription} onChange={(e) => setMetaDescription(e.target.value)}  placeholder="Enter meta description"></textarea>
+            {error.metadescription && <span className="text-danger">{error.metadescription}</span>}
+          </div>
+          
+        </div>
+        
+
+      {/* End .col */}
+      </div>
+      
+                  </div>
 
 
       <div className="col-xl-12">

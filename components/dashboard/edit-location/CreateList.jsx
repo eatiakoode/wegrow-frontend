@@ -21,10 +21,18 @@ const CreateList = () => {
     const [countries, setCountries] = useState([]);
     const [selectedCountry, setSelectedCountry] = useState("");
     const [states, setStates] = useState([]);
+    const [status, setStatus] = useState("");
+    const [locationlogo, setLocationLogo] = useState(null);
+    const [locationlogoimage, setLocationLogoImage] = useState(null);
     const [selectedState, setSelectedState] = useState("");
+    const [title, setTitle] = useState("");
    
   const [cities, setCities] = useState([]);
   const [selectedCity, setSelectedCity] = useState("");
+  const uploadLogo = (e) => {
+      setLocationLogo(e.target.files[0]);
+      setLocationLogoImage("")
+  };
   
     // useEffect(() => {
     //   if (!id) return;
@@ -68,18 +76,25 @@ const CreateList = () => {
               ]);
         
               const locationData = locationRes.data;
-              setLocation({
-                title: locationData.title,
-                status: locationData.status,
-                countryid: locationData.countryid,
-                stateid: locationData.stateid,
-                cityid: locationData.cityid,
-              });
+              // setLocation({
+              //   title: locationData.title,
+              //   status: locationData.status,
+              //   countryid: locationData.countryid,
+              //   stateid: locationData.stateid,
+              //   cityid: locationData.cityid,
+              // });
+              setTitle(locationData.title)
+              setStatus(locationData.status)
         
               setSelectedCountry(locationData.countryid);
               setSelectedState(locationData.stateid);
               setSelectedCity(locationData.cityid);
               setCountries(countriesRes || []);
+              console.log("data.data.locationlogoimage")
+              console.log(locationData.locationlogoimage)
+              if(locationData.locationlogoimage) {
+                setLocationLogoImage(process.env.NEXT_PUBLIC_API_URL+locationData.locationlogoimage)
+              }
         
               // ✅ Fetch states AFTER setting selectedCountry
               const statesRes = await getStateByCountryTableData(locationData.countryid);
@@ -99,11 +114,21 @@ const CreateList = () => {
     const handleSubmit = async (e) => {
       e.preventDefault();
       try {
-        const updatedLocation = {
-          ...location,
-          cityid: selectedCity,
-        };
-        const data = await updateLocationAPI(id, updatedLocation);
+        // const updatedLocation = {
+        //   ...location,
+        //   cityid: selectedCity,
+        // };
+        const formData = new FormData();
+        formData.append("title", title);
+        formData.append("countryid", selectedCountry);
+        formData.append("stateid", selectedState);
+        formData.append("cityid", selectedCity);
+
+        formData.append("status", status);
+        if (locationlogo) {
+          formData.append("locationlogo", locationlogo);
+        }
+        const data = await updateLocationAPI(id, formData);
         toast.success(data.message);
         if(data.status=="success"){
          setTimeout(() => {
@@ -130,12 +155,12 @@ const CreateList = () => {
     };
     const handleCountryChange = (e) => {
       setSelectedCountry(e.target.value);
-      console.log("cahnegvalue"+e.target.value)
+      // console.log("cahnegvalue"+e.target.value)
       const fetchState = async (countryid) => {
         try {
           const response = await getStateByCountryTableData(countryid);
-          console.log("response")
-          console.log(response)
+          // console.log("response")
+          // console.log(response)
   
           setStates(response.data || []);
         } catch (err) {
@@ -149,8 +174,8 @@ const CreateList = () => {
       const fetchCity = async (stateid) => {
         try {
           const response = await getCityByStateTableData(stateid);
-          console.log("response")
-          console.log(response)
+          // console.log("response")
+          // console.log(response)
   
           setCities(response.data || []);
         } catch (err) {
@@ -164,6 +189,32 @@ const CreateList = () => {
   return (
     <>
     <form onSubmit={handleSubmit} className="row">
+      <div className="col-lg-12">
+                <div className="wrap-custom-file">
+                    <input
+                        type="file"
+                        id="image1"
+                        accept="image/png, image/gif, image/jpeg, image/svg+xml, image/svg, image/webp, image/avif"
+                        onChange={uploadLogo}
+                    />
+                   <label
+                      htmlFor="image1"
+                      style={
+                        locationlogoimage                          
+                        ? { backgroundImage: `url(${locationlogoimage})` }
+                          : locationlogo
+                          ? { backgroundImage: `url(${URL.createObjectURL(locationlogo)})` }
+                          : undefined
+                      }
+                    >
+                        <span>
+                            <i className="flaticon-download"></i> Upload Photo{" "}
+                        </span>
+                    </label>
+                </div>
+                <p>*minimum 260px x 260px</p>
+            </div>
+            {/* End .col */}
     <div className="col-lg-6 col-xl-6">
           <div className="my_profile_setting_input ui_kit_select_search form-group">
             <label htmlFor="countrySelect">Select Country</label>
@@ -232,8 +283,9 @@ const CreateList = () => {
         className="form-control"
         id="locationTitle"
         name="title"
-        value={location.title}
-        onChange={handleChange}
+        value={title}
+        // onChange={handleChange}
+        onChange={(e) => setTitle(e.target.value)} 
       />
         </div>
       </div>
@@ -244,17 +296,12 @@ const CreateList = () => {
         <div className="my_profile_setting_input ui_kit_select_search form-group">
           <label>Status</label>
           <select
-        className="selectpicker form-select"
-        data-live-search="true"
-        data-width="100%"
-        value={location.status ? "active" : "deactive"}
-        onChange={(e) =>
-          setLocation((prev) => ({
-            ...prev,
-            status: e.target.value === "active",
-          }))
-        }
-      >
+  className="selectpicker form-select"
+  data-live-search="true"
+  data-width="100%"
+  value={status ? "active" : "deactive"}
+  onChange={(e) => setStatus(e.target.value === "active")}
+>
         <option value="active">Active</option>
         <option value="deactive">Deactive</option>
       </select>

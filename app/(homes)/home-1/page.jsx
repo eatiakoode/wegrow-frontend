@@ -3,6 +3,7 @@ import HomeMain from "@/components/home";
 import { getPropertyFeatureData } from "@/api/frontend/property";
 import { countPropertiesByCity, getCityWithPropertyPage } from "@/api/frontend/city";
 import { getTestimonialTableData } from "@/api/frontend/testimonial";
+import { getLocationTableData } from "@/api/frontend/location";
 
 export const metadata = {
   title: "Home || WeGrow",
@@ -12,17 +13,21 @@ export const metadata = {
 export default async function HomePage() {
   try {
     // Run requests in parallel to reduce wait time
-    const [propertyRes, cityCountRes, testimonialRes, cityPageRes] = await Promise.all([
+    const [propertyRes, cityCountRes, testimonialRes, cityPageRes, locationPageRes] = await Promise.all([
       getPropertyFeatureData(),
       countPropertiesByCity(),
       getTestimonialTableData(),
       getCityWithPropertyPage(),
+      getLocationTableData(),
     ]);
 
     const properties = propertyRes || [];
     const findcities = cityCountRes?.data || [];
     const testimonials = testimonialRes || [];
     const cities = cityPageRes?.data || [];
+    const locationlist = locationPageRes || [];
+    console.log("locationlist")
+    console.log(locationlist)
 
     return (
       <HomeMain
@@ -30,6 +35,7 @@ export default async function HomePage() {
         findcities={findcities}
         testimonials={testimonials}
         cities={cities}
+        locationlist={locationlist}
       />
     );
   } catch (error) {

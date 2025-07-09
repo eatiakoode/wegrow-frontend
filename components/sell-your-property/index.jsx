@@ -764,7 +764,7 @@ const index = () => {
          
                <div className="col-lg-6 col-xl-4">
                  <div className="my_profile_setting_input form-group">
-                   <label htmlFor="garagesSize">Parkings Size</label>
+                   <label htmlFor="garagesSize">Parkings description</label>
                    <input type="text"
                        className="form-control"
                        id="garagesSize"

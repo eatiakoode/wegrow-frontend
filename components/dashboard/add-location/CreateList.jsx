@@ -20,6 +20,7 @@ const CreateList = () => {
   const [cities, setCities] = useState([]);
   const [selectedCity, setSelectedCity] = useState("");
   const router = useRouter();
+  const [locationlogo, setLocationLogo] = useState(null);
   const [isSubmitting, setisSubmitting] = useState("");
 
   useEffect(() => {
@@ -89,14 +90,23 @@ const handleCountryChange = (e) => {
     setError("");
 
     try {
-      const addLocation = {
-        title:title,
-                countryid: selectedCountry,
-                stateid: selectedState,
-                cityid: selectedCity,
-              };
+      // const addLocation = {
+      //   title:title,
+      //           countryid: selectedCountry,
+      //           stateid: selectedState,
+      //           cityid: selectedCity,
+      //         };
+      const formData = new FormData();
+        formData.append("title", title);
+        formData.append("countryid", selectedCountry);
+        formData.append("stateid", selectedState);
+        formData.append("cityid", selectedCity);
+        if (locationlogo) {
+          formData.append("locationlogo", locationlogo);
+        }
+              
               // const data = await addCityAPI(addCity);
-      const data = await addLocationAPI(addLocation);
+      const data = await addLocationAPI(formData);
       console.log(data);
       // alert(data.message);
       toast.success(data.message);
@@ -107,14 +117,45 @@ const handleCountryChange = (e) => {
       }
       setTitle("");
       setSelectedCity("");
+      setLocationLogo(null);
     } catch (error) {
       setError(error.message);
     }
   };
-  
+   const uploadLocationLogo = (e) => {
+      setLocationLogo(e.target.files[0]);
+    };
   return (
     <>
       <form onSubmit={addLocation} className="row">
+         <div className="col-lg-12">
+                <div className="wrap-custom-file">
+                    <input
+                        type="file"
+                        id="image1"
+                       accept="image/png, image/gif, image/jpeg, image/svg+xml, image/svg, image/webp, image/avif"
+                        onChange={uploadLocationLogo}
+                    />
+                    <label
+                        style={
+                            locationlogo !== null
+                                ? {
+                                      backgroundImage: `url(${URL.createObjectURL(
+                                          locationlogo
+                                      )})`,
+                                  }
+                                : undefined
+                        }
+                        htmlFor="image1"
+                    >
+                        <span>
+                            <i className="flaticon-download"></i> Upload Photo{" "}
+                        </span>
+                    </label>
+                </div>
+                <p>*minimum 260px x 260px</p>
+            </div>
+            {/* End .col */}
       <div className="col-lg-6 col-xl-6">
           <div className="my_profile_setting_input ui_kit_select_search form-group">
             <label htmlFor="countrySelect">Select Country</label>

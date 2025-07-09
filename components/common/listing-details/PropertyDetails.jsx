@@ -59,10 +59,17 @@ const PropertyDetails = ({property}) => {
             </p>
           </li>
           )}
+          {property.garages && (
+          <li>
+            <p>
+            Parking Space: <span>{property.garages}</span>
+            </p>
+          </li>
+          )}
           {property.garagessize && (
           <li>
             <p>
-            Parking Size : <span>{property.garagessize}</span>
+            Parking : <span>{property.garagessize}</span>
             </p>
           </li>
           )}

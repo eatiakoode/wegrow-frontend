@@ -19,7 +19,7 @@ import WhyChoose from "../common/WhyChoose";
 import PopupSignInUp from "../common/PopupSignInUp";
 import { useState, useEffect } from "react";
 
-const Index = ({properties,findcities,testimonials,cities}) => {
+const Index = ({properties,findcities,testimonials,cities,locationlist}) => {
   const [propertySelectedComp, setPropertySelectedComp] = useState(() => {
     if (typeof window !== "undefined") {
 
@@ -69,7 +69,7 @@ const Index = ({properties,findcities,testimonials,cities}) => {
             </div>
             <div className="col-lg-12">
               <div className="trending_location_slider gutter-x15">
-                <TrendingLocations/> 
+                <TrendingLocations locationlist={locationlist}/> 
               </div>
             </div>
           </div>

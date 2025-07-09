@@ -238,6 +238,8 @@ const HeaderMenuContent = ({ float = "" }) => {
   const cat = [
       { id: 1, name: "Residential", routerPath: "/property-list?cat=67e67294759f85d6bf7a131a" },
        { id: 2, name: "Commercial", routerPath: "/property-list?cat=67ea48d17cfa562fe8eaafd0" },
+       { id: 3, name: "SCO Plots", routerPath: "/property-list?cat=686e180e92dba9f24fab5f92" },
+       { id: 4, name: "Industrial Plots", routerPath: "/property-list?cat=686e18b092dba9f24fab6011" },
     ];
 
   const blog = [

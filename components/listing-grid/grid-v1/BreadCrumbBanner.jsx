@@ -1,6 +1,6 @@
 import BreadCrumb from "@/components/common/BreadCrumb";
 
-const BreadCrumbBanner = () => {
+const BreadCrumbBanner = ({categorydata}) => {
   return (
     <section className="residential_commercial inner_page_breadcrumb">
       <video
@@ -20,8 +20,9 @@ const BreadCrumbBanner = () => {
             <div className="breadcrumb_content">
               {/* <BreadCrumb title="blog" />
               <h4 className="breadcrumb_title">Blogs</h4> */}
-              <h1>Explore Residential & Commercial Properties for Sale and Rent</h1>
-              <p>This clearly communicates the type of listings available (residential and commercial), and also includes useful <br/>keywords like "sale" and "rent" that are SEO-friendly.</p>
+              <h1>{categorydata?.h1title}</h1>
+               <p dangerouslySetInnerHTML={{ __html: categorydata?.description }} />
+              {/* <p>{categorydata.description}</p> */}
             </div>
           </div>
           {/* End .col */}
