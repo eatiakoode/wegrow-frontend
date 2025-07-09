@@ -1,10 +1,21 @@
-export async function getLocationTableData() {
+export async function getLocationTableData(filter) {
   // Fake delay
   await new Promise((resolve) => setTimeout(resolve, 10));
   
 
   try {
-    const response = await fetch(process.env.NEXT_PUBLIC_FRONTEND_API_URL+"api/location"); // Replace with actual API endpoint
+    let querystring=""
+    
+     if(filter.limit){
+      querystring +="?limit="+filter.limit
+    }
+    if(filter.istrending){
+      querystring +="&istrending="+filter.istrending
+    }
+    if(filter.page){
+      querystring +="&page="+filter.page
+    }
+    const response = await fetch(process.env.NEXT_PUBLIC_FRONTEND_API_URL+"api/location"+querystring); // Replace with actual API endpoint
     if (!response.ok) {
       throw new Error("Failed to fetch products");
     }

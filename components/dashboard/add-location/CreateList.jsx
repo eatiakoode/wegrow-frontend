@@ -22,6 +22,7 @@ const CreateList = () => {
   const router = useRouter();
   const [locationlogo, setLocationLogo] = useState(null);
   const [isSubmitting, setisSubmitting] = useState("");
+   const [istrending, setIstrending] = useState("");
 
   useEffect(() => {
     const fetchCountries = async () => {
@@ -101,6 +102,7 @@ const handleCountryChange = (e) => {
         formData.append("countryid", selectedCountry);
         formData.append("stateid", selectedState);
         formData.append("cityid", selectedCity);
+         formData.append("istrending", istrending);
         if (locationlogo) {
           formData.append("locationlogo", locationlogo);
         }
@@ -229,7 +231,22 @@ const handleCountryChange = (e) => {
             {error && <p className="text-red-500 text-sm mt-1">{error}</p>}
           </div>
         </div>
-
+ <div className="col-lg-6 col-xl-6">
+        <div className="my_profile_setting_input ui_kit_select_search form-group">
+          <label>Trending Location</label>
+          <select
+  className="selectpicker form-select"
+  data-live-search="true"
+  data-width="100%"
+  value={istrending ? "active" : "deactive"}
+  onChange={(e) => setIstrending(e.target.value === "active")}
+>
+        <option value="active">Active</option>
+        <option value="deactive">Deactive</option>
+      </select>
+        </div>
+      </div>
+      {/* End .col */}
        
 
         <div className="col-xl-12">

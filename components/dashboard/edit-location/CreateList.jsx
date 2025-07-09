@@ -26,6 +26,7 @@ const CreateList = () => {
     const [locationlogoimage, setLocationLogoImage] = useState(null);
     const [selectedState, setSelectedState] = useState("");
     const [title, setTitle] = useState("");
+    const [istrending, setIstrending] = useState("");
    
   const [cities, setCities] = useState([]);
   const [selectedCity, setSelectedCity] = useState("");
@@ -85,6 +86,8 @@ const CreateList = () => {
               // });
               setTitle(locationData.title)
               setStatus(locationData.status)
+              setIstrending(locationData.istrending)
+              
         
               setSelectedCountry(locationData.countryid);
               setSelectedState(locationData.stateid);
@@ -125,6 +128,8 @@ const CreateList = () => {
         formData.append("cityid", selectedCity);
 
         formData.append("status", status);
+        formData.append("istrending", istrending);
+        
         if (locationlogo) {
           formData.append("locationlogo", locationlogo);
         }
@@ -301,6 +306,22 @@ const CreateList = () => {
   data-width="100%"
   value={status ? "active" : "deactive"}
   onChange={(e) => setStatus(e.target.value === "active")}
+>
+        <option value="active">Active</option>
+        <option value="deactive">Deactive</option>
+      </select>
+        </div>
+      </div>
+      {/* End .col */}
+      <div className="col-lg-6 col-xl-6">
+        <div className="my_profile_setting_input ui_kit_select_search form-group">
+          <label>Trending Location</label>
+          <select
+  className="selectpicker form-select"
+  data-live-search="true"
+  data-width="100%"
+  value={istrending ? "active" : "deactive"}
+  onChange={(e) => setIstrending(e.target.value === "active")}
 >
         <option value="active">Active</option>
         <option value="deactive">Deactive</option>

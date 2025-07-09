@@ -13,12 +13,17 @@ export const metadata = {
 export default async function HomePage() {
   try {
     // Run requests in parallel to reduce wait time
+    let filter ={
+      istrending:"yes",
+      limit:9,
+      page:  1
+    }
     const [propertyRes, cityCountRes, testimonialRes, cityPageRes, locationPageRes] = await Promise.all([
       getPropertyFeatureData(),
       countPropertiesByCity(),
       getTestimonialTableData(),
       getCityWithPropertyPage(),
-      getLocationTableData(),
+      getLocationTableData(filter),
     ]);
 
     const properties = propertyRes || [];
