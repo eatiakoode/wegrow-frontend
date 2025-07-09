@@ -13,7 +13,7 @@ const Hero = () => {
           loop
           playsInline
         >
-          <source src="/assets/images/myvideo-compressed.mp4" type="video/mp4" />
+          <source src={`${process.env.NEXT_PUBLIC_API_URL}public/assets/images/background/myvideo-compressed.mp4`} type="video/mp4" />
           {/* Your browser does not support the video tag. */}
         </video>
       </div>
