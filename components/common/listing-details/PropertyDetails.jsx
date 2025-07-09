@@ -32,7 +32,7 @@ const PropertyDetails = ({property}) => {
             </li>
           )}
           {property.reranumber && (
-            <li>
+            <li className="rera_no">
               <p>
                 Rera Number : <span>{property.reranumber}</span>
               </p>

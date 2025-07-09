@@ -87,7 +87,7 @@ const TrendingLocations = ({locationlist}) => {
             />
             <div className="overlay">
               <div className="text-content">
-                <h3>{item.title}</h3>
+                <h4>{item.title}</h4>
                 <p>{item.cityid.title}</p>
               </div>
             </div>

@@ -91,6 +91,8 @@ const SidebarMenu = () => {
     { id: 1, name: "My enquery list", route: "/cmswegrow/my-enquiry" },
     { id: 2, name: "My property enquery list", route: "/cmswegrow/my-propertyenquiry" },
     { id: 3, name: "My landing enquery list", route: "/cmswegrow/my-landingenquiry" },
+    { id: 4, name: "My Subscribe enquery list", route: "/cmswegrow/my-subscribeenquiry" },
+    { id: 4, name: "My brochure enquery list", route: "/cmswegrow/my-brochureenquiry" },
   ];
   const manageAccount = [
     {

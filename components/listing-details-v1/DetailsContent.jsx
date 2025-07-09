@@ -20,6 +20,10 @@ import Link from "next/link";
 
 import Image from "next/image";
 
+import { addBrochureEnquiryAPI } from "@/api/frontend/brochureenquiry";
+import { useRouter, useParams } from "next/navigation";
+import { useForm } from 'react-hook-form';
+
 const DetailsContent = ({property,faqs,propertydetail}) => {
   const [showPdfModal, setShowPdfModal] = useState(false);
   const [showFullBio, setShowFullBio] = useState(false);
@@ -34,6 +38,43 @@ const [showIframe, setShowIframe] = useState(false);
   const shareUrl = process.env.NEXT_PUBLIC_FRONTEND_API_URL+'property-detail/'+property.slug;
 const text = encodeURIComponent(property.metatitle);
 const hashtags = property.metatitle;
+
+// const [email, setEmail] = useState("");
+  const [error, setError] = useState("");
+   const [successmsg, setSuccessmsg] = useState("");
+    const router = useRouter();
+    const {
+      register,
+      handleSubmit,
+      formState: { errors, isSubmitting, isSubmitSuccessful },
+      reset,
+    } = useForm();
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
+  // };
+  const onSubmit = async (data) => {
+     
+      try {
+        const payload = {
+        ...data,
+        propertyid:property._id, // ✅ manually add the date
+      };
+       router.push("/thank-you");
+        const res = await addBrochureEnquiryAPI(payload);
+        if(res.status=="success"){
+          setSuccessmsg(res.message)
+          setName("")
+          setPhone("")
+          setShowIframe(true);
+        }
+  
+        setError({});
+       
+      // (Reset other fields here if needed)
+    } catch (err) {
+      setError({ general: err.message || "Something went wrong" });
+    }
+    };
     return (
     <>
       <div className="share_flex listing_single_description">
@@ -284,36 +325,66 @@ const hashtags = property.metatitle;
           {!showIframe ? (
             // Form section
             <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                if (name && phone) {
-                  setShowIframe(true);
-                } else {
-                  alert("Please enter both name and phone number");
-                }
-              }}
+              // onSubmit={(e) => {
+              //   e.preventDefault();
+              //   if (name && phone) {
+              //     setShowIframe(true);
+              //   } else {
+              //     alert("Please enter both name and phone number");
+              //   }
+              // }}
+              onSubmit={handleSubmit(onSubmit)}
               className="p-3"
             >
               <h5 className="mb-3">Enter your details to view brochure</h5>
               <div className="mb-2">
-                <input
+                {/* <input
                   type="text"
                   className="form-control"
                   placeholder="Your Name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   required
-                />
+                /> */}
+                <input
+              id="form_name"
+              name="form_name"
+              className="form-control"
+              // required="required"
+              type="text"
+              placeholder="Name"
+              // value={name} onChange={(e) => setName(e.target.value)}
+              {...register('name', { required: 'Name is required' })}
+            />
+            
+          {errors.name && <p className="text-danger">{errors.name.message}</p>}
               </div>
               <div className="mb-2">
-                <input
-                  type="tel"
-                  className="form-control"
-                  placeholder="Phone Number"
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
-                  required
-                />
+                  <input
+              id="form_phone"
+              name="form_phone"
+              className="form-control required phone"
+              // required="required"
+              type="phone"
+              placeholder="Phone"
+             {...register('phone', {
+                required: 'Phone number is required',
+                pattern: {
+                  value: /^[0-9]{10}$/,
+                  message: 'Enter a valid 10-digit phone number',
+                },
+                maxLength: {
+                  value: 10,
+                  message: 'Phone number must be 10 digits',
+                },
+                minLength: {
+                  value: 10,
+                  message: 'Phone number must be 10 digits',
+                },
+              })}
+              maxLength={10}
+            />
+            {errors.phone && <span className="text-danger">{errors.phone.message}</span>}
               </div>
               <button type="submit">
                 Submit & View Brochure
