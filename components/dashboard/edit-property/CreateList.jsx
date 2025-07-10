@@ -302,6 +302,8 @@ useEffect(() => {
 
             setStatus(property.status)
             setAdminApprove(property.admin_approve)
+            setFoodcourt(property.foodcourt)
+            setMultiplex(property.multiplex)
 
             
             if(property.brochurepdf) {
