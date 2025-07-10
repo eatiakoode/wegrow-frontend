@@ -1191,6 +1191,7 @@ const updateProperty = async (e) => {
               className="form-check-input"
               id="foodcourt"
               value={foodcourt}
+              checked={foodcourt === true}
               onChange={(e) => setFoodcourt(e.target.checked)} />
         </div>
       </div>
@@ -1202,6 +1203,7 @@ const updateProperty = async (e) => {
               className="form-check-input"
               id="multiplex"
               value={multiplex}
+              checked={multiplex === true}
               onChange={(e) => setMultiplex(e.target.checked)} />
         </div>
       </div>
