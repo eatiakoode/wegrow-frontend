@@ -532,7 +532,7 @@ const updateProperty = async (e) => {
       nearby,specifications, sellername, selleremail, sellerphone, 
       reranumber, zipcode, metatitle, metadescription,featuredimage,siteplan,masterplan,status,
       admin_approve:adminapprove,
-      pdffile,paymentplan
+      pdffile,paymentplan,multiplex,foodcourt
     };
     
     

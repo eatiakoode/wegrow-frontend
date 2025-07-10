@@ -396,7 +396,7 @@ const addProperty = async (e) => {
        garagessize,
       yearbuild, mapembedcode, videoembedcode,
       nearby,specifications, sellername, selleremail, sellerphone, 
-      reranumber, zipcode, metatitle, metadescription,featuredimage,siteplan,masterplan,propertySelectedImgs,pdffile,paymentplan
+      reranumber, zipcode, metatitle, metadescription,featuredimage,siteplan,masterplan,propertySelectedImgs,pdffile,paymentplan,multiplex,foodcourt
     };
     
     
