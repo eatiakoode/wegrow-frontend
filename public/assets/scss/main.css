@@ -3399,7 +3399,7 @@ header.header-nav.menu_style_home_seven .ace-responsive-menu > li.last {
     padding: 280px 0 100px;
   }
   .inner_page_breadcrumb {
-    height: 410px;
+    height: 420px!important;
 }
 }
 .home_content .home-text.home5 h4 {
