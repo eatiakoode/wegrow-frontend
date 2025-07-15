@@ -221,7 +221,7 @@ const hashtags = property.metatitle;
                     src={
                       property.siteplanurl
                         ? `${process.env.NEXT_PUBLIC_API_URL}${property.siteplanurl}`
-                        : "/default-placeholder.jpg"
+                        : `${process.env.NEXT_PUBLIC_API_URL}public/assets/images/thumbnail.webp`
                     }
                     alt= {`${property.title}`}
                     unoptimized // Optional: disables Next.js image optimization (useful if external images)
@@ -242,7 +242,7 @@ const hashtags = property.metatitle;
                     src={
                       property.masterplanurl
                         ? `${process.env.NEXT_PUBLIC_API_URL}${property.masterplanurl}`
-                        : "/default-placeholder.jpg"
+                        : `${process.env.NEXT_PUBLIC_API_URL}public/assets/images/thumbnail.webp`
                     }
                     alt= {`${property.title}`}
                     unoptimized // Optional: disables Next.js image optimization (useful if external images)
@@ -480,7 +480,7 @@ const hashtags = property.metatitle;
                                 src={
                                   property.builderid?.logoimage
                                     ? `${process.env.NEXT_PUBLIC_API_URL}${property.builderid?.logoimage}`
-                                    : "/default-placeholder.jpg"
+                                    : `${process.env.NEXT_PUBLIC_API_URL}public/assets/images/thumbnail.webp`
                                 }
                                 alt= {`${property.builderid?.title}`}
                                 unoptimized

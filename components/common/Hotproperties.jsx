@@ -73,7 +73,7 @@ const Hotproperties = () => {
               src={
                 property.featuredimageurl
                   ? `${process.env.NEXT_PUBLIC_API_URL}${property.featuredimageurl}`
-                  : "/default-placeholder.jpg"
+                  : `${process.env.NEXT_PUBLIC_API_URL}public/assets/images/thumbnail.webp`
               }
               alt= {`${property.title}`}
               unoptimized

@@ -38,7 +38,7 @@ const Blog = ({blogs}) => {
                   src={
                     item.logoimage
                       ? `${process.env.NEXT_PUBLIC_API_URL}${item.logoimage}`
-                      : "/default-placeholder.jpg"
+                      : `${process.env.NEXT_PUBLIC_API_URL}public/assets/images/thumbnail.webp`
                   }
                   alt= {`${item.title}${index + 1}`}
                   unoptimized 

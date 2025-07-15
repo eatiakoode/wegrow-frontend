@@ -35,7 +35,7 @@ const FindProperties = ({findcities}) => {
                 src={
                   item.citylogoimage
                     ? `${process.env.NEXT_PUBLIC_API_URL}${item.citylogoimage}`
-                    : "/default-placeholder.jpg"
+                    : `${process.env.NEXT_PUBLIC_API_URL}public/assets/images/thumbnail.webp`
                 }
                 alt= {`${item.cityName}${index + 1}${item.citylogoimage}`}
                 unoptimized // Optional: disables Next.js image optimization (useful if external images)

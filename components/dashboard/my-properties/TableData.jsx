@@ -47,7 +47,7 @@ const TableData = ({properties,setProperties}) => {
               src={
                 item.featuredimageurl
                   ? `${process.env.NEXT_PUBLIC_API_URL}${item.featuredimageurl}`
-                  : "/default-placeholder.jpg"
+                  : `${process.env.NEXT_PUBLIC_API_URL}public/assets/images/thumbnail.webp`
               }
               alt= {`${item.title}${index + 1}${item.featuredimageurl}`}
               unoptimized // Optional: disables Next.js image optimization (useful if external images)

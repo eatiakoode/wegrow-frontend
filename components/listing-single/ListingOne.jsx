@@ -112,7 +112,7 @@ export default function ListingOne({property,setPropertySelectedComp, setShowBox
                           src={
                             property.featuredimageurl
                               ? `${process.env.NEXT_PUBLIC_API_URL}${property.featuredimageurl}`
-                              : "/default-placeholder.jpg"
+                              : `${process.env.NEXT_PUBLIC_API_URL}public/assets/images/thumbnail.webp`
                           }
                           alt= {`${property.title}`}
                           unoptimized // Optional: disables Next.js image optimization (useful if external images)
@@ -146,7 +146,7 @@ export default function ListingOne({property,setPropertySelectedComp, setShowBox
                             src={
                               val.image
                                 ? `${process.env.NEXT_PUBLIC_API_URL}${val.image}`
-                                : "/default-placeholder.jpg"
+                                : `${process.env.NEXT_PUBLIC_API_URL}public/assets/images/thumbnail.webp`
                             }
                             alt= {`${property.title}`}
                             unoptimized 

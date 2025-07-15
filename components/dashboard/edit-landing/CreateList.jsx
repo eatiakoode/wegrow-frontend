@@ -627,7 +627,7 @@ const updateLanding = async (e) => {
                                 src={
                                   item.image
                                     ? `${process.env.NEXT_PUBLIC_API_URL}${item.image}`
-                                    : "/default-placeholder.jpg"
+                                    : `${process.env.NEXT_PUBLIC_API_URL}public/assets/images/thumbnail.webp`
                                 }
                                 alt= {`${item.title}${item._id}`}
                                 unoptimized

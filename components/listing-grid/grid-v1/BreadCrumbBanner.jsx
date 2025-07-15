@@ -11,7 +11,7 @@ const BreadCrumbBanner = ({categorydata}) => {
                     src={
                       categorydata.logoimage
                         ? `${process.env.NEXT_PUBLIC_API_URL}${categorydata.logoimage}`
-                        : "/default-placeholder.jpg"
+                        : `${process.env.NEXT_PUBLIC_API_URL}public/assets/images/thumbnail.webp`
                     }
                     alt= {`${categorydata.title}`}
                     unoptimized // Optional: disables Next.js image optimization (useful if external images)

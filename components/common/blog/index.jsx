@@ -183,7 +183,7 @@ const ListingDynamicDetailsV1 = ({blog}) => {
                       src={
                         blog.logoimage
                           ? `${process.env.NEXT_PUBLIC_API_URL}${blog.logoimage}`
-                          : "/default-placeholder.jpg"
+                          : `${process.env.NEXT_PUBLIC_API_URL}public/assets/images/thumbnail.webp`
                       }
                       alt= {`${blog.title}`}
                       unoptimized

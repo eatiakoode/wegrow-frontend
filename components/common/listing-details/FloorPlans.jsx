@@ -56,7 +56,7 @@ const FloorPlans = ({property}) => {
               src={
                 singleItem.planimageurl
                   ? `${process.env.NEXT_PUBLIC_API_URL}${singleItem.planimageurl}`
-                  : "/default-placeholder.jpg"
+                  : `${process.env.NEXT_PUBLIC_API_URL}public/assets/images/thumbnail.webp`
               }
               alt= {`${singleItem.title}${index + 1}`}
               unoptimized 
