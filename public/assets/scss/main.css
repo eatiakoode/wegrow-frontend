@@ -3397,6 +3397,9 @@ header.header-nav.menu_style_home_seven .ace-responsive-menu > li.last {
   .home_content.home6 {
     padding: 280px 0 100px;
   }
+  .inner_page_breadcrumb {
+    height: 410px;
+}
 }
 .home_content .home-text.home5 h4 {
   font-family: "Nunito";
@@ -3472,6 +3475,7 @@ header.header-nav.menu_style_home_seven .ace-responsive-menu > li.last {
   .property-detail-item ul li{
   flex:1 1 100%
 }
+
 }
 .home_adv_srch_opt.home4 {
   margin-top: 40px;
@@ -9812,7 +9816,7 @@ header .get_in_touch span{
 } */
 .inner_page_breadcrumb {
   position: relative;
-  height: 370px;
+  height: 500px;
   /* margin-top: 88px; */
   overflow: hidden;
 }
@@ -15446,6 +15450,9 @@ section.aboutland h3{
 .video-wrapper {
     display: none !important;
   }
+  .inner_page_breadcrumb {
+    height: 410px;
+}
 }
 .message_container .message_input form input.form-control::placeholder {
   font-size: 14px;
