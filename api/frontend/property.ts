@@ -48,6 +48,7 @@ export async function getPropertyFeatureData() {
         "Content-Type": "application/json",
         // Authorization: `Bearer ${token}`,
       },
+      next: { revalidate: 60 }
       // body: JSON.stringify({ id }),
     });
   
@@ -126,7 +127,8 @@ export async function getPropertyFeatureData() {
         "Content-Type": "application/json",
         // Authorization: `Bearer ${token}`,
       },
-      cache: "no-store"
+      cache: "no-store",
+      next: { revalidate: 60 }
       // body: JSON.stringify({ id }),
     });
   
@@ -140,11 +142,11 @@ export async function getPropertyFeatureData() {
 
   export const addPropertyAPI = async (title) => {
     // const token = localStorage.getItem("token"); // 🔹 Retrieve token
-console.log("title")
-console.log(title)
+// console.log("title")
+// console.log(title)
     // const token =process.env.NEXT_PUBLIC_TOKEN;
     const userData = JSON.parse(localStorage.getItem("user"));
-console.log(userData.name);
+// console.log(userData.name);
 // const token = localStorage.getItem("token"); // 🔹 Retrieve token
 // // console.log("token")
 //     const token =process.env.NEXT_PUBLIC_TOKEN;

@@ -37,6 +37,7 @@ export const getCategoryById = async (id: string) => {
       // "Content-Type": "application/json",
       // Authorization: `Bearer ${token}`,
     },
+    next: { revalidate: 60 }
     // body: JSON.stringify({ id }),
   });
 

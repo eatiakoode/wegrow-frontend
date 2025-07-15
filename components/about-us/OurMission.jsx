@@ -27,10 +27,10 @@ const OurMission = () => {
     <>
       <div className="col-lg-7 col-xl-6">
         <div className="about_content">
-          <h2 className="mt0 color-main">About WeGrow Infraventures Pvt. Ltd.</h2>
+          <h2 className="mt0 color-main">WEGROW INFRAVENTURES PVT. LTD.</h2>
           <h4 className="mt0 mb0">Expertise : Commercial Projects | Residential Projects | Real Estate Investment | Client-Centric Solutions
 </h4>
-<p>At <strong>WeGrow Infraventures Pvt. Ltd.</strong>, we are driven by a clear vision — to become the most trusted and result-driven real estate consultancy in <strong>Gurgaon and Delhi NCR</strong>. Since our inception, we have dedicated ourselves to understanding the unique needs of our clients and delivering tailored real estate solutions that meet their expectations, financial goals, and long-term aspirations.</p>
+<p>At <strong>WEGROW INFRAVENTURES PVT. LTD.</strong>, we are driven by a clear vision — to become the most trusted and result-driven real estate consultancy in <strong>Gurgaon and Delhi NCR</strong>. Since our inception, we have dedicated ourselves to understanding the unique needs of our clients and delivering tailored real estate solutions that meet their expectations, financial goals, and long-term aspirations.</p>
           <p>
           Whether you're a <strong>first-time homebuyer</strong>, a <strong>business owner seeking the right commercial space</strong>, or an <strong>investor looking for high-yield opportunities</strong>, WeGrow ensures a seamless and rewarding experience at every step of your journey.
           </p>

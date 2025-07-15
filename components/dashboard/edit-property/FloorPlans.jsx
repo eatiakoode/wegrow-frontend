@@ -206,7 +206,8 @@ const FloorPlans = ({inputs,setInputs,property,setPlanImage,planimage}) => {
                  <input 
                       type="file"
                       id={`planimageget-${index}`}
-                      accept="image/png, image/gif, image/jpeg"
+                      // accept="image/png, image/gif, image/jpeg"
+                       accept="image/png, image/gif, image/jpeg, image/svg+xml, image/svg, image/webp, image/avif"
                       onChange={(e) => uploadPlanImageGet(index, e.target.files[0])}
                       style={{ display: 'none' }} // Hide the actual file input
                     />
@@ -303,7 +304,8 @@ const FloorPlans = ({inputs,setInputs,property,setPlanImage,planimage}) => {
                     <input
                         type="file"
                         id={`planimage-${index}`}
-                        accept="image/png, image/gif, image/jpeg"
+                        // accept="image/png, image/gif, image/jpeg"
+                         accept="image/png, image/gif, image/jpeg, image/svg+xml, image/svg, image/webp, image/avif"
                         onChange={(e) => uploadPlanImage(index, e.target.files[0])}
                     />
                     <label

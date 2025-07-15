@@ -1160,7 +1160,8 @@ const addProperty = async (e) => {
                     <input
                         type="file"
                         id="featuredimage"
-                        accept="image/png, image/gif, image/jpeg"
+                        // accept="image/png, image/gif, image/jpeg"
+                         accept="image/png, image/gif, image/jpeg, image/svg+xml, image/svg, image/webp, image/avif"
                         onChange={uploadFeaturedImage}
                     />
                     <label
@@ -1189,7 +1190,8 @@ const addProperty = async (e) => {
                     <input
                         type="file"
                         id="SitePlan"
-                        accept="image/png, image/gif, image/jpeg"
+                        // accept="image/png, image/gif, image/jpeg"
+                         accept="image/png, image/gif, image/jpeg, image/svg+xml, image/svg, image/webp, image/avif"
                         onChange={uploadSitePlan}
                     />
                   <label
@@ -1219,7 +1221,8 @@ const addProperty = async (e) => {
                     <input
                         type="file"
                         id="MasterPlan"
-                        accept="image/png, image/gif, image/jpeg"
+                        // accept="image/png, image/gif, image/jpeg"
+                         accept="image/png, image/gif, image/jpeg, image/svg+xml, image/svg, image/webp, image/avif"
                         onChange={uploadMasterPlan}
                     />
                   <label
@@ -1280,7 +1283,8 @@ const addProperty = async (e) => {
             type="file"
             onChange={multipleImage}
             multiple
-            accept="image/png, image/gif, image/jpeg"
+            // accept="image/png, image/gif, image/jpeg"
+             accept="image/png, image/gif, image/jpeg, image/svg+xml, image/svg, image/webp, image/avif"
           />
           <div className="icon">
             <span className="flaticon-download"></span>
@@ -1351,7 +1355,8 @@ const addProperty = async (e) => {
                     <input
                         type="file"
                         id={`planimage-${index}`}
-                        accept="image/png, image/gif, image/jpeg"
+                        // accept="image/png, image/gif, image/jpeg"
+                         accept="image/png, image/gif, image/jpeg, image/svg+xml, image/svg, image/webp, image/avif"
                         onChange={(e) => uploadPlanImage(index, e.target.files[0])}
                     />
                     <label

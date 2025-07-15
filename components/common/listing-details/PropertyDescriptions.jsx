@@ -2,38 +2,81 @@
 
 import { useState } from "react";
 import { useMemo } from "react";
+import parse from 'html-react-parser';
 
 const PropertyDescriptions = ({property,propertydetail}) => {
   const [click, setClick] = useState(true);
   const handleClick = () => setClick(!click);
 
 // Helper to extract plain text from HTML and slice words
-function splitHtmlContent(html, wordLimit = 150) {
-  const tempElement = document.createElement("div");
-  tempElement.innerHTML = html;
-  const text = tempElement.textContent || tempElement.innerText || "";
+// function splitHtmlContent(html, wordLimit = 150) {
+//   const tempElement = document.createElement("div");
+//   tempElement.innerHTML = html;
+//   const text = tempElement.textContent || tempElement.innerText || "";
 
-  const words = text.split(/\s+/);
-  const firstPart = words.slice(0, wordLimit).join(" ");
-  const secondPart = words.slice(wordLimit).join(" ");
+//   const words = text.split(/\s+/);
+//   const firstPart = words.slice(0, wordLimit).join(" ");
+//   const secondPart = words.slice(wordLimit).join(" ");
 
-  return {
-    first: firstPart,
-    second: secondPart
-  };
+//   return {
+//     first: firstPart,
+//     second: secondPart
+//   };
+// }
+
+function splitHtmlPreserve(html, wordLimit = 149) {
+  let currentWords = 0;
+  let firstPart = '';
+  let secondPart = '';
+  const regex = /(<[^>]+>)|([^<>\s]+(?:\s+)?)/g;
+
+  let isFirstPart = true;
+
+  for (const match of html.matchAll(regex)) {
+    const [fullMatch, tag, word] = match;
+
+    if (tag) {
+      // Preserve tag in both parts
+      if (isFirstPart) firstPart += tag;
+      else secondPart += tag;
+    } else if (word) {
+      if (isFirstPart) {
+        if (currentWords + 1 <= wordLimit) {
+          firstPart += word;
+          currentWords++;
+        } else {
+          isFirstPart = false;
+          secondPart += word;
+        }
+      } else {
+        secondPart += word;
+      }
+    }
+  }
+
+  return { first: firstPart, second: secondPart };
 }
+
+// const { first, second } = useMemo(() => {
+//   if (!propertydetail?.description) return { first: "", second: "" };
+//   return splitHtmlContent(propertydetail.description, 150);
+// }, [propertydetail?.description]);
 
 const { first, second } = useMemo(() => {
   if (!propertydetail?.description) return { first: "", second: "" };
-  return splitHtmlContent(propertydetail.description, 150);
+  return splitHtmlPreserve(propertydetail.description, 149);
 }, [propertydetail?.description]);
+
 
 
 
   return (
     <>
    {/* <p >{propertydetail.description}</p>  */}
-   <p className="mb25" dangerouslySetInnerHTML={{ __html: first }} />
+    {/* <div dangerouslySetInnerHTML={{ __html: propertydetail?.description }} /> */}
+   {/* <p className="" dangerouslySetInnerHTML={{ __html: first }} /> */}
+   <div dangerouslySetInnerHTML={{ __html: first }} />
+
 
 
 
@@ -64,10 +107,11 @@ const { first, second } = useMemo(() => {
           </p>
           */}
       <div className="collapse" id="collapseExample">
-        <div className="card card-body">
-          <p className="mt10 mb10" dangerouslySetInnerHTML={{ __html: second }} />
+        {/* <div className="card card-body"> */}
+          <div  dangerouslySetInnerHTML={{ __html: second }} />
+          {/* <p  className="" dangerouslySetInnerHTML={{ __html: second }} /> */}
           
-        </div>
+        {/* </div> */}
       </div> 
       <p className="overlay_close">
         <a

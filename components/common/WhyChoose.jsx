@@ -56,7 +56,7 @@ const WhyChoose = ({ style = "" }) => {
           <div className="details">
             <h4>Our Vision</h4>
             <p className={`description ${expanded.vision ? "expanded" : "collapsed"}`}>
-              To establish <strong>WeGrow Infraventures Pvt. Ltd.</strong> as the most <strong>respected and dependable real estate consulting firm </strong> in the region — recognized for <strong>integrity, transparency</strong>, and a relentless focus on client satisfaction.
+              To establish <strong>WEGROW INFRAVENTURES PVT. LTD.</strong> as the most <strong>respected and dependable real estate consulting firm </strong> in the region — recognized for <strong>integrity, transparency</strong>, and a relentless focus on client satisfaction.
             </p>
             <button onClick={() => toggleExpand("vision")} className="btn-link">
               {expanded.vision ? "Read Less" : "Read More"}

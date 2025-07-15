@@ -1341,7 +1341,8 @@ const updateProperty = async (e) => {
                     <input
                         type="file"
                         id="featuredimage"
-                        accept="image/png, image/gif, image/jpeg"
+                        // accept="image/png, image/gif, image/jpeg"
+                         accept="image/png, image/gif, image/jpeg, image/svg+xml, image/svg, image/webp, image/avif"
                         onChange={uploadFeaturedImage}
                     />
                    <label
@@ -1369,7 +1370,8 @@ const updateProperty = async (e) => {
                     <input
                         type="file"
                         id="SitePlan"
-                        accept="image/png, image/gif, image/jpeg"
+                        // accept="image/png, image/gif, image/jpeg"
+                         accept="image/png, image/gif, image/jpeg, image/svg+xml, image/svg, image/webp, image/avif"
                         onChange={uploadSitePlan}
                     />
                    <label
@@ -1397,7 +1399,8 @@ const updateProperty = async (e) => {
                     <input
                         type="file"
                         id="MasterPlan"
-                        accept="image/png, image/gif, image/jpeg"
+                        // accept="image/png, image/gif, image/jpeg"
+                         accept="image/png, image/gif, image/jpeg, image/svg+xml, image/svg, image/webp, image/avif"
                         onChange={uploadMasterPlan}
                     />
                   <label
@@ -1498,7 +1501,8 @@ const updateProperty = async (e) => {
             type="file"
             onChange={multipleImage}
             multiple
-            accept="image/png, image/gif, image/jpeg"
+            // accept="image/png, image/gif, image/jpeg"
+             accept="image/png, image/gif, image/jpeg, image/svg+xml, image/svg, image/webp, image/avif"
           />
           <div className="icon">
             <span className="flaticon-download"></span>

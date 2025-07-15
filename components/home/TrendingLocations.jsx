@@ -49,7 +49,7 @@ const TrendingLocations = ({locationlist}) => {
     infinite: true,
     slidesToShow: 3,
     slidesToScroll: 1,
-    autoplay: false,
+    autoplay: true,
     speed: 1000,
     responsive: [
       {

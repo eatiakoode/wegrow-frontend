@@ -31,13 +31,7 @@ const PropertyDetails = ({property}) => {
               </p>
             </li>
           )}
-          {property.reranumber && (
-            <li className="rera_no">
-              <p>
-                Rera Number : <span>{property.reranumber}</span>
-              </p>
-            </li>
-          )}
+          
            {property.bedrooms && (
           <li>
             <p>
@@ -83,6 +77,13 @@ const PropertyDetails = ({property}) => {
               Property Status : <span>{property.furnishingstatus?.title}</span>
             </p>
           </li>
+          {property.reranumber && (
+            <li className="rera_no">
+              <p>
+                Rera Number : <span>{property.reranumber}</span>
+              </p>
+            </li>
+          )}
         </ul>
       </div>
       {/* End .col */}

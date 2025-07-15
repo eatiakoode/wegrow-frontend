@@ -8,7 +8,7 @@ const Sidebar = () => {
             <div className="icon">
               <a href="tel:+917421922000"><span className="flaticon-telephone"></span></a>
             </div>
-            <p className="description">At WeGrow Infraventures Pvt Ltd, we pride ourselves on helping you find the perfect property that meets your budget. Specializing in projects across Gurgaon and Delhi NCR, we offer a tailored approach to home buying and property investment. With our expert team, we guide residential buyers and commercial investors through every step, ensuring they make the best real estate decisions. Let us help you secure your future with property investments that matter.</p>
+            <p className="description">At WEGROW INFRAVENTURES PVT. LTD., we pride ourselves on helping you find the perfect property that meets your budget. Specializing in projects across Gurgaon and Delhi NCR, we offer a tailored approach to home buying and property investment. With our expert team, we guide residential buyers and commercial investors through every step, ensuring they make the best real estate decisions. Let us help you secure your future with property investments that matter.</p>
             <a href="mailto:Info@wegrowinfraventures.com">Info@wegrowinfraventures.com</a>
           </div>
           {/* End .sl_creator */}
