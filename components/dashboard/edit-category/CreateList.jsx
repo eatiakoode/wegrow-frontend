@@ -96,7 +96,7 @@ const CreateList = () => {
   return (
     <>
     <form onSubmit={handleSubmit} className="row">
-   {/* <div className="col-lg-12">
+   <div className="col-lg-12">
                 <div className="wrap-custom-file">
                     <input
                         type="file"
@@ -106,14 +106,12 @@ const CreateList = () => {
                     />
                     <label
                         style={
-                            logo !== null
-                                ? {
-                                      backgroundImage: `url(${URL.createObjectURL(
-                                          logo
-                                      )})`,
-                                  }
-                                : undefined
-                        }
+                        logoimage                          
+                        ? { backgroundImage: `url(${logoimage})` }
+                          : logo
+                          ? { backgroundImage: `url(${URL.createObjectURL(logo)})` }
+                          : undefined
+                      }
                         htmlFor="image1"
                     >
                         <span>
@@ -122,7 +120,7 @@ const CreateList = () => {
                     </label>
                 </div>
                 <p>*minimum 260px x 260px</p>
-            </div> */}
+            </div>
             {/* End .col */}
       <div className="col-lg-6 col-xl-6">
         <div className="my_profile_setting_input form-group">

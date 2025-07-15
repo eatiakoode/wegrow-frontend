@@ -63,9 +63,9 @@ const CreateList = () => {
         formData.append("description", description);
         formData.append("metatitle", metatitle);
         formData.append("metadescription", metadescription);
-        // if (logo) {
-        //   formData.append("logo", logo);
-        // }
+        if (logo) {
+          formData.append("logo", logo);
+        }
         
     // console.log("formDataend")
     // console.log(formData)
@@ -93,7 +93,7 @@ const CreateList = () => {
   return (
     <>
     <form onSubmit={addCategory} className="row">
-    {/* <div className="col-lg-12">
+    <div className="col-lg-12">
                 <div className="wrap-custom-file">
                     <input
                         type="file"
@@ -119,7 +119,7 @@ const CreateList = () => {
                     </label>
                 </div>
                 <p>*minimum 260px x 260px</p>
-            </div> */}
+            </div>
             {/* End .col */}
       <div className="col-lg-6 col-xl-6">
         <div className="my_profile_setting_input form-group">
