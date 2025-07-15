@@ -1841,6 +1841,10 @@ section.aboutland{
   .price-card-container {
     flex-direction: row;
   }
+  .start-partners .apartments-listing {
+    height: 275px;
+    overflow: auto;
+  }
 }
 
 .price-card {
