@@ -396,7 +396,9 @@ const addProperty = async (e) => {
        garagessize,
       yearbuild, mapembedcode, videoembedcode,
       nearby,specifications, sellername, selleremail, sellerphone, 
-      reranumber, zipcode, metatitle, metadescription,featuredimage,siteplan,masterplan,propertySelectedImgs,pdffile,paymentplan,multiplex,foodcourt
+      reranumber, zipcode, metatitle, metadescription,featuredimage,siteplan,masterplan,pdffile,paymentplan,
+      multiplex: multiplex === true || multiplex === "true" ? true : false,
+  foodcourt: foodcourt === true || foodcourt === "true" ? true : false,
     };
     
     

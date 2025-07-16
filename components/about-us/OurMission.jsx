@@ -32,9 +32,9 @@ const OurMission = () => {
 </h4>
 <p>At <strong>WEGROW INFRAVENTURES PVT. LTD.</strong>, we are driven by a clear vision — to become the most trusted and result-driven real estate consultancy in <strong>Gurgaon and Delhi NCR</strong>. Since our inception, we have dedicated ourselves to understanding the unique needs of our clients and delivering tailored real estate solutions that meet their expectations, financial goals, and long-term aspirations.</p>
           <p>
-          Whether you're a <strong>first-time homebuyer</strong>, a <strong>business owner seeking the right commercial space</strong>, or an <strong>investor looking for high-yield opportunities</strong>, WeGrow ensures a seamless and rewarding experience at every step of your journey.
+          Whether you're a <strong>first-time homebuyer</strong>, a <strong>business owner seeking the right commercial space</strong>, or an <strong>investor looking for high-yield opportunities</strong>, WEGROW INFRAVENTURES ensures a seamless and rewarding experience at every step of your journey.
           </p>
-          <p><strong>Why Choose WeGrow?</strong></p>
+          <p><strong>Why Choose WEGROW INFRAVENTURES?</strong></p>
           <ul>
             <li><strong>Client-Centric Approach: </strong>We prioritize your goals, not transactions. Our strategies are shaped around your needs to ensure satisfaction and long-term value.</li>
             <li><strong>Expert Market Knowledge: </strong>With deep insights into Gurgaon and Delhi NCR's ever-evolving real estate landscape, we guide you toward smart, informed decisions.</li>
