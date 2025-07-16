@@ -3,7 +3,7 @@ import Image from "next/image";
 const BreadCrumbBanner = ({categorydata}) => {
   return (
     <section className="residential_commercial inner_page_breadcrumb">
-      {categorydata.logoimage ? (
+      {categorydata?.logoimage ? (
         <Image
                     width={1920}
                     height={500}
