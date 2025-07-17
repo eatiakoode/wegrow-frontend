@@ -6402,11 +6402,7 @@ header .get_in_touch span{
 
 .feat_property .details .tc_content {
   padding: 20px;
-<<<<<<< HEAD
   min-height: 220px;
-=======
-  min-height: 200px;
->>>>>>> ef27e60ed2922d825feceba73dffe5daf033abac
 }
 
 .feat_property .details .tc_content p {
