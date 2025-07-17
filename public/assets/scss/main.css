@@ -6094,7 +6094,7 @@ header .get_in_touch span{
 .feat_property .thumb img {
   opacity: 0.6;
   object-fit: fill;
-  min-height: 220px;
+  height: 220px!important;
 }
 
 .feat_property .thumb .blog_tag {
@@ -6399,7 +6399,7 @@ header .get_in_touch span{
 
 .feat_property .details .tc_content {
   padding: 20px;
-  min-height: 180px;
+  min-height: 200px;
 }
 
 .feat_property .details .tc_content p {
