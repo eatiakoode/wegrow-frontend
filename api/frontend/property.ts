@@ -5,7 +5,7 @@ export async function getPropertyFeatureData() {
     
   
     try {
-      const response = await fetch(process.env.NEXT_PUBLIC_FRONTEND_API_URL+"api/property/list?feature=yes&limit=9",
+      const response = await fetch(process.env.NEXT_PUBLIC_FRONTEND_API_URL+"api/property/list?featured=yes&limit=9",
         {
           next: { revalidate: 60 }
         }); // Replace with actual API endpoint

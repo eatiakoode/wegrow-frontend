@@ -81,7 +81,7 @@ const WhyChoose = ({ style = "" }) => {
           <div className="details">
             <h4>Our Promise</h4>
             <p className={`description ${expanded.commitment ? "expanded" : "collapsed"}`}>
-             WeGrow is more than a real estate consultancy — we are your <strong>partners in growth </strong>. We are committed to empowering every client with the <strong>right information, expert guidance</strong>, and <strong>opportunities that align with their financial goals</strong>. We’re here to help you grow — every step of the way.
+             WEGROW INFRAVENTURES is more than a real estate consultancy — we are your <strong>partners in growth </strong>. We are committed to empowering every client with the <strong>right information, expert guidance</strong>, and <strong>opportunities that align with their financial goals</strong>. We’re here to help you grow — every step of the way.
             </p>
             <button onClick={() => toggleExpand("commitment")} className="btn-link">
               {expanded.commitment ? "Read Less" : "Read More"}

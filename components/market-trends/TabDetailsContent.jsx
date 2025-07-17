@@ -18,7 +18,7 @@ const TabDetailsContent = () => {
             page:  1
           }
         const response = await getCategoryTableData(filter);
-        setCategories(response.items || []);
+        setCategories(response || []);
       } catch (err) {
         console.error("Error fetching categories:", err);
       }

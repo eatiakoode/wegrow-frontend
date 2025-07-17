@@ -6402,7 +6402,11 @@ header .get_in_touch span{
 
 .feat_property .details .tc_content {
   padding: 20px;
+<<<<<<< HEAD
   min-height: 220px;
+=======
+  min-height: 200px;
+>>>>>>> ef27e60ed2922d825feceba73dffe5daf033abac
 }
 
 .feat_property .details .tc_content p {
@@ -6878,27 +6882,8 @@ header .get_in_touch span{
 }
 
 .properti_city .overlay {
-  background: -moz-linear-gradient(270deg, rgba(255, 255, 255, 0.01) 0%, rgba(23, 27, 32, 1) 100%);
-  /* ff3.6+ */
-  background: -webkit-gradient(
-    linear,
-    left top,
-    left bottom,
-    color-stop(0%, rgba(255, 255, 255, 0.01)),
-    color-stop(100%, rgba(23, 27, 32, 1))
-  );
-  /* safari4+,chrome */
-  background: -webkit-linear-gradient(270deg, rgba(255, 255, 255, 0.01) 0%, rgba(23, 27, 32, 1) 100%);
-  /* safari5.1+,chrome10+ */
-  background: -o-linear-gradient(270deg, rgba(255, 255, 255, 0.01) 0%, rgba(23, 27, 32, 1) 100%);
-  /* opera 11.10+ */
-  background: -ms-linear-gradient(270deg, rgba(255, 255, 255, 0.01) 0%, rgba(23, 27, 32, 1) 100%);
-  /* ie10+ */
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.01) 0%, rgba(23, 27, 32, 1) 100%);
-  /* w3c */
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#1d293e', GradientType=0);
-  /* ie6-9 */
-  border-radius: 0px 0px 10px 10px;
+  border-radius: 0 0 10px 10px;
   bottom: 0;
   height: 244px;
   left: 0;
@@ -6906,6 +6891,7 @@ header .get_in_touch span{
   right: 0;
   text-align: center;
 }
+
 
 .properti_city .overlay .details {
   bottom: 20px;

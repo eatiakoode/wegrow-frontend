@@ -92,6 +92,9 @@ const ComparePricing = ({ setPropertySelectedComp, setShowBox }) => {
               {item.furnishingstatus?.title}
               </a>
             </li>
+            <li>
+              <a href={`/property-detail/${item.slug}`}>View Property</a>
+            </li>
           </ul>
         </li>
       ))}
