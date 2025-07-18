@@ -3462,7 +3462,7 @@ header.header-nav.menu_style_home_seven .ace-responsive-menu > li.last {
   border-bottom: none;
   margin: 0 auto;
   text-align: center;
-  width: 250px;
+  width: 270px;
 }
 
 .home_adv_srch_opt.home3 {
@@ -3497,7 +3497,7 @@ header.header-nav.menu_style_home_seven .ace-responsive-menu > li.last {
   color: #1b2032;
   font-size: 16px;
   height: 50px;
-  width: 110px;
+  width: 120px;
   text-align: center;
   line-height: 35px;
 }
@@ -11399,8 +11399,12 @@ ul.mc_parent_list ul.mc_child_list .membership_header h4 {
   transition: filter 0.3s ease;
   border-radius: 0px;
 }
-.properti_city.our_partner .contain{
-  filter: grayscale(0%);
+.properti_city.our_partner .contain {
+    filter: grayscale(0%);
+    height: 300px;
+    width: 500px;
+    object-fit: cover;
+    border-radius: 15px;
 }
 .our_partner .contain:hover, .our_partner .contain:focus{
   filter: grayscale(0%);
