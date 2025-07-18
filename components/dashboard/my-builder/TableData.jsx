@@ -7,14 +7,7 @@ import { useRouter } from "next/navigation";
 import { toast } from 'react-toastify';
 
 const TableData = ({builderList,setBuilderList}) => {
-  //  const [builderList, setBuilderList] = useState([]);
     const router = useRouter();
-  
-    // const fetchBuilderData = async () => {
-    //   const data = await getBuilderTableData();
-    //   console.log(data)
-    //   setBuilderList(data);
-    // };
     const deleteBuilder = async (id) => {
         const isConfirmed = window.confirm("Are you sure you want to delete this Builder?");
         if (!isConfirmed) return;

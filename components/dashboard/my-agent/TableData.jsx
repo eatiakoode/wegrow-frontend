@@ -11,7 +11,6 @@ const TableData = () => {
   
     const fetchAgentData = async () => {
       const data = await getAgentTableData();
-      console.log(data)
       setAgentList(data);
     };
     const deleteAgent = async (id) => {

@@ -7,14 +7,7 @@ import { useRouter } from "next/navigation";
 import { toast } from 'react-toastify';
 
 const TableData = ({categoryList,setCategoryList}) => {
-  //  const [categoryList, setCategoryList] = useState([]);
     const router = useRouter();
-  
-    // const fetchCategoryData = async () => {
-    //   const data = await getCategoryTableData();
-    //   console.log(data)
-    //   setCategoryList(data);
-    // };
     const deleteCategory = async (id) => {
         const isConfirmed = window.confirm("Are you sure you want to delete this Category?");
         if (!isConfirmed) return;

@@ -14,7 +14,6 @@ const TableData = () => {
     
       const fetchPropertypageData = async () => {
         const data = await getPropertypageTableData();
-        console.log(data)
         setPropertypageList(data);
       };
       const deletePropertypage = async (id) => {

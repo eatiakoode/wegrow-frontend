@@ -41,10 +41,7 @@ const GlobalFilter = ({ className = "" }) => {
       const fetchPropertytypes = async () => {
         try {
           // const value="67e67294759f85d6bf7a131a"
-          const response = await getPropertytypeByCategoryTableData(category);
-          console.log("responsepropertytypes")
-          console.log(response.data)
-          
+          const response = await getPropertytypeByCategoryTableData(category);         
   
           setPropertytypes(response.data || []);
         } catch (err) {

@@ -1,12 +1,6 @@
 export const addAgentAPI = async (title: string) => {
-    // const token = localStorage.getItem("token"); // 🔹 Retrieve token
-// console.log("token")
-    // const token =process.env.NEXT_PUBLIC_TOKEN;
+    
     const userData = JSON.parse(localStorage.getItem("user"));
-console.log(userData.name);
-// const token = localStorage.getItem("token"); // 🔹 Retrieve token
-// // console.log("token")
-//     const token =process.env.NEXT_PUBLIC_TOKEN;
 const token =userData.token
 
   
@@ -56,10 +50,7 @@ const token =userData.token
 
     // const token =process.env.NEXT_PUBLIC_TOKEN;
     const userData = JSON.parse(localStorage.getItem("user"));
-console.log(userData.name);
-// const token = localStorage.getItem("token"); // 🔹 Retrieve token
-// // console.log("token")
-//     const token =process.env.NEXT_PUBLIC_TOKEN;
+
 const token =userData.token
     if (!token) {
       throw new Error("User not authenticated!");
@@ -92,10 +83,7 @@ const token =userData.token
 
     // const token =process.env.NEXT_PUBLIC_TOKEN;
     const userData = JSON.parse(localStorage.getItem("user"));
-console.log(userData.name);
-// const token = localStorage.getItem("token"); // 🔹 Retrieve token
-// // console.log("token")
-//     const token =process.env.NEXT_PUBLIC_TOKEN;
+
 const token =userData.token
     if (!token) {
       throw new Error("User not authenticated!");
@@ -124,10 +112,7 @@ const token =userData.token
 
     // const token =process.env.NEXT_PUBLIC_TOKEN;
     const userData = JSON.parse(localStorage.getItem("user"));
-console.log(userData.name);
-// const token = localStorage.getItem("token"); // 🔹 Retrieve token
-// // console.log("token")
-//     const token =process.env.NEXT_PUBLIC_TOKEN;
+
 const token =userData.token
 
   

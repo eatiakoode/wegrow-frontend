@@ -53,8 +53,7 @@ const index = ({params}) => {
         const fetchLandingpage = async () => {
           try {
             const data = await getLandingpageBySlug(id);
-            console.log("blog data")
-            console.log(data)
+           
             setLandingpage(data.data)
            
           } catch (error) {

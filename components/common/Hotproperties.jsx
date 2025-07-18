@@ -15,8 +15,7 @@ const Hotproperties = () => {
 
   const fetchProperties = async () => {
     const data = await getPropertyHotData();
-    console.log("data getPropertyFeatureData")
-    console.log(data)
+
     setProperties(data);
   };
   // const HotpropertiesImages = [

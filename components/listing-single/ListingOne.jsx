@@ -7,9 +7,6 @@ import { useCompare } from "@/components/common/footer/CompareContext";
 
 export default function ListingOne({property,setPropertySelectedComp, setShowBox,propertyimage }) {
   const { propertycompare, setPropertycompare } = useCompare();
-  // console.log("eati");
-  //   console.log(property?.images)
-  //    console.log("sinha");
   const addCompareProperty = async (id) => {
     
       

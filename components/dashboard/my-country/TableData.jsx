@@ -12,7 +12,6 @@ const TableData = () => {
   
     const fetchCountryData = async () => {
       const data = await getCountryTableData();
-      console.log(data)
       setCountryList(data);
     };
     const deleteCountry = async (id) => {

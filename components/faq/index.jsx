@@ -11,18 +11,7 @@ import { useState, useEffect } from "react";
 
 const index = ({faqs}) => {
   const [showBox, setShowBox] = useState(false);
-  // const [faqs, setFaqs] = useState([]);
-        // const router = useRouter();
-      
-        // const fetchFaqs = async () => {
-        //   const result = await getFaqTableData();
-        //   // console.log("faqdata")
-        //   // console.log(data)
-        //   setFaqs(result.data);
-        // };
-        // useEffect(() => {
-        //     fetchFaqs();
-        //   }, []); 
+  
   return (
     <>
       {/* <!-- Main Header Nav --> */}

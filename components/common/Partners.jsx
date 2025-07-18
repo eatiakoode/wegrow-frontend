@@ -3,8 +3,10 @@
 import Image from "next/image";
 import Slider from "react-slick";
 
-const Partners = () => {
-  const partnersImages = ["adani", "aipl", "ambience", "conscient", "emaar", "godrej", "centralpark", "dlf", "elan", "m3m", "mahindra", "omaxe2", "shapoorji"];
+const Partners = ({builderList}) => {
+  // const partnersImages = ["adani", "aipl", "ambience", "conscient", "emaar", "godrej", "centralpark", "dlf", "elan", "m3m", "mahindra", "omaxe2", "shapoorji"];
+
+ const partnersImages = builderList;
 
   const settings = {
     dots: false,
@@ -39,16 +41,23 @@ const Partners = () => {
 
   return (
     <Slider {...settings}>
-      {partnersImages.map((val, i) => (
+      {partnersImages.map((item, i) => (
         <div className="item" key={i}>
           <div className="our_partner text-center">
+            <a href={`/builder/${item.slug}`}>
             <Image
               width={150}
               height={150}
               className="contain"
-              src={`/assets/images/partners/${val}.webp`}
-              alt={`${val} logo`}
-            />
+               src={
+              item.logoimage
+                ? `${process.env.NEXT_PUBLIC_API_URL}${item.logoimage}`
+                : `${process.env.NEXT_PUBLIC_API_URL}public/assets/images/thumbnail.webp`
+            }
+            alt= {`${item.title}`}
+            unoptimized // Optional: disables Next.js image optimization (useful if external images)
+              // src={`/assets/images/partners/${val}.webp`}
+            /></a>
           </div>
         </div>
       ))}

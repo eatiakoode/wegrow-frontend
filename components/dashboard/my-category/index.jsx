@@ -28,7 +28,6 @@ const index = () => {
       };
        const data = await getCategoryTableData(filter);
           setCategoryList(data.items);
-          console.log(data.items)
             setTotalCount(data.totalCount)
         };
       fetchCategoryData();

@@ -9,13 +9,11 @@ import { useRouter } from "next/navigation";
 import { toast } from 'react-toastify';
 
 const TableData = () => {
-  // console.log("test")
    const [cityList, setCityList] = useState([]);
     const router = useRouter();
   
     const fetchCityData = async () => {
       const data = await getCityTableData();
-      console.log(data)
       setCityList(data);
     };
     const deleteCity = async (id) => {

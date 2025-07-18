@@ -60,7 +60,6 @@ const [error, setError] = useState("");
 
   const updateCityGlimpse = async (e) => {
     e.preventDefault();
-    console.log('Submitting:', inputs);
     const formData = new FormData();
     formData.append('cityId', citydetail?._id);
     formData.append('description', description);
@@ -82,7 +81,6 @@ const [error, setError] = useState("");
       formData.append(`CityGlimpseget[${index}][glimpseid]`, input._id);
 
     });
-    // console.log('Submitting:', formData);
     // Example: Send to API
     try {
       const res = await addCityGlimpseAPI(formData);

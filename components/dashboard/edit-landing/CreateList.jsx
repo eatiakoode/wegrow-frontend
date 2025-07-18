@@ -347,11 +347,7 @@ const updateLanding = async (e) => {
   ];
 
   requiredFields.forEach(field => {
-    // console.log(field.value+" field.value")
-    // console.log(field.key+" field.key")
-    // console.log(field.name+" field.name")
     if (!field.value || (typeof field.value === "string" && !field.value.trim())) {
-      console.log("field.name"+field.name)
       newErrors[field.key] = `${field.name} is required`;
     }
   });

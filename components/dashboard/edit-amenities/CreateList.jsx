@@ -7,10 +7,8 @@ import { getAmenityById, updateAmenityAPI } from "@/api/amenity";
 import { toast } from 'react-toastify';
 const CreateList = () => {
   const params = useParams();
-    // console.log("Params:", params); // Debugging log
   
     const id = params?.id;
-    // console.log("Amenity ID:", id); // Debugging log
   
     const router = useRouter();
     const [amenity, setAmenity] = useState({ title: "", status: false });
@@ -30,7 +28,6 @@ const CreateList = () => {
       const fetchAmenity = async () => {
         try {
           const data = await getAmenityById(id);
-          console.log("Fetched Amenity Data:", data); // Debugging log
           setAmenity({ title: data.data.title, status: data.data.status });
           setTitle(data.data.title)
           // setSlug(data.data.slug)

@@ -64,7 +64,6 @@ const FilteringItem = ({ setKeyword, setCity,setCategory, setPropertytype , keyw
   }, [dispath, getKeyword]);
 
   useEffect(() => {
-    // console.log("hbj")
     dispath(addCity(getCity));
   }, [dispath, getCity]);
 
@@ -117,8 +116,6 @@ useEffect(() => {
       const fetchCities = async () => {
         try {
           const response = await getCityTableData();
-          console.log("response")
-          console.log(response)
           setCities(response.data || []);
         } catch (err) {
           console.error("Error fetching Country:", err);
@@ -146,7 +143,6 @@ useEffect(() => {
         setCategory(value);
         try {
           const res = await getPropertytypeByCategoryTableData(value);
-          console.log("test property")
           setPropertytypes(res.data || []);
         } catch (err) {
           console.error("Error fetching property types:", err);

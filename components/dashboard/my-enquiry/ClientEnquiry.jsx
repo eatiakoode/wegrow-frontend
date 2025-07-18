@@ -11,8 +11,7 @@ const AuthorReview = () => {
   const [enquiryList, setEnquiryList] = useState([]);
   const fetchEnquiryData = async () => {
         const data = await getEnquiryTableData();
-        console.log("dataenquiryList")
-        console.log(data)
+        
         setEnquiryList(data);
       };
   

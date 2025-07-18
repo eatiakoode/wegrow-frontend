@@ -39,8 +39,7 @@ export default function BannerSection({landingpage}) {
   // };
   const onSubmit = async (data) => {
       try {
-        // console.log('Form Data:', data);
-        // console.log(landingpage._id)
+       
         // data.append("landingpageid", landingpage._id);
         data.landingpageidnew=landingpage._id
         data.landingpageid=landingpage._id

@@ -36,9 +36,6 @@ const CreateList = () => {
       const fetchBlog = async () => {
         try {
           const data = await getBlogById(id);
-          console.log("data")
-          console.log(data)
-          console.log(process.env.NEXT_PUBLIC_API_URL+data.data.logoimage)
           // setBlog({ title: data.data.title, status: data.data.status, description: data.data.description });
           setTitle(data.data.title)
           setSlug(data.data.slug)
@@ -64,9 +61,7 @@ const CreateList = () => {
       const fetchBlogcategories = async () => {
             try {
               const response = await getBlogcategoryTableData();
-              console.log("response")
-              console.log(response)
-      
+              
               setBlogcategories(response || []);
             } catch (err) {
               console.error("Error fetching Blogcategory:", err);

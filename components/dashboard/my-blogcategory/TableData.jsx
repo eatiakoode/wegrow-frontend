@@ -12,7 +12,6 @@ const TableData = () => {
   
     const fetchBlogcategoryData = async () => {
       const data = await getBlogcategoryTableData();
-      console.log(data)
       setBlogcategoryList(data);
     };
     const deleteBlogcategory = async (id) => {

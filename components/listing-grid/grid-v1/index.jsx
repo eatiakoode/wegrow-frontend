@@ -56,8 +56,7 @@ useEffect(() => {
       "page":currentPage
     };
     const data = await getPropertyFilterData(filter);
-          // console.log("prperty data")
-          // console.log(data)
+          
           setProperties(data.items);
           setLoaderProperty(false)
           // setPropertyList(data.items)
@@ -70,8 +69,7 @@ useEffect(() => {
       if (typeof window !== "undefined") {
   
         const stored = localStorage.getItem("propertycompare");
-        console.log("stored")
-        console.log(stored)
+        
         if (stored !== "undefined") {
   
         return stored ? JSON.parse(stored) : [];
@@ -124,22 +122,6 @@ useEffect(() => {
       
     }, [initialFilter]);
     
-           
-    // useEffect(() => {
-    //   const fetchData = async () => {
-    //     try {
-    //       const res = await getPropertytypeTableData();
-    //       console.log("setPropertytypes index")
-    //       console.log(setPropertytypes)
-    //       setPropertytypes(res || []);
-    //     } catch (error) {
-    //       console.error("Error fetching property types:", error);
-    //     }
-    //   };
-  
-    //   fetchData();
-    
-    //       }, [setPropertytypes]);
   return (
     <>
       {/* <!-- Main Header Nav --> */}

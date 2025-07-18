@@ -7,14 +7,7 @@ import { useRouter } from "next/navigation";
 // import moment from 'moment';
 import { toast } from 'react-toastify';
 const TableData = ({faqList,setFaqList}) => {
-  //  const [faqList, setFaqList] = useState([]);
     const router = useRouter();
-  
-  //   const fetchFaqData = async () => {
-  //     const data = await getFaqTableData();
-  //     console.log(data)
-  //     setFaqList(data);
-  //   };
     const deleteFaq = async (id) => {
         const isConfirmed = window.confirm("Are you sure you want to delete this Faq?");
         if (!isConfirmed) return;

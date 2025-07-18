@@ -18,14 +18,15 @@ import Hero from "./Hero";
 import WhyChoose from "../common/WhyChoose";
 import PopupSignInUp from "../common/PopupSignInUp";
 import { useState, useEffect } from "react";
+import { getBuilderTableData } from "@/api/frontend/builder";
 
 const Index = ({properties,findcities,testimonials,cities,locationlist}) => {
+  const [builderList, setBuilderList] = useState([]);
   const [propertySelectedComp, setPropertySelectedComp] = useState(() => {
     if (typeof window !== "undefined") {
 
       const stored = localStorage.getItem("propertycompare");
-      console.log("stored")
-      console.log(stored)
+      
       if (stored !== "undefined") {
 
       return stored ? JSON.parse(stored) : [];
@@ -37,8 +38,22 @@ const Index = ({properties,findcities,testimonials,cities,locationlist}) => {
   const [showBox, setShowBox] = useState(propertySelectedComp.length > 0);
   // const [showBox, setShowBox] = useState(false);
   // const [showBox, setShowBox] = useState(false);
+const fetchBuilder = async () => {
+  try {
+    const data = await getBuilderTableData();
 
-
+    setBuilderList(data)
+            
+    
+  } catch (error) {
+    console.error("Error fetching Builder:", error);
+  } finally {
+    // setLoading(false);
+  }
+};
+useEffect(() => {
+  fetchBuilder()
+  }, []);
   // Sync localStorage
   useEffect(() => {
     localStorage.setItem("propertycompare", JSON.stringify(propertySelectedComp));
@@ -273,7 +288,7 @@ const Index = ({properties,findcities,testimonials,cities,locationlist}) => {
             </div>
           </div>
           <div className="row">
-            <Partners />
+            <Partners builderList={builderList}/>
           </div>
         </div>
       </section>

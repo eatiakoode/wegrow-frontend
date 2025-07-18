@@ -12,8 +12,7 @@ const Testimonial = () => {
         
           const fetchFindTestimonial = async () => {
             const data = await getTestimonialTableData();
-            console.log("data")
-            console.log(data)
+            
             setFindTestimonial(data);
           };
           useEffect(() => {

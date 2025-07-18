@@ -27,22 +27,6 @@ const FeaturedItem = ({  setShowBox,totalCount,properties}) => {
               setShowBox(true);
             }
           };
-    // const fetchProperties = async () => {
-    //   const filter ={
-    //     "keyword":keyword,
-    //     "city":city,
-    //     "category":category,
-    //     "propertytype": propertytype,
-    //     "limit":pageSize,
-    //     "page":currentPage
-    //   };
-    //   const data = await getPropertyFilterData(filter);
-    //         // console.log("prperty data")
-    //         // console.log(data)
-    //         setProperties(data.items);
-    //         // setPropertyList(data.items)
-    //         setTotalCount(data.totalCount)
-    //       };
   
 
   const dispatch = useDispatch();

@@ -14,7 +14,6 @@ const TableData = () => {
   
     const fetchStateData = async () => {
       const data = await getStateTableData();
-      console.log(data)
       setStateList(data);
     };
     const deleteState = async (id) => {

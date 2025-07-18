@@ -24,9 +24,6 @@ const GlobalFilter = ({ className = "" }) => {
       const fetchCities = async () => {
         try {
           const response = await getCityTableData();
-          console.log("response")
-          console.log(response)
-          
   
           setCities(response.data || []);
         } catch (err) {
@@ -39,9 +36,6 @@ const GlobalFilter = ({ className = "" }) => {
         try {
           // const value="67ea48d17cfa562fe8eaafd0"
           const response = await getPropertytypeByCategoryTableData(category);
-          console.log("responsepropertytypes")
-          console.log(response.data)
-          
   
           setPropertytypes(response.data || []);
         } catch (err) {

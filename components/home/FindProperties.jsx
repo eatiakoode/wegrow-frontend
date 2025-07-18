@@ -1,25 +1,9 @@
 // 'use client'
 import Link from "next/link";
-// import findProperties from "../../data/findProperties";
 import Image from "next/image";
-// import { countPropertiesByCity } from "../../api/frontend/city";
-
-// import { useState, useEffect } from "react";
-// import { useRouter } from "next/navigation";
 
 const FindProperties = ({findcities}) => {
-    // const [findcities, setFindCities] = useState([]);
-    //     const router = useRouter();
-      
-        // const fetchFindCities = async () => {
-        //   const data = await countPropertiesByCity();
-        //   // console.log("citydata")
-        //   // console.log(data)
-        //   setFindCities(data.data);
-        // };
-        // useEffect(() => {
-        //   fetchFindCities();
-        // }, []); 
+     
   return (
     <>
       {findcities?.slice(0, 4).map((item,index) => (

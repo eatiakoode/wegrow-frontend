@@ -8,14 +8,8 @@ import { toast } from 'react-toastify';
 // import moment from 'moment';
 
 const TableData = ({propertytypeList,setPropertytypeList}) => {
-  //  const [propertytypeList, setPropertytypeList] = useState([]);
     const router = useRouter();
   
-    // const fetchPropertytypeData = async () => {
-    //   const data = await getPropertytypeTableData();
-    //   console.log(data)
-    //   setPropertytypeList(data);
-    // };
     const deletePropertytype = async (id) => {
         const isConfirmed = window.confirm("Are you sure you want to delete this propertytype?");
         if (!isConfirmed) return;
