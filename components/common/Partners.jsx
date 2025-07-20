@@ -2,11 +2,29 @@
 
 import Image from "next/image";
 import Slider from "react-slick";
+import { useState, useEffect } from "react";
+import { getBuilderTableData } from "@/api/frontend/builder";
 
-const Partners = ({builderList}) => {
+const Partners = () => {
+   const [builderList, setBuilderList] = useState([]);
   // const partnersImages = ["adani", "aipl", "ambience", "conscient", "emaar", "godrej", "centralpark", "dlf", "elan", "m3m", "mahindra", "omaxe2", "shapoorji"];
+const fetchBuilder = async () => {
+  try {
+    const data = await getBuilderTableData();
 
- const partnersImages = builderList;
+    setBuilderList(data)
+            
+    
+  } catch (error) {
+    console.error("Error fetching Builder:", error);
+  } finally {
+    // setLoading(false);
+  }
+};
+useEffect(() => {
+  fetchBuilder()
+  }, []);
+//  const partnersImages = [builderList];
 
   const settings = {
     dots: false,
@@ -41,7 +59,7 @@ const Partners = ({builderList}) => {
 
   return (
     <Slider {...settings}>
-      {partnersImages.map((item, i) => (
+      {builderList.map((item, i) => (
         <div className="item" key={i}>
           <div className="our_partner text-center">
             <a href={`/builder/${item.slug}`}>
