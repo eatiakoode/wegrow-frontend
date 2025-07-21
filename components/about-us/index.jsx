@@ -19,6 +19,8 @@ import { getTestimonialTableData } from "@/api/frontend/testimonial";
 const index = () => {
   const [showBox, setShowBox] = useState(false);
   const [showFullBio, setShowFullBio] = useState(false);
+  const [showFullBioAmit, setShowFullBioAmit] = useState(false);
+  const [showFullBioDeepain, setShowFullBioDeepain] = useState(false);
   const [testimonials, setFindTestimonial] = useState([]);
           // const router = useRouter();
         
@@ -197,7 +199,7 @@ const index = () => {
                               <p>Under Mr. Amit Malik’s insightful leadership, <strong>WEGROW INFRAVENTURES PVT. LTD.</strong> has expanded its commercial footprint with purpose and precision. He brings clarity to complex market dynamics and offers tailored solutions that align with each client’s risk appetite and investment goals. His strategic mindset has made him a trusted advisor for investors looking to grow wealth in the commercial segment.
                               </p>
 
-                          {showFullBio && (
+                          {showFullBioAmit && (
                             <>
                             
                               <p><strong>Domain Expertise:</strong></p>
@@ -217,9 +219,9 @@ const index = () => {
                           <div className="view-all" style={{position:'static',transform:'none'}}>
                               <button
                                 className="btn btn-primary"
-                                onClick={() => setShowFullBio(!showFullBio)}
+                                onClick={() => setShowFullBioAmit(!showFullBioAmit)}
                               >
-                                {showFullBio ? "Read Less" : "Read More"}
+                                {showFullBioAmit ? "Read Less" : "Read More"}
                               </button>
                           </div>
                         </div> 
@@ -253,7 +255,7 @@ const index = () => {
                               <p>Mr. Bansal believes that real estate isn’t just about property—it’s about people, trust, and long-term value. His mission is to simplify the buying journey with transparency, clarity, and personalized service. Whether it's helping families find their forever homes or investors secure land in high-growth zones, he ensures every transaction is smooth and meaningful.
                               </p>
 
-                          {showFullBio && (
+                          {showFullBioDeepain && (
                             <>
                             
                               <p><strong>Residential & Plot Expertise:</strong></p>
@@ -273,9 +275,9 @@ const index = () => {
                           <div className="view-all" style={{position:'static',transform:'none'}}>
                               <button
                                 className="btn btn-primary"
-                                onClick={() => setShowFullBio(!showFullBio)}
+                                onClick={() => setShowFullBioDeepain(!showFullBioDeepain)}
                               >
-                                {showFullBio ? "Read Less" : "Read More"}
+                                {showFullBioDeepain ? "Read Less" : "Read More"}
                               </button>
                           </div>
                         </div> 
