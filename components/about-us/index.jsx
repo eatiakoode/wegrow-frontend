@@ -188,10 +188,10 @@ const index = () => {
                     <div className="who-we-are">
                       
                           <div className="main-title text-left mb-2">
-                            <h2>Co-Founder & Director</h2>
+                            <h2>Co-Founder & Chairman</h2>
                             {/* <p>Expertise : Commercial Projects | Residential Projects | Real Estate Investment | Client-Centric Solutions</p> */}
                           </div>
-                          <p>Mr. Amit Malik, Co-Founder & Director of <strong>WEGROW INFRAVENTURES PVT. LTD.,</strong> brings over 7 years of focused expertise in the commercial real estate domain. With an unwavering commitment to precision, insight, and value-driven service, Mr. Amit Malik has played an instrumental role in helping clients capitalize on high-yield investments in retail, office spaces, and SCO (Shop-Cum-Office) projects across Gurgaon and Delhi NCR.</p>
+                          <p>Mr. Amit Malik, Co-Founder & Chairman of <strong>WEGROW INFRAVENTURES PVT. LTD.,</strong> brings over 7 years of focused expertise in the commercial real estate domain. With an unwavering commitment to precision, insight, and value-driven service, Mr. Amit Malik has played an instrumental role in helping clients capitalize on high-yield investments in retail, office spaces, and SCO (Shop-Cum-Office) projects across Gurgaon and Delhi NCR.</p>
                           <p>His professional journey is driven by a singular belief — that real estate success lies in knowledge, timing, and trust. This belief continues to guide his strategic decisions and client engagements, shaping <strong>WEGROW INFRAVENTURES PVT. LTD.</strong> reputation as a forward-thinking real estate consultancy.</p>
                           <p><strong>Focused Leadership:</strong></p>
                               <p>Under Mr. Amit Malik’s insightful leadership, <strong>WEGROW INFRAVENTURES PVT. LTD.</strong> has expanded its commercial footprint with purpose and precision. He brings clarity to complex market dynamics and offers tailored solutions that align with each client’s risk appetite and investment goals. His strategic mindset has made him a trusted advisor for investors looking to grow wealth in the commercial segment.
