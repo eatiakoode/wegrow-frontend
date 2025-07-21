@@ -58,7 +58,7 @@ const FloorPlans = ({inputs,setInputs,property,setPlanImage,planimage}) => {
 
   const updatePropertyFloorPlan = async (e) => {
     e.preventDefault();
-    console.log('Submitting:', inputs);
+   
     const formData = new FormData();
     formData.append('propertyId', property?.id);
     
@@ -89,26 +89,14 @@ const FloorPlans = ({inputs,setInputs,property,setPlanImage,planimage}) => {
       }
 
     });
-    // console.log('Submitting:', formData);
-    // Example: Send to API
     try {
       const res = await addPropertyPlanAPI(formData);
       toast.success(res.message);
       if (property?.id) {
-        // alert("test")
         router.push(`/cmswegrow/edit-property/${property.id}`);
         setInputs([])
         // router.push(`/cmswegrow/edit-property/${property.id}`);
       }
-      
-      // const res = await fetch('/api/submit-floorplans', {
-      //   method: 'POST',
-      //   // headers: { 'Content-Type': 'application/json' },
-      //   body: formData,
-      // });
-
-      // const data = await res.json();
-      // console.log('Response:', data);
     } catch (err) {
       console.error('Error:', err);
     }

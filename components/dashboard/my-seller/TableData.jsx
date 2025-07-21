@@ -12,7 +12,6 @@ const TableData = () => {
   
     const fetchSellerData = async () => {
       const data = await getSellerTableData();
-      console.log(data)
       setSellerList(data.data);
     };
     const deleteSeller = async (id) => {

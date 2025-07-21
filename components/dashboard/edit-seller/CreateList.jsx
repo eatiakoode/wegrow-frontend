@@ -9,10 +9,7 @@ import { toast } from 'react-toastify';
 const CreateList = () => {
   const params = useParams();
   
-    console.log("Params:", params); // Debugging log
-  
     const id = params?.id;
-    console.log("Seller ID:", id); // Debugging log
   
     const router = useRouter();
     const [seller, setSeller] = useState({ title: "",email: "",phone: "", status: false });
@@ -24,7 +21,6 @@ const CreateList = () => {
       const fetchSeller = async () => {
         try {
           const data = await getSellerById(id);
-          console.log("Fetched Seller Data:", data); // Debugging log
           setSeller({ title: data.data.title,email: data.data.email,phone: data.data.phone, status: data.data.status });
         } catch (error) {
           console.error("Error fetching Seller:", error);

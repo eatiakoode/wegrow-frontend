@@ -25,20 +25,7 @@ const ListingDynamicDetailsV12 = ({property,faqs}) => {
   const [propertySelectedComp, setPropertySelectedComp] = useState([]);
  
   const [showBox, setShowBox] = useState(false);
-  // console.log("tests new")
-  // console.log(property)
   const [propertydetail, setPropertydetail] = useState([]);
-
-  // const fetchFaqs = async (id) => {
-  //   try {
-  //     const data = await getFaqByPropertyIdData(id);
-  //     console.log(" faq data")
-  //     console.log(data)
-  //     setFaqs(data.data);
-  //   } catch (error) {
-  //     console.error("Error fetching FAQs:", error);
-  //   }
-  // };
 
   useEffect(() => {
      if (!property) return;      
@@ -46,11 +33,7 @@ const ListingDynamicDetailsV12 = ({property,faqs}) => {
             try {
               const data = await getPropertyBySlug(property.slug);
               setPropertyImage(data.data.images)
-              setPropertydetail(data.data)
-              // console.log("propertyid")
-              // console.log(data)
-              // console.log("propertyid end")
-             
+              setPropertydetail(data.data)            
               
             } catch (error) {
               console.error("Error fetching Builder:", error);

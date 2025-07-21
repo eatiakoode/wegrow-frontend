@@ -28,8 +28,7 @@ const index = () => {
       };
        const data = await getBuilderTableData(filter);
           setBuilderList(data.items);
-          console.log(data.items)
-            setTotalCount(data.totalCount)
+          setTotalCount(data.totalCount)
         };
       fetchBuilderData();
     }, [currentPage]);

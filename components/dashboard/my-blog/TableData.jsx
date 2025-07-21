@@ -12,7 +12,6 @@ const TableData = () => {
   
     const fetchBlogData = async () => {
       const data = await getBlogTableData();
-      console.log(data)
       setBlogList(data);
     };
     const deleteBlog = async (id) => {

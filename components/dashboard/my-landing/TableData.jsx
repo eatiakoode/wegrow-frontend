@@ -7,13 +7,12 @@ import { useRouter } from "next/navigation";
 import { toast } from 'react-toastify';
 // import moment from 'moment';
 const TableData = () => {
-  console.log("test")
    const [landingpageList, setLandingpageList] = useState([]);
     const router = useRouter();
   
     const fetchLandingpageData = async () => {
       const data = await getLandingpageTableData();
-      console.log(data)
+      
       setLandingpageList(data);
     };
     const deleteLandingpage = async (id) => {

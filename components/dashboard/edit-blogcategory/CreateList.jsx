@@ -7,10 +7,8 @@ import { toast } from 'react-toastify';
 
 const CreateList = () => {
   const params = useParams();
-    console.log("Params:", params); // Debugging log
   
     const id = params?.id;
-    console.log("Blogcategory ID:", id); // Debugging log
   
     const router = useRouter();
     const [blogcategory, setBlogcategory] = useState({ title: "", status: false });
@@ -22,7 +20,6 @@ const CreateList = () => {
       const fetchBlogcategory = async () => {
         try {
           const data = await getBlogcategoryById(id);
-          console.log("Fetched Blogcategory Data:", data); // Debugging log
           setBlogcategory({ title: data.data.title, status: data.data.status });
         } catch (error) {
           console.error("Error fetching Blogcategory:", error);

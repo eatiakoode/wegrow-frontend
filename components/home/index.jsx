@@ -20,12 +20,12 @@ import PopupSignInUp from "../common/PopupSignInUp";
 import { useState, useEffect } from "react";
 
 const Index = ({properties,findcities,testimonials,cities,locationlist}) => {
+ 
   const [propertySelectedComp, setPropertySelectedComp] = useState(() => {
     if (typeof window !== "undefined") {
 
       const stored = localStorage.getItem("propertycompare");
-      console.log("stored")
-      console.log(stored)
+      
       if (stored !== "undefined") {
 
       return stored ? JSON.parse(stored) : [];
@@ -37,7 +37,6 @@ const Index = ({properties,findcities,testimonials,cities,locationlist}) => {
   const [showBox, setShowBox] = useState(propertySelectedComp.length > 0);
   // const [showBox, setShowBox] = useState(false);
   // const [showBox, setShowBox] = useState(false);
-
 
   // Sync localStorage
   useEffect(() => {

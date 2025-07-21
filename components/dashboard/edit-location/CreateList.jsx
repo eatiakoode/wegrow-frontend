@@ -34,38 +34,6 @@ const CreateList = () => {
       setLocationLogo(e.target.files[0]);
       setLocationLogoImage("")
   };
-  
-    // useEffect(() => {
-    //   if (!id) return;
-      
-    //   const fetchLocation = async () => {
-    //     try {
-    //       const data = await getLocationById(id);
-    //       console.log("Fetched Location Data:", data); // Debugging log
-    //       setLocation({ title: data.data.title, status: data.data.status });
-    //       setSelectedCity(data.data.cityid);
-    //     } catch (error) {
-    //       console.error("Error fetching Location:", error);
-    //     } finally {
-    //       setLoading(false);
-    //     }
-    //   };
-  
-    //   fetchLocation();
-    //   const fetchCities = async () => {
-    //     try {
-    //       const response = await getCityTableData();
-    //       console.log("response")
-    //       console.log(response)
-  
-    //       setCities(response || []);
-    //     } catch (err) {
-    //       console.error("Error fetching cities:", err);
-    //     }
-    //   };
-  
-    //   fetchCities();
-    // }, [id]);
     useEffect(() => {
           if (!id) return;
         
@@ -77,13 +45,7 @@ const CreateList = () => {
               ]);
         
               const locationData = locationRes.data;
-              // setLocation({
-              //   title: locationData.title,
-              //   status: locationData.status,
-              //   countryid: locationData.countryid,
-              //   stateid: locationData.stateid,
-              //   cityid: locationData.cityid,
-              // });
+              
               setTitle(locationData.title)
               setStatus(locationData.status)
               setIstrending(locationData.istrending)
@@ -93,8 +55,6 @@ const CreateList = () => {
               setSelectedState(locationData.stateid);
               setSelectedCity(locationData.cityid);
               setCountries(countriesRes || []);
-              console.log("data.data.locationlogoimage")
-              console.log(locationData.locationlogoimage)
               if(locationData.locationlogoimage) {
                 setLocationLogoImage(process.env.NEXT_PUBLIC_API_URL+locationData.locationlogoimage)
               }
@@ -140,8 +100,6 @@ const CreateList = () => {
           router.push("/cmswegrow/my-location");
           }, 1500); 
         }
-        // alert("Location updated successfully!");
-        // router.push("/cmswegrow/my-location");
       } catch (error) {
         alert("Failed to update Location.");
         console.error(error);
@@ -160,12 +118,11 @@ const CreateList = () => {
     };
     const handleCountryChange = (e) => {
       setSelectedCountry(e.target.value);
-      // console.log("cahnegvalue"+e.target.value)
+      
       const fetchState = async (countryid) => {
         try {
           const response = await getStateByCountryTableData(countryid);
-          // console.log("response")
-          // console.log(response)
+          
   
           setStates(response.data || []);
         } catch (err) {
@@ -178,10 +135,7 @@ const CreateList = () => {
       setSelectedState(e.target.value);
       const fetchCity = async (stateid) => {
         try {
-          const response = await getCityByStateTableData(stateid);
-          // console.log("response")
-          // console.log(response)
-  
+          const response = await getCityByStateTableData(stateid); 
           setCities(response.data || []);
         } catch (err) {
           console.error("Error fetching state:", err);

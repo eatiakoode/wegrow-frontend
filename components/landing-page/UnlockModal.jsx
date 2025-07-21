@@ -25,7 +25,6 @@ const router = useRouter();
 
   const onSubmit = async (data) => {
     try {
-      console.log('Form Data:', data);
       // Send data to backend here
       data.landingpageid=landingpage._id
       router.push("/thank-you");

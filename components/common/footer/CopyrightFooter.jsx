@@ -9,8 +9,6 @@ const CopyrightFooter = () => {
       const fetchCategories = async () => {
         try {
           const response = await getCategoryTableData();
-          console.log("response")
-          console.log(response)
     
           setCategories(response || []);
         } catch (err) {

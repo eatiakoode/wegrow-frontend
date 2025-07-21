@@ -9,10 +9,8 @@ import { toast } from 'react-toastify';
 
 const CreateList = () => {
   const params = useParams();
-    console.log("Params:", params); // Debugging log
   
     const id = params?.id;
-    console.log("Propertytype ID:", id); // Debugging log
   
     const router = useRouter();
     const [propertytype, setPropertytype] = useState({ title: "", status: false });
@@ -44,8 +42,6 @@ const CreateList = () => {
             page:  1
           }
           const response = await getCategoryTableData(filter);
-          console.log("response")
-          console.log(response)
   
           setCategories(response.items || []);
         } catch (err) {

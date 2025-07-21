@@ -24,8 +24,6 @@ const ListingDynamicDetailsproperty = ({builder}) => {
     if (typeof window !== "undefined") {
 
       const stored = localStorage.getItem("propertycompare");
-      console.log("stored")
-      console.log(stored)
       if (stored !== "undefined") {
 
       return stored ? JSON.parse(stored) : [];

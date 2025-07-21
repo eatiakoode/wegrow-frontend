@@ -7,10 +7,8 @@ import { getAgentById, updateAgentAPI } from "../../../api/agent";
 
 const CreateList = () => {
   const params = useParams();
-    console.log("Params:", params); // Debugging log
   
     const id = params?.id;
-    console.log("Agent ID:", id); // Debugging log
   
     const router = useRouter();
     const [agent, setAgent] = useState({ title: "", status: false });

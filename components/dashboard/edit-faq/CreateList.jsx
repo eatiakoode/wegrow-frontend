@@ -23,9 +23,7 @@ const CreateList = () => {
       const fetchFaq = async () => {
         try {
           const data = await getFaqById(id);
-          console.log("data")
-          console.log(data)
-          console.log(process.env.NEXT_PUBLIC_API_URL+data.data.logoimage)
+          
           // setFaq({ title: data.data.title, status: data.data.status, description: data.data.description });
           setTitle(data.data.title)
           setStatus(data.data.status)

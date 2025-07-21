@@ -12,7 +12,6 @@ const TableData = () => {
   
     const fetchTestimonialData = async () => {
       const data = await getTestimonialTableData();
-      console.log(data)
       setTestimonialList(data);
     };
     const deleteTestimonial = async (id) => {

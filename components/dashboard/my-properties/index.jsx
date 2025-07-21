@@ -13,12 +13,8 @@ import { useState, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation"; 
 
 const index = ({ properties:initialProperties, totalCount:initialCount,filter :initialFilter }) => {
-  // console.log("test2")
-  // console.log(initialFilter)
-  //  console.log("test3")
-  // const [totalCount, setTotalCount] = useState(initialCount || 0);
+ 
   const [currentPage, setCurrentPage] = useState(1);
-  // const [properties, setProperties] = useState(initialProperties || []);
 
   const [properties, setProperties] = useState(initialProperties);
   const [totalCount, setTotalCount] = useState(initialCount);

@@ -30,9 +30,6 @@ const CreateList = () => {
       const fetchBuilder = async () => {
         try {
           const data = await getBuilderById(id);
-          console.log("data")
-          console.log(data)
-          console.log(process.env.NEXT_PUBLIC_API_URL+data.data.logoimage)
           // setBuilder({ title: data.data.title, status: data.data.status, description: data.data.description });
           setTitle(data.data.title)
           setSlug(data.data.slug)

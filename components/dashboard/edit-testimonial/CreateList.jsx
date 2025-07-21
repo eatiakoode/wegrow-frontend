@@ -26,9 +26,7 @@ const CreateList = () => {
       const fetchTestimonial = async () => {
         try {
           const data = await getTestimonialById(id);
-          console.log("data")
-          console.log(data)
-          console.log(process.env.NEXT_PUBLIC_API_URL+data.data.logoimage)
+          
           // setTestimonial({ title: data.data.title, status: data.data.status, description: data.data.description });
           setTitle(data.data.title)
           setStatus(data.data.status)

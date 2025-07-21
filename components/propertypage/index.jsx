@@ -24,8 +24,6 @@ const ListingDynamicDetailsproperty = ({params}) => {
     if (typeof window !== "undefined") {
 
       const stored = localStorage.getItem("propertycompare");
-      console.log("stored")
-      console.log(stored)
       if (stored !== "undefined") {
 
       return stored ? JSON.parse(stored) : [];
@@ -47,8 +45,6 @@ const ListingDynamicDetailsproperty = ({params}) => {
         const fetchPropertyPage = async () => {
           try {
             const data = await getPropertyPageBySlug(id);
-            console.log("PropertyPage data")
-            console.log(data)
             setPropertyPage(data.data)
            
           } catch (error) {
@@ -62,8 +58,6 @@ const ListingDynamicDetailsproperty = ({params}) => {
         const fetchData = async () => {
           try {
             const res = await getPropertyListbyPropertypage(id);
-console.log("res")
-console.log(res)
             setProperties(res || []);
           } catch (error) {
             console.error("Error fetching property types:", error);

@@ -241,11 +241,7 @@ const index = () => {
    
     e.preventDefault();
     const newErrors = {};
-    console.log("propertySelectedImgs")
-    console.log(propertySelectedImgs)
     
-    console.log("siteplan")
-    console.log(siteplan)
     const requiredFields = [
       { key: "title", value: title, name: "Title" },
       { key: "slug", value: slug, name: "Slug" },
@@ -268,22 +264,17 @@ const index = () => {
     ];
   
     requiredFields.forEach(field => {
-      // console.log(field.value+" field.value")
-      // console.log(field.key+" field.key")
-      // console.log(field.name+" field.name")
+      
       if (!field.value || (typeof field.value === "string" && !field.value.trim())) {
-        console.log("field.name"+field.name)
         newErrors[field.key] = `${field.name} is required`;
       }
     });
   
     if (Object.keys(newErrors).length > 0) {
-      console.log("test")
       return setError(newErrors);
     }
   
     try {
-      console.log(propertySelectedImgs)
       const payload = {
         title, slug, description, price, address,
         countryid: selectedCountry,

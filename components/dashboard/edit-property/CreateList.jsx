@@ -233,8 +233,7 @@ useEffect(() => {
           // alert("ttt")    
           try {
             // const data = await getPropertyById(id);
-            console.log("data")
-            console.log(property)
+            
             // console.log(process.env.NEXT_PUBLIC_API_URL+data.data.logoimage)
             // setBuilder({ title: data.data.title, status: data.data.status, description: data.data.description });
             setTitle(property.title)
@@ -461,11 +460,6 @@ const handleAddressChange = (e) => {
 const updateProperty = async (e) => {
   e.preventDefault();
   const newErrors = {};
-  console.log("propertySelectedImgs")
-  console.log(propertySelectedImgs)
-  
-  console.log("siteplan")
-  console.log(siteplan)
 
   const requiredFields = [
     { key: "title", value: title, name: "Title" },
@@ -491,17 +485,12 @@ const updateProperty = async (e) => {
   ];
 
   requiredFields.forEach(field => {
-    // console.log(field.value+" field.value")
-    // console.log(field.key+" field.key")
-    // console.log(field.name+" field.name")
     if (!field.value || (typeof field.value === "string" && !field.value.trim())) {
-      console.log("field.name"+field.name)
       newErrors[field.key] = `${field.name} is required`;
     }
   });
 
   if (Object.keys(newErrors).length > 0) {
-    console.log("test")
     return setError(newErrors);
   }
 

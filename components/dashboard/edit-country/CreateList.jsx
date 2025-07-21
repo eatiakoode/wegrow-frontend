@@ -7,10 +7,8 @@ import { toast } from 'react-toastify';
 
 const CreateList = () => {
   const params = useParams();
-    console.log("Params:", params); // Debugging log
   
     const id = params?.id;
-    console.log("Country ID:", id); // Debugging log
   
     const router = useRouter();
     const [country, setCountry] = useState({ title: "", status: false });
@@ -22,7 +20,6 @@ const CreateList = () => {
       const fetchCountry = async () => {
         try {
           const data = await getCountryById(id);
-          console.log("Fetched Country Data:", data); // Debugging log
           setCountry({ title: data.data.title, status: data.data.status });
         } catch (error) {
           console.error("Error fetching Country:", error);

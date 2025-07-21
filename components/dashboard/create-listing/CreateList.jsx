@@ -364,12 +364,10 @@ const addProperty = async (e) => {
   });
 
   if (Object.keys(newErrors).length > 0) {
-    console.log("test")
     return setError(newErrors);
   }
 
   try {
-    // console.log(propertySelectedImgs)
     const payload = {
       title, slug, description,highlights, price,pricesqft, address,
       countryid: selectedCountry,
