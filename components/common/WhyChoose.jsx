@@ -31,7 +31,7 @@ const WhyChoose = ({ style = "" }) => {
           <div className="details">
             <h4>Our Mission</h4>
             <p className={`description ${expanded.mission ? "expanded" : "collapsed"}`}>
-             To deliver <strong>personalized, reliable, and result-oriented</strong> property solutions by blending expertise, innovation, and an unwavering commitment to client success.
+             To simplify property buying by delivering expert guidance, reliable options, and unmatched service—empowering every client to make confident, informed, and rewarding real estate decisions.
             </p>
             <button onClick={() => toggleExpand("mission")} className="btn-link">
               {expanded.mission ? "Read Less" : "Read More"}
@@ -56,7 +56,7 @@ const WhyChoose = ({ style = "" }) => {
           <div className="details">
             <h4>Our Vision</h4>
             <p className={`description ${expanded.vision ? "expanded" : "collapsed"}`}>
-              To establish <strong>WEGROW INFRAVENTURES PVT. LTD.</strong> as the most <strong>respected and dependable real estate consulting firm </strong> in the region — recognized for <strong>integrity, transparency</strong>, and a relentless focus on client satisfaction.
+              To be the most trusted and customer-focused real estate advisory in India, known for integrity, innovation, and long-term relationships that help individuals and investors secure their ideal property with confidence.
             </p>
             <button onClick={() => toggleExpand("vision")} className="btn-link">
               {expanded.vision ? "Read Less" : "Read More"}
@@ -81,7 +81,7 @@ const WhyChoose = ({ style = "" }) => {
           <div className="details">
             <h4>Our Promise</h4>
             <p className={`description ${expanded.commitment ? "expanded" : "collapsed"}`}>
-             WEGROW INFRAVENTURES is more than a real estate consultancy — we are your <strong>partners in growth </strong>. We are committed to empowering every client with the <strong>right information, expert guidance</strong>, and <strong>opportunities that align with their financial goals</strong>. We’re here to help you grow — every step of the way.
+            We promise to be more than advisors—we’re your partners in growth. With honest guidance, reliable options, and end-to-end support, we make your property journey easy and rewarding.
             </p>
             <button onClick={() => toggleExpand("commitment")} className="btn-link">
               {expanded.commitment ? "Read Less" : "Read More"}
