@@ -121,7 +121,7 @@ const index = () => {
                   <div className="col-lg-5 col-md-12 order-1 order-lg-2">
                     <div className="image-wrapper">
                       <Image
-                        src="/assets/images/about/ankit.webp"
+                        src="/assets/images/about/ankit.jpg"
                         alt="Ankit Goyat"
                         layout="responsive"
                         width={700}
@@ -177,7 +177,7 @@ const index = () => {
                   <div className="col-lg-5 col-md-12">
                     <div className="image-wrapper">
                       <Image
-                        src="/assets/images/about/amit.webp"
+                        src="/assets/images/about/amit.jpg"
                         alt="Amit Malik"
                         layout="responsive"
                         width={700}
@@ -234,7 +234,7 @@ const index = () => {
                   <div className="col-lg-5 col-md-12 order-1 order-lg-2">
                     <div className="image-wrapper">
                       <Image
-                        src="/assets/images/about/deepain.webp"
+                        src="/assets/images/about/deepain.jpg"
                         alt="Deepain Bansal"
                         layout="responsive"
                         width={700}

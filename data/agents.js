@@ -1,7 +1,7 @@
 module.exports = [
   {
     id: 1,
-    img: "/assets/images/team/shivam.webp",
+    img: "/assets/images/team/shivam.jpg",
     socialList: [
       { icon: "fa-facebook", liveLink: "https://www.facebook.com/" },
       { icon: "fa-x-twitter", liveLink: "https://www.twitter.com/" },
@@ -22,7 +22,7 @@ module.exports = [
   },
   {
     id: 2,
-    img: "/assets/images/team/jaiveer.webp",
+    img: "/assets/images/team/jaiveer.jpg",
     socialList: [
       { icon: "fa-facebook", liveLink: "https://www.facebook.com/" },
       { icon: "fa-x-twitter", liveLink: "https://www.twitter.com/" },
@@ -43,7 +43,7 @@ module.exports = [
   },
   {
     id: 3,
-    img: "/assets/images/team/tarun.webp",
+    img: "/assets/images/team/tarun.jpg",
     socialList: [
       { icon: "fa-facebook", liveLink: "https://www.facebook.com/" },
       { icon: "fa-x-twitter", liveLink: "https://www.twitter.com/" },
@@ -64,7 +64,7 @@ module.exports = [
   },
   {
     id: 4,
-    img: "/assets/images/team/manender.webp",
+    img: "/assets/images/team/manender.jpg",
     socialList: [
       { icon: "fa-facebook", liveLink: "https://www.facebook.com/" },
       { icon: "fa-x-twitter", liveLink: "https://www.twitter.com/" },
@@ -85,7 +85,7 @@ module.exports = [
   },
   {
     id: 5,
-    img: "/assets/images/team/vikas.webp",
+    img: "/assets/images/team/vikas.jpg",
     socialList: [
       { icon: "fa-facebook", liveLink: "https://www.facebook.com/" },
       { icon: "fa-x-twitter", liveLink: "https://www.twitter.com/" },
@@ -106,7 +106,7 @@ module.exports = [
   },
   {
     id: 6,
-    img: "/assets/images/team/vinit.webp",
+    img: "/assets/images/team/vinit.jpg",
     socialList: [
       { icon: "fa-facebook", liveLink: "https://www.facebook.com/" },
       { icon: "fa-x-twitter", liveLink: "https://www.twitter.com/" },
