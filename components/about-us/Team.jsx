@@ -72,7 +72,7 @@ const Team = () => {
               <div className="details">
                 <h4>
                   {" "}
-                  <Link href={`/agent-details/${item.id}`}>{item.name}</Link>
+                  {item.name}
                 </h4>
                 <p>{item.type}</p>
               </div>
