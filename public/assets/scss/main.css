@@ -7956,6 +7956,7 @@ header .get_in_touch span{
     bottom: 0;
     height: 100%;
     width: 42%;
+    /* background-position: center center; */
 }
 .director-desk {
   position: relative;
