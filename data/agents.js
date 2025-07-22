@@ -1,6 +1,27 @@
 module.exports = [
   {
     id: 1,
+    img: "/assets/images/team/vikas.jpg",
+    socialList: [
+      { icon: "fa-facebook", liveLink: "https://www.facebook.com/" },
+      { icon: "fa-x-twitter", liveLink: "https://www.twitter.com/" },
+      {
+        icon: "fa-instagram",
+        liveLink: "https://www.instagram.com/",
+      },
+    ],
+    name: `Vikas Rao`,
+    type: "Vice President - CRM",
+    ratings: 4.5,
+    noOfListings: "2",
+    office: "134 456 3210",
+    mobile: "891 456 9874",
+    fax: "342 654 1258",
+    email: "pakulla@WeGrow.com",
+    city: "New York",
+  },
+  {
+    id: 2,
     img: "/assets/images/team/shivam.jpg",
     socialList: [
       { icon: "fa-facebook", liveLink: "https://www.facebook.com/" },
@@ -21,7 +42,7 @@ module.exports = [
     city: "Atlanta",
   },
   {
-    id: 2,
+    id: 3,
     img: "/assets/images/team/jaiveer.jpg",
     socialList: [
       { icon: "fa-facebook", liveLink: "https://www.facebook.com/" },
@@ -42,7 +63,7 @@ module.exports = [
     city: "Florida",
   },
   {
-    id: 3,
+    id: 4,
     img: "/assets/images/team/tarun.jpg",
     socialList: [
       { icon: "fa-facebook", liveLink: "https://www.facebook.com/" },
@@ -63,7 +84,7 @@ module.exports = [
     city: "Los Angeles",
   },
   {
-    id: 4,
+    id: 5,
     img: "/assets/images/team/manender.jpg",
     socialList: [
       { icon: "fa-facebook", liveLink: "https://www.facebook.com/" },
@@ -83,27 +104,7 @@ module.exports = [
     email: "pakulla@WeGrow.com",
     city: "Miami",
   },
-  {
-    id: 5,
-    img: "/assets/images/team/vikas.jpg",
-    socialList: [
-      { icon: "fa-facebook", liveLink: "https://www.facebook.com/" },
-      { icon: "fa-x-twitter", liveLink: "https://www.twitter.com/" },
-      {
-        icon: "fa-instagram",
-        liveLink: "https://www.instagram.com/",
-      },
-    ],
-    name: `Vikas Rao`,
-    type: "Vice President - CRM",
-    ratings: 4.5,
-    noOfListings: "2",
-    office: "134 456 3210",
-    mobile: "891 456 9874",
-    fax: "342 654 1258",
-    email: "pakulla@WeGrow.com",
-    city: "New York",
-  },
+  
   {
     id: 6,
     img: "/assets/images/team/vinit.jpg",
