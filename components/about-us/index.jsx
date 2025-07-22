@@ -121,7 +121,7 @@ const index = () => {
                   <div className="col-lg-5 col-md-12 order-1 order-lg-2">
                     <div className="image-wrapper">
                       <Image
-                        src="/assets/images/about/ankit.jpg"
+                        src="/assets/images/about/ankit.JPG"
                         alt="Ankit Goyat"
                         layout="responsive"
                         width={700}
