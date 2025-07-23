@@ -16,6 +16,7 @@ const MobileMenu = () => {
               src="/assets/images/header-logo2.png"
               alt="header-logo2.png"
             />
+           
             {/* <span className="mt20">WeGrow</span> */}
           </a>
           {/* main_logo_home2 */}
