@@ -1462,7 +1462,14 @@
 		margin-top: 50px;
 	}
 	.director-desk .who-we-are{padding-top: 25px;}
+	.header.stylehome1 .wegrow_logo.main_logo_home2:before, .header.stylehome1 .wegrow_logo.main_logo_home2:after{
+	display: none;
 }
+.header.stylehome1 .wegrow_logo.main_logo_home2{
+	top:0
+}
+}
+
 @media only screen and (max-width: 768px) {
 	.nav_logo_img.mt10 {
 		margin-top: 5px;

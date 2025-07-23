@@ -8,7 +8,7 @@ const MobileMenu = () => {
     <div className="stylehome1 h0 mega-menu-wrapper">
       <div className="mobile-menu">
         <div className="header stylehome1">
-          <div className="main_logo_home2 text-center">
+          <a href="/" className="wegrow_logo main_logo_home2 text-center">
             <Image
               width={170}
               height={65}
@@ -17,7 +17,7 @@ const MobileMenu = () => {
               alt="header-logo2.png"
             />
             {/* <span className="mt20">WeGrow</span> */}
-          </div>
+          </a>
           {/* main_logo_home2 */}
 
           <ul className="menu_bar_home2">
