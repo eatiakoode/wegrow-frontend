@@ -6,7 +6,7 @@ const CallToAction = () => {
       <div className="col-lg-8">
         <div className="start_partner tac-smd">
           <h2>Book your site visit now</h2>
-          <p>We only work with the best companies around the globe</p>
+          <p>We only work with the best builders around the globe</p>
         </div>
       </div>
       {/* End .col */}
