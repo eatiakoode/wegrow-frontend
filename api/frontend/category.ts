@@ -4,7 +4,10 @@ export async function getCategoryTableData() {
   
 
   try {
-    const response = await fetch(process.env.NEXT_PUBLIC_FRONTEND_API_URL+"api/category"); // Replace with actual API endpoint
+    const response = await fetch(process.env.NEXT_PUBLIC_FRONTEND_API_URL+"api/category",
+        {
+          next: { revalidate: 60 }
+        }); // Replace with actual API endpoint
     if (!response.ok) {
       throw new Error("Failed to fetch products");
     }
