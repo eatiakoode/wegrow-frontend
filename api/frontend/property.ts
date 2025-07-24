@@ -82,6 +82,8 @@ export async function getPropertyFeatureData() {
     if(filter.location){
       querystring +="&location="+filter.location
     }
+    console.log("querystring")
+    console.log(querystring)
     try {
       const response = await fetch(process.env.NEXT_PUBLIC_FRONTEND_API_URL+"api/property/filterlist?limit="+filter.limit+"&skip="+filter.page+querystring,
         {
