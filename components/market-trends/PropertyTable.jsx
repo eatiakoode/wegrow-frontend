@@ -104,7 +104,7 @@ const PropertyTable = ({propertytypeid,categoriesid}) => {
               <td className="px-4 py-3">₹{item.avgPrice.toFixed(2)}</td>
               <td className="px-4 py-3">₹{item.minPrice.toFixed(2)} - ₹{item.maxPrice.toFixed(2)}</td>
               <td className="px-4 py-3">
-                <Link href={`/property-list?location=${item.locationId}`} className="properties-btn">
+                <Link href={`/property-list?location=${item.locationId}&cat=${categoriesid}&propertytype=${propertytypeid}`} className="properties-btn">
                   See {item.propertyCount} Properties
                 </Link>
               </td>
