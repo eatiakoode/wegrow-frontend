@@ -17516,7 +17516,7 @@ section.aboutland h3{
   .our_partner .contain{
       margin: 0 auto;
   }
-  .footer_menu_widget ul li:first-child a{margin-right: 5px!important;border-right: 1px solid #b7b7b7; padding-right: 10px;}
+  .footer_menu_widget ul li:not(:last-of-type) a{margin-right: 5px!important;border-right: 1px solid #b7b7b7; padding-right: 10px;}
 }
 .tick-check{
     width: 80px;
