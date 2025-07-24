@@ -22,8 +22,7 @@ const router = useRouter();
           page:  1
         }
         const response = await getCategoryTableData(filter);
-        console.log("response")
-        console.log(response)
+        
 
         setCategories(response.items || []);
       } catch (err) {
@@ -56,8 +55,7 @@ const router = useRouter();
 
     try {
       const data = await addPropertytypeAPI(title, selectedCategory);
-      console.log(data);
-      // alert(data.message);
+     
       toast.success(data.message);
       if(data.status=="success"){
          setTimeout(() => {

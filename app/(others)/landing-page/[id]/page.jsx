@@ -11,8 +11,6 @@ export async function generateMetadata({ params }) {
   try {
     const res = await getLandingpageBySlug(params.id);
     const blog = res?.data;
-    console.log("getLandingpageBySlug")
-    console.log(blog)
 
 
     if (!blog) {
@@ -60,27 +58,7 @@ const LandingDetailsDynamic = ({params}) => {
 
   
   const id = params.id;
-  //  const [blog, setBlog] = useState("");
-  // const blog = blogs.find((item) => item.id == id) ||  blogs[0]
-
-// useEffect(() => {
-//       if (!id) return;      
-//       const fetchBlog = async () => {
-//         try {
-//           const data = await getBlogById(id);
-//           console.log("data")
-//           console.log(data)
-//           setBlog(data.data)
-         
-//         } catch (error) {
-//           console.error("Error fetching Blog:", error);
-//         } finally {
-//           // setLoading(false);
-//         }
-//       };
   
-//       fetchBlog();
-//     }, [id]);
   return (
     <>
 

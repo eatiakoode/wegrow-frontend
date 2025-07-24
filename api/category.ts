@@ -8,26 +8,14 @@
 // };
 
 export const addCategoryAPI = async (formData) => {
-    // const token = localStorage.getItem("token"); // 🔹 Retrieve token
-// console.log("token")
-    // const token =process.env.NEXT_PUBLIC_TOKEN;
     const userData = JSON.parse(localStorage.getItem("user"));
-console.log(userData.name);
-// const token = localStorage.getItem("token"); // 🔹 Retrieve token
-// // console.log("token")
-//     const token =process.env.NEXT_PUBLIC_TOKEN;
 const token =userData.token
 
   
     if (!token) {
       throw new Error("User not authenticated!");
     }
-//     console.log("formDataapi")
-//     console.log(formData)
-//     for (let [key, value] of formData.entries()) {
-//       console.log(`${key}:`, value);
-//     }
-// console.log("formDataendapi")
+
     const response = await fetch(process.env.NEXT_PUBLIC_ADMIN_API_URL+"api/category", {
       method: "POST",
       headers: {
@@ -65,15 +53,8 @@ const token =userData.token
 
 
   export const deleteCategoryAPI = async (id: string) => {
-    // const token = localStorage.getItem("token"); // 🔹 Retrieve token
-
-
-    // const token =process.env.NEXT_PUBLIC_TOKEN;
     const userData = JSON.parse(localStorage.getItem("user"));
-console.log(userData.name);
-// const token = localStorage.getItem("token"); // 🔹 Retrieve token
-// // console.log("token")
-//     const token =process.env.NEXT_PUBLIC_TOKEN;
+
 const token =userData.token
     if (!token) {
       throw new Error("User not authenticated!");
@@ -101,15 +82,7 @@ const token =userData.token
   
 
   export const getCategoryById = async (id: string) => {
-    // const token = localStorage.getItem("token"); // 🔹 Retrieve token
-
-
-    // const token =process.env.NEXT_PUBLIC_TOKEN;
     const userData = JSON.parse(localStorage.getItem("user"));
-console.log(userData.name);
-// const token = localStorage.getItem("token"); // 🔹 Retrieve token
-// // console.log("token")
-//     const token =process.env.NEXT_PUBLIC_TOKEN;
 const token =userData.token
     if (!token) {
       throw new Error("User not authenticated!");
@@ -134,26 +107,14 @@ const token =userData.token
 
 
   export const updateCategoryAPI = async (id,category) => {
-    // const token = localStorage.getItem("token"); // 🔹 Retrieve token
-
-    // const token =process.env.NEXT_PUBLIC_TOKEN;
     const userData = JSON.parse(localStorage.getItem("user"));
-console.log(userData.name);
-// const token = localStorage.getItem("token"); // 🔹 Retrieve token
-// // console.log("token")
-//     const token =process.env.NEXT_PUBLIC_TOKEN;
 const token =userData.token
 
   
     if (!token) {
       throw new Error("User not authenticated!");
     }
-    console.log("formDataapi")
-        console.log(category)
-        for (let [key, value] of category.entries()) {
-          console.log(`${key}:`, value);
-        }
-    console.log("formDataendapi")
+   
     const response = await fetch(process.env.NEXT_PUBLIC_ADMIN_API_URL+`api/category/${id}`, {
       method: "PUT",
       headers: {

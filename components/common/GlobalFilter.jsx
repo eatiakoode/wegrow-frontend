@@ -29,8 +29,7 @@ const GlobalFilter = ({ className = "" }) => {
       const fetchCities = async () => {
         try {
           const response = await getCityTableData();
-          console.log("responsecity")
-          console.log(response)
+         
           setCities(response.data || []);
         } catch (err) {
           console.error("Error fetching Country:", err);

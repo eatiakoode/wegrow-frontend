@@ -1,9 +1,5 @@
 export const addCountryAPI = async (title: string) => {
   const userData = JSON.parse(localStorage.getItem("user"));
-console.log(userData.name);
-// const token = localStorage.getItem("token"); // 🔹 Retrieve token
-// // console.log("token")
-//     const token =process.env.NEXT_PUBLIC_TOKEN;
 const token =userData.token
 
   

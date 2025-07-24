@@ -12,8 +12,7 @@ const Blogs = () => {
           
     const fetchBlog = async () => {
       const data = await getBlogTableData();
-      console.log("blogdata")
-      console.log(data)
+      
       setBlog(data);
     };
     useEffect(() => {

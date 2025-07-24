@@ -24,8 +24,7 @@ useEffect(() => {
   const fetchBlogcategories = async () => {
     try {
       const response = await getBlogcategoryTableData();
-      console.log("response");
-      console.log(response);
+     
       setBlogcategories(response || []);
     } catch (err) {
       console.error("Error fetching Blogcategory:", err);
@@ -87,11 +86,9 @@ useEffect(() => {
           formData.append("logo", logo);
         }
         
-    // console.log("formDataend")
-    // console.log(formData)
+    
         const data = await addBlogAPI(formData); // Use FormData here
-        console.log(data);
-        // alert(data.message);
+        
          toast.success(data.message);
         
          if(data.status=="success"){

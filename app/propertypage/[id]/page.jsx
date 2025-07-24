@@ -2,17 +2,10 @@ import dynamic from "next/dynamic";
 import PropertyPage from "@/components/propertypage";
 import { getPropertyPageBySlug } from "@/api/frontend/propertypage";
 
-  // export const metadata = {
-  //   title: 'Landing Page || WeGrow - Real Estate',
-  //   description:
-  //     'WeGrow - Real Estate',
-  // }
 export async function generateMetadata({ params }) {
  
   try {
     const res = await getPropertyPageBySlug(params.id);
-    // console.log("res")
-    // console.log(res)
     const blog = res?.data;
 
     if (!blog) {

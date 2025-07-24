@@ -66,7 +66,7 @@ export default async function ListingPage({ searchParams }) {
   };
 
   const data = await getPropertyFilterData(filter);
-  console.log("getPropertyFilterData")
+  
   const properties = data?.items || [];
   const totalCount = data?.totalCount || 0;
   

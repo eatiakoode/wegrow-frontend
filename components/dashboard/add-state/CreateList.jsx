@@ -20,8 +20,7 @@ const CreateList = () => {
     const fetchCountries = async () => {
       try {
         const response = await getCountryTableData();
-        console.log("response")
-        console.log(response)
+       
 
         setCountries(response || []);
       } catch (err) {
@@ -54,8 +53,7 @@ const CreateList = () => {
 
     try {
       const data = await addStateAPI(title, selectedCountry);
-      console.log(data);
-      // alert(data.message);
+     
        toast.success(data.message);
         if(data.status=="success"){
           setTimeout(() => {

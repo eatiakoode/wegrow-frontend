@@ -33,29 +33,6 @@ const ListingDynamicDetailsV1 = ({blog}) => {
   const text = encodeURIComponent(blog.metatitle);
   const hashtags = blog.metatitle;
   
-  // const id = params.id;
-  //  const [blog, setBlog] = useState("");
-  // const blog = blogs.find((item) => item.id == id) ||  blogs[0]
-
-// useEffect(() => {
-//       if (!id) return;  
-//     //   alert(id)    
-//       const fetchBlog = async () => {
-//         try {
-//           const data = await getBlogBySlug(id);
-//           console.log("blog data")
-//           console.log(data)
-//           setBlog(data.data)
-         
-//         } catch (error) {
-//           console.error("Error fetching Blog:", error);
-//         } finally {
-//           // setLoading(false);
-//         }
-//       };
-  
-//       fetchBlog();
-//     }, [id]);
   return (
     <>
 

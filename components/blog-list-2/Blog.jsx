@@ -11,18 +11,7 @@ const Blog = ({blogs}) => {
     return html?.replace(/<[^>]*>/g, '');
   }
   
-  // const router = useRouter();
-  // const [blogs, setBlog] = useState([]);
-        
-  // const fetchBlog = async () => {
-  //   const data = await getBlogTableData();
-  //   console.log("blogdata")
-  //   console.log(data)
-  //   setBlog(data);
-  // };
-  // useEffect(() => {
-  //   fetchBlog();
-  // }, []); 
+  
   return (
     <>
       {blogs.slice(0, 6).map((item,index) => (

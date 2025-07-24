@@ -31,8 +31,7 @@ export default async function HomePage() {
     const testimonials = testimonialRes || [];
     const cities = cityPageRes?.data || [];
     const locationlist = locationPageRes || [];
-    // console.log("locationlist")
-    // console.log(locationlist)
+ 
 
     return (
       <HomeMain

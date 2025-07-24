@@ -39,24 +39,6 @@ const ListingDynamicDetailsproperty = ({builder}) => {
     // const blog = blogs.find((item) => item.id == id) ||  blogs[0]
   
   useEffect(() => {
-    // alert(id)   
-        // if (!builder) return;  
-         
-        // const fetchPropertyPage = async () => {
-        //   try {
-        //     const data = await getPropertyPageBySlug(id);
-        //     console.log("PropertyPage data")
-        //     console.log(data)
-        //     setPropertyPage(data.data)
-           
-        //   } catch (error) {
-        //     console.error("Error fetching PropertyPage:", error);
-        //   } finally {
-        //     // setLoading(false);
-        //   }
-        // };
-    
-        // fetchPropertyPage();
         const fetchData = async () => {
           try {
             const res = await getPropertyListbyBuilder(builder?._id);

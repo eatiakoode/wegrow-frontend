@@ -24,7 +24,6 @@ const CreateList = () => {
       const fetchPropertytype = async () => {
         try {
           const data = await getPropertytypeById(id);
-          console.log("Fetched Property type Data:", data); // Debugging log
           setPropertytype({ title: data.data.title, status: data.data.status });
           setSelectedCategory(data.data.categoryid);
         } catch (error) {

@@ -35,8 +35,7 @@ const CreateList = () => {
       
       try {
         const data = await addBlogcategoryAPI(title); // 🔹 Call the API function
-        console.log(data);
-        // alert(data.message);
+       
         toast.success(data.message);
       
       if(data.status=="success"){

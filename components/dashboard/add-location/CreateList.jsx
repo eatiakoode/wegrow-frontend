@@ -28,8 +28,7 @@ const CreateList = () => {
     const fetchCountries = async () => {
               try {
                 const response = await getCountryTableData();
-                console.log("response")
-                console.log(response)
+                
         
                 setCountries(response || []);
               } catch (err) {
@@ -46,12 +45,11 @@ const CreateList = () => {
   };
 const handleCountryChange = (e) => {
       setSelectedCountry(e.target.value);
-      console.log("cahnegvalue"+e.target.value)
+      
       const fetchState = async (countryid) => {
         try {
           const response = await getStateByCountryTableData(countryid);
-          console.log("response")
-          console.log(response)
+         
   
           setStates(response.data || []);
         } catch (err) {
@@ -65,8 +63,7 @@ const handleCountryChange = (e) => {
       const fetchCity = async (stateid) => {
         try {
           const response = await getCityByStateTableData(stateid);
-          console.log("response")
-          console.log(response)
+         
   
           setCities(response.data || []);
         } catch (err) {
@@ -109,8 +106,7 @@ const handleCountryChange = (e) => {
               
               // const data = await addCityAPI(addCity);
       const data = await addLocationAPI(formData);
-      console.log(data);
-      // alert(data.message);
+      
       toast.success(data.message);
       if(data.status=="success"){
          setTimeout(() => {

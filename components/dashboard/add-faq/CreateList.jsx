@@ -24,8 +24,7 @@ const CreateList = () => {
     page: 1
   }
           const response = await getPropertyTableData(filter);
-          console.log("response")
-          console.log(response)
+         
   
           setProperties(response?.items || []);
         } catch (err) {
@@ -62,9 +61,7 @@ const CreateList = () => {
           "propertyid":selectedProperty};
         
         const data = await addFaqAPI(formData); // Use FormData here
-        console.log(data);
-        // router.push("/cmswegrow/my-faq");
-        // alert(data.message);
+       
         toast.success(data.message);
        
         if(data.status=="success"){

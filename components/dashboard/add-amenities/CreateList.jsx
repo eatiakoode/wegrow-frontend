@@ -36,7 +36,7 @@ const CreateList = () => {
       
       try {
         const data = await addAmenityAPI(formData); // 🔹 Call the API function
-        // console.log(data);
+        
         toast.success(data.message);
       
         if(data.status=="success"){

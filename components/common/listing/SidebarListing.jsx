@@ -21,7 +21,7 @@ const SidebarListing = ({ setKeyword, setCity,setCategory, setPropertytype , key
 
 const fetchProperties = async () => {
   const data = await getPropertyFeatureData();
-//   console.log(data)
+
   setProperties(data);
 };
     useEffect(() => {

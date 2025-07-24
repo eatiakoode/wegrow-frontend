@@ -117,12 +117,11 @@ const CreateList = () => {
     };
   const handleCountryChange = (e) => {
             setSelectedCountry(e.target.value);
-            // console.log("cahnegvalue"+e.target.value)
+           
             const fetchState = async (countryid) => {
               try {
                 const response = await getStateByCountryTableData(countryid);
-                // console.log("response")
-                // console.log(response)
+                
         
                 setStates(response.data || []);
               } catch (err) {

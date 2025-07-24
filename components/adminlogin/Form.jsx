@@ -33,21 +33,17 @@ const Form = () => {
       
           try {
             const data = await addAdminLoginAPI(formData);
-            console.log("data");
-            console.log(data);
-            // alert(data.message);
+           
             setUser("");
             setPassword("");
             if (data.status=="success") {
-              console.log("success");
               toast.success("Login successful!");
               // toast.success("Login successful!");
               localStorage.setItem("user", JSON.stringify(data.data));
               // alert(data.message);
               router.push("/cmswegrow/my-dashboard");
               const userData = JSON.parse(localStorage.getItem("user"));
-              console.log("userData");
-            console.log(userData);
+              
             } else
             if (data.status=="fail") {
               const err = await res.json();

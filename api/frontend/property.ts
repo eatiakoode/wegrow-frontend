@@ -1,6 +1,5 @@
 export async function getPropertyFeatureData() {
-    // Fake delay
-    // console.log(filter)
+    
     await new Promise((resolve) => setTimeout(resolve, 10));
     
   
@@ -19,8 +18,7 @@ export async function getPropertyFeatureData() {
     }
   }
   export async function getPropertyHotData() {
-    // Fake delay
-    // console.log(filter)
+   
     await new Promise((resolve) => setTimeout(resolve, 10));
     
   
@@ -63,8 +61,7 @@ export async function getPropertyFeatureData() {
   export async function getPropertyFilterData(filter) {
     // Fake delay
     await new Promise((resolve) => setTimeout(resolve, 10));
-    console.log("filter")
-    console.log(filter)
+   
     let querystring=""
     if(filter.category){
       querystring +="&category="+filter.category
@@ -82,8 +79,7 @@ export async function getPropertyFeatureData() {
     if(filter.location){
       querystring +="&location="+filter.location
     }
-    console.log("querystring")
-    console.log(querystring)
+   
     try {
       const response = await fetch(process.env.NEXT_PUBLIC_FRONTEND_API_URL+"api/property/filterlist?limit="+filter.limit+"&skip="+filter.page+querystring,
         {
@@ -100,8 +96,7 @@ export async function getPropertyFeatureData() {
   }
 
   export async function getPropertyCompareData(propertycomparelist) {
-    // Fake delay
-    // console.log(filter)
+    
     await new Promise((resolve) => setTimeout(resolve, 10));
     
   
@@ -143,15 +138,7 @@ export async function getPropertyFeatureData() {
   };
 
   export const addPropertyAPI = async (title) => {
-    // const token = localStorage.getItem("token"); // 🔹 Retrieve token
-// console.log("title")
-// console.log(title)
-    // const token =process.env.NEXT_PUBLIC_TOKEN;
     const userData = JSON.parse(localStorage.getItem("user"));
-// console.log(userData.name);
-// const token = localStorage.getItem("token"); // 🔹 Retrieve token
-// // console.log("token")
-//     const token =process.env.NEXT_PUBLIC_TOKEN;
 const token =userData.token
 
   
@@ -178,8 +165,7 @@ const token =userData.token
 
 
   export async function getPropertyListbyPropertypage(propertypage) {
-    // Fake delay
-    // console.log(filter)
+   
     await new Promise((resolve) => setTimeout(resolve, 10));
     
   
@@ -199,8 +185,7 @@ const token =userData.token
   };
 
   export async function getPropertyListTrends(propertytypeid,categoriesid) {
-    // Fake delay
-    // console.log(filter)
+    
     await new Promise((resolve) => setTimeout(resolve, 10));
     
   
@@ -220,8 +205,7 @@ const token =userData.token
   };
 
   export async function getPropertyListbyBuilder(builderid) {
-    // Fake delay
-    // console.log(filter)
+    
     await new Promise((resolve) => setTimeout(resolve, 10));
     
   
