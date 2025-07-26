@@ -40,8 +40,7 @@ const index = () => {
           try {
             const data = await getCityById(id);
             setCitydetail(data.data)
-            console.log("data.data")
-            console.log(data.data)
+           
             
           } catch (error) {
             console.error("Error fetching City:", error);

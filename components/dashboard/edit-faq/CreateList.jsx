@@ -45,8 +45,7 @@ const CreateList = () => {
     page:  1
   }
                 const response = await getPropertyTableData(filter);
-                console.log("response")
-                console.log(response)
+                
         
                 setProperties(response?.items || []);
               } catch (err) {

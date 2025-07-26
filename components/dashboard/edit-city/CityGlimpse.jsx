@@ -85,20 +85,11 @@ const [error, setError] = useState("");
     try {
       const res = await addCityGlimpseAPI(formData);
       if (citydetail?._id) {
-        // alert("test")
         router.push(`/cmswegrow/edit-city/${citydetail._id}`);
         setInputs([])
-        // router.push(`/cmswegrow/edit-property/${property.id}`);
       }
       
-      // const res = await fetch('/api/submit-floorplans', {
-      //   method: 'POST',
-      //   // headers: { 'Content-Type': 'application/json' },
-      //   body: formData,
-      // });
-
-      // const data = await res.json();
-      // console.log('Response:', data);
+      
     } catch (err) {
       console.error('Error:', err);
     }

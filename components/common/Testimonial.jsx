@@ -4,18 +4,7 @@ import Image from "next/image";
 import Slider from "react-slick";
 
 const Testimonial = ({testimonials}) => {
-  // const [testimonials, setFindTestimonial] = useState([]);
-          // const router = useRouter();
-        
-          // const fetchFindTestimonial = async () => {
-          //   const data = await getTestimonialTableData();
-          //   console.log("data")
-          //   console.log(data)
-          //   setFindTestimonial(data);
-          // };
-          // useEffect(() => {
-          //   fetchFindTestimonial();
-          // }, []); 
+  
   const settings = {
     dots: true,
     arrow: false,

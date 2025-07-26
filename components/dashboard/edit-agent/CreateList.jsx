@@ -20,7 +20,6 @@ const CreateList = () => {
       const fetchAgent = async () => {
         try {
           const data = await getAgentById(id);
-          console.log("Fetched Agent Data:", data); // Debugging log
           setAgent({ title: data.data.title, status: data.data.status });
         } catch (error) {
           console.error("Error fetching Agent:", error);

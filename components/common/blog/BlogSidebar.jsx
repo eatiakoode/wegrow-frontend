@@ -15,15 +15,13 @@ const BlogSidebar = () => {
         
           const fetchPropertyType = async () => {
             const data = await countPropertiesByType();
-            console.log("data.data")
-            console.log(data)
+            
             setPropertyType(data.data);
           };
           const [properties, setProperties] = useState([]);
     
       const fetchProperties = async () => {
         const data = await getPropertyFeatureData();
-        console.log(data)
         setProperties(data);
       };
           useEffect(() => {

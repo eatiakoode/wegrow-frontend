@@ -38,8 +38,7 @@ const CreateList = () => {
           title,email,phone
          }
         const data = await addSellerAPI(payload); // 🔹 Call the API function
-        console.log(data);
-        // alert(data.message);
+       
         toast.success(data.message);
        
         if(data.status=="success"){

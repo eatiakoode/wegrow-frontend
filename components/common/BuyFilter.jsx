@@ -7,22 +7,7 @@ import { useRouter } from "next/navigation";
 // import { getCityWithPropertyPage} from "@/api/frontend/city";
 
 const BuyFilter = ({ className = "" ,cities}) => {
-  // const [cities, setCities] = useState([]);
-
-  //  useEffect(() => {
-  //       const fetchCities = async () => {
-  //         try {
-  //           const response = await getCityWithPropertyPage();
-  //           // console.log("responsecitylocation")
-  //           // console.log(response)
-  //           setCities(response.data || []);
-  //         } catch (err) {
-  //           console.error("Error fetching Country:", err);
-  //         }
-  //       };
-    
-  //       fetchCities();
-  //     }, []);
+  
   const [activeAccordion, setActiveAccordion] = useState(null);
   const router = useRouter();
 

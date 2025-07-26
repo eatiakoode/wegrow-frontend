@@ -29,8 +29,7 @@ const CreateList = () => {
       
       try {
         const data = await addAgentAPI(title); // 🔹 Call the API function
-        console.log(data);
-        // alert(data.message);
+       
         toast.success(data.message);
   
         setTitle(""); // ✅ Reset input after success

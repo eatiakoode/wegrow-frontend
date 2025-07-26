@@ -22,12 +22,10 @@ const index = () => {
   const [showFullBioAmit, setShowFullBioAmit] = useState(false);
   const [showFullBioDeepain, setShowFullBioDeepain] = useState(false);
   const [testimonials, setFindTestimonial] = useState([]);
-          // const router = useRouter();
         
           const fetchFindTestimonial = async () => {
             const data = await getTestimonialTableData();
-            // console.log("data")
-            // console.log(data)
+            
             setFindTestimonial(data);
           };
           useEffect(() => {

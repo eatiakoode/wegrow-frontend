@@ -201,23 +201,19 @@ const addLanding = async (e) => {
   ];
 
   requiredFields.forEach(field => {
-    // console.log(field.value+" field.value")
-    // console.log(field.key+" field.key")
-    // console.log(field.name+" field.name")
+    
     if (!field.value || (typeof field.value === "string" && !field.value.trim())) {
-      console.log("field.name"+field.name)
       newErrors[field.key] = `${field.name} is required`;
     }
   });
 
   if (Object.keys(newErrors).length > 0) {
-    // console.log("test")
+    
     return setError(newErrors);
   }
 
   try {
-    console.log("value dd")
-    console.log(value)
+    
     const payload = {
       title, slug, bannerimage,bannertitle, bannerdescription,bannerreview, aboutimage, abouttitle, aboutdescription,
       amenityid: selectedAmenity,

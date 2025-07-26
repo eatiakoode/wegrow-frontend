@@ -21,9 +21,7 @@ const CreateList = () => {
             const fetchCountries = async () => {
               try {
                 const response = await getCountryTableData();
-                console.log("response")
-                console.log(response)
-        
+              
                 setCountries(response || []);
               } catch (err) {
                 console.error("Error fetching Country:", err);
@@ -48,12 +46,10 @@ const CreateList = () => {
     };
   const handleCountryChange = (e) => {
         setSelectedCountry(e.target.value);
-        console.log("cahnegvalue"+e.target.value)
         const fetchState = async (countryid) => {
           try {
             const response = await getStateByCountryTableData(countryid);
-            console.log("response")
-            console.log(response)
+           
     
             setStates(response.data || []);
           } catch (err) {
@@ -85,12 +81,9 @@ const CreateList = () => {
           formData.append("citylogo", citylogo);
         }
         
-    // console.log("formDataend")
-    // console.log(formData)
+    
         const data = await addCityAPI(formData); // Use FormData here
-        console.log(data);
-        // router.push("/cmswegrow/my-cities");
-        // alert(data.message);
+       
         toast.success(data.message);
         if(data.status=="success"){
           setTimeout(() => {

@@ -240,13 +240,11 @@ const updatePropertypage = async (e) => {
   requiredFields.forEach(field => {
    
     if (!field.value || (typeof field.value === "string" && !field.value.trim())) {
-      console.log("field.name"+field.name)
       newErrors[field.key] = `${field.name} is required`;
     }
   });
 
   if (Object.keys(newErrors).length > 0) {
-    // console.log("test")
     return setError(newErrors);
   }
 

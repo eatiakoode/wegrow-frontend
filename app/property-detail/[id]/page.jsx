@@ -18,19 +18,7 @@ export async function generateMetadata({ params }) {
     return {
       title: blog.metatitle? blog.metatitle : blog.title || 'Property Details | WeGrow',
       description: blog.metadescription?.slice(0, 200) ? blog.metadescription : blog.description?.slice(0, 200) || 'Read more on WeGrow blog.',
-      // openGraph: {
-      //   title: blog.title,
-      //   description: blog.description?.slice(0, 150),
-      //   images: blog.logoimage
-      //     ? [
-      //         {
-      //           url: `${process.env.NEXT_PUBLIC_API_URL}${blog.logoimage}`,
-      //           width: 800,
-      //           height: 600,
-      //         },
-      //       ]
-      //     : [],
-      // },
+      
     };
   } catch (error) {
     console.error("Metadata error:", error);
@@ -42,8 +30,7 @@ export async function generateMetadata({ params }) {
 }
 const ListingDynamicDetailsV1 = async ({params})  => {
   const res = await getPropertyBySlug(params.id);
-  // console.log("tests")
-  // console.log(res?.data)
+ 
     const property = res?.data;
     const dataFAQ = await getFaqByPropertyIdData(property._id);
     const faqs=dataFAQ.data

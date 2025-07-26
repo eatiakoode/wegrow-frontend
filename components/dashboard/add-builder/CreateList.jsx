@@ -63,10 +63,8 @@ const CreateList = () => {
           formData.append("logo", logo);
         }
         
-    // console.log("formDataend")
-    // console.log(formData)
+    
         const data = await addBuilderAPI(formData); // Use FormData here
-        console.log(data);
         toast.success(data.message);
             
         if(data.status=="success"){

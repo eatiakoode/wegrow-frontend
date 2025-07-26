@@ -4,7 +4,10 @@ export async function getCategoryTableData() {
   
 
   try {
-    const response = await fetch(process.env.NEXT_PUBLIC_FRONTEND_API_URL+"api/category"); // Replace with actual API endpoint
+    const response = await fetch(process.env.NEXT_PUBLIC_FRONTEND_API_URL+"api/category",
+        {
+          next: { revalidate: 60 }
+        }); // Replace with actual API endpoint
     if (!response.ok) {
       throw new Error("Failed to fetch products");
     }
@@ -17,19 +20,7 @@ export async function getCategoryTableData() {
 
 
 export const getCategoryById = async (id: string) => {
-  // const token = localStorage.getItem("token"); // 🔹 Retrieve token
 
-
-  // const token =process.env.NEXT_PUBLIC_TOKEN;
-//   const userData = JSON.parse(localStorage.getItem("user"));
-// console.log(userData.name);
-// // const token = localStorage.getItem("token"); // 🔹 Retrieve token
-// // // console.log("token")
-// //     const token =process.env.NEXT_PUBLIC_TOKEN;
-// const token =userData.token
-//   if (!token) {
-//     throw new Error("User not authenticated!");
-//   }
 
   const response = await fetch(process.env.NEXT_PUBLIC_FRONTEND_API_URL+`api/category/${id}`, {
     method: "GET",

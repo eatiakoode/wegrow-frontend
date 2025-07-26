@@ -353,13 +353,11 @@ const updateLanding = async (e) => {
   });
 
   if (Object.keys(newErrors).length > 0) {
-    // console.log("test")
     return setError(newErrors);
   }
 
   try {
-    console.log("value dd")
-    console.log(value)
+    
     const payload = {
       title, slug, bannerimage,bannertitle, bannerdescription,bannerreview, aboutimage, abouttitle, aboutdescription,
       amenityid: selectedAmenity,

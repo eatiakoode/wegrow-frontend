@@ -29,8 +29,6 @@ import { getSellerTableData } from "@/api/seller";
 
 
 const CreateList = ({property}) => {
-  // console.log("property")
-  // console.log(property)
   const router = useRouter();
   const params = useParams();  
       const id = params?.id; 
@@ -232,10 +230,7 @@ useEffect(() => {
         const fetchProperty = async () => {
           // alert("ttt")    
           try {
-            // const data = await getPropertyById(id);
             
-            // console.log(process.env.NEXT_PUBLIC_API_URL+data.data.logoimage)
-            // setBuilder({ title: data.data.title, status: data.data.status, description: data.data.description });
             setTitle(property.title)
             setSlug(property.slug)
             setDescription(property.description)

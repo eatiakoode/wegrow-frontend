@@ -115,7 +115,7 @@ useEffect(() => {
         setPropertytype(initialFilter.propertytype);
       }
       if (initialFilter.location) {
-        setPropertytype(initialFilter.location);
+        setLocation(initialFilter.location);
       }
       
      

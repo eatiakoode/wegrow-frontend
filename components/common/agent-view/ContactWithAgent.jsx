@@ -24,39 +24,14 @@ const ContactWithAgent = ({property}) => {
     reset,
   } = useForm();
   const onSubmit = async (data) => {
-    // e.preventDefault();
-    // const newErrors = {};
-    // const requiredFields = [
-    //   { key: "name", value: name, name: "Name" },
-    //   { key: "email", value: email, name: "Email" },
-    //   { key: "phone", value: phone, name: "Phone" },
-    //   { key: "budget", value: budget, name: "Budget" },
-    //   // { key: "subject", value: subject, name: "Subject" },
-    //   // { key: "appointmentDate", value: appointmentDate, name: "Appointment Date" },
-    //   { key: "message", value: message, name: "Message" },
-      
-    // ];
-  
-    // requiredFields.forEach(field => {
-    //   if (!field.value || (typeof field.value === "string" && !field.value.trim())) {
-    //     console.log("field.name"+field.name)
-    //     newErrors[field.key] = `${field.name} is required`;
-    //   }
-    // });
-    // if (Object.keys(newErrors).length > 0) {
-    //   console.log("test")
-    //   return setError(newErrors);
-    // }
+    
     try {
-      // console.log(propertySelectedImgs)
       const payload = {
         name, email, phone, message, budget,
         propertyid:property._id,
         sellerid:property.sellerid
         // date:appointmentDate
       };
-      // console.log(payload)
-      // console.log("payload")
       data.propertyid=property._id
        router.push("/thank-you");
       const res = await addPropertyEnquiryAPI(data);
